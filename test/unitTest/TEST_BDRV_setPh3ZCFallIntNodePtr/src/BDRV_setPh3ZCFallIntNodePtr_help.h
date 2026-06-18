@@ -1,0 +1,8 @@
+#ifndef TEST_BDRV_SETPH3ZCFALLINTNODEPTR_HELP_H
+#define TEST_BDRV_SETPH3ZCFALLINTNODEPTR_HELP_H
+
+#include "BDRV_setPh3ZCFallIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_BDRV_SETPH3ZCFALLINTNODEPTR_HELP_H */

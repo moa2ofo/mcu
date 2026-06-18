@@ -1,0 +1,8 @@
+#ifndef TEST_CANTRX_SETCANTRXINTNODEPTR_HELP_H
+#define TEST_CANTRX_SETCANTRXINTNODEPTR_HELP_H
+
+#include "CANTRX_setCANTRXIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_CANTRX_SETCANTRXINTNODEPTR_HELP_H */

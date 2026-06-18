@@ -73,11 +73,11 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
-#include "tle_variants.h"
-#include "tle989x.h"
-#include "isr_defines.h"
 #include "ccu7_defines.h"
+#include "isr_defines.h"
+#include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
 
 /*******************************************************************************
 **                          Global Macro Declarations                         **
@@ -90,102 +90,102 @@
 /*******************************************************************************
 **                        Global Function Declarations                        **
 *******************************************************************************/
-INLINE void   NVIC_disIRQ0(void);
-INLINE void   NVIC_disIRQ1(void);
-INLINE void   NVIC_disIRQ2(void);
-INLINE void   NVIC_disIRQ3(void);
-INLINE void   NVIC_disIRQ4(void);
-INLINE void   NVIC_disIRQ5(void);
-INLINE void   NVIC_disIRQ6(void);
-INLINE void   NVIC_disIRQ7(void);
-INLINE void   NVIC_disIRQ8(void);
-INLINE void   NVIC_disIRQ9(void);
-INLINE void   NVIC_disIRQ10(void);
-INLINE void   NVIC_disIRQ11(void);
-INLINE void   NVIC_disIRQ12(void);
-INLINE void   NVIC_disIRQ13(void);
-INLINE void   NVIC_disIRQ14(void);
-INLINE void   NVIC_disIRQ15(void);
-INLINE void   NVIC_disIRQ16(void);
-INLINE void   NVIC_disIRQ17(void);
-INLINE void   NVIC_disIRQ18(void);
-INLINE void   NVIC_disIRQ19(void);
-INLINE void   NVIC_disIRQ20(void);
-INLINE void   NVIC_disIRQ21(void);
-INLINE void   NVIC_disIRQ22(void);
-INLINE void   NVIC_disIRQ23(void);
-INLINE void   NVIC_disIRQ24(void);
-INLINE void   NVIC_disIRQ25(void);
-INLINE void   NVIC_disIRQ26(void);
-INLINE void   NVIC_disIRQ27(void);
-INLINE void   NVIC_disIRQ28(void);
-INLINE void   NVIC_disIRQ29(void);
-INLINE void   NVIC_disIRQ30(void);
-INLINE void   NVIC_disIRQ31(void);
-INLINE void   NVIC_setIRQ0Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ1Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ2Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ3Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ4Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ5Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ6Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ7Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ8Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ9Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ10Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ11Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ12Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ13Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ14Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ15Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ16Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ17Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ18Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ19Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ20Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ21Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ22Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ23Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ24Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ25Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ26Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ27Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ28Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ29Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ30Priority(uint8 u8_value);
-INLINE void   NVIC_setIRQ31Priority(uint8 u8_value);
-INLINE void   NVIC_enIRQ0(void);
-INLINE void   NVIC_enIRQ1(void);
-INLINE void   NVIC_enIRQ2(void);
-INLINE void   NVIC_enIRQ3(void);
-INLINE void   NVIC_enIRQ4(void);
-INLINE void   NVIC_enIRQ5(void);
-INLINE void   NVIC_enIRQ6(void);
-INLINE void   NVIC_enIRQ7(void);
-INLINE void   NVIC_enIRQ8(void);
-INLINE void   NVIC_enIRQ9(void);
-INLINE void   NVIC_enIRQ10(void);
-INLINE void   NVIC_enIRQ11(void);
-INLINE void   NVIC_enIRQ12(void);
-INLINE void   NVIC_enIRQ13(void);
-INLINE void   NVIC_enIRQ14(void);
-INLINE void   NVIC_enIRQ15(void);
-INLINE void   NVIC_enIRQ16(void);
-INLINE void   NVIC_enIRQ17(void);
-INLINE void   NVIC_enIRQ18(void);
-INLINE void   NVIC_enIRQ19(void);
-INLINE void   NVIC_enIRQ20(void);
-INLINE void   NVIC_enIRQ21(void);
-INLINE void   NVIC_enIRQ22(void);
-INLINE void   NVIC_enIRQ23(void);
-INLINE void   NVIC_enIRQ24(void);
-INLINE void   NVIC_enIRQ25(void);
-INLINE void   NVIC_enIRQ26(void);
-INLINE void   NVIC_enIRQ27(void);
-INLINE void   NVIC_enIRQ28(void);
-INLINE void   NVIC_enIRQ29(void);
-INLINE void   NVIC_enIRQ30(void);
-INLINE void   NVIC_enIRQ31(void);
+INLINE void NVIC_disIRQ0(void);
+INLINE void NVIC_disIRQ1(void);
+INLINE void NVIC_disIRQ2(void);
+INLINE void NVIC_disIRQ3(void);
+INLINE void NVIC_disIRQ4(void);
+INLINE void NVIC_disIRQ5(void);
+INLINE void NVIC_disIRQ6(void);
+INLINE void NVIC_disIRQ7(void);
+INLINE void NVIC_disIRQ8(void);
+INLINE void NVIC_disIRQ9(void);
+INLINE void NVIC_disIRQ10(void);
+INLINE void NVIC_disIRQ11(void);
+INLINE void NVIC_disIRQ12(void);
+INLINE void NVIC_disIRQ13(void);
+INLINE void NVIC_disIRQ14(void);
+INLINE void NVIC_disIRQ15(void);
+INLINE void NVIC_disIRQ16(void);
+INLINE void NVIC_disIRQ17(void);
+INLINE void NVIC_disIRQ18(void);
+INLINE void NVIC_disIRQ19(void);
+INLINE void NVIC_disIRQ20(void);
+INLINE void NVIC_disIRQ21(void);
+INLINE void NVIC_disIRQ22(void);
+INLINE void NVIC_disIRQ23(void);
+INLINE void NVIC_disIRQ24(void);
+INLINE void NVIC_disIRQ25(void);
+INLINE void NVIC_disIRQ26(void);
+INLINE void NVIC_disIRQ27(void);
+INLINE void NVIC_disIRQ28(void);
+INLINE void NVIC_disIRQ29(void);
+INLINE void NVIC_disIRQ30(void);
+INLINE void NVIC_disIRQ31(void);
+INLINE void NVIC_setIRQ0Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ1Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ2Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ3Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ4Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ5Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ6Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ7Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ8Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ9Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ10Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ11Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ12Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ13Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ14Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ15Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ16Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ17Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ18Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ19Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ20Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ21Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ22Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ23Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ24Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ25Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ26Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ27Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ28Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ29Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ30Priority(uint8 u8_value);
+INLINE void NVIC_setIRQ31Priority(uint8 u8_value);
+INLINE void NVIC_enIRQ0(void);
+INLINE void NVIC_enIRQ1(void);
+INLINE void NVIC_enIRQ2(void);
+INLINE void NVIC_enIRQ3(void);
+INLINE void NVIC_enIRQ4(void);
+INLINE void NVIC_enIRQ5(void);
+INLINE void NVIC_enIRQ6(void);
+INLINE void NVIC_enIRQ7(void);
+INLINE void NVIC_enIRQ8(void);
+INLINE void NVIC_enIRQ9(void);
+INLINE void NVIC_enIRQ10(void);
+INLINE void NVIC_enIRQ11(void);
+INLINE void NVIC_enIRQ12(void);
+INLINE void NVIC_enIRQ13(void);
+INLINE void NVIC_enIRQ14(void);
+INLINE void NVIC_enIRQ15(void);
+INLINE void NVIC_enIRQ16(void);
+INLINE void NVIC_enIRQ17(void);
+INLINE void NVIC_enIRQ18(void);
+INLINE void NVIC_enIRQ19(void);
+INLINE void NVIC_enIRQ20(void);
+INLINE void NVIC_enIRQ21(void);
+INLINE void NVIC_enIRQ22(void);
+INLINE void NVIC_enIRQ23(void);
+INLINE void NVIC_enIRQ24(void);
+INLINE void NVIC_enIRQ25(void);
+INLINE void NVIC_enIRQ26(void);
+INLINE void NVIC_enIRQ27(void);
+INLINE void NVIC_enIRQ28(void);
+INLINE void NVIC_enIRQ29(void);
+INLINE void NVIC_enIRQ30(void);
+INLINE void NVIC_enIRQ31(void);
 void INT_init(void);
 
 /*******************************************************************************
@@ -193,225 +193,193 @@ void INT_init(void);
 *******************************************************************************/
 /** \brief Disable NVIC node 0
  */
-INLINE void NVIC_disIRQ0(void)
-{
+INLINE void NVIC_disIRQ0(void) {
   CPU->NVIC_ICER.bit.IRQCLREN0 = 0u;
 }
 
 /** \brief Disable NVIC node 1
  */
-INLINE void NVIC_disIRQ1(void)
-{
+INLINE void NVIC_disIRQ1(void) {
   CPU->NVIC_ICER.bit.IRQCLREN1 = 0u;
 }
 
 /** \brief Disable NVIC node 2
  */
-INLINE void NVIC_disIRQ2(void)
-{
+INLINE void NVIC_disIRQ2(void) {
   CPU->NVIC_ICER.bit.IRQCLREN2 = 0u;
 }
 
 /** \brief Disable NVIC node 3
  */
-INLINE void NVIC_disIRQ3(void)
-{
+INLINE void NVIC_disIRQ3(void) {
   CPU->NVIC_ICER.bit.IRQCLREN3 = 0u;
 }
 
 /** \brief Disable NVIC node 4
  */
-INLINE void NVIC_disIRQ4(void)
-{
+INLINE void NVIC_disIRQ4(void) {
   CPU->NVIC_ICER.bit.IRQCLREN4 = 0u;
 }
 
 /** \brief Disable NVIC node 5
  */
-INLINE void NVIC_disIRQ5(void)
-{
+INLINE void NVIC_disIRQ5(void) {
   CPU->NVIC_ICER.bit.IRQCLREN5 = 0u;
 }
 
 /** \brief Disable NVIC node 6
  */
-INLINE void NVIC_disIRQ6(void)
-{
+INLINE void NVIC_disIRQ6(void) {
   CPU->NVIC_ICER.bit.IRQCLREN6 = 0u;
 }
 
 /** \brief Disable NVIC node 7
  */
-INLINE void NVIC_disIRQ7(void)
-{
+INLINE void NVIC_disIRQ7(void) {
   CPU->NVIC_ICER.bit.IRQCLREN7 = 0u;
 }
 
 /** \brief Disable NVIC node 8
  */
-INLINE void NVIC_disIRQ8(void)
-{
+INLINE void NVIC_disIRQ8(void) {
   CPU->NVIC_ICER.bit.IRQCLREN8 = 0u;
 }
 
 /** \brief Disable NVIC node 9
  */
-INLINE void NVIC_disIRQ9(void)
-{
+INLINE void NVIC_disIRQ9(void) {
   CPU->NVIC_ICER.bit.IRQCLREN9 = 0u;
 }
 
 /** \brief Disable NVIC node 10
  */
-INLINE void NVIC_disIRQ10(void)
-{
+INLINE void NVIC_disIRQ10(void) {
   CPU->NVIC_ICER.bit.IRQCLREN10 = 0u;
 }
 
 /** \brief Disable NVIC node 11
  */
-INLINE void NVIC_disIRQ11(void)
-{
+INLINE void NVIC_disIRQ11(void) {
   CPU->NVIC_ICER.bit.IRQCLREN11 = 0u;
 }
 
 /** \brief Disable NVIC node 12
  */
-INLINE void NVIC_disIRQ12(void)
-{
+INLINE void NVIC_disIRQ12(void) {
   CPU->NVIC_ICER.bit.IRQCLREN12 = 0u;
 }
 
 /** \brief Disable NVIC node 13
  */
-INLINE void NVIC_disIRQ13(void)
-{
+INLINE void NVIC_disIRQ13(void) {
   CPU->NVIC_ICER.bit.IRQCLREN13 = 0u;
 }
 
 /** \brief Disable NVIC node 14
  */
-INLINE void NVIC_disIRQ14(void)
-{
+INLINE void NVIC_disIRQ14(void) {
   CPU->NVIC_ICER.bit.IRQCLREN14 = 0u;
 }
 
 /** \brief Disable NVIC node 15
  */
-INLINE void NVIC_disIRQ15(void)
-{
+INLINE void NVIC_disIRQ15(void) {
   CPU->NVIC_ICER.bit.IRQCLREN15 = 0u;
 }
 
 /** \brief Disable NVIC node 16
  */
-INLINE void NVIC_disIRQ16(void)
-{
+INLINE void NVIC_disIRQ16(void) {
   CPU->NVIC_ICER.bit.IRQCLREN16 = 0u;
 }
 
 /** \brief Disable NVIC node 17
  */
-INLINE void NVIC_disIRQ17(void)
-{
+INLINE void NVIC_disIRQ17(void) {
   CPU->NVIC_ICER.bit.IRQCLREN17 = 0u;
 }
 
 /** \brief Disable NVIC node 18
  */
-INLINE void NVIC_disIRQ18(void)
-{
+INLINE void NVIC_disIRQ18(void) {
   CPU->NVIC_ICER.bit.IRQCLREN18 = 0u;
 }
 
 /** \brief Disable NVIC node 19
  */
-INLINE void NVIC_disIRQ19(void)
-{
+INLINE void NVIC_disIRQ19(void) {
   CPU->NVIC_ICER.bit.IRQCLREN19 = 0u;
 }
 
 /** \brief Disable NVIC node 20
  */
-INLINE void NVIC_disIRQ20(void)
-{
+INLINE void NVIC_disIRQ20(void) {
   CPU->NVIC_ICER.bit.IRQCLREN20 = 0u;
 }
 
 /** \brief Disable NVIC node 21
  */
-INLINE void NVIC_disIRQ21(void)
-{
+INLINE void NVIC_disIRQ21(void) {
   CPU->NVIC_ICER.bit.IRQCLREN21 = 0u;
 }
 
 /** \brief Disable NVIC node 22
  */
-INLINE void NVIC_disIRQ22(void)
-{
+INLINE void NVIC_disIRQ22(void) {
   CPU->NVIC_ICER.bit.IRQCLREN22 = 0u;
 }
 
 /** \brief Disable NVIC node 23
  */
-INLINE void NVIC_disIRQ23(void)
-{
+INLINE void NVIC_disIRQ23(void) {
   CPU->NVIC_ICER.bit.IRQCLREN23 = 0u;
 }
 
 /** \brief Disable NVIC node 24
  */
-INLINE void NVIC_disIRQ24(void)
-{
+INLINE void NVIC_disIRQ24(void) {
   CPU->NVIC_ICER.bit.IRQCLREN24 = 0u;
 }
 
 /** \brief Disable NVIC node 25
  */
-INLINE void NVIC_disIRQ25(void)
-{
+INLINE void NVIC_disIRQ25(void) {
   CPU->NVIC_ICER.bit.IRQCLREN25 = 0u;
 }
 
 /** \brief Disable NVIC node 26
  */
-INLINE void NVIC_disIRQ26(void)
-{
+INLINE void NVIC_disIRQ26(void) {
   CPU->NVIC_ICER.bit.IRQCLREN26 = 0u;
 }
 
 /** \brief Disable NVIC node 27
  */
-INLINE void NVIC_disIRQ27(void)
-{
+INLINE void NVIC_disIRQ27(void) {
   CPU->NVIC_ICER.bit.IRQCLREN27 = 0u;
 }
 
 /** \brief Disable NVIC node 28
  */
-INLINE void NVIC_disIRQ28(void)
-{
+INLINE void NVIC_disIRQ28(void) {
   CPU->NVIC_ICER.bit.IRQCLREN28 = 0u;
 }
 
 /** \brief Disable NVIC node 29
  */
-INLINE void NVIC_disIRQ29(void)
-{
+INLINE void NVIC_disIRQ29(void) {
   CPU->NVIC_ICER.bit.IRQCLREN29 = 0u;
 }
 
 /** \brief Disable NVIC node 30
  */
-INLINE void NVIC_disIRQ30(void)
-{
+INLINE void NVIC_disIRQ30(void) {
   CPU->NVIC_ICER.bit.IRQCLREN30 = 0u;
 }
 
 /** \brief Disable NVIC node 31
  */
-INLINE void NVIC_disIRQ31(void)
-{
+INLINE void NVIC_disIRQ31(void) {
   CPU->NVIC_ICER.bit.IRQCLREN31 = 0u;
 }
 
@@ -419,8 +387,7 @@ INLINE void NVIC_disIRQ31(void)
  *
  *  \param u8_value NVIC node 0 interrupt priority
  */
-INLINE void NVIC_setIRQ0Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ0Priority(uint8 u8_value) {
   CPU->NVIC_IPR0.bit.PRI_N0 = u8_value;
 }
 
@@ -428,8 +395,7 @@ INLINE void NVIC_setIRQ0Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 1 interrupt priority
  */
-INLINE void NVIC_setIRQ1Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ1Priority(uint8 u8_value) {
   CPU->NVIC_IPR0.bit.PRI_N1 = u8_value;
 }
 
@@ -437,8 +403,7 @@ INLINE void NVIC_setIRQ1Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 2 interrupt priority
  */
-INLINE void NVIC_setIRQ2Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ2Priority(uint8 u8_value) {
   CPU->NVIC_IPR0.bit.PRI_N2 = u8_value;
 }
 
@@ -446,8 +411,7 @@ INLINE void NVIC_setIRQ2Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 3 interrupt priority
  */
-INLINE void NVIC_setIRQ3Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ3Priority(uint8 u8_value) {
   CPU->NVIC_IPR0.bit.PRI_N3 = u8_value;
 }
 
@@ -455,8 +419,7 @@ INLINE void NVIC_setIRQ3Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 4 interrupt priority
  */
-INLINE void NVIC_setIRQ4Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ4Priority(uint8 u8_value) {
   CPU->NVIC_IPR1.bit.PRI_N4 = u8_value;
 }
 
@@ -464,8 +427,7 @@ INLINE void NVIC_setIRQ4Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 5 interrupt priority
  */
-INLINE void NVIC_setIRQ5Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ5Priority(uint8 u8_value) {
   CPU->NVIC_IPR1.bit.PRI_N5 = u8_value;
 }
 
@@ -473,8 +435,7 @@ INLINE void NVIC_setIRQ5Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 6 interrupt priority
  */
-INLINE void NVIC_setIRQ6Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ6Priority(uint8 u8_value) {
   CPU->NVIC_IPR1.bit.PRI_N6 = u8_value;
 }
 
@@ -482,8 +443,7 @@ INLINE void NVIC_setIRQ6Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 7 interrupt priority
  */
-INLINE void NVIC_setIRQ7Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ7Priority(uint8 u8_value) {
   CPU->NVIC_IPR1.bit.PRI_N7 = u8_value;
 }
 
@@ -491,8 +451,7 @@ INLINE void NVIC_setIRQ7Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 8 interrupt priority
  */
-INLINE void NVIC_setIRQ8Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ8Priority(uint8 u8_value) {
   CPU->NVIC_IPR2.bit.PRI_N8 = u8_value;
 }
 
@@ -500,8 +459,7 @@ INLINE void NVIC_setIRQ8Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 9 interrupt priority
  */
-INLINE void NVIC_setIRQ9Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ9Priority(uint8 u8_value) {
   CPU->NVIC_IPR2.bit.PRI_N9 = u8_value;
 }
 
@@ -509,8 +467,7 @@ INLINE void NVIC_setIRQ9Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 10 interrupt priority
  */
-INLINE void NVIC_setIRQ10Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ10Priority(uint8 u8_value) {
   CPU->NVIC_IPR2.bit.PRI_N10 = u8_value;
 }
 
@@ -518,8 +475,7 @@ INLINE void NVIC_setIRQ10Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 11 interrupt priority
  */
-INLINE void NVIC_setIRQ11Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ11Priority(uint8 u8_value) {
   CPU->NVIC_IPR2.bit.PRI_N11 = u8_value;
 }
 
@@ -527,8 +483,7 @@ INLINE void NVIC_setIRQ11Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 12 interrupt priority
  */
-INLINE void NVIC_setIRQ12Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ12Priority(uint8 u8_value) {
   CPU->NVIC_IPR3.bit.PRI_N12 = u8_value;
 }
 
@@ -536,8 +491,7 @@ INLINE void NVIC_setIRQ12Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 13 interrupt priority
  */
-INLINE void NVIC_setIRQ13Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ13Priority(uint8 u8_value) {
   CPU->NVIC_IPR3.bit.PRI_N13 = u8_value;
 }
 
@@ -545,8 +499,7 @@ INLINE void NVIC_setIRQ13Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 14 interrupt priority
  */
-INLINE void NVIC_setIRQ14Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ14Priority(uint8 u8_value) {
   CPU->NVIC_IPR3.bit.PRI_N14 = u8_value;
 }
 
@@ -554,8 +507,7 @@ INLINE void NVIC_setIRQ14Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 15 interrupt priority
  */
-INLINE void NVIC_setIRQ15Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ15Priority(uint8 u8_value) {
   CPU->NVIC_IPR3.bit.PRI_N15 = u8_value;
 }
 
@@ -563,8 +515,7 @@ INLINE void NVIC_setIRQ15Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 16 interrupt priority
  */
-INLINE void NVIC_setIRQ16Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ16Priority(uint8 u8_value) {
   CPU->NVIC_IPR4.bit.PRI_N16 = u8_value;
 }
 
@@ -572,8 +523,7 @@ INLINE void NVIC_setIRQ16Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 17 interrupt priority
  */
-INLINE void NVIC_setIRQ17Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ17Priority(uint8 u8_value) {
   CPU->NVIC_IPR4.bit.PRI_N17 = u8_value;
 }
 
@@ -581,8 +531,7 @@ INLINE void NVIC_setIRQ17Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 18 interrupt priority
  */
-INLINE void NVIC_setIRQ18Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ18Priority(uint8 u8_value) {
   CPU->NVIC_IPR4.bit.PRI_N18 = u8_value;
 }
 
@@ -590,8 +539,7 @@ INLINE void NVIC_setIRQ18Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 19 interrupt priority
  */
-INLINE void NVIC_setIRQ19Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ19Priority(uint8 u8_value) {
   CPU->NVIC_IPR4.bit.PRI_N19 = u8_value;
 }
 
@@ -599,8 +547,7 @@ INLINE void NVIC_setIRQ19Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 20 interrupt priority
  */
-INLINE void NVIC_setIRQ20Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ20Priority(uint8 u8_value) {
   CPU->NVIC_IPR5.bit.PRI_N20 = u8_value;
 }
 
@@ -608,8 +555,7 @@ INLINE void NVIC_setIRQ20Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 21 interrupt priority
  */
-INLINE void NVIC_setIRQ21Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ21Priority(uint8 u8_value) {
   CPU->NVIC_IPR5.bit.PRI_N21 = u8_value;
 }
 
@@ -617,8 +563,7 @@ INLINE void NVIC_setIRQ21Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 22 interrupt priority
  */
-INLINE void NVIC_setIRQ22Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ22Priority(uint8 u8_value) {
   CPU->NVIC_IPR5.bit.PRI_N22 = u8_value;
 }
 
@@ -626,8 +571,7 @@ INLINE void NVIC_setIRQ22Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 23 interrupt priority
  */
-INLINE void NVIC_setIRQ23Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ23Priority(uint8 u8_value) {
   CPU->NVIC_IPR5.bit.PRI_N23 = u8_value;
 }
 
@@ -635,8 +579,7 @@ INLINE void NVIC_setIRQ23Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 24 interrupt priority
  */
-INLINE void NVIC_setIRQ24Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ24Priority(uint8 u8_value) {
   CPU->NVIC_IPR6.bit.PRI_N24 = u8_value;
 }
 
@@ -644,8 +587,7 @@ INLINE void NVIC_setIRQ24Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 25 interrupt priority
  */
-INLINE void NVIC_setIRQ25Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ25Priority(uint8 u8_value) {
   CPU->NVIC_IPR6.bit.PRI_N25 = u8_value;
 }
 
@@ -653,8 +595,7 @@ INLINE void NVIC_setIRQ25Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 26 interrupt priority
  */
-INLINE void NVIC_setIRQ26Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ26Priority(uint8 u8_value) {
   CPU->NVIC_IPR6.bit.PRI_N26 = u8_value;
 }
 
@@ -662,8 +603,7 @@ INLINE void NVIC_setIRQ26Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 27 interrupt priority
  */
-INLINE void NVIC_setIRQ27Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ27Priority(uint8 u8_value) {
   CPU->NVIC_IPR6.bit.PRI_N27 = u8_value;
 }
 
@@ -671,8 +611,7 @@ INLINE void NVIC_setIRQ27Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 28 interrupt priority
  */
-INLINE void NVIC_setIRQ28Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ28Priority(uint8 u8_value) {
   CPU->NVIC_IPR7.bit.PRI_N28 = u8_value;
 }
 
@@ -680,8 +619,7 @@ INLINE void NVIC_setIRQ28Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 29 interrupt priority
  */
-INLINE void NVIC_setIRQ29Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ29Priority(uint8 u8_value) {
   CPU->NVIC_IPR7.bit.PRI_N29 = u8_value;
 }
 
@@ -689,8 +627,7 @@ INLINE void NVIC_setIRQ29Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 30 interrupt priority
  */
-INLINE void NVIC_setIRQ30Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ30Priority(uint8 u8_value) {
   CPU->NVIC_IPR7.bit.PRI_N30 = u8_value;
 }
 
@@ -698,232 +635,199 @@ INLINE void NVIC_setIRQ30Priority(uint8 u8_value)
  *
  *  \param u8_value NVIC node 31 interrupt priority
  */
-INLINE void NVIC_setIRQ31Priority(uint8 u8_value)
-{
+INLINE void NVIC_setIRQ31Priority(uint8 u8_value) {
   CPU->NVIC_IPR7.bit.PRI_N31 = u8_value;
 }
 
 /** \brief Enable NVIC node 0
  */
-INLINE void NVIC_enIRQ0(void)
-{
+INLINE void NVIC_enIRQ0(void) {
   CPU->NVIC_ISER.bit.IRQEN0 = 1u;
 }
 
 /** \brief Enable NVIC node 1
  */
-INLINE void NVIC_enIRQ1(void)
-{
+INLINE void NVIC_enIRQ1(void) {
   CPU->NVIC_ISER.bit.IRQEN1 = 1u;
 }
 
 /** \brief Enable NVIC node 2
  */
-INLINE void NVIC_enIRQ2(void)
-{
+INLINE void NVIC_enIRQ2(void) {
   CPU->NVIC_ISER.bit.IRQEN2 = 1u;
 }
 
 /** \brief Enable NVIC node 3
  */
-INLINE void NVIC_enIRQ3(void)
-{
+INLINE void NVIC_enIRQ3(void) {
   CPU->NVIC_ISER.bit.IRQEN3 = 1u;
 }
 
 /** \brief Enable NVIC node 4
  */
-INLINE void NVIC_enIRQ4(void)
-{
+INLINE void NVIC_enIRQ4(void) {
   CPU->NVIC_ISER.bit.IRQEN4 = 1u;
 }
 
 /** \brief Enable NVIC node 5
  */
-INLINE void NVIC_enIRQ5(void)
-{
+INLINE void NVIC_enIRQ5(void) {
   CPU->NVIC_ISER.bit.IRQEN5 = 1u;
 }
 
 /** \brief Enable NVIC node 6
  */
-INLINE void NVIC_enIRQ6(void)
-{
+INLINE void NVIC_enIRQ6(void) {
   CPU->NVIC_ISER.bit.IRQEN6 = 1u;
 }
 
 /** \brief Enable NVIC node 7
  */
-INLINE void NVIC_enIRQ7(void)
-{
+INLINE void NVIC_enIRQ7(void) {
   CPU->NVIC_ISER.bit.IRQEN7 = 1u;
 }
 
 /** \brief Enable NVIC node 8
  */
-INLINE void NVIC_enIRQ8(void)
-{
+INLINE void NVIC_enIRQ8(void) {
   CPU->NVIC_ISER.bit.IRQEN8 = 1u;
 }
 
 /** \brief Enable NVIC node 9
  */
-INLINE void NVIC_enIRQ9(void)
-{
+INLINE void NVIC_enIRQ9(void) {
   CPU->NVIC_ISER.bit.IRQEN9 = 1u;
 }
 
 /** \brief Enable NVIC node 10
  */
-INLINE void NVIC_enIRQ10(void)
-{
+INLINE void NVIC_enIRQ10(void) {
   CPU->NVIC_ISER.bit.IRQEN10 = 1u;
 }
 
 /** \brief Enable NVIC node 11
  */
-INLINE void NVIC_enIRQ11(void)
-{
+INLINE void NVIC_enIRQ11(void) {
   CPU->NVIC_ISER.bit.IRQEN11 = 1u;
 }
 
 /** \brief Enable NVIC node 12
  */
-INLINE void NVIC_enIRQ12(void)
-{
+INLINE void NVIC_enIRQ12(void) {
   CPU->NVIC_ISER.bit.IRQEN12 = 1u;
 }
 
 /** \brief Enable NVIC node 13
  */
-INLINE void NVIC_enIRQ13(void)
-{
+INLINE void NVIC_enIRQ13(void) {
   CPU->NVIC_ISER.bit.IRQEN13 = 1u;
 }
 
 /** \brief Enable NVIC node 14
  */
-INLINE void NVIC_enIRQ14(void)
-{
+INLINE void NVIC_enIRQ14(void) {
   CPU->NVIC_ISER.bit.IRQEN14 = 1u;
 }
 
 /** \brief Enable NVIC node 15
  */
-INLINE void NVIC_enIRQ15(void)
-{
+INLINE void NVIC_enIRQ15(void) {
   CPU->NVIC_ISER.bit.IRQEN15 = 1u;
 }
 
 /** \brief Enable NVIC node 16
  */
-INLINE void NVIC_enIRQ16(void)
-{
+INLINE void NVIC_enIRQ16(void) {
   CPU->NVIC_ISER.bit.IRQEN16 = 1u;
 }
 
 /** \brief Enable NVIC node 17
  */
-INLINE void NVIC_enIRQ17(void)
-{
+INLINE void NVIC_enIRQ17(void) {
   CPU->NVIC_ISER.bit.IRQEN17 = 1u;
 }
 
 /** \brief Enable NVIC node 18
  */
-INLINE void NVIC_enIRQ18(void)
-{
+INLINE void NVIC_enIRQ18(void) {
   CPU->NVIC_ISER.bit.IRQEN18 = 1u;
 }
 
 /** \brief Enable NVIC node 19
  */
-INLINE void NVIC_enIRQ19(void)
-{
+INLINE void NVIC_enIRQ19(void) {
   CPU->NVIC_ISER.bit.IRQEN19 = 1u;
 }
 
 /** \brief Enable NVIC node 20
  */
-INLINE void NVIC_enIRQ20(void)
-{
+INLINE void NVIC_enIRQ20(void) {
   CPU->NVIC_ISER.bit.IRQEN20 = 1u;
 }
 
 /** \brief Enable NVIC node 21
  */
-INLINE void NVIC_enIRQ21(void)
-{
+INLINE void NVIC_enIRQ21(void) {
   CPU->NVIC_ISER.bit.IRQEN21 = 1u;
 }
 
 /** \brief Enable NVIC node 22
  */
-INLINE void NVIC_enIRQ22(void)
-{
+INLINE void NVIC_enIRQ22(void) {
   CPU->NVIC_ISER.bit.IRQEN22 = 1u;
 }
 
 /** \brief Enable NVIC node 23
  */
-INLINE void NVIC_enIRQ23(void)
-{
+INLINE void NVIC_enIRQ23(void) {
   CPU->NVIC_ISER.bit.IRQEN23 = 1u;
 }
 
 /** \brief Enable NVIC node 24
  */
-INLINE void NVIC_enIRQ24(void)
-{
+INLINE void NVIC_enIRQ24(void) {
   CPU->NVIC_ISER.bit.IRQEN24 = 1u;
 }
 
 /** \brief Enable NVIC node 25
  */
-INLINE void NVIC_enIRQ25(void)
-{
+INLINE void NVIC_enIRQ25(void) {
   CPU->NVIC_ISER.bit.IRQEN25 = 1u;
 }
 
 /** \brief Enable NVIC node 26
  */
-INLINE void NVIC_enIRQ26(void)
-{
+INLINE void NVIC_enIRQ26(void) {
   CPU->NVIC_ISER.bit.IRQEN26 = 1u;
 }
 
 /** \brief Enable NVIC node 27
  */
-INLINE void NVIC_enIRQ27(void)
-{
+INLINE void NVIC_enIRQ27(void) {
   CPU->NVIC_ISER.bit.IRQEN27 = 1u;
 }
 
 /** \brief Enable NVIC node 28
  */
-INLINE void NVIC_enIRQ28(void)
-{
+INLINE void NVIC_enIRQ28(void) {
   CPU->NVIC_ISER.bit.IRQEN28 = 1u;
 }
 
 /** \brief Enable NVIC node 29
  */
-INLINE void NVIC_enIRQ29(void)
-{
+INLINE void NVIC_enIRQ29(void) {
   CPU->NVIC_ISER.bit.IRQEN29 = 1u;
 }
 
 /** \brief Enable NVIC node 30
  */
-INLINE void NVIC_enIRQ30(void)
-{
+INLINE void NVIC_enIRQ30(void) {
   CPU->NVIC_ISER.bit.IRQEN30 = 1u;
 }
 
 /** \brief Enable NVIC node 31
  */
-INLINE void NVIC_enIRQ31(void)
-{
+INLINE void NVIC_enIRQ31(void) {
   CPU->NVIC_ISER.bit.IRQEN31 = 1u;
 }
 
@@ -933,4 +837,3 @@ INLINE void NVIC_enIRQ31(void)
 /** @}*/
 
 #endif /* _INT_H */
-

@@ -41,8 +41,7 @@
 
 /** \brief Initialize all CW registers of the GPIO module
  */
-void GPIO_init(void)
-{
+void GPIO_init(void) {
   /* P0.x*/
   GPIO->P0_DIR.reg = (uint32)GPIO_P0_DIR;
   GPIO->P0_OD.reg = (uint32)GPIO_P0_OD;
@@ -66,4 +65,3 @@ void GPIO_init(void)
 /*******************************************************************************
 **                        Private Function Definitions                        **
 *******************************************************************************/
-

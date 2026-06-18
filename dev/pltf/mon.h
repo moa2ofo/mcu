@@ -50,10 +50,10 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
+#include "pmu_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
-#include "pmu_defines.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -116,43 +116,37 @@ void MON_setMON3IntNodePtr(void) __attribute__((deprecated("Do not change this a
 
 /** \brief Enable MON1 Interrupt
  */
-INLINE void MON_enMON1Int(void)
-{
+INLINE void MON_enMON1Int(void) {
   SCU->MONIEN.bit.MON1EN = 1u;
 }
 
 /** \brief Disable MON1 Interrupt
  */
-INLINE void MON_disMON1Int(void)
-{
+INLINE void MON_disMON1Int(void) {
   SCU->MONIEN.bit.MON1EN = 0u;
 }
 
 /** \brief Enable MON2 Interrupt
  */
-INLINE void MON_enMON2Int(void)
-{
+INLINE void MON_enMON2Int(void) {
   SCU->MONIEN.bit.MON2EN = 1u;
 }
 
 /** \brief Disable MON2 Interrupt
  */
-INLINE void MON_disMON2Int(void)
-{
+INLINE void MON_disMON2Int(void) {
   SCU->MONIEN.bit.MON2EN = 0u;
 }
 
 /** \brief Enable MON3 Interrupt
  */
-INLINE void MON_enMON3Int(void)
-{
+INLINE void MON_enMON3Int(void) {
   SCU->MONIEN.bit.MON3EN = 1u;
 }
 
 /** \brief Disable MON3 Interrupt
  */
-INLINE void MON_disMON3Int(void)
-{
+INLINE void MON_disMON3Int(void) {
   SCU->MONIEN.bit.MON3EN = 0u;
 }
 
@@ -160,8 +154,7 @@ INLINE void MON_disMON3Int(void)
  *
  * \return uint8 MON1 Rising Edge Interrupt Status
  */
-INLINE uint8 MON_getMON1RiseIntSts(void)
-{
+INLINE uint8 MON_getMON1RiseIntSts(void) {
   return SCU->MONIS.bit.MON1R;
 }
 
@@ -169,8 +162,7 @@ INLINE uint8 MON_getMON1RiseIntSts(void)
  *
  * \return uint8 MON1 Falling Edge Interrupt Status
  */
-INLINE uint8 MON_getMON1FallIntSts(void)
-{
+INLINE uint8 MON_getMON1FallIntSts(void) {
   return SCU->MONIS.bit.MON1F;
 }
 
@@ -178,8 +170,7 @@ INLINE uint8 MON_getMON1FallIntSts(void)
  *
  * \return uint8 MON2 Rising Edge Interrupt Status
  */
-INLINE uint8 MON_getMON2RiseIntSts(void)
-{
+INLINE uint8 MON_getMON2RiseIntSts(void) {
   return SCU->MONIS.bit.MON2R;
 }
 
@@ -187,8 +178,7 @@ INLINE uint8 MON_getMON2RiseIntSts(void)
  *
  * \return uint8 MON2 Falling Edge Interrupt Status
  */
-INLINE uint8 MON_getMON2FallIntSts(void)
-{
+INLINE uint8 MON_getMON2FallIntSts(void) {
   return SCU->MONIS.bit.MON2F;
 }
 
@@ -196,8 +186,7 @@ INLINE uint8 MON_getMON2FallIntSts(void)
  *
  * \return uint8 MON3 Rising Edge Interrupt Status
  */
-INLINE uint8 MON_getMON3RiseIntSts(void)
-{
+INLINE uint8 MON_getMON3RiseIntSts(void) {
   return SCU->MONIS.bit.MON3R;
 }
 
@@ -205,50 +194,43 @@ INLINE uint8 MON_getMON3RiseIntSts(void)
  *
  * \return uint8 MON3 Falling Edge Interrupt Status
  */
-INLINE uint8 MON_getMON3FallIntSts(void)
-{
+INLINE uint8 MON_getMON3FallIntSts(void) {
   return SCU->MONIS.bit.MON3F;
 }
 
 /** \brief Clear MON1 Rising Edge Interrupt Status
  */
-INLINE void MON_clrMON1RiseIntSts(void)
-{
+INLINE void MON_clrMON1RiseIntSts(void) {
   SCU->MONISC.bit.MON1RCLR = 1u;
 }
 
 /** \brief Clear MON1 Falling Edge Interrupt Status
  */
-INLINE void MON_clrMON1FallIntSts(void)
-{
+INLINE void MON_clrMON1FallIntSts(void) {
   SCU->MONISC.bit.MON1FCLR = 1u;
 }
 
 /** \brief Clear MON2 Rising Edge Interrupt Status
  */
-INLINE void MON_clrMON2RiseIntSts(void)
-{
+INLINE void MON_clrMON2RiseIntSts(void) {
   SCU->MONISC.bit.MON2RCLR = 1u;
 }
 
 /** \brief Clear MON2 Falling Edge Interrupt Status
  */
-INLINE void MON_clrMON2FallIntSts(void)
-{
+INLINE void MON_clrMON2FallIntSts(void) {
   SCU->MONISC.bit.MON2FCLR = 1u;
 }
 
 /** \brief Clear MON3 Rising Edge Interrupt Status
  */
-INLINE void MON_clrMON3RiseIntSts(void)
-{
+INLINE void MON_clrMON3RiseIntSts(void) {
   SCU->MONISC.bit.MON3RCLR = 1u;
 }
 
 /** \brief Clear MON3 Falling Edge Interrupt Status
  */
-INLINE void MON_clrMON3FallIntSts(void)
-{
+INLINE void MON_clrMON3FallIntSts(void) {
   SCU->MONISC.bit.MON3FCLR = 1u;
 }
 

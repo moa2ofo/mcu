@@ -38,8 +38,7 @@
 /** \brief Initialize all CW registers of the MON module
  *
  */
-void MON_init(void)
-{
+void MON_init(void) {
   /* Done in the PMU module */
 }
 
@@ -47,17 +46,14 @@ void MON_init(void)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void MON_setMON1IntNodePtr(void)
-{
+void MON_setMON1IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void MON_setMON2IntNodePtr(void)
-{
+void MON_setMON2IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void MON_setMON3IntNodePtr(void)
-{
+void MON_setMON3IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }

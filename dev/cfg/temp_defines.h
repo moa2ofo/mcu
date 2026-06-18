@@ -108,43 +108,43 @@
 
 #define ADC1_LOWER_TH3 (0.1)
 
-#define ADC1_S0S0_CH 
+#define ADC1_S0S0_CH
 
-#define ADC1_S0S1_CH 
+#define ADC1_S0S1_CH
 
-#define ADC1_S0S2_CH 
+#define ADC1_S0S2_CH
 
-#define ADC1_S0S3_CH 
+#define ADC1_S0S3_CH
 
 #define ADC1_S0_TIMES (0.0000)
 
-#define ADC1_S1S0_CH 
+#define ADC1_S1S0_CH
 
-#define ADC1_S1S1_CH 
+#define ADC1_S1S1_CH
 
-#define ADC1_S1S2_CH 
+#define ADC1_S1S2_CH
 
-#define ADC1_S1S3_CH 
+#define ADC1_S1S3_CH
 
 #define ADC1_S1_TIMES (0.0000)
 
-#define ADC1_S2S0_CH 
+#define ADC1_S2S0_CH
 
-#define ADC1_S2S1_CH 
+#define ADC1_S2S1_CH
 
-#define ADC1_S2S2_CH 
+#define ADC1_S2S2_CH
 
-#define ADC1_S2S3_CH 
+#define ADC1_S2S3_CH
 
 #define ADC1_S2_TIMES (0.0000)
 
-#define ADC1_S3S0_CH 
+#define ADC1_S3S0_CH
 
-#define ADC1_S3S1_CH 
+#define ADC1_S3S1_CH
 
-#define ADC1_S3S2_CH 
+#define ADC1_S3S2_CH
 
-#define ADC1_S3S3_CH 
+#define ADC1_S3S3_CH
 
 #define ADC1_S3_TIMES (0.0000)
 
@@ -188,19 +188,19 @@
 
 #define ADC2_CHCFG12_REPCH (0x1u) /*decimal 1*/
 
-#define ADC2_CHCFG13_INSEL TEMP0 (BDRV)
+#define ADC2_CHCFG13_INSEL TEMP0(BDRV)
 
 #define ADC2_CHCFG13_REPCH (0x1u) /*decimal 1*/
 
-#define ADC2_CHCFG14_INSEL TEMP1 (SYS_TEMP)
+#define ADC2_CHCFG14_INSEL TEMP1(SYS_TEMP)
 
 #define ADC2_CHCFG14_REPCH (0x1u) /*decimal 1*/
 
-#define ADC2_CHCFG1_INSEL VSD (OV)
+#define ADC2_CHCFG1_INSEL VSD(OV)
 
 #define ADC2_CHCFG1_REPCH (0x1u) /*decimal 1*/
 
-#define ADC2_CHCFG2_INSEL VSD (UV)
+#define ADC2_CHCFG2_INSEL VSD(UV)
 
 #define ADC2_CHCFG2_REPCH (0x1u) /*decimal 1*/
 
@@ -208,15 +208,15 @@
 
 #define ADC2_CHCFG3_REPCH (0x1u) /*decimal 1*/
 
-#define ADC2_CHCFG4_INSEL MON1 (0..31V)
+#define ADC2_CHCFG4_INSEL MON1(0..31V)
 
 #define ADC2_CHCFG4_REPCH (0x1u) /*decimal 1*/
 
-#define ADC2_CHCFG5_INSEL MON2 (0..31V)
+#define ADC2_CHCFG5_INSEL MON2(0..31V)
 
 #define ADC2_CHCFG5_REPCH (0x1u) /*decimal 1*/
 
-#define ADC2_CHCFG6_INSEL MON3 (0..31V)
+#define ADC2_CHCFG6_INSEL MON3(0..31V)
 
 #define ADC2_CHCFG6_REPCH (0x1u) /*decimal 1*/
 
@@ -1008,7 +1008,7 @@
 
 #define BDRV_UP_DITH_FREQ (0x10Eu) /*decimal 270*/
 
-#define BSL_NOTE_NACNAD To apply the NAC/NAD Configuration in Keil uVision, please use 'Rebuild' instead of 'Build'.
+#define BSL_NOTE_NACNAD To apply the NAC / NAD Configuration in Keil uVision, please use 'Rebuild' instead of 'Build'.
 
 #define CANTRX_CTRL_RXD_OUT_SEL (0x0u) /*decimal 0*/
 

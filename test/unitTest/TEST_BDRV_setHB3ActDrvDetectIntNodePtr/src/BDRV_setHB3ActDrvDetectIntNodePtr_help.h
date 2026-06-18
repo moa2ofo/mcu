@@ -1,0 +1,8 @@
+#ifndef TEST_BDRV_SETHB3ACTDRVDETECTINTNODEPTR_HELP_H
+#define TEST_BDRV_SETHB3ACTDRVDETECTINTNODEPTR_HELP_H
+
+#include "BDRV_setHB3ActDrvDetectIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_BDRV_SETHB3ACTDRVDETECTINTNODEPTR_HELP_H */

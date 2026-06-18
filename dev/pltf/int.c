@@ -38,8 +38,7 @@
 
 /** \brief Initialize all interrupt-related registers
  */
-void INT_init(void)
-{
+void INT_init(void) {
   /* BDRV, PMU, CANTRX, ARVG, CSA/CSC */
   BDRV->IRQCLR.reg = (uint32)0xFF333333u;
   PMU->VDDC_STS_CLR.reg = (uint32)0x3u;
@@ -148,4 +147,3 @@ void INT_init(void)
   CPU->NVIC_IPR7.reg = CPU_NVIC_IPR7;
   CPU->NVIC_ISER.reg = CPU_NVIC_ISER;
 }
-

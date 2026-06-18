@@ -43,11 +43,10 @@
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 CCU7_init(void)
-{
+sint8 CCU7_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_CODE_MODULE_DISABLED_IN_CW;
-#if (CCU7_EN == 1)
+#if(CCU7_EN == 1)
   s8_returnCode = ERR_LOG_SUCCESS;
   /* Port */
   CCU7->PISEL0.reg = (uint32)CCU7_PISEL0;
@@ -114,8 +113,7 @@ sint8 CCU7_init(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 CCU7_enModule(void)
-{
+sint8 CCU7_enModule(void) {
   sint8 s8_returnCode;
   s8_returnCode = CCU7_init();
   return s8_returnCode;
@@ -129,8 +127,7 @@ sint8 CCU7_enModule(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 CCU7_disModule(void)
-{
+sint8 CCU7_disModule(void) {
   /* Stop T12 */
   CCU7_stopT12();
   /* Stop T13, T14, T15, T16 */
@@ -169,69 +166,54 @@ sint8 CCU7_disModule(void)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void CCU7_setCC70AIntNodePtr(void)
-{
+void CCU7_setCC70AIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setCC71AIntNodePtr(void)
-{
+void CCU7_setCC71AIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setCC72AIntNodePtr(void)
-{
+void CCU7_setCC72AIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setCHEIntNodePtr(void)
-{
+void CCU7_setCHEIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setErrorIntNodePtr(void)
-{
+void CCU7_setErrorIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setT12IntNodePtr(void)
-{
+void CCU7_setT12IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setT13IntNodePtr(void)
-{
+void CCU7_setT13IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setC70BIntNodePtr(void)
-{
+void CCU7_setC70BIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setC71BIntNodePtr(void)
-{
+void CCU7_setC71BIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setC72BIntNodePtr(void)
-{
+void CCU7_setC72BIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setT14IntNodePtr(void)
-{
+void CCU7_setT14IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setT15IntNodePtr(void)
-{
+void CCU7_setT15IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CCU7_setT16IntNodePtr(void)
-{
+void CCU7_setT16IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
-
-

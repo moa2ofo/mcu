@@ -90,12 +90,12 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
-#include "tle989x.h"
-#include "tle_variants.h"
 #include "adc1.h"
 #include "csacsc_defines.h"
 #include "isr_defines.h"
+#include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
 
 /*******************************************************************************
 **                          Global Macro Declarations                         **
@@ -109,24 +109,22 @@
  *  \brief This enum lists the CSA gain settings
  *  \note You can use this type via 'tCSA_gain' or 'enum CSA_gain'
  */
-typedef enum CSA_gain
-{
-  CSA_gain_10  = 0,       /**< Operational amplifier gain factor 10 */
-  CSA_gain_20  = 1,       /**< Operational amplifier gain factor 20 */
-  CSA_gain_40  = 2,       /**< Operational amplifier gain factor 40 */
-  CSA_gain_60  = 3        /**< Operational amplifier gain factor 60 */
+typedef enum CSA_gain {
+  CSA_gain_10 = 0, /**< Operational amplifier gain factor 10 */
+  CSA_gain_20 = 1, /**< Operational amplifier gain factor 20 */
+  CSA_gain_40 = 2, /**< Operational amplifier gain factor 40 */
+  CSA_gain_60 = 3  /**< Operational amplifier gain factor 60 */
 } tCSA_gain;
 
 /** \enum CSA_offset
  *  \brief This enum lists the CSA offset settings
  *  \note You can use this type via 'tCSA_offset' or 'enum CSA_offset'
  */
-typedef enum CSA_offset
-{
-  CSA_offset_10  = 0,       /**< Operational amplifier offset factor 0.5V */
-  CSA_offset_20  = 1,       /**< Operational amplifier offset factor 1.0V */
-  CSA_offset_40  = 2,       /**< Operational amplifier offset factor 1.5V */
-  CSA_offset_60  = 3        /**< Operational amplifier offset factor 2.0V */
+typedef enum CSA_offset {
+  CSA_offset_10 = 0, /**< Operational amplifier offset factor 0.5V */
+  CSA_offset_20 = 1, /**< Operational amplifier offset factor 1.0V */
+  CSA_offset_40 = 2, /**< Operational amplifier offset factor 1.5V */
+  CSA_offset_60 = 3  /**< Operational amplifier offset factor 2.0V */
 } tCSA_offset;
 
 /*******************************************************************************
@@ -137,23 +135,23 @@ sint8 CSACSC_init(void);
 sint8 CSACSC_startCalibration(uint16 *pu16_Val_mV);
 INLINE void CSACSC_enPower(void);
 INLINE void CSACSC_disPower(void);
-INLINE void   CSACSC_setMinGain(tCSA_gain e_gain);
+INLINE void CSACSC_setMinGain(tCSA_gain e_gain);
 INLINE tCSA_gain CSACSC_getMinGain(void);
-INLINE void   CSACSC_setMinOffset(tCSA_offset e_offset);
+INLINE void CSACSC_setMinOffset(tCSA_offset e_offset);
 INLINE tCSA_offset CSACSC_getMinOffset(void);
-INLINE void   CSACSC_setMaxThreshold(uint16 u16_value);
+INLINE void CSACSC_setMaxThreshold(uint16 u16_value);
 INLINE uint16 CSACSC_getMaxThreshold(void);
-INLINE void   CSACSC_setAddInputOffset(uint8 u8_value);
+INLINE void CSACSC_setAddInputOffset(uint8 u8_value);
 INLINE uint8 CSACSC_getAddInputOffset(void);
-INLINE void   CSACSC_setGain(tCSA_gain e_gain);
+INLINE void CSACSC_setGain(tCSA_gain e_gain);
 INLINE tCSA_gain CSACSC_getGain(void);
-INLINE void   CSACSC_setOffset(tCSA_offset e_offset);
+INLINE void CSACSC_setOffset(tCSA_offset e_offset);
 INLINE tCSA_offset CSACSC_getOffset(void);
-INLINE void   CSACSC_setVout(uint8 u8_value);
+INLINE void CSACSC_setVout(uint8 u8_value);
 INLINE uint8 CSACSC_getVout(void);
-INLINE void   CSACSC_setThreshold(uint8 u8_value);
+INLINE void CSACSC_setThreshold(uint8 u8_value);
 INLINE uint8 CSACSC_getThreshold(void);
-INLINE void   CSACSC_setFilterTime(uint8 u8_value);
+INLINE void CSACSC_setFilterTime(uint8 u8_value);
 INLINE uint8 CSACSC_getFilterTime(void);
 INLINE void CSACSC_clrOverCurrIntSts(void);
 INLINE void CSACSC_clrParamErrorIntSts(void);
@@ -187,89 +185,72 @@ void CSACSC_setParamErrorIntNodePtr(void) __attribute__((deprecated("Do not chan
 *******************************************************************************/
 /** \brief Enable Current sense amplifier and comparator enable
  */
-INLINE void CSACSC_enPower(void)
-{
+INLINE void CSACSC_enPower(void) {
   CSACSC->CTRL1.bit.CSAC_EN = 1u;
 }
 
 /** \brief Disable Current sense amplifier and comparator enable
  */
-INLINE void CSACSC_disPower(void)
-{
+INLINE void CSACSC_disPower(void) {
   CSACSC->CTRL1.bit.CSAC_EN = 0u;
 }
 
 /* The following warning is disabled for ARMCC v6 Compiler */
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6000000)
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wcovered-switch-default"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wcovered-switch-default"
 #endif
 /** \brief Set Current sense amplifier minimum gain setting
  *
  *  \param e_gain Current sense amplifier minimum gain setting
  */
-INLINE void CSACSC_setMinGain(tCSA_gain e_gain)
-{
-  switch (e_gain)
-  {
-    case CSA_gain_10:
-    {
-      CSACSC->CTRL1.bit.GAIN_MIN = 0u;
-      break;
-    }
+INLINE void CSACSC_setMinGain(tCSA_gain e_gain) {
+  switch(e_gain) {
+  case CSA_gain_10: {
+    CSACSC->CTRL1.bit.GAIN_MIN = 0u;
+    break;
+  }
 
-    case CSA_gain_20:
-    {
-      CSACSC->CTRL1.bit.GAIN_MIN = 3u;
-      break;
-    }
+  case CSA_gain_20: {
+    CSACSC->CTRL1.bit.GAIN_MIN = 3u;
+    break;
+  }
 
-    case CSA_gain_40:
-    {
-      CSACSC->CTRL1.bit.GAIN_MIN = 12u;
-      break;
-    }
+  case CSA_gain_40: {
+    CSACSC->CTRL1.bit.GAIN_MIN = 12u;
+    break;
+  }
 
-    case CSA_gain_60:
-    {
-      CSACSC->CTRL1.bit.GAIN_MIN = 15u;
-      break;
-    }
+  case CSA_gain_60: {
+    CSACSC->CTRL1.bit.GAIN_MIN = 15u;
+    break;
+  }
 
-    default:
-    {
-      break;
-    }
+  default: {
+    break;
+  }
   }
 }
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6000000)
-  #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 #endif
 
 /** \brief Get Current sense amplifier minimum gain setting
  *
  * \return tCSA_gain Current sense amplifier minimum gain setting
  */
-INLINE tCSA_gain CSACSC_getMinGain(void)
-{
+INLINE tCSA_gain CSACSC_getMinGain(void) {
   tCSA_gain e_gain;
   uint8 u8_minGain;
   u8_minGain = CSACSC->CTRL1.bit.GAIN_MIN;
 
-  if (u8_minGain == 0u)
-  {
+  if(u8_minGain == 0u) {
     e_gain = CSA_gain_10;
-  }
-  else if (u8_minGain == 3u)
-  {
+  } else if(u8_minGain == 3u) {
     e_gain = CSA_gain_20;
-  }
-  else if (u8_minGain == 12u)
-  {
+  } else if(u8_minGain == 12u) {
     e_gain = CSA_gain_40;
-  }
-  else
-  {
+  } else {
     e_gain = CSA_gain_60;
   }
 
@@ -278,75 +259,60 @@ INLINE tCSA_gain CSACSC_getMinGain(void)
 
 /* The following warning is disabled for ARMCC v6 Compiler */
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6000000)
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wcovered-switch-default"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wcovered-switch-default"
 #endif
 /** \brief Set Current sense amplifier minimum output offset setting
  *
  *  \param e_offset Current sense amplifier minimum output offset setting
  */
-INLINE void CSACSC_setMinOffset(tCSA_offset e_offset)
-{
-  switch (e_offset)
-  {
-    case CSA_offset_10:
-    {
-      CSACSC->CTRL1.bit.OFFS_MIN = 0u;
-      break;
-    }
+INLINE void CSACSC_setMinOffset(tCSA_offset e_offset) {
+  switch(e_offset) {
+  case CSA_offset_10: {
+    CSACSC->CTRL1.bit.OFFS_MIN = 0u;
+    break;
+  }
 
-    case CSA_offset_20:
-    {
-      CSACSC->CTRL1.bit.OFFS_MIN = 3u;
-      break;
-    }
+  case CSA_offset_20: {
+    CSACSC->CTRL1.bit.OFFS_MIN = 3u;
+    break;
+  }
 
-    case CSA_offset_40:
-    {
-      CSACSC->CTRL1.bit.OFFS_MIN = 12u;
-      break;
-    }
+  case CSA_offset_40: {
+    CSACSC->CTRL1.bit.OFFS_MIN = 12u;
+    break;
+  }
 
-    case CSA_offset_60:
-    {
-      CSACSC->CTRL1.bit.OFFS_MIN = 15u;
-      break;
-    }
+  case CSA_offset_60: {
+    CSACSC->CTRL1.bit.OFFS_MIN = 15u;
+    break;
+  }
 
-    default:
-    {
-      break;
-    }
+  default: {
+    break;
+  }
   }
 }
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6000000)
-  #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 #endif
 
 /** \brief Get Current sense amplifier minimum output offset setting
  *
  * \return tCSA_offset Current sense amplifier minimum output offset setting
  */
-INLINE tCSA_offset CSACSC_getMinOffset(void)
-{
+INLINE tCSA_offset CSACSC_getMinOffset(void) {
   tCSA_offset e_offset;
   uint8 u8_minOffset;
   u8_minOffset = CSACSC->CTRL1.bit.OFFS_MIN;
 
-  if (u8_minOffset == 0u)
-  {
+  if(u8_minOffset == 0u) {
     e_offset = CSA_offset_10;
-  }
-  else if (u8_minOffset == 3u)
-  {
+  } else if(u8_minOffset == 3u) {
     e_offset = CSA_offset_20;
-  }
-  else if (u8_minOffset == 12u)
-  {
+  } else if(u8_minOffset == 12u) {
     e_offset = CSA_offset_40;
-  }
-  else
-  {
+  } else {
     e_offset = CSA_offset_60;
   }
 
@@ -357,8 +323,7 @@ INLINE tCSA_offset CSACSC_getMinOffset(void)
  *
  *  \param u16_value Current sense comparator maximum threshold setting
  */
-INLINE void CSACSC_setMaxThreshold(uint16 u16_value)
-{
+INLINE void CSACSC_setMaxThreshold(uint16 u16_value) {
   CSACSC->CTRL1.bit.THR_MAX = u16_value;
 }
 
@@ -366,8 +331,7 @@ INLINE void CSACSC_setMaxThreshold(uint16 u16_value)
  *
  * \return uint16 Current sense comparator maximum threshold setting
  */
-INLINE uint16 CSACSC_getMaxThreshold(void)
-{
+INLINE uint16 CSACSC_getMaxThreshold(void) {
   return (uint16)CSACSC->CTRL1.bit.THR_MAX;
 }
 
@@ -375,8 +339,7 @@ INLINE uint16 CSACSC_getMaxThreshold(void)
  *
  *  \param u8_value Additional input offset setting
  */
-INLINE void CSACSC_setAddInputOffset(uint8 u8_value)
-{
+INLINE void CSACSC_setAddInputOffset(uint8 u8_value) {
   CSACSC->CTRL2.bit.ADD_INP_OFFS = u8_value;
 }
 
@@ -384,8 +347,7 @@ INLINE void CSACSC_setAddInputOffset(uint8 u8_value)
  *
  * \return uint8 Additional input offset setting
  */
-INLINE uint8 CSACSC_getAddInputOffset(void)
-{
+INLINE uint8 CSACSC_getAddInputOffset(void) {
   return (uint8)CSACSC->CTRL2.bit.ADD_INP_OFFS;
 }
 
@@ -393,8 +355,7 @@ INLINE uint8 CSACSC_getAddInputOffset(void)
  *
  *  \param e_gain Current sense amplifier gain setting
  */
-INLINE void CSACSC_setGain(tCSA_gain e_gain)
-{
+INLINE void CSACSC_setGain(tCSA_gain e_gain) {
   CSACSC->CTRL2.bit.GAIN_SEL = (uint8)e_gain;
 }
 
@@ -402,8 +363,7 @@ INLINE void CSACSC_setGain(tCSA_gain e_gain)
  *
  * \return tCSA_gain Current sense amplifier gain setting
  */
-INLINE tCSA_gain CSACSC_getGain(void)
-{
+INLINE tCSA_gain CSACSC_getGain(void) {
   /* Disable lint rules 9030 and 9034 locally, note about cast from uint to enum */
   //lint -e9030
   //lint -e9034
@@ -416,8 +376,7 @@ INLINE tCSA_gain CSACSC_getGain(void)
  *
  *  \param e_offset Current sense amplifier output offset setting
  */
-INLINE void CSACSC_setOffset(tCSA_offset e_offset)
-{
+INLINE void CSACSC_setOffset(tCSA_offset e_offset) {
   CSACSC->CTRL2.bit.OFFS_SEL = (uint8)e_offset;
 }
 
@@ -425,8 +384,7 @@ INLINE void CSACSC_setOffset(tCSA_offset e_offset)
  *
  * \return tCSA_offset Current sense amplifier output offset setting
  */
-INLINE tCSA_offset CSACSC_getOffset(void)
-{
+INLINE tCSA_offset CSACSC_getOffset(void) {
   /* Disable lint rules 9030 and 9034 locally, note about cast from uint to enum */
   //lint -e9030
   //lint -e9034
@@ -439,8 +397,7 @@ INLINE tCSA_offset CSACSC_getOffset(void)
  *
  *  \param u8_value Current sense output selection
  */
-INLINE void CSACSC_setVout(uint8 u8_value)
-{
+INLINE void CSACSC_setVout(uint8 u8_value) {
   CSACSC->CTRL2.bit.VOUT_SEL = u8_value;
 }
 
@@ -448,8 +405,7 @@ INLINE void CSACSC_setVout(uint8 u8_value)
  *
  * \return uint8 Current sense output selection
  */
-INLINE uint8 CSACSC_getVout(void)
-{
+INLINE uint8 CSACSC_getVout(void) {
   return (uint8)CSACSC->CTRL2.bit.VOUT_SEL;
 }
 
@@ -457,8 +413,7 @@ INLINE uint8 CSACSC_getVout(void)
  *
  *  \param u8_value Current sense comparator threshold setting
  */
-INLINE void CSACSC_setThreshold(uint8 u8_value)
-{
+INLINE void CSACSC_setThreshold(uint8 u8_value) {
   CSACSC->CTRL2.bit.THR_SEL = u8_value;
 }
 
@@ -466,8 +421,7 @@ INLINE void CSACSC_setThreshold(uint8 u8_value)
  *
  * \return uint8 Current sense comparator threshold setting
  */
-INLINE uint8 CSACSC_getThreshold(void)
-{
+INLINE uint8 CSACSC_getThreshold(void) {
   return (uint8)CSACSC->CTRL2.bit.THR_SEL;
 }
 
@@ -475,8 +429,7 @@ INLINE uint8 CSACSC_getThreshold(void)
  *
  *  \param u8_value Filter time for current sense comparator
  */
-INLINE void CSACSC_setFilterTime(uint8 u8_value)
-{
+INLINE void CSACSC_setFilterTime(uint8 u8_value) {
   CSACSC->CTRL2.bit.TFILT_SEL = u8_value;
 }
 
@@ -484,57 +437,49 @@ INLINE void CSACSC_setFilterTime(uint8 u8_value)
  *
  * \return uint8 Filter time for current sense comparator
  */
-INLINE uint8 CSACSC_getFilterTime(void)
-{
+INLINE uint8 CSACSC_getFilterTime(void) {
   return (uint8)CSACSC->CTRL2.bit.TFILT_SEL;
 }
 
 /** \brief Clear Overcurrent event interrupt status clear
  */
-INLINE void CSACSC_clrOverCurrIntSts(void)
-{
+INLINE void CSACSC_clrOverCurrIntSts(void) {
   CSACSC->IRQCLR.bit.CSC_OC_ISC = 1u;
 }
 
 /** \brief Clear CSA minimum gain or offset selection error interrupt status clear
  */
-INLINE void CSACSC_clrParamErrorIntSts(void)
-{
+INLINE void CSACSC_clrParamErrorIntSts(void) {
   CSACSC->IRQCLR.bit.SEL_ERR_ISC = 1u;
 }
 
 /** \brief Clear Overcurrent event status clear
  */
-INLINE void CSACSC_clrOverCurrSts(void)
-{
+INLINE void CSACSC_clrOverCurrSts(void) {
   CSACSC->IRQCLR.bit.CSC_OC_SC = 1u;
 }
 
 /** \brief Enable Overcurrent event interrupt enable
  */
-INLINE void CSACSC_enOverCurrInt(void)
-{
+INLINE void CSACSC_enOverCurrInt(void) {
   CSACSC->IRQEN.bit.CSC_OC_IEN = 1u;
 }
 
 /** \brief Disable Overcurrent event interrupt enable
  */
-INLINE void CSACSC_disOverCurrInt(void)
-{
+INLINE void CSACSC_disOverCurrInt(void) {
   CSACSC->IRQEN.bit.CSC_OC_IEN = 0u;
 }
 
 /** \brief Enable CSA minimum gain or offset selection error interrupt enable
  */
-INLINE void CSACSC_enParamErrorInt(void)
-{
+INLINE void CSACSC_enParamErrorInt(void) {
   CSACSC->IRQEN.bit.SEL_ERR_IEN = 1u;
 }
 
 /** \brief Disable CSA minimum gain or offset selection error interrupt enable
  */
-INLINE void CSACSC_disParamErrorInt(void)
-{
+INLINE void CSACSC_disParamErrorInt(void) {
   CSACSC->IRQEN.bit.SEL_ERR_IEN = 0u;
 }
 
@@ -542,8 +487,7 @@ INLINE void CSACSC_disParamErrorInt(void)
  *
  * \return uint8 Overcurrent event interrupt status
  */
-INLINE uint8 CSACSC_getOverCurrIntSts(void)
-{
+INLINE uint8 CSACSC_getOverCurrIntSts(void) {
   return (uint8)CSACSC->IRQS.bit.CSC_OC_IS;
 }
 
@@ -551,8 +495,7 @@ INLINE uint8 CSACSC_getOverCurrIntSts(void)
  *
  * \return uint8 CSA minimum gain or offset selection error interrupt status
  */
-INLINE uint8 CSACSC_getParamErrorIntSts(void)
-{
+INLINE uint8 CSACSC_getParamErrorIntSts(void) {
   return (uint8)CSACSC->IRQS.bit.SEL_ERR_IS;
 }
 
@@ -560,8 +503,7 @@ INLINE uint8 CSACSC_getParamErrorIntSts(void)
  *
  * \return uint8 Overcurrent event status
  */
-INLINE uint8 CSACSC_getOverCurrSts(void)
-{
+INLINE uint8 CSACSC_getOverCurrSts(void) {
   return (uint8)CSACSC->IRQS.bit.CSC_OC_STS;
 }
 
@@ -569,8 +511,7 @@ INLINE uint8 CSACSC_getOverCurrSts(void)
  *
  * \return uint8 Overcurrent comparator output
  */
-INLINE uint8 CSACSC_getOverCurrCmpOut(void)
-{
+INLINE uint8 CSACSC_getOverCurrCmpOut(void) {
   return (uint8)CSACSC->IRQS.bit.CSC_OC_OUT;
 }
 
@@ -578,8 +519,7 @@ INLINE uint8 CSACSC_getOverCurrCmpOut(void)
  *
  * \return uint8 CSC built-in self test status
  */
-INLINE uint8 CSACSC_getBistSts(void)
-{
+INLINE uint8 CSACSC_getBistSts(void) {
   return (uint8)CSACSC->IRQS.bit.CSC_BIST_STS;
 }
 

@@ -1,0 +1,144 @@
+/*
+ ***********************************************************************************************************************
+ *
+ * Copyright (c) Infineon Technologies AG
+ * All rights reserved.
+ *
+ * The applicable license agreement can be found at this pack's installation directory in the file
+ * license/IFX_SW_Licence_MOTIX_LITIX.txt
+ *
+ **********************************************************************************************************************/
+/**
+ * \file     cmsis_misra.h
+ *
+ * \brief    CMSIS Intrinsics access
+ *
+ * \version  V0.2.5
+ * \date     05. Nov 2024
+ *
+ * \note This file violates [MISRA Rule 20] and [MISRA Rule 71]
+ */
+
+/*******************************************************************************
+**                             Author(s) Identity                             **
+********************************************************************************
+** Initials     Name                                                          **
+** ---------------------------------------------------------------------------**
+** DM           Daniel Mysliwitz                                              **
+** BG           Blandine Guillot                                              **
+** JO           Julia Ott                                                     **
+*******************************************************************************/
+
+/*******************************************************************************
+**                          Revision Control History                          **
+********************************************************************************
+** V0.1.0: 2018-06-13, DM:   Initial version                                  **
+** V0.1.1: 2019-04-18, JO:   Modified CMSIS_Irq_Dis to be ARM GCC compliant   **
+** V0.2.0: 2020-04-28, BG:   Added SEV function                               **
+**                           Updated revision history format                  **
+** V0.2.1: 2021-05-20, JO:   EP-821: Updated CMSIS_Irq_Dis to prevent         **
+**                           compiler warning                                 **
+** V0.2.2: 2021-07-07, JO:   EP-783: Added CMSIS_SEV for TESTING condition    **
+** V0.2.3: 2021-07-30, BG:   EP-877: Corrected CMSIS_Irq_Dis to prevent       **
+**                           ARMCC v6 compiler error                          **
+** V0.2.4: 2021-11-12, JO:   EP-937: Updated copyright and branding           **
+** V0.2.5: 2024-11-05, JO:   EP-1494: Updated license                         **
+*******************************************************************************/
+
+#ifndef _CMSIS_MISRA_H
+#define _CMSIS_MISRA_H
+
+/*******************************************************************************
+**                                  Includes                                  **
+*******************************************************************************/
+#include "types.h"
+#include "core_cm3.h"
+
+/*******************************************************************************
+**                           Unit Test Declarations                           **
+*******************************************************************************/
+
+#if defined(TESTING) || defined(UNIT_TESTING_LV2)
+
+sint32 CMSIS_Irq_Dis(void);
+void CMSIS_Irq_En(void);
+void CMSIS_NOP(void);
+void CMSIS_WFE(void);
+void CMSIS_SEV(void);
+
+#else
+
+/*******************************************************************************
+**                     Global Inline Function Declarations                    **
+*******************************************************************************/
+
+/** \brief Access to the CMSIS intrinsic __disable_irq().
+ *  \note This function violates [MISRA Rule 20] and [MISRA Rule 71]
+ */
+INLINE sint32 CMSIS_Irq_Dis(void);
+
+/** \brief Access to the CMSIS intrinsic __enable_irq().
+ *  \note This function violates [MISRA Rule 20] and [MISRA Rule 71]
+ */
+INLINE void CMSIS_Irq_En(void);
+
+/** \brief Access to the CMSIS intrinsic __NOP().
+ *  \note This function violates [MISRA Rule 20] and [MISRA Rule 71]
+ */
+INLINE void CMSIS_NOP(void);
+
+/** \brief Access to the CMSIS intrinsic __WFE().
+ *  \note This function violates [MISRA Rule 20] and [MISRA Rule 71]
+ */
+INLINE void CMSIS_WFE(void);
+
+/** \brief Access to the CMSIS intrinsic __SEV().
+ *  \note This function violates [MISRA Rule 20] and [MISRA Rule 71]
+ */
+INLINE void CMSIS_SEV(void);
+
+
+/*******************************************************************************
+**                     Global Inline Function Definitions                     **
+*******************************************************************************/
+
+INLINE sint32 CMSIS_Irq_Dis(void)
+{
+  /* violation: Symbol '__disable_irq' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
+  /* violation: call to function '__disable_irq()' not made in the presence of a prototype [MISRA Rule 71] */
+  __disable_irq();
+  return 0;
+}
+
+INLINE void CMSIS_Irq_En(void)
+{
+  /* violation: Symbol '__enable_irq' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
+  /* violation: call to function '__enable_irq()' not made in the presence of a prototype [MISRA Rule 71] */
+  __enable_irq();
+}
+
+INLINE void CMSIS_NOP(void)
+{
+  /* violation: Symbol '__nop' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
+  /* violation: call to function '__nop()' not made in the presence of a prototype [MISRA Rule 71] */
+  __NOP();
+}
+
+INLINE void CMSIS_WFE(void)
+{
+  /* violation: Symbol '__wfe' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
+  /* violation: call to function '__wfe()' not made in the presence of a prototype [MISRA Rule 71] */
+  __WFE();
+}
+
+INLINE void CMSIS_SEV(void)
+{
+  /* violation: Symbol '__sev' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
+  /* violation: call to function '__sev()' not made in the presence of a prototype [MISRA Rule 71] */
+  __SEV();
+}
+
+#endif
+
+
+#endif /*_CMSIS_MISRA_H*/

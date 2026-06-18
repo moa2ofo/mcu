@@ -76,11 +76,10 @@
 *******************************************************************************/
 
 #include "isr.h"
-#include "types.h"
+#include "isr_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
-#include "isr_defines.h"
-
+#include "types.h"
 
 /*******************************************************************************
 **                          Global Macro Declarations                         **
@@ -122,670 +121,668 @@
 #define T21_INP_NVIC_IRQ31 0
 
 #ifndef SCU_NMICON_NMIXTALEN_NMI_EN
-  #define SCU_NMICON_NMIXTALEN_NMI_EN 0
+#define SCU_NMICON_NMIXTALEN_NMI_EN 0
 #endif
 #ifndef SCU_NMICON_NMIPLL0EN_NMI_EN
-  #define SCU_NMICON_NMIPLL0EN_NMI_EN 0
+#define SCU_NMICON_NMIPLL0EN_NMI_EN 0
 #endif
 #ifndef SCU_NMICON_NMIPLL1EN_NMI_EN
-  #define SCU_NMICON_NMIPLL1EN_NMI_EN 0
+#define SCU_NMICON_NMIPLL1EN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMIDSEN_NMI_EN
-  #define MEMCTRL_NMICON_NMIDSEN_NMI_EN 0
+#define MEMCTRL_NMICON_NMIDSEN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMIPSEN_NMI_EN
-  #define MEMCTRL_NMICON_NMIPSEN_NMI_EN 0
+#define MEMCTRL_NMICON_NMIPSEN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMICDEN_NMI_EN
-  #define MEMCTRL_NMICON_NMICDEN_NMI_EN 0
+#define MEMCTRL_NMICON_NMICDEN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMINVM0EN_NMI_EN
-  #define MEMCTRL_NMICON_NMINVM0EN_NMI_EN 0
+#define MEMCTRL_NMICON_NMINVM0EN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMINVM1EN_NMI_EN
-  #define MEMCTRL_NMICON_NMINVM1EN_NMI_EN 0
+#define MEMCTRL_NMICON_NMINVM1EN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMIMAP0EN_NMI_EN
-  #define MEMCTRL_NMICON_NMIMAP0EN_NMI_EN 0
+#define MEMCTRL_NMICON_NMIMAP0EN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMIMAP1EN_NMI_EN
-  #define MEMCTRL_NMICON_NMIMAP1EN_NMI_EN 0
+#define MEMCTRL_NMICON_NMIMAP1EN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMIWDTEN_NMI_EN
-  #define MEMCTRL_NMICON_NMIWDTEN_NMI_EN 0
+#define MEMCTRL_NMICON_NMIWDTEN_NMI_EN 0
 #endif
 #ifndef MEMCTRL_NMICON_NMISTOFEN_NMI_EN
-  #define MEMCTRL_NMICON_NMISTOFEN_NMI_EN 0
+#define MEMCTRL_NMICON_NMISTOFEN_NMI_EN 0
 #endif
 #ifndef ADC2_UPTH0_INT_EN
-  #define ADC2_UPTH0_INT_EN 0
+#define ADC2_UPTH0_INT_EN 0
 #endif
 #ifndef ADC2_LOTH0_INT_EN
-  #define ADC2_LOTH0_INT_EN 0
+#define ADC2_LOTH0_INT_EN 0
 #endif
 #ifndef ADC2_LOTH1_INT_EN
-  #define ADC2_LOTH1_INT_EN 0
+#define ADC2_LOTH1_INT_EN 0
 #endif
 #ifndef ADC2_UPTH2_INT_EN
-  #define ADC2_UPTH2_INT_EN 0
+#define ADC2_UPTH2_INT_EN 0
 #endif
 #ifndef ADC2_LOTH2_INT_EN
-  #define ADC2_LOTH2_INT_EN 0
+#define ADC2_LOTH2_INT_EN 0
 #endif
 #ifndef ADC2_LOTH3_INT_EN
-  #define ADC2_LOTH3_INT_EN 0
+#define ADC2_LOTH3_INT_EN 0
 #endif
 #ifndef ADC2_UPTH4_INT_EN
-  #define ADC2_UPTH4_INT_EN 0
+#define ADC2_UPTH4_INT_EN 0
 #endif
 #ifndef CANTRX_BUS_TO_INT_EN
-  #define CANTRX_BUS_TO_INT_EN 0
+#define CANTRX_BUS_TO_INT_EN 0
 #endif
 #ifndef CANTRX_TXD_TO_INT_EN
-  #define CANTRX_TXD_TO_INT_EN 0
+#define CANTRX_TXD_TO_INT_EN 0
 #endif
 #ifndef CANTRX_OT_INT_EN
-  #define CANTRX_OT_INT_EN 0
+#define CANTRX_OT_INT_EN 0
 #endif
 #ifndef CANTRX_BUS_ACT_INT_EN
-  #define CANTRX_BUS_ACT_INT_EN 0
+#define CANTRX_BUS_ACT_INT_EN 0
 #endif
 #ifndef BDRV_LS1_OC_INT_EN
-  #define BDRV_LS1_OC_INT_EN 0
+#define BDRV_LS1_OC_INT_EN 0
 #endif
 #ifndef BDRV_LS1_DS_INT_EN
-  #define BDRV_LS1_DS_INT_EN 0
+#define BDRV_LS1_DS_INT_EN 0
 #endif
 #ifndef BDRV_HS1_OC_INT_EN
-  #define BDRV_HS1_OC_INT_EN 0
+#define BDRV_HS1_OC_INT_EN 0
 #endif
 #ifndef BDRV_HS1_DS_INT_EN
-  #define BDRV_HS1_DS_INT_EN 0
+#define BDRV_HS1_DS_INT_EN 0
 #endif
 #ifndef BDRV_LS2_OC_INT_EN
-  #define BDRV_LS2_OC_INT_EN 0
+#define BDRV_LS2_OC_INT_EN 0
 #endif
 #ifndef BDRV_LS2_DS_INT_EN
-  #define BDRV_LS2_DS_INT_EN 0
+#define BDRV_LS2_DS_INT_EN 0
 #endif
 #ifndef BDRV_HS2_OC_INT_EN
-  #define BDRV_HS2_OC_INT_EN 0
+#define BDRV_HS2_OC_INT_EN 0
 #endif
 #ifndef BDRV_HS2_DS_INT_EN
-  #define BDRV_HS2_DS_INT_EN 0
+#define BDRV_HS2_DS_INT_EN 0
 #endif
 #ifndef BDRV_LS3_OC_INT_EN
-  #define BDRV_LS3_OC_INT_EN 0
+#define BDRV_LS3_OC_INT_EN 0
 #endif
 #ifndef BDRV_LS3_DS_INT_EN
-  #define BDRV_LS3_DS_INT_EN 0
+#define BDRV_LS3_DS_INT_EN 0
 #endif
 #ifndef BDRV_HS3_OC_INT_EN
-  #define BDRV_HS3_OC_INT_EN 0
+#define BDRV_HS3_OC_INT_EN 0
 #endif
 #ifndef BDRV_HS3_DS_INT_EN
-  #define BDRV_HS3_DS_INT_EN 0
+#define BDRV_HS3_DS_INT_EN 0
 #endif
 #ifndef BDRV_HB1_ASEQ_INT_EN
-  #define BDRV_HB1_ASEQ_INT_EN 0
+#define BDRV_HB1_ASEQ_INT_EN 0
 #endif
 #ifndef BDRV_HB2_ASEQ_INT_EN
-  #define BDRV_HB2_ASEQ_INT_EN 0
+#define BDRV_HB2_ASEQ_INT_EN 0
 #endif
 #ifndef BDRV_HB3_ASEQ_INT_EN
-  #define BDRV_HB3_ASEQ_INT_EN 0
+#define BDRV_HB3_ASEQ_INT_EN 0
 #endif
 #ifndef BDRV_SEQ_ERR_INT_EN
-  #define BDRV_SEQ_ERR_INT_EN 0
+#define BDRV_SEQ_ERR_INT_EN 0
 #endif
 #ifndef BDRV_HB1_ACTDRV_INT_EN
-  #define BDRV_HB1_ACTDRV_INT_EN 0
+#define BDRV_HB1_ACTDRV_INT_EN 0
 #endif
 #ifndef BDRV_HB2_ACTDRV_INT_EN
-  #define BDRV_HB2_ACTDRV_INT_EN 0
+#define BDRV_HB2_ACTDRV_INT_EN 0
 #endif
 #ifndef BDRV_HB3_ACTDRV_INT_EN
-  #define BDRV_HB3_ACTDRV_INT_EN 0
+#define BDRV_HB3_ACTDRV_INT_EN 0
 #endif
 #ifndef BDRV_VCP_LOTH2_INT_EN
-  #define BDRV_VCP_LOTH2_INT_EN 0
+#define BDRV_VCP_LOTH2_INT_EN 0
 #endif
 #ifndef CSACSC_OC_INT_EN
-  #define CSACSC_OC_INT_EN 0
+#define CSACSC_OC_INT_EN 0
 #endif
 #ifndef CSACSC_PARAM_INT_EN
-  #define CSACSC_PARAM_INT_EN 0
+#define CSACSC_PARAM_INT_EN 0
 #endif
 #ifndef PMU_VDDP_UVWARN_INT_EN
-  #define PMU_VDDP_UVWARN_INT_EN 0
+#define PMU_VDDP_UVWARN_INT_EN 0
 #endif
 #ifndef PMU_VDDP_OV_INT_EN
-  #define PMU_VDDP_OV_INT_EN 0
+#define PMU_VDDP_OV_INT_EN 0
 #endif
 #ifndef PMU_VDDC_UVWARN_INT_EN
-  #define PMU_VDDC_UVWARN_INT_EN 0
+#define PMU_VDDC_UVWARN_INT_EN 0
 #endif
 #ifndef PMU_VDDC_OV_INT_EN
-  #define PMU_VDDC_OV_INT_EN 0
+#define PMU_VDDC_OV_INT_EN 0
 #endif
 #ifndef PMU_VDDEXT_UV_INT_EN
-  #define PMU_VDDEXT_UV_INT_EN 0
+#define PMU_VDDEXT_UV_INT_EN 0
 #endif
 #ifndef PMU_VDDEXT_OT_INT_EN
-  #define PMU_VDDEXT_OT_INT_EN 0
+#define PMU_VDDEXT_OT_INT_EN 0
 #endif
 #ifndef ARVG_VAREF_OC_INT_EN
-  #define ARVG_VAREF_OC_INT_EN 0
+#define ARVG_VAREF_OC_INT_EN 0
 #endif
 #ifndef CCU7_T12_OM_INT_EN
-  #define CCU7_T12_OM_INT_EN 0
+#define CCU7_T12_OM_INT_EN 0
 #endif
 #ifndef CCU7_T12_PM_INT_EN
-  #define CCU7_T12_PM_INT_EN 0
+#define CCU7_T12_PM_INT_EN 0
 #endif
 #ifndef CCU7_T13_CM_INT_EN
-  #define CCU7_T13_CM_INT_EN 0
+#define CCU7_T13_CM_INT_EN 0
 #endif
 #ifndef CCU7_T13_PM_INT_EN
-  #define CCU7_T13_PM_INT_EN 0
+#define CCU7_T13_PM_INT_EN 0
 #endif
 #ifndef CCU7_T14_CM_INT_EN
-  #define CCU7_T14_CM_INT_EN 0
+#define CCU7_T14_CM_INT_EN 0
 #endif
 #ifndef CCU7_T14_PM_INT_EN
-  #define CCU7_T14_PM_INT_EN 0
+#define CCU7_T14_PM_INT_EN 0
 #endif
 #ifndef CCU7_T15_CM_INT_EN
-  #define CCU7_T15_CM_INT_EN 0
+#define CCU7_T15_CM_INT_EN 0
 #endif
 #ifndef CCU7_T15_PM_INT_EN
-  #define CCU7_T15_PM_INT_EN 0
+#define CCU7_T15_PM_INT_EN 0
 #endif
 #ifndef CCU7_T16_CM_INT_EN
-  #define CCU7_T16_CM_INT_EN 0
+#define CCU7_T16_CM_INT_EN 0
 #endif
 #ifndef CCU7_T16_PM_INT_EN
-  #define CCU7_T16_PM_INT_EN 0
+#define CCU7_T16_PM_INT_EN 0
 #endif
 #ifndef CCU7_CC70A_CM_R_INT_EN
-  #define CCU7_CC70A_CM_R_INT_EN 0
+#define CCU7_CC70A_CM_R_INT_EN 0
 #endif
 #ifndef CCU7_CC70A_CM_F_INT_EN
-  #define CCU7_CC70A_CM_F_INT_EN 0
+#define CCU7_CC70A_CM_F_INT_EN 0
 #endif
 #ifndef CCU7_CC71A_CM_R_INT_EN
-  #define CCU7_CC71A_CM_R_INT_EN 0
+#define CCU7_CC71A_CM_R_INT_EN 0
 #endif
 #ifndef CCU7_CC71A_CM_F_INT_EN
-  #define CCU7_CC71A_CM_F_INT_EN 0
+#define CCU7_CC71A_CM_F_INT_EN 0
 #endif
 #ifndef CCU7_CC71A_CM_R_INT_EN
-  #define CCU7_CC71A_CM_R_INT_EN 0
+#define CCU7_CC71A_CM_R_INT_EN 0
 #endif
 #ifndef CCU7_CC71A_CM_F_INT_EN
-  #define CCU7_CC71A_CM_F_INT_EN 0
+#define CCU7_CC71A_CM_F_INT_EN 0
 #endif
 #ifndef CCU7_C70B_CM_R_INT_EN
-  #define CCU7_C70B_CM_R_INT_EN 0
+#define CCU7_C70B_CM_R_INT_EN 0
 #endif
 #ifndef CCU7_C70B_CM_F_INT_EN
-  #define CCU7_C70B_CM_F_INT_EN 0
+#define CCU7_C70B_CM_F_INT_EN 0
 #endif
 #ifndef CCU7_C71B_CM_R_INT_EN
-  #define CCU7_C71B_CM_R_INT_EN 0
+#define CCU7_C71B_CM_R_INT_EN 0
 #endif
 #ifndef CCU7_C71B_CM_F_INT_EN
-  #define CCU7_C71B_CM_F_INT_EN 0
+#define CCU7_C71B_CM_F_INT_EN 0
 #endif
 #ifndef CCU7_C72B_CM_R_INT_EN
-  #define CCU7_C72B_CM_R_INT_EN 0
+#define CCU7_C72B_CM_R_INT_EN 0
 #endif
 #ifndef CCU7_C72B_CM_F_INT_EN
-  #define CCU7_C72B_CM_F_INT_EN 0
+#define CCU7_C72B_CM_F_INT_EN 0
 #endif
 #ifndef CCU7_TRAP_INT_EN
-  #define CCU7_TRAP_INT_EN 0
+#define CCU7_TRAP_INT_EN 0
 #endif
 #ifndef CCU7_CORRECT_HALL_INT_EN
-  #define CCU7_CORRECT_HALL_INT_EN 0
+#define CCU7_CORRECT_HALL_INT_EN 0
 #endif
 #ifndef CCU7_WRONG_HALL_INT_EN
-  #define CCU7_WRONG_HALL_INT_EN 0
+#define CCU7_WRONG_HALL_INT_EN 0
 #endif
 #ifndef CCU7_MCM_STR_INT_EN
-  #define CCU7_MCM_STR_INT_EN 0
+#define CCU7_MCM_STR_INT_EN 0
 #endif
 #ifndef CCU7_LI_INT_EN
-  #define CCU7_LI_INT_EN 0
+#define CCU7_LI_INT_EN 0
 #endif
 #ifndef MEMCTRL_NVM0_OP_COMPLETE_INT_EN
-  #define MEMCTRL_NVM0_OP_COMPLETE_INT_EN 0
+#define MEMCTRL_NVM0_OP_COMPLETE_INT_EN 0
 #endif
 #ifndef MEMCTRL_NVM1_OP_COMPLETE_INT_EN
-  #define MEMCTRL_NVM1_OP_COMPLETE_INT_EN 0
+#define MEMCTRL_NVM1_OP_COMPLETE_INT_EN 0
 #endif
 #ifndef GPT12_GPT1T2_INT_EN
-  #define GPT12_GPT1T2_INT_EN 0
+#define GPT12_GPT1T2_INT_EN 0
 #endif
 #ifndef GPT12_GPT1T3_INT_EN
-  #define GPT12_GPT1T3_INT_EN 0
+#define GPT12_GPT1T3_INT_EN 0
 #endif
 #ifndef GPT12_GPT1T4_INT_EN
-  #define GPT12_GPT1T4_INT_EN 0
+#define GPT12_GPT1T4_INT_EN 0
 #endif
 #ifndef GPT12_GPT2T5_INT_EN
-  #define GPT12_GPT2T5_INT_EN 0
+#define GPT12_GPT2T5_INT_EN 0
 #endif
 #ifndef GPT12_GPT2T6_INT_EN
-  #define GPT12_GPT2T6_INT_EN 0
+#define GPT12_GPT2T6_INT_EN 0
 #endif
 #ifndef GPT12_GPT2CAPREL_INT_EN
-  #define GPT12_GPT2CAPREL_INT_EN 0
+#define GPT12_GPT2CAPREL_INT_EN 0
 #endif
 #ifndef ADC2_CH0_INT_EN
-  #define ADC2_CH0_INT_EN 0
+#define ADC2_CH0_INT_EN 0
 #endif
 #ifndef ADC2_CH1_INT_EN
-  #define ADC2_CH1_INT_EN 0
+#define ADC2_CH1_INT_EN 0
 #endif
 #ifndef ADC2_CH2_INT_EN
-  #define ADC2_CH2_INT_EN 0
+#define ADC2_CH2_INT_EN 0
 #endif
 #ifndef ADC2_CH3_INT_EN
-  #define ADC2_CH3_INT_EN 0
+#define ADC2_CH3_INT_EN 0
 #endif
 #ifndef ADC2_CH4_INT_EN
-  #define ADC2_CH4_INT_EN 0
+#define ADC2_CH4_INT_EN 0
 #endif
 #ifndef ADC2_CH5_INT_EN
-  #define ADC2_CH5_INT_EN 0
+#define ADC2_CH5_INT_EN 0
 #endif
 #ifndef ADC2_CH6_INT_EN
-  #define ADC2_CH6_INT_EN 0
+#define ADC2_CH6_INT_EN 0
 #endif
 #ifndef ADC2_CH7_INT_EN
-  #define ADC2_CH7_INT_EN 0
+#define ADC2_CH7_INT_EN 0
 #endif
 #ifndef ADC2_CH8_INT_EN
-  #define ADC2_CH8_INT_EN 0
+#define ADC2_CH8_INT_EN 0
 #endif
 #ifndef ADC2_CH9_INT_EN
-  #define ADC2_CH9_INT_EN 0
+#define ADC2_CH9_INT_EN 0
 #endif
 #ifndef ADC2_CH10_INT_EN
-  #define ADC2_CH10_INT_EN 0
+#define ADC2_CH10_INT_EN 0
 #endif
 #ifndef ADC2_CH11_INT_EN
-  #define ADC2_CH11_INT_EN 0
+#define ADC2_CH11_INT_EN 0
 #endif
 #ifndef ADC2_CH12_INT_EN
-  #define ADC2_CH12_INT_EN 0
+#define ADC2_CH12_INT_EN 0
 #endif
 #ifndef ADC2_CH13_INT_EN
-  #define ADC2_CH13_INT_EN 0
+#define ADC2_CH13_INT_EN 0
 #endif
 #ifndef ADC2_CH14_INT_EN
-  #define ADC2_CH14_INT_EN 0
+#define ADC2_CH14_INT_EN 0
 #endif
 #ifndef ADC2_SQ0_INT_EN
-  #define ADC2_SQ0_INT_EN 0
+#define ADC2_SQ0_INT_EN 0
 #endif
 #ifndef ADC2_SQ1_INT_EN
-  #define ADC2_SQ1_INT_EN 0
+#define ADC2_SQ1_INT_EN 0
 #endif
 #ifndef ADC2_SQ2_INT_EN
-  #define ADC2_SQ2_INT_EN 0
+#define ADC2_SQ2_INT_EN 0
 #endif
 #ifndef ADC2_SQ3_INT_EN
-  #define ADC2_SQ3_INT_EN 0
+#define ADC2_SQ3_INT_EN 0
 #endif
 #ifndef ADC2_LOTH0_INT_EN
-  #define ADC2_LOTH0_INT_EN 0
+#define ADC2_LOTH0_INT_EN 0
 #endif
 #ifndef ADC2_LOTH1_INT_EN
-  #define ADC2_LOTH1_INT_EN 0
+#define ADC2_LOTH1_INT_EN 0
 #endif
 #ifndef ADC2_LOTH2_INT_EN
-  #define ADC2_LOTH2_INT_EN 0
+#define ADC2_LOTH2_INT_EN 0
 #endif
 #ifndef ADC2_LOTH3_INT_EN
-  #define ADC2_LOTH3_INT_EN 0
+#define ADC2_LOTH3_INT_EN 0
 #endif
 #ifndef ADC2_LOTH4_INT_EN
-  #define ADC2_LOTH4_INT_EN 0
+#define ADC2_LOTH4_INT_EN 0
 #endif
 #ifndef ADC2_LOTH5_INT_EN
-  #define ADC2_LOTH5_INT_EN 0
+#define ADC2_LOTH5_INT_EN 0
 #endif
 #ifndef ADC2_LOTH6_INT_EN
-  #define ADC2_LOTH6_INT_EN 0
+#define ADC2_LOTH6_INT_EN 0
 #endif
 #ifndef ADC2_LOTH7_INT_EN
-  #define ADC2_LOTH7_INT_EN 0
+#define ADC2_LOTH7_INT_EN 0
 #endif
 #ifndef ADC2_UPTH0_INT_EN
-  #define ADC2_UPTH0_INT_EN 0
+#define ADC2_UPTH0_INT_EN 0
 #endif
 #ifndef ADC2_UPTH1_INT_EN
-  #define ADC2_UPTH1_INT_EN 0
+#define ADC2_UPTH1_INT_EN 0
 #endif
 #ifndef ADC2_UPTH2_INT_EN
-  #define ADC2_UPTH2_INT_EN 0
+#define ADC2_UPTH2_INT_EN 0
 #endif
 #ifndef ADC2_UPTH3_INT_EN
-  #define ADC2_UPTH3_INT_EN 0
+#define ADC2_UPTH3_INT_EN 0
 #endif
 #ifndef ADC2_UPTH4_INT_EN
-  #define ADC2_UPTH4_INT_EN 0
+#define ADC2_UPTH4_INT_EN 0
 #endif
 #ifndef ADC2_UPTH5_INT_EN
-  #define ADC2_UPTH5_INT_EN 0
+#define ADC2_UPTH5_INT_EN 0
 #endif
 #ifndef ADC2_UPTH6_INT_EN
-  #define ADC2_UPTH6_INT_EN 0
+#define ADC2_UPTH6_INT_EN 0
 #endif
 #ifndef ADC2_UPTH7_INT_EN
-  #define ADC2_UPTH7_INT_EN 0
+#define ADC2_UPTH7_INT_EN 0
 #endif
 #ifndef MON_MON1_R_INT_EN
-  #define MON_MON1_R_INT_EN 0
+#define MON_MON1_R_INT_EN 0
 #endif
 #ifndef MON_MON1_F_INT_EN
-  #define MON_MON1_F_INT_EN 0
+#define MON_MON1_F_INT_EN 0
 #endif
 #ifndef MON_MON2_R_INT_EN
-  #define MON_MON2_R_INT_EN 0
+#define MON_MON2_R_INT_EN 0
 #endif
 #ifndef MON_MON2_F_INT_EN
-  #define MON_MON2_F_INT_EN 0
+#define MON_MON2_F_INT_EN 0
 #endif
 #ifndef MON_MON3_R_INT_EN
-  #define MON_MON3_R_INT_EN 0
+#define MON_MON3_R_INT_EN 0
 #endif
 #ifndef MON_MON3_F_INT_EN
-  #define MON_MON3_F_INT_EN 0
+#define MON_MON3_F_INT_EN 0
 #endif
 #ifndef ADC1_CH0_INT_EN
-  #define ADC1_CH0_INT_EN 0
+#define ADC1_CH0_INT_EN 0
 #endif
 #ifndef ADC1_CH1_INT_EN
-  #define ADC1_CH1_INT_EN 0
+#define ADC1_CH1_INT_EN 0
 #endif
 #ifndef ADC1_CH2_INT_EN
-  #define ADC1_CH2_INT_EN 0
+#define ADC1_CH2_INT_EN 0
 #endif
 #ifndef ADC1_CH3_INT_EN
-  #define ADC1_CH3_INT_EN 0
+#define ADC1_CH3_INT_EN 0
 #endif
 #ifndef ADC1_CH4_INT_EN
-  #define ADC1_CH4_INT_EN 0
+#define ADC1_CH4_INT_EN 0
 #endif
 #ifndef ADC1_CH5_INT_EN
-  #define ADC1_CH5_INT_EN 0
+#define ADC1_CH5_INT_EN 0
 #endif
 #ifndef ADC1_CH6_INT_EN
-  #define ADC1_CH6_INT_EN 0
+#define ADC1_CH6_INT_EN 0
 #endif
 #ifndef ADC1_CH7_INT_EN
-  #define ADC1_CH7_INT_EN 0
+#define ADC1_CH7_INT_EN 0
 #endif
 #ifndef ADC1_CH8_INT_EN
-  #define ADC1_CH8_INT_EN 0
+#define ADC1_CH8_INT_EN 0
 #endif
 #ifndef ADC1_CH9_INT_EN
-  #define ADC1_CH9_INT_EN 0
+#define ADC1_CH9_INT_EN 0
 #endif
 #ifndef ADC1_CH10_INT_EN
-  #define ADC1_CH10_INT_EN 0
+#define ADC1_CH10_INT_EN 0
 #endif
 #ifndef ADC1_CH11_INT_EN
-  #define ADC1_CH11_INT_EN 0
+#define ADC1_CH11_INT_EN 0
 #endif
 #ifndef ADC1_CH12_INT_EN
-  #define ADC1_CH12_INT_EN 0
+#define ADC1_CH12_INT_EN 0
 #endif
 #ifndef ADC1_CH13_INT_EN
-  #define ADC1_CH13_INT_EN 0
+#define ADC1_CH13_INT_EN 0
 #endif
 #ifndef ADC1_CH14_INT_EN
-  #define ADC1_CH14_INT_EN 0
+#define ADC1_CH14_INT_EN 0
 #endif
 #ifndef ADC1_CH15_INT_EN
-  #define ADC1_CH15_INT_EN 0
+#define ADC1_CH15_INT_EN 0
 #endif
 #ifndef ADC1_CH16_INT_EN
-  #define ADC1_CH16_INT_EN 0
+#define ADC1_CH16_INT_EN 0
 #endif
 #ifndef ADC1_CH17_INT_EN
-  #define ADC1_CH17_INT_EN 0
+#define ADC1_CH17_INT_EN 0
 #endif
 #ifndef ADC1_CH18_INT_EN
-  #define ADC1_CH18_INT_EN 0
+#define ADC1_CH18_INT_EN 0
 #endif
 #ifndef ADC1_CH19_INT_EN
-  #define ADC1_CH19_INT_EN 0
+#define ADC1_CH19_INT_EN 0
 #endif
 #ifndef ADC1_SQ0_INT_EN
-  #define ADC1_SQ0_INT_EN 0
+#define ADC1_SQ0_INT_EN 0
 #endif
 #ifndef ADC1_SQ1_INT_EN
-  #define ADC1_SQ1_INT_EN 0
+#define ADC1_SQ1_INT_EN 0
 #endif
 #ifndef ADC1_SQ2_INT_EN
-  #define ADC1_SQ2_INT_EN 0
+#define ADC1_SQ2_INT_EN 0
 #endif
 #ifndef ADC1_SQ3_INT_EN
-  #define ADC1_SQ3_INT_EN 0
+#define ADC1_SQ3_INT_EN 0
 #endif
 #ifndef ADC1_LOTH0_INT_EN
-  #define ADC1_LOTH0_INT_EN 0
+#define ADC1_LOTH0_INT_EN 0
 #endif
 #ifndef ADC1_LOTH1_INT_EN
-  #define ADC1_LOTH1_INT_EN 0
+#define ADC1_LOTH1_INT_EN 0
 #endif
 #ifndef ADC1_LOTH2_INT_EN
-  #define ADC1_LOTH2_INT_EN 0
+#define ADC1_LOTH2_INT_EN 0
 #endif
 #ifndef ADC1_LOTH3_INT_EN
-  #define ADC1_LOTH3_INT_EN 0
+#define ADC1_LOTH3_INT_EN 0
 #endif
 #ifndef ADC1_UPTH0_INT_EN
-  #define ADC1_UPTH0_INT_EN 0
+#define ADC1_UPTH0_INT_EN 0
 #endif
 #ifndef ADC1_UPTH1_INT_EN
-  #define ADC1_UPTH1_INT_EN 0
+#define ADC1_UPTH1_INT_EN 0
 #endif
 #ifndef ADC1_UPTH2_INT_EN
-  #define ADC1_UPTH2_INT_EN 0
+#define ADC1_UPTH2_INT_EN 0
 #endif
 #ifndef ADC1_UPTH3_INT_EN
-  #define ADC1_UPTH3_INT_EN 0
+#define ADC1_UPTH3_INT_EN 0
 #endif
 #ifndef ADC1_COLL0_INT_EN
-  #define ADC1_COLL0_INT_EN 0
+#define ADC1_COLL0_INT_EN 0
 #endif
 #ifndef ADC1_COLL1_INT_EN
-  #define ADC1_COLL1_INT_EN 0
+#define ADC1_COLL1_INT_EN 0
 #endif
 #ifndef ADC1_COLL2_INT_EN
-  #define ADC1_COLL2_INT_EN 0
+#define ADC1_COLL2_INT_EN 0
 #endif
 #ifndef ADC1_COLL3_INT_EN
-  #define ADC1_COLL3_INT_EN 0
+#define ADC1_COLL3_INT_EN 0
 #endif
 #ifndef ADC1_WFR0_INT_EN
-  #define ADC1_WFR0_INT_EN 0
+#define ADC1_WFR0_INT_EN 0
 #endif
 #ifndef ADC1_WFR1_INT_EN
-  #define ADC1_WFR1_INT_EN 0
+#define ADC1_WFR1_INT_EN 0
 #endif
 #ifndef ADC1_WFR2_INT_EN
-  #define ADC1_WFR2_INT_EN 0
+#define ADC1_WFR2_INT_EN 0
 #endif
 #ifndef ADC1_WFR3_INT_EN
-  #define ADC1_WFR3_INT_EN 0
+#define ADC1_WFR3_INT_EN 0
 #endif
 #ifndef BDRV_PH1_ZC_RISE_INT_EN
-  #define BDRV_PH1_ZC_RISE_INT_EN 0
+#define BDRV_PH1_ZC_RISE_INT_EN 0
 #endif
 #ifndef BDRV_PH1_ZC_FALL_INT_EN
-  #define BDRV_PH1_ZC_FALL_INT_EN 0
+#define BDRV_PH1_ZC_FALL_INT_EN 0
 #endif
 #ifndef BDRV_PH2_ZC_RISE_INT_EN
-  #define BDRV_PH2_ZC_RISE_INT_EN 0
+#define BDRV_PH2_ZC_RISE_INT_EN 0
 #endif
 #ifndef BDRV_PH2_ZC_FALL_INT_EN
-  #define BDRV_PH2_ZC_FALL_INT_EN 0
+#define BDRV_PH2_ZC_FALL_INT_EN 0
 #endif
 #ifndef BDRV_PH3_ZC_RISE_INT_EN
-  #define BDRV_PH3_ZC_RISE_INT_EN 0
+#define BDRV_PH3_ZC_RISE_INT_EN 0
 #endif
 #ifndef BDRV_PH3_ZC_FALL_INT_EN
-  #define BDRV_PH3_ZC_FALL_INT_EN 0
+#define BDRV_PH3_ZC_FALL_INT_EN 0
 #endif
 #ifndef SDADC_RES0_INT_EN
-  #define SDADC_RES0_INT_EN 0
+#define SDADC_RES0_INT_EN 0
 #endif
 #ifndef SDADC_CMP0_UP_INT_EN
-  #define SDADC_CMP0_UP_INT_EN 0
+#define SDADC_CMP0_UP_INT_EN 0
 #endif
 #ifndef SDADC_CMP0_LO_INT_EN
-  #define SDADC_CMP0_LO_INT_EN 0
+#define SDADC_CMP0_LO_INT_EN 0
 #endif
 #ifndef SDADC_RES1_INT_EN
-  #define SDADC_RES1_INT_EN 0
+#define SDADC_RES1_INT_EN 0
 #endif
 #ifndef SDADC_CMP1_UP_INT_EN
-  #define SDADC_CMP1_UP_INT_EN 0
+#define SDADC_CMP1_UP_INT_EN 0
 #endif
 #ifndef SDADC_CMP1_LO_INT_EN
-  #define SDADC_CMP1_LO_INT_EN 0
+#define SDADC_CMP1_LO_INT_EN 0
 #endif
 #ifndef SCU_EXTINT0_RISING_INT_EN
-  #define SCU_EXTINT0_RISING_INT_EN 0
+#define SCU_EXTINT0_RISING_INT_EN 0
 #endif
 #ifndef SCU_EXTINT0_FALLING_INT_EN
-  #define SCU_EXTINT0_FALLING_INT_EN 0
+#define SCU_EXTINT0_FALLING_INT_EN 0
 #endif
 #ifndef SCU_EXTINT1_RISING_INT_EN
-  #define SCU_EXTINT1_RISING_INT_EN 0
+#define SCU_EXTINT1_RISING_INT_EN 0
 #endif
 #ifndef SCU_EXTINT1_FALLING_INT_EN
-  #define SCU_EXTINT1_FALLING_INT_EN 0
+#define SCU_EXTINT1_FALLING_INT_EN 0
 #endif
 #ifndef SCU_EXTINT2_RISING_INT_EN
-  #define SCU_EXTINT2_RISING_INT_EN 0
+#define SCU_EXTINT2_RISING_INT_EN 0
 #endif
 #ifndef SCU_EXTINT2_FALLING_INT_EN
-  #define SCU_EXTINT2_FALLING_INT_EN 0
+#define SCU_EXTINT2_FALLING_INT_EN 0
 #endif
 #ifndef SCU_EXTINT3_RISING_INT_EN
-  #define SCU_EXTINT3_RISING_INT_EN 0
+#define SCU_EXTINT3_RISING_INT_EN 0
 #endif
 #ifndef SCU_EXTINT3_FALLING_INT_EN
-  #define SCU_EXTINT3_FALLING_INT_EN 0
+#define SCU_EXTINT3_FALLING_INT_EN 0
 #endif
 #ifndef UART0_TI_INT_EN
-  #define UART0_TI_INT_EN 0
+#define UART0_TI_INT_EN 0
 #endif
 #ifndef UART0_RI_INT_EN
-  #define UART0_RI_INT_EN 0
+#define UART0_RI_INT_EN 0
 #endif
 #ifndef UART0_EOS_INT_EN
-  #define UART0_EOS_INT_EN 0
+#define UART0_EOS_INT_EN 0
 #endif
 #ifndef UART0_SYNCERR_INT_EN
-  #define UART0_SYNCERR_INT_EN 0
+#define UART0_SYNCERR_INT_EN 0
 #endif
 #ifndef UART1_TI_INT_EN
-  #define UART1_TI_INT_EN 0
+#define UART1_TI_INT_EN 0
 #endif
 #ifndef UART1_RI_INT_EN
-  #define UART1_RI_INT_EN 0
+#define UART1_RI_INT_EN 0
 #endif
 #ifndef UART1_EOS_INT_EN
-  #define UART1_EOS_INT_EN 0
+#define UART1_EOS_INT_EN 0
 #endif
 #ifndef UART1_SYNCERR_INT_EN
-  #define UART1_SYNCERR_INT_EN 0
+#define UART1_SYNCERR_INT_EN 0
 #endif
 #ifndef SSC0_TI_INT_EN
-  #define SSC0_TI_INT_EN 0
+#define SSC0_TI_INT_EN 0
 #endif
 #ifndef SSC0_RI_INT_EN
-  #define SSC0_RI_INT_EN 0
+#define SSC0_RI_INT_EN 0
 #endif
 #ifndef SSC0_ERR_INT_EN
-  #define SSC0_ERR_INT_EN 0
+#define SSC0_ERR_INT_EN 0
 #endif
 #ifndef SSC0_ERR_INT_EN
-  #define SSC0_ERR_INT_EN 0
+#define SSC0_ERR_INT_EN 0
 #endif
 #ifndef SSC0_ERR_INT_EN
-  #define SSC0_ERR_INT_EN 0
+#define SSC0_ERR_INT_EN 0
 #endif
 #ifndef SSC0_ERR_INT_EN
-  #define SSC0_ERR_INT_EN 0
+#define SSC0_ERR_INT_EN 0
 #endif
 #ifndef SSC1_TI_INT_EN
-  #define SSC1_TI_INT_EN 0
+#define SSC1_TI_INT_EN 0
 #endif
 #ifndef SSC1_RI_INT_EN
-  #define SSC1_RI_INT_EN 0
+#define SSC1_RI_INT_EN 0
 #endif
 #ifndef SSC1_ERR_INT_EN
-  #define SSC1_ERR_INT_EN 0
+#define SSC1_ERR_INT_EN 0
 #endif
 #ifndef SSC1_ERR_INT_EN
-  #define SSC1_ERR_INT_EN 0
+#define SSC1_ERR_INT_EN 0
 #endif
 #ifndef SSC1_ERR_INT_EN
-  #define SSC1_ERR_INT_EN 0
+#define SSC1_ERR_INT_EN 0
 #endif
 #ifndef SSC1_ERR_INT_EN
-  #define SSC1_ERR_INT_EN 0
+#define SSC1_ERR_INT_EN 0
 #endif
 #ifndef DMA_CH0_INT_EN
-  #define DMA_CH0_INT_EN 0
+#define DMA_CH0_INT_EN 0
 #endif
 #ifndef DMA_CH1_INT_EN
-  #define DMA_CH1_INT_EN 0
+#define DMA_CH1_INT_EN 0
 #endif
 #ifndef DMA_CH2_INT_EN
-  #define DMA_CH2_INT_EN 0
+#define DMA_CH2_INT_EN 0
 #endif
 #ifndef DMA_CH3_INT_EN
-  #define DMA_CH3_INT_EN 0
+#define DMA_CH3_INT_EN 0
 #endif
 #ifndef DMA_CH4_INT_EN
-  #define DMA_CH4_INT_EN 0
+#define DMA_CH4_INT_EN 0
 #endif
 #ifndef DMA_CH5_INT_EN
-  #define DMA_CH5_INT_EN 0
+#define DMA_CH5_INT_EN 0
 #endif
 #ifndef DMA_CH6_INT_EN
-  #define DMA_CH6_INT_EN 0
+#define DMA_CH6_INT_EN 0
 #endif
 #ifndef DMA_CH7_INT_EN
-  #define DMA_CH7_INT_EN 0
+#define DMA_CH7_INT_EN 0
 #endif
 #ifndef DMA_ERROR_INT_EN
-  #define DMA_ERROR_INT_EN 0
+#define DMA_ERROR_INT_EN 0
 #endif
 #ifndef T20_EXF2_INT_EN
-  #define T20_EXF2_INT_EN 0
+#define T20_EXF2_INT_EN 0
 #endif
 #ifndef T20_TF2_INT_EN
-  #define T20_TF2_INT_EN 0
+#define T20_TF2_INT_EN 0
 #endif
 #ifndef T21_EXF2_INT_EN
-  #define T21_EXF2_INT_EN 0
+#define T21_EXF2_INT_EN 0
 #endif
 #ifndef T21_TF2_INT_EN
-  #define T21_TF2_INT_EN 0
+#define T21_TF2_INT_EN 0
 #endif
-
-
 
 /*******************************************************************************
 **                        Global Variable Declarations                        **
@@ -794,101 +791,101 @@
 /* global counter variable for ms, can count ~1.5 months, requirement EMPS-SHRQ-66 */
 extern volatile uint32 u32_globTimestamp_ms;
 
-#if (NVIC_IRQ0_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq0;
+#if(NVIC_IRQ0_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq0;
 #endif
-#if (NVIC_IRQ1_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq1;
+#if(NVIC_IRQ1_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq1;
 #endif
-#if (NVIC_IRQ2_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq2;
+#if(NVIC_IRQ2_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq2;
 #endif
-#if (NVIC_IRQ3_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq3;
+#if(NVIC_IRQ3_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq3;
 #endif
-#if (NVIC_IRQ4_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq4;
+#if(NVIC_IRQ4_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq4;
 #endif
-#if (NVIC_IRQ5_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq5;
+#if(NVIC_IRQ5_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq5;
 #endif
-#if (NVIC_IRQ6_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq6;
+#if(NVIC_IRQ6_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq6;
 #endif
-#if (NVIC_IRQ7_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq7;
+#if(NVIC_IRQ7_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq7;
 #endif
-#if (NVIC_IRQ8_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq8;
+#if(NVIC_IRQ8_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq8;
 #endif
-#if (NVIC_IRQ10_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq10;
+#if(NVIC_IRQ10_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq10;
 #endif
-#if (NVIC_IRQ11_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq11;
+#if(NVIC_IRQ11_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq11;
 #endif
-#if (NVIC_IRQ12_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq12;
+#if(NVIC_IRQ12_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq12;
 #endif
-#if (NVIC_IRQ13_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq13;
+#if(NVIC_IRQ13_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq13;
 #endif
-#if (NVIC_IRQ14_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq14;
+#if(NVIC_IRQ14_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq14;
 #endif
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq15;
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq15;
 #endif
-#if (NVIC_IRQ16_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq16;
+#if(NVIC_IRQ16_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq16;
 #endif
-#if (NVIC_IRQ17_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq17;
+#if(NVIC_IRQ17_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq17;
 #endif
-#if (NVIC_IRQ18_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq18;
+#if(NVIC_IRQ18_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq18;
 #endif
-#if (NVIC_IRQ19_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq19;
+#if(NVIC_IRQ19_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq19;
 #endif
-#if (NVIC_IRQ20_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq20;
+#if(NVIC_IRQ20_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq20;
 #endif
-#if (NVIC_IRQ21_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq21;
+#if(NVIC_IRQ21_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq21;
 #endif
-#if (NVIC_IRQ22_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq22;
+#if(NVIC_IRQ22_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq22;
 #endif
-#if (NVIC_IRQ23_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq23;
+#if(NVIC_IRQ23_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq23;
 #endif
-#if (NVIC_IRQ24_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq24;
+#if(NVIC_IRQ24_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq24;
 #endif
-#if (NVIC_IRQ25_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq25;
+#if(NVIC_IRQ25_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq25;
 #endif
-#if (NVIC_IRQ26_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq26;
+#if(NVIC_IRQ26_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq26;
 #endif
-#if (NVIC_IRQ27_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq27;
+#if(NVIC_IRQ27_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq27;
 #endif
-#if (NVIC_IRQ28_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq28;
+#if(NVIC_IRQ28_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq28;
 #endif
-#if (NVIC_IRQ29_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq29;
+#if(NVIC_IRQ29_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq29;
 #endif
-#if (NVIC_IRQ30_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq30;
+#if(NVIC_IRQ30_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq30;
 #endif
-#if (NVIC_IRQ9_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq9;
+#if(NVIC_IRQ9_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq9;
 #endif
-#if (NVIC_IRQ31_HANDLER_INT_CHECK == 1)
-  extern uint8 u8_interrupt_cnt_irq31;
+#if(NVIC_IRQ31_HANDLER_INT_CHECK == 1)
+extern uint8 u8_interrupt_cnt_irq31;
 #endif
 
 /*******************************************************************************
@@ -1305,10 +1302,8 @@ extern void T21_TF2_CALLBACK(void);
  *
  * \return global timestamp value
  */
-INLINE uint32 INT_getGlobTimestamp(void)
-{
+INLINE uint32 INT_getGlobTimestamp(void) {
   return u32_globTimestamp_ms;
 }
 
 #endif /* _ISR_H */
-

@@ -18,7 +18,7 @@
 #include "dma_defines.h"
 #include "pmu_defines.h"
 #ifdef UC_FEATURE_SDADC
-  #include "sdadc_defines.h"
+#include "sdadc_defines.h"
 #endif
 #include "uart_defines.h"
 
@@ -44,100 +44,100 @@ uint32 UC_FLASH0_UDATA_SIZE;
 /*******************************************************************************
 **                            Global Macro Checks                             **
 *******************************************************************************/
-#if ((ADC1_GLOBCONF & ADC1_GLOBCONF_EN_Msk) == ADC1_GLOBCONF_EN_Msk)
-  #ifndef RTE_DEVICE_TLELIB_ADC1
-    #error Module ADC1 enabled in Config Wizard, but not in RTE!
-  #endif
+#if((ADC1_GLOBCONF & ADC1_GLOBCONF_EN_Msk) == ADC1_GLOBCONF_EN_Msk)
+#ifndef RTE_DEVICE_TLELIB_ADC1
+#error Module ADC1 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((ADC2_GLOBCONF & ADC2_GLOBCONF_EN_Msk) == ADC2_GLOBCONF_EN_Msk)
-  #ifndef RTE_DEVICE_TLELIB_ADC2
-    #error Module ADC2 enabled in Config Wizard, but not in RTE!
-  #endif
+#if((ADC2_GLOBCONF & ADC2_GLOBCONF_EN_Msk) == ADC2_GLOBCONF_EN_Msk)
+#ifndef RTE_DEVICE_TLELIB_ADC2
+#error Module ADC2 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if (BDRV_GLOBCONF_EN == 1u)
-  #ifndef RTE_DEVICE_TLELIB_BDRV
-    #error Module BDRV enabled in Config Wizard, but not in RTE!
-  #endif
+#if(BDRV_GLOBCONF_EN == 1u)
+#ifndef RTE_DEVICE_TLELIB_BDRV
+#error Module BDRV enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((CANTRX_CTRL & CANTRX_CTRL_EN_Msk) == CANTRX_CTRL_EN_Msk)
-  #ifndef RTE_DEVICE_TLELIB_CANTRX
-    #error Module CANTRX enabled in Config Wizard, but not in RTE!
-  #endif
+#if((CANTRX_CTRL & CANTRX_CTRL_EN_Msk) == CANTRX_CTRL_EN_Msk)
+#ifndef RTE_DEVICE_TLELIB_CANTRX
+#error Module CANTRX enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if (CCU7_EN == 1)
-  #ifndef RTE_DEVICE_TLELIB_CCU7
-    #error Module CCU7 enabled in Config Wizard, but not in RTE!
-  #endif
+#if(CCU7_EN == 1)
+#ifndef RTE_DEVICE_TLELIB_CCU7
+#error Module CCU7 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((CSACSC_CTRL1 & CSACSC_CTRL1_CSAC_EN_Msk) == CSACSC_CTRL1_CSAC_EN_Msk)
-  #ifndef RTE_DEVICE_TLELIB_CSACSC
-    #error Module CSACSC enabled in Config Wizard, but not in RTE!
-  #endif
+#if((CSACSC_CTRL1 & CSACSC_CTRL1_CSAC_EN_Msk) == CSACSC_CTRL1_CSAC_EN_Msk)
+#ifndef RTE_DEVICE_TLELIB_CSACSC
+#error Module CSACSC enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if (DMA_GLOBCONF_EN == 1u)
-  #ifndef RTE_DEVICE_TLELIB_DMA
-    #error Module DMA enabled in Config Wizard, but not in RTE!
-  #endif
+#if(DMA_GLOBCONF_EN == 1u)
+#ifndef RTE_DEVICE_TLELIB_DMA
+#error Module DMA enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((SCU_PMCON & SCU_PMCON_GPT12_DIS_Msk) == 0u)
-  #ifndef RTE_DEVICE_TLELIB_GPT12
-    #error Module GPT12 enabled in Config Wizard, but not in RTE!
-  #endif
+#if((SCU_PMCON & SCU_PMCON_GPT12_DIS_Msk) == 0u)
+#ifndef RTE_DEVICE_TLELIB_GPT12
+#error Module GPT12 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if (MON_EN == 1)
-  #ifndef RTE_DEVICE_TLELIB_MON
-    #error Module MON enabled in Config Wizard, but not in RTE!
-  #endif
+#if(MON_EN == 1)
+#ifndef RTE_DEVICE_TLELIB_MON
+#error Module MON enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if (defined SDADC_GLOBCONF_EN) && (SDADC_GLOBCONF_EN == 1u)
-  #ifndef RTE_DEVICE_TLELIB_SDADC
-    #error Module SDADC enabled in Config Wizard, but not in RTE!
-  #endif
+#if(defined SDADC_GLOBCONF_EN) && (SDADC_GLOBCONF_EN == 1u)
+#ifndef RTE_DEVICE_TLELIB_SDADC
+#error Module SDADC enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((SCU_PMCON & SCU_PMCON_SSC0_DIS_Msk) == 0u)
-  #ifndef RTE_DEVICE_TLELIB_SSC
-    #error Module SSC0 enabled in Config Wizard, but not in RTE!
-  #endif
+#if((SCU_PMCON & SCU_PMCON_SSC0_DIS_Msk) == 0u)
+#ifndef RTE_DEVICE_TLELIB_SSC
+#error Module SSC0 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((SCU_PMCON & SCU_PMCON_SSC1_DIS_Msk) == 0u)
-  #ifndef RTE_DEVICE_TLELIB_SSC
-    #error Module SSC1 enabled in Config Wizard, but not in RTE!
-  #endif
+#if((SCU_PMCON & SCU_PMCON_SSC1_DIS_Msk) == 0u)
+#ifndef RTE_DEVICE_TLELIB_SSC
+#error Module SSC1 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((SCU_PMCON & SCU_PMCON_T2_DIS_Msk) == 0u)
-  #ifndef RTE_DEVICE_TLELIB_TIMER2X
-    #error Module T2 enabled in Config Wizard, but not in RTE!
-  #endif
+#if((SCU_PMCON & SCU_PMCON_T2_DIS_Msk) == 0u)
+#ifndef RTE_DEVICE_TLELIB_TIMER2X
+#error Module T2 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if ((SCU_PMCON & SCU_PMCON_T21_DIS_Msk) == 0u)
-  #ifndef RTE_DEVICE_TLELIB_TIMER2X
-    #error Module T21 enabled in Config Wizard, but not in RTE!
-  #endif
+#if((SCU_PMCON & SCU_PMCON_T21_DIS_Msk) == 0u)
+#ifndef RTE_DEVICE_TLELIB_TIMER2X
+#error Module T21 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if (UART0_GLOBCONF_EN == 1u)
-  #ifndef RTE_DEVICE_TLELIB_UART
-    #error Module UART0 enabled in Config Wizard, but not in RTE!
-  #endif
+#if(UART0_GLOBCONF_EN == 1u)
+#ifndef RTE_DEVICE_TLELIB_UART
+#error Module UART0 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
-#if (UART1_GLOBCONF_EN == 1u)
-  #ifndef RTE_DEVICE_TLELIB_UART
-    #error Module UART1 enabled in Config Wizard, but not in RTE!
-  #endif
+#if(UART1_GLOBCONF_EN == 1u)
+#ifndef RTE_DEVICE_TLELIB_UART
+#error Module UART1 enabled in Config Wizard, but not in RTE!
+#endif
 #endif
 
 /*******************************************************************************
@@ -148,8 +148,7 @@ uint32 UC_FLASH0_UDATA_SIZE;
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 TLE_init(void)
-{
+sint8 TLE_init(void) {
   //lint --e{9027}
   sint8 s8_returnCode;
   uint32 u32_ubslNvmSize;
@@ -215,7 +214,7 @@ sint8 TLE_init(void)
 #endif
   /* Initialize variables for memory map that can be configured */
   (void)user_nvm_config_get(&u32_ubslNvmSize, &u32_codeNvmSize, &u32_dataNvmSize);
-  UC_FLASH0_UBSL_SIZE = (uint32) (u32_ubslNvmSize) * UC_FLASH_SECTOR_SIZE;
+  UC_FLASH0_UBSL_SIZE = (uint32)(u32_ubslNvmSize)*UC_FLASH_SECTOR_SIZE;
   UC_FLASH0_UDATA_START = UC_FLASH0_UBSL_START + UC_FLASH0_UBSL_SIZE;
   UC_FLASH0_UDATA_SIZE = UC_FLASH0_SIZE - UC_FLASH0_UBSL_SIZE;
   return s8_returnCode;

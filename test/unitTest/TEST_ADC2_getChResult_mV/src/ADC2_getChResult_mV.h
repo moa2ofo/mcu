@@ -1,0 +1,51 @@
+#ifndef TEST_ADC2_GETCHRESULT_MV_H
+#define TEST_ADC2_GETCHRESULT_MV_H
+
+#include "RTE_Components.h"
+#include "adc2_defines.h"
+#include "adc2.h"
+#include "cmsis_compiler.h"
+#include "cmsis_gcc.h"
+#include "cmsis_misra.h"
+#include "cmsis_version.h"
+#include "core_cm3.h"
+#include "error_codes.h"
+#include "system_tle989x.h"
+#include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
+
+#include <stddef.h>
+#include <string.h>
+
+/** \brief Get the value of the ADC2 Result Register of the selected ADC2 channel in millivolt (mV) and returns the validity info
+ *  \note This function violates [MISRA Rule 45]
+ *
+ * \param u8_channel digital channel number(0..14)
+ * \param *u16p_digValue_mV pointer to ADC2 Result Register value of the selected channel number converted to millivolt (mV)
+ * \return sint8 0: success, <0: error codes
+ *
+ * \brief <b>Example</b><br>
+ * \brief This example returns the ADC2 Channel 5 result in millivolt (mV).
+ * ~~~~~~~~~~~~~~~{.c}
+ * sint8 Example_Function(void)
+ * {
+ *   sint8 s8_returnCode = ERR_LOG_SUCCESS;
+ *   uint16 u16_var_mV;
+ *
+ *   if (ADC2_getCh5ResultValidSts() == 1u)
+ *   {
+ *     s8_returnCode = ADC2_getChResult_mV(&u16_var_mV, ADC2_DCH5);
+ *   }
+ *
+ *   return s8_returnCode;
+ * }
+ * ~~~~~~~~~~~~~~~
+ */
+sint8 ADC2_getChResult_mV(uint16 * u16p_digValue_mV, uint8 u8_channel);
+
+const uint16* get_cu16_ADC2_analogInput_Att_ptr(void);
+size_t get_cu16_ADC2_analogInput_Att_size(void);
+void set_cu16_ADC2_analogInput_Att(const const uint16* src, size_t n);
+
+#endif /* TEST_ADC2_GETCHRESULT_MV_H */

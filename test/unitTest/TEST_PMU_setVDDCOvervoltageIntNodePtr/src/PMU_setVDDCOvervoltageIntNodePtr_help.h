@@ -1,0 +1,8 @@
+#ifndef TEST_PMU_SETVDDCOVERVOLTAGEINTNODEPTR_HELP_H
+#define TEST_PMU_SETVDDCOVERVOLTAGEINTNODEPTR_HELP_H
+
+#include "PMU_setVDDCOvervoltageIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_PMU_SETVDDCOVERVOLTAGEINTNODEPTR_HELP_H */

@@ -119,16 +119,16 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
-#include "tle989x.h"
-#include "tle_variants.h"
-#include "system_tle989x.h"
 #include "bdrv.h"
 #include "csacsc.h"
-#include "isr.h" /* for u32_globTimestamp_ms */
-#include "pmu.h"
+#include "isr.h"         /* for u32_globTimestamp_ms */
 #include "isr_defines.h" /* for CPU_SYSTICK_RL */
+#include "pmu.h"
 #include "scu_defines.h"
+#include "system_tle989x.h"
+#include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -170,11 +170,11 @@ INLINE uint8 SCU_GetPLL0LockSts(void);
 INLINE uint8 SCU_GetPLL1LockSts(void);
 INLINE uint32 SCU_getSysTickCntVal(void);
 INLINE uint32 SCU_getSysTickRelVal(void);
-INLINE void   CACHE_setCleanAll(void);
-INLINE void   CACHE_setLockBlock(uint32 u32_value);
-INLINE void   CACHE_setTouchBlock(uint32 u32_value);
-INLINE void   CACHE_setUnlockBlock(uint32 u32_value);
-INLINE void   CACHE_setCleanSet(uint32 u32_value);
+INLINE void CACHE_setCleanAll(void);
+INLINE void CACHE_setLockBlock(uint32 u32_value);
+INLINE void CACHE_setTouchBlock(uint32 u32_value);
+INLINE void CACHE_setUnlockBlock(uint32 u32_value);
+INLINE void CACHE_setCleanSet(uint32 u32_value);
 
 /*******************************************************************************
 **                     Global Inline Function Definitions                     **
@@ -184,8 +184,7 @@ INLINE void   CACHE_setCleanSet(uint32 u32_value);
  *
  * \return XTAL Fail Status (0: no Fail, 1: Fail)
  */
-INLINE uint8 SCU_GetXTALFailSts(void)
-{
+INLINE uint8 SCU_GetXTALFailSts(void) {
   return (uint8)SCU->XTALSTAT.bit.XTALFAIL;
 }
 
@@ -193,8 +192,7 @@ INLINE uint8 SCU_GetXTALFailSts(void)
  *
  * \return PLL0 Lock Status (0: not locked, 1: locked)
  */
-INLINE uint8 SCU_GetPLL0LockSts(void)
-{
+INLINE uint8 SCU_GetPLL0LockSts(void) {
   return (uint8)PLL->STAT.bit.LCK0;
 }
 
@@ -202,8 +200,7 @@ INLINE uint8 SCU_GetPLL0LockSts(void)
  *
  * \return PLL1 Lock Status (0: not locked, 1: locked)
  */
-INLINE uint8 SCU_GetPLL1LockSts(void)
-{
+INLINE uint8 SCU_GetPLL1LockSts(void) {
   return (uint8)PLL->STAT.bit.LCK1;
 }
 
@@ -211,8 +208,7 @@ INLINE uint8 SCU_GetPLL1LockSts(void)
  *
  * \return current SysTick Count Value
  */
-INLINE uint32 SCU_getSysTickCntVal(void)
-{
+INLINE uint32 SCU_getSysTickCntVal(void) {
   return (uint32)CPU->SYSTICK_CUR.bit.CURRENT;
 }
 
@@ -220,15 +216,13 @@ INLINE uint32 SCU_getSysTickCntVal(void)
  *
  * \return SysTick Reload Value
  */
-INLINE uint32 SCU_getSysTickRelVal(void)
-{
+INLINE uint32 SCU_getSysTickRelVal(void) {
   return (uint32)CPU->SYSTICK_RL.bit.RELOAD;
 }
 
 /** \brief Set Cache clean All
  */
-INLINE void CACHE_setCleanAll(void)
-{
+INLINE void CACHE_setCleanAll(void) {
   CACHE->CACHE_AC.bit.Clean = 1u;
 }
 
@@ -236,8 +230,7 @@ INLINE void CACHE_setCleanAll(void)
  *
  *  \param u32_value Address of Cache lock Block
  */
-INLINE void CACHE_setLockBlock(uint32 u32_value)
-{
+INLINE void CACHE_setLockBlock(uint32 u32_value) {
   CACHE->CACHE_BL.bit.ADDR = u32_value;
 }
 
@@ -245,8 +238,7 @@ INLINE void CACHE_setLockBlock(uint32 u32_value)
  *
  *  \param u32_value Address of Cache touch Block (load Block to Cache)
  */
-INLINE void CACHE_setTouchBlock(uint32 u32_value)
-{
+INLINE void CACHE_setTouchBlock(uint32 u32_value) {
   CACHE->CACHE_BT.bit.ADDR = u32_value;
 }
 
@@ -254,8 +246,7 @@ INLINE void CACHE_setTouchBlock(uint32 u32_value)
  *
  *  \param u32_value Address of Cache unlock Block
  */
-INLINE void CACHE_setUnlockBlock(uint32 u32_value)
-{
+INLINE void CACHE_setUnlockBlock(uint32 u32_value) {
   CACHE->CACHE_BU.bit.ADDR = u32_value;
 }
 
@@ -263,8 +254,7 @@ INLINE void CACHE_setUnlockBlock(uint32 u32_value)
  *
  *  \param u32_value Address of Cache clean Set
  */
-INLINE void CACHE_setCleanSet(uint32 u32_value)
-{
+INLINE void CACHE_setCleanSet(uint32 u32_value) {
   CACHE->CACHE_SC.bit.ADDR = u32_value;
 }
 

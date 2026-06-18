@@ -62,207 +62,183 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
 #include "RTE_Components.h"
+#include "types.h"
 
 /*******************************************************************************
 **                       Entry points into the BootROM                        **
 *******************************************************************************/
 
-#define addr_user_nvm_isr_handler                 (0xc1u)
-#define addr_user_cid_get                         (0xc5u)
-#define addr_user_ram_mbist                       (0xc9u)
-#define addr_user_nvm_udata_temp_protect_clear    (0xd1u)
-#define addr_user_nvm_ucode_temp_protect_clear    (0xd5u)
-#define addr_user_nvm_udata_temp_protect_set      (0xd9u)
-#define addr_user_nvm_ucode_temp_protect_set      (0xddu)
-#define addr_user_nvm_temp_protect_get            (0xe1u)
-#define addr_user_nvm_ecc_addr_get                (0xe5u)
-#define addr_user_nvm_ecc_check                   (0xe9u)
-#define addr_user_nvm_100tp_read                  (0xedu)
-#define addr_user_nvm_100tp_write                 (0xf1u)
-#define addr_user_nvm_100tp_erase                 (0xf5u)
-#define addr_user_nvm_config_get                  (0xf9u)
-#define addr_user_nvm_page_erase                  (0xfdu)
-#define addr_user_nvm_sector_erase                (0x101u)
-#define addr_user_nvm_page_write                  (0x105u)
-#define addr_user_nvm_mapram_init                 (0x109u)
-#define addr_user_nvm_mapram_recover              (0x10du)
-#define addr_user_nvm_service_algorithm           (0x111u)
-#define addr_user_crypto_aes_cmac_generate_start  (0x115u)
+#define addr_user_nvm_isr_handler (0xc1u)
+#define addr_user_cid_get (0xc5u)
+#define addr_user_ram_mbist (0xc9u)
+#define addr_user_nvm_udata_temp_protect_clear (0xd1u)
+#define addr_user_nvm_ucode_temp_protect_clear (0xd5u)
+#define addr_user_nvm_udata_temp_protect_set (0xd9u)
+#define addr_user_nvm_ucode_temp_protect_set (0xddu)
+#define addr_user_nvm_temp_protect_get (0xe1u)
+#define addr_user_nvm_ecc_addr_get (0xe5u)
+#define addr_user_nvm_ecc_check (0xe9u)
+#define addr_user_nvm_100tp_read (0xedu)
+#define addr_user_nvm_100tp_write (0xf1u)
+#define addr_user_nvm_100tp_erase (0xf5u)
+#define addr_user_nvm_config_get (0xf9u)
+#define addr_user_nvm_page_erase (0xfdu)
+#define addr_user_nvm_sector_erase (0x101u)
+#define addr_user_nvm_page_write (0x105u)
+#define addr_user_nvm_mapram_init (0x109u)
+#define addr_user_nvm_mapram_recover (0x10du)
+#define addr_user_nvm_service_algorithm (0x111u)
+#define addr_user_crypto_aes_cmac_generate_start (0x115u)
 #define addr_user_crypto_aes_cmac_generate_update (0x119u)
 #define addr_user_crypto_aes_cmac_generate_finish (0x11du)
-#define addr_user_crypto_aes_cmac_verify_start    (0x121u)
-#define addr_user_crypto_aes_cmac_verify_update   (0x125u)
-#define addr_user_crypto_aes_cmac_verify_finish   (0x129u)
-#define addr_user_crypto_aes_start                (0x12du)
-#define addr_user_crypto_aes_update               (0x131u)
-#define addr_user_crypto_aes_finish               (0x135u)
-#define addr_user_crypto_key_write                (0x139u)
-#define addr_user_crypto_key_erase                (0x13du)
-#define addr_user_crypto_key_verify               (0x141u)
-#define addr_user_nvm_reg_write                   (0x145u)
-#define addr_user_nvm_reg_read                    (0x149u)
-#define addr_user_secure_download_start           (0x14du)
-#define addr_user_secure_download_update          (0x151u)
-#define addr_user_secure_download_finish          (0x155u)
-#define addr_user_cache_operation                 (0x159u)
-#define addr_user_ubsl_size_restore               (0x15du)
-#define addr_user_nvm_perm_protect_set            (0x161u)
-#define addr_user_nvm_ubsl_temp_protect_clear     (0x201u)
-#define addr_user_nvm_ubsl_temp_protect_set       (0x205u)
-#define addr_user_secure_dualboot                 (0x209u)
+#define addr_user_crypto_aes_cmac_verify_start (0x121u)
+#define addr_user_crypto_aes_cmac_verify_update (0x125u)
+#define addr_user_crypto_aes_cmac_verify_finish (0x129u)
+#define addr_user_crypto_aes_start (0x12du)
+#define addr_user_crypto_aes_update (0x131u)
+#define addr_user_crypto_aes_finish (0x135u)
+#define addr_user_crypto_key_write (0x139u)
+#define addr_user_crypto_key_erase (0x13du)
+#define addr_user_crypto_key_verify (0x141u)
+#define addr_user_nvm_reg_write (0x145u)
+#define addr_user_nvm_reg_read (0x149u)
+#define addr_user_secure_download_start (0x14du)
+#define addr_user_secure_download_update (0x151u)
+#define addr_user_secure_download_finish (0x155u)
+#define addr_user_cache_operation (0x159u)
+#define addr_user_ubsl_size_restore (0x15du)
+#define addr_user_nvm_perm_protect_set (0x161u)
+#define addr_user_nvm_ubsl_temp_protect_clear (0x201u)
+#define addr_user_nvm_ubsl_temp_protect_set (0x205u)
+#define addr_user_secure_dualboot (0x209u)
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
 *******************************************************************************/
 
 /** @brief 128 bits key length */
-#define USER_KEY_SIZE_128          (0x10u)
+#define USER_KEY_SIZE_128 (0x10u)
 
 /** @brief 256 bits key length */
-#define USER_KEY_SIZE_256          (0x20u)
+#define USER_KEY_SIZE_256 (0x20u)
 
 /** @brief Maximum length for a key value to read/store */
-#define USER_KEY_SIZE_MAX          (USER_KEY_SIZE_256)
+#define USER_KEY_SIZE_MAX (USER_KEY_SIZE_256)
 
 /** @brief encrypted key parameter size 64 bytes */
-#define USER_KEY_PARAM_SIZE        (0x40u)
+#define USER_KEY_PARAM_SIZE (0x40u)
 
 /** @brief cmac signature size 16 bytes */
-#define USER_CMAC_SIGNATURE_SIZE   (0x10u)
+#define USER_CMAC_SIGNATURE_SIZE (0x10u)
 
 /** @brief Size of key_write decryption buffer */
 #define USER_KEY_WRITE_BUFFER_SIZE (0x30u)
 
 /** @brief Maximum User key slot ID */
-#define USER_KEY_MAX_ID            (12u)
+#define USER_KEY_MAX_ID (12u)
 
 /** @brief Minimum User key slot ID */
-#define USER_KEY_MIN_ID            (1u)
+#define USER_KEY_MIN_ID (1u)
 
 /** @brief IFX key ID */
-#define IFX_KEY_ID                 (0u)
+#define IFX_KEY_ID (0u)
 
 /*******************************************************************************
 **                          Global Type Declarations                          **
 *******************************************************************************/
 
-typedef struct user_100tp_read_t
-{
-  uint32_t   offset;      /**< @brief Byte offset inside the selected page address, where to start reading. Maximum is 127 bytes. */
-  uint8_t   *data;        /**< @brief Data pointer where to write data into. Pointer plus valid count must be within valid RAM range or an error code is returned. */
-  uint16_t   nbyte;       /**< @brief Amount of data bytes to read. If nbyte is zero, there is no read operation done and an error code is returned. Maximum is 128 bytes. */
+typedef struct user_100tp_read_t {
+  uint32_t offset; /**< @brief Byte offset inside the selected page address, where to start reading. Maximum is 127 bytes. */
+  uint8_t *data;   /**< @brief Data pointer where to write data into. Pointer plus valid count must be within valid RAM range or an error code is returned. */
+  uint16_t nbyte;  /**< @brief Amount of data bytes to read. If nbyte is zero, there is no read operation done and an error code is returned. Maximum is 128 bytes. */
 } user_100tp_read_t;
 
-typedef struct user_100tp_write_t
-{
-  uint32_t   offset;      /**< @brief Byte offset inside the selected page address, where to start writing. Maximum is 123 bytes. */
-  uint8_t   *data;        /**< @brief Data pointer where to read the data to write. Pointer plus valid count must be within valid RAM range or an error code is returned. */
-  uint8_t    nbyte;       /**< @brief Amount of data bytes to write. If nbyte is zero, there is no write operation done and an error code is returned. Maximum is 124 bytes. */
-  uint8_t    counter;     /**< @brief Counter value to update internal 100TP counter (only updates if value is greater than current, otherwise is ignored). */
+typedef struct user_100tp_write_t {
+  uint32_t offset; /**< @brief Byte offset inside the selected page address, where to start writing. Maximum is 123 bytes. */
+  uint8_t *data;   /**< @brief Data pointer where to read the data to write. Pointer plus valid count must be within valid RAM range or an error code is returned. */
+  uint8_t nbyte;   /**< @brief Amount of data bytes to write. If nbyte is zero, there is no write operation done and an error code is returned. Maximum is 124 bytes. */
+  uint8_t counter; /**< @brief Counter value to update internal 100TP counter (only updates if value is greater than current, otherwise is ignored). */
 } user_100tp_write_t;
 
 /** @brief Key data structure aligned with CFS page (ignored reserved bytes) */
-typedef struct user_key_t
-{
-  uint8_t    key[USER_KEY_SIZE_MAX]; /**< @brief Key value                 */
-  uint16_t   version;                /**< @brief New key version number    */
-  uint8_t    length;                 /**< @brief Key size in bytes [16|32] */
-  uint8_t    protection;             /**< @brief Key protection            */
+typedef struct user_key_t {
+  uint8_t key[USER_KEY_SIZE_MAX]; /**< @brief Key value                 */
+  uint16_t version;               /**< @brief New key version number    */
+  uint8_t length;                 /**< @brief Key size in bytes [16|32] */
+  uint8_t protection;             /**< @brief Key protection            */
 } user_key_t;
 
-typedef enum user_crypto_fid_t
-{
-  CRYPTO_ECB_ENCRYPT    = 0,
-  CRYPTO_ECB_DECRYPT    = 1,
-  CRYPTO_CBC_ENCRYPT    = 2,
-  CRYPTO_CBC_DECRYPT    = 3
-} user_crypto_fid_t;
+typedef enum user_crypto_fid_t { CRYPTO_ECB_ENCRYPT = 0, CRYPTO_ECB_DECRYPT = 1, CRYPTO_CBC_ENCRYPT = 2, CRYPTO_CBC_DECRYPT = 3 } user_crypto_fid_t;
 
-typedef struct user_crypto_inp_buf_t
-{
-  uint8_t   *buffer;         /**< @brief Crypto algorithm input buffer address.  */
-  uint32_t   length;         /**< @brief Crypto algorithm input buffer length.   */
+typedef struct user_crypto_inp_buf_t {
+  uint8_t *buffer; /**< @brief Crypto algorithm input buffer address.  */
+  uint32_t length; /**< @brief Crypto algorithm input buffer length.   */
 } user_crypto_inp_buf_t;
 
-typedef struct user_crypto_out_buf_t
-{
-  uint8_t   *buffer;         /**< @brief Crypto algorithm output buffer address. */
-  uint32_t *length;          /**< @brief Crypto algorithm output buffer length.  */
+typedef struct user_crypto_out_buf_t {
+  uint8_t *buffer;  /**< @brief Crypto algorithm output buffer address. */
+  uint32_t *length; /**< @brief Crypto algorithm output buffer length.  */
 } user_crypto_out_buf_t;
 
-typedef struct user_crypto_io_buf_t
-{
+typedef struct user_crypto_io_buf_t {
   user_crypto_inp_buf_t inp; /**< @brief Crypto algorithm input buffer.          */
   user_crypto_out_buf_t out; /**< @brief Crypto algorithm output buffer.         */
 } user_crypto_io_buf_t;
 
-typedef struct user_crypto_cmac_t
-{
+typedef struct user_crypto_cmac_t {
   user_crypto_inp_buf_t inp; /**< @brief CMAC generate input buffer.             */
   user_crypto_inp_buf_t mac; /**< @brief CMAC generate output buffer.            */
 } user_crypto_cmac_t;
 
-typedef struct user_crypto_cbc_t
-{
-  void      *iv;
-  uint32_t   iv_length;
+typedef struct user_crypto_cbc_t {
+  void *iv;
+  uint32_t iv_length;
 } user_crypto_cbc_t;
 
-
-typedef struct user_key_write_params_t
-{
-  uint8_t    encrypted_key_buf[USER_KEY_PARAM_SIZE];  /**< @brief Encrypted buffer with new key parameters.    */
-  uint16_t   target_key_id;                           /**< @brief Key slot ID for parameter decryption.        */
-  uint16_t   encrypt_key_id;                          /**< @brief Key slot ID used for the new key parameters. */
+typedef struct user_key_write_params_t {
+  uint8_t encrypted_key_buf[USER_KEY_PARAM_SIZE]; /**< @brief Encrypted buffer with new key parameters.    */
+  uint16_t target_key_id;                         /**< @brief Key slot ID for parameter decryption.        */
+  uint16_t encrypt_key_id;                        /**< @brief Key slot ID used for the new key parameters. */
 } user_key_write_params_t;
 
-
-typedef struct user_key_write_t
-{
-  user_key_write_params_t params;                              /**< @brief Input parameters (signature checked). */
-  uint8_t                 signature[USER_CMAC_SIGNATURE_SIZE]; /**< @brief New key CMAC signature.               */
+typedef struct user_key_write_t {
+  user_key_write_params_t params;              /**< @brief Input parameters (signature checked). */
+  uint8_t signature[USER_CMAC_SIGNATURE_SIZE]; /**< @brief New key CMAC signature.               */
 } user_key_write_t;
 
-typedef struct user_key_erase_params_t
-{
-  uint16_t   target_key_id;                           /**< @brief Key slot ID for parameter decryption. */
-  uint16_t   version;                                 /**< @brief New key version number.               */
+typedef struct user_key_erase_params_t {
+  uint16_t target_key_id; /**< @brief Key slot ID for parameter decryption. */
+  uint16_t version;       /**< @brief New key version number.               */
 } user_key_erase_params_t;
 
-
-typedef struct user_key_erase_t
-{
-  user_key_erase_params_t params;                              /**< @brief Input parameters (signature checked). */
-  uint8_t                 signature[USER_CMAC_SIGNATURE_SIZE]; /**< @brief CMAC signature.                       */
+typedef struct user_key_erase_t {
+  user_key_erase_params_t params;              /**< @brief Input parameters (signature checked). */
+  uint8_t signature[USER_CMAC_SIGNATURE_SIZE]; /**< @brief CMAC signature.                       */
 } user_key_erase_t;
 
-typedef struct user_nvm_page_write_t
-{
-  uint8_t   *data;        /**< @brief Pointer to the data where to read the programming data. Pointer must be within valid RAM range or an error code is returned. */
-  uint32_t   nbyte;       /**< @brief Amount of bytes to program. Range from 1-128 bytes. */
-  uint32_t   options;     /**< @brief NVM programming options (for example @ref NVM_OPTIONS_CORR_ACT or @ref NVM_OPTIONS_NO_FAILPAGE_ERASE). */
+typedef struct user_nvm_page_write_t {
+  uint8_t *data;    /**< @brief Pointer to the data where to read the programming data. Pointer must be within valid RAM range or an error code is returned. */
+  uint32_t nbyte;   /**< @brief Amount of bytes to program. Range from 1-128 bytes. */
+  uint32_t options; /**< @brief NVM programming options (for example @ref NVM_OPTIONS_CORR_ACT or @ref NVM_OPTIONS_NO_FAILPAGE_ERASE). */
 } user_nvm_page_write_t;
 
-typedef enum user_cache_op_t
-{
-  CACHE_OP_AC  = 0,        /**< @brief Cache all clean operation.      */
-  CACHE_OP_SC  = 1,        /**< @brief Cache set clean operation.      */
-  CACHE_OP_BC  = 2,        /**< @brief Cache block clean operation.    */
-  CACHE_OP_BT  = 3,        /**< @brief Cache block touch operation.    */
-  CACHE_OP_BL  = 4,        /**< @brief Cache block lock operation.     */
-  CACHE_OP_BU  = 5,        /**< @brief Cache block unlock operation.   */
-  CACHE_OP_EN  = 6,        /**< @brief Cache enable operation.         */
-  CACHE_OP_DIS = 7         /**< @brief Cache disable operation.        */
+typedef enum user_cache_op_t {
+  CACHE_OP_AC = 0, /**< @brief Cache all clean operation.      */
+  CACHE_OP_SC = 1, /**< @brief Cache set clean operation.      */
+  CACHE_OP_BC = 2, /**< @brief Cache block clean operation.    */
+  CACHE_OP_BT = 3, /**< @brief Cache block touch operation.    */
+  CACHE_OP_BL = 4, /**< @brief Cache block lock operation.     */
+  CACHE_OP_BU = 5, /**< @brief Cache block unlock operation.   */
+  CACHE_OP_EN = 6, /**< @brief Cache enable operation.         */
+  CACHE_OP_DIS = 7 /**< @brief Cache disable operation.        */
 } user_cache_op_t;
 
 /** NVM protection API password segment */
-typedef enum user_nvm_segment_t
-{
-  NVM_PASSWORD_SEGMENT_BOOT = 0,  /**< @brief NVM password for customer segment, used for customer bootloader (NVM FLASH0). */
-  NVM_PASSWORD_SEGMENT_CODE = 1,  /**< @brief NVM password for customer code segment, which is not used by the customer bootloader (NVM FLASH1). */
-  NVM_PASSWORD_SEGMENT_DATA = 2,  /**< @brief NVM password for customer data mapped segment (NVM FLASH0). */
+typedef enum user_nvm_segment_t {
+  NVM_PASSWORD_SEGMENT_BOOT = 0, /**< @brief NVM password for customer segment, used for customer bootloader (NVM FLASH0). */
+  NVM_PASSWORD_SEGMENT_CODE = 1, /**< @brief NVM password for customer code segment, which is not used by the customer bootloader (NVM FLASH1). */
+  NVM_PASSWORD_SEGMENT_DATA = 2, /**< @brief NVM password for customer data mapped segment (NVM FLASH0). */
   NVM_PASSWORD_SEGMENT_TOTAL = 3 /**< @brief Can be ignored and should not be used. */
 } user_nvm_segment_t;
 
@@ -284,7 +260,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_SUCCESS
  * @retval #ERR_LOG_CODE_USER_POINTER_RAM_RANGE_INVALID
  */
-#define user_cid_get                         ( (int32_t(*)(uint32_t *))                                       addr_user_cid_get                        )
+#define user_cid_get ((int32_t(*)(uint32_t *))addr_user_cid_get)
 
 /**
  * @brief This user API function performs a MBIST on the specified SRAM range.
@@ -301,7 +277,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_MBIST_RAM_RANGE_INVALID
  * @retval #ERR_LOG_CODE_MBIST_FAILED
  */
-#define user_ram_mbist                       ( (int32_t(*)(uint32_t, uint32_t))                               addr_user_ram_mbist                      )
+#define user_ram_mbist ((int32_t(*)(uint32_t, uint32_t))addr_user_ram_mbist)
 
 /**
  * @brief This user API function temporarily clears the write protection of the UDATA segment.
@@ -315,7 +291,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_PROTECT_WRONG_PASSWORD
  * @retval #ERR_LOG_CODE_SEMAPHORE_RESERVED
  */
-#define user_nvm_udata_temp_protect_clear    ( (int32_t(*)(uint32_t))                                         addr_user_nvm_udata_temp_protect_clear   )
+#define user_nvm_udata_temp_protect_clear ((int32_t(*)(uint32_t))addr_user_nvm_udata_temp_protect_clear)
 
 /**
  * @brief This user API function temporarily clears the write protection of the UCODE segment.
@@ -329,7 +305,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_PROTECT_WRONG_PASSWORD
  * @retval #ERR_LOG_CODE_SEMAPHORE_RESERVED
  */
-#define user_nvm_ucode_temp_protect_clear    ( (int32_t(*)(uint32_t))                                         addr_user_nvm_ucode_temp_protect_clear   )
+#define user_nvm_ucode_temp_protect_clear ((int32_t(*)(uint32_t))addr_user_nvm_ucode_temp_protect_clear)
 
 /**
  * @brief This user API function temporarily sets the write protection of the UDATA segment.
@@ -343,7 +319,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_PROTECT_WRONG_PASSWORD
  * @retval #ERR_LOG_CODE_SEMAPHORE_RESERVED
  */
-#define user_nvm_udata_temp_protect_set      ( (int32_t(*)(uint32_t))                                         addr_user_nvm_udata_temp_protect_set     )
+#define user_nvm_udata_temp_protect_set ((int32_t(*)(uint32_t))addr_user_nvm_udata_temp_protect_set)
 
 /**
  * @brief This user API function temporarily sets the write protection of the UCODE segment.
@@ -357,7 +333,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_PROTECT_WRONG_PASSWORD
  * @retval #ERR_LOG_CODE_SEMAPHORE_RESERVED
  */
-#define user_nvm_ucode_temp_protect_set      ( (int32_t(*)(uint32_t))                                         addr_user_nvm_ucode_temp_protect_set     )
+#define user_nvm_ucode_temp_protect_set ((int32_t(*)(uint32_t))addr_user_nvm_ucode_temp_protect_set)
 
 /**
  * @brief This user API function gets the current protection status of a specified NVM segment.
@@ -368,7 +344,7 @@ typedef enum user_nvm_segment_t
  * @retval #NVM_RET_NOT_PROTECTED Target segment is not protected.
  * @retval #NVM_RET_PROTECTED Target segment is protected.
  */
-#define user_nvm_temp_protect_get            ( (uint32_t(*)(user_nvm_segment_t))                              addr_user_nvm_temp_protect_get           )
+#define user_nvm_temp_protect_get ((uint32_t(*)(user_nvm_segment_t))addr_user_nvm_temp_protect_get)
 
 /**
  * @brief This user API function sets permanent protection on NVM segments.
@@ -388,7 +364,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_NVM_VER_ERROR
  * @retval #ERR_LOG_CODE_ECC2READ_ERROR
  */
-#define user_nvm_perm_protect_set            ( (int32_t(*)(uint32_t))                                         addr_user_nvm_perm_protect_set           )
+#define user_nvm_perm_protect_set ((int32_t(*)(uint32_t))addr_user_nvm_perm_protect_set)
 
 /**
  * @brief This user API function returns the address of a double ECC event that has occurred in the target flash.
@@ -412,7 +388,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_POINTER_RAM_RANGE_INVALID
  * @retval #ERR_LOG_CODE_PARAM_INVALID
  */
-#define user_nvm_ecc_addr_get                ( (int32_t(*)(uint32_t, uint32_t *))                             addr_user_nvm_ecc_addr_get               )
+#define user_nvm_ecc_addr_get ((int32_t(*)(uint32_t, uint32_t *))addr_user_nvm_ecc_addr_get)
 
 /**
  * @brief This user API function checks for single and double ECC errors on the target flash.
@@ -432,7 +408,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_ECC2READ_ERROR
  * @retval #ERR_LOG_CODE_PARAM_INVALID
  */
-#define user_nvm_ecc_check                   ( (int32_t(*)(uint32_t))                                         addr_user_nvm_ecc_check                  )
+#define user_nvm_ecc_check ((int32_t(*)(uint32_t))addr_user_nvm_ecc_check)
 
 /**
  * @brief This user API function reads data from specified 100TP page.
@@ -452,7 +428,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_100TP_PAGE_INVALID
  * @retval #ERR_LOG_CODE_ECC2READ_ERROR
  */
-#define user_nvm_100tp_read                  ( (int32_t(*)(uint32_t, user_100tp_read_t *))                    addr_user_nvm_100tp_read                 )
+#define user_nvm_100tp_read ((int32_t(*)(uint32_t, user_100tp_read_t *))addr_user_nvm_100tp_read)
 
 /**
  * @brief This user API function writes data to a specified 100TP page.
@@ -478,7 +454,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_ACCESS_AB_MODE_ERROR
  * @retval #ERR_LOG_CODE_NVM_ECC2_DATA_ERROR
  */
-#define user_nvm_100tp_write                 ( (int32_t(*)(uint32_t, user_100tp_write_t *))                   addr_user_nvm_100tp_write                )
+#define user_nvm_100tp_write ((int32_t(*)(uint32_t, user_100tp_write_t *))addr_user_nvm_100tp_write)
 
 /**
  * @brief This user API function erases a data field of the specified 100TP page. The write counter field is preserved.
@@ -498,7 +474,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_ACCESS_AB_MODE_ERROR
  * @retval #ERR_LOG_CODE_NVM_VER_ERROR
  */
-#define user_nvm_100tp_erase                 ( (int32_t(*)(uint32_t))                                         addr_user_nvm_100tp_erase                )
+#define user_nvm_100tp_erase ((int32_t(*)(uint32_t))addr_user_nvm_100tp_erase)
 
 /**
  * @brief This user API function returns the size of each NVM segment.
@@ -512,7 +488,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_POINTER_RAM_RANGE_INVALID
  *
  */
-#define user_nvm_config_get                  ( (int32_t(*)(uint32_t *, uint32_t *, uint32_t *))               addr_user_nvm_config_get                 )
+#define user_nvm_config_get ((int32_t(*)(uint32_t *, uint32_t *, uint32_t *))addr_user_nvm_config_get)
 
 /**
  * @brief This user API function erases a specified flash page.
@@ -540,7 +516,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_ACCESS_AB_MODE_ERROR
  * @retval #ERR_LOG_CODE_NVM_ECC2_MAPRAM_ERROR
  */
-#define user_nvm_page_erase                  ( (int32_t(*)(uint32_t, uint32_t))                               addr_user_nvm_page_erase                 )
+#define user_nvm_page_erase ((int32_t(*)(uint32_t, uint32_t))addr_user_nvm_page_erase)
 
 /**
  * @brief This user API function erases a specified flash sector.
@@ -567,7 +543,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_MAPRAM_INIT_FAIL
  * @retval #ERR_LOG_CODE_ACCESS_AB_MODE_ERROR
  */
-#define user_nvm_sector_erase                ( (int32_t(*)(uint32_t, uint32_t))                               addr_user_nvm_sector_erase               )
+#define user_nvm_sector_erase ((int32_t(*)(uint32_t, uint32_t))addr_user_nvm_sector_erase)
 
 /**
  * @brief This user API function writes a number of bytes from the source to the specified flash address \a page_address.
@@ -605,7 +581,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_MAPRAM_INIT_FAIL
  * @retval #ERR_LOG_CODE_VERIFY_AND_MAPRAM_INIT_FAIL
  */
-#define user_nvm_page_write                  ( (int32_t(*)(uint32_t, user_nvm_page_write_t *))                addr_user_nvm_page_write                 )
+#define user_nvm_page_write ((int32_t(*)(uint32_t, user_nvm_page_write_t *))addr_user_nvm_page_write)
 #define user_nvm_write user_nvm_page_write
 
 /**
@@ -622,7 +598,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_MAPRAM_INIT_PAGE_FAIL
  * @retval #ERR_LOG_CODE_MAPRAM_INIT_DM_PAGE_FAIL
  */
-#define user_nvm_mapram_init                 ( (int32_t(*)(uint32_t))                                         addr_user_nvm_mapram_init                )
+#define user_nvm_mapram_init ((int32_t(*)(uint32_t))addr_user_nvm_mapram_init)
 
 /**
  * @brief This user API function attempts to reconstruct map RAM by extracting mapping information from good pages.
@@ -641,7 +617,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_NVM_ECC2_MAPRAM_ERROR
  * @retval #ERR_LOG_CODE_SEMAPHORE_RESERVED
  */
-#define user_nvm_mapram_recover              ( (int32_t(*)(uint32_t))                                         addr_user_nvm_mapram_recover             )
+#define user_nvm_mapram_recover ((int32_t(*)(uint32_t))addr_user_nvm_mapram_recover)
 
 /**
  * @brief This user API function runs the service algorithm on a mapped sector, attempting to repair faulty pages or double mappings.
@@ -657,7 +633,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_MEM_ADDR_RANGE_INVALID
  * @retval #ERR_LOG_CODE_SA_UNRECOVERABLE
  */
-#define user_nvm_service_algorithm           ( (int32_t(*)(uint32_t))                                         addr_user_nvm_service_algorithm          )
+#define user_nvm_service_algorithm ((int32_t(*)(uint32_t))addr_user_nvm_service_algorithm)
 
 /**
  * @brief This user API function performs a write access to NVM SFRs.
@@ -673,7 +649,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_PARAM_INVALID
  * @retval #ERR_LOG_CODE_SEGMENT_PROTECTED
  */
-#define user_nvm_reg_write                   ( (int32_t(*)(uint32_t, uint32_t ))                              addr_user_nvm_reg_write                  )
+#define user_nvm_reg_write ((int32_t(*)(uint32_t, uint32_t))addr_user_nvm_reg_write)
 
 /**
  * @brief This user API function performs a read access to NVM SFRs.
@@ -690,7 +666,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_PARAM_INVALID
  * @retval #ERR_LOG_CODE_SEGMENT_PROTECTED
  */
-#define user_nvm_reg_read                    ( (int32_t(*)(uint32_t, uint32_t *))                             addr_user_nvm_reg_read                   )
+#define user_nvm_reg_read ((int32_t(*)(uint32_t, uint32_t *))addr_user_nvm_reg_read)
 
 /**
  * @brief This user API function initiates the secure container and starts the secure download process.
@@ -717,7 +693,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_secure_download_start           ( (int32_t(*)(uint8_t, uint8_t, uint8_t *))                      addr_user_secure_download_start          )
+#define user_secure_download_start ((int32_t(*)(uint8_t, uint8_t, uint8_t *))addr_user_secure_download_start)
 
 /**
  * @brief This user API function continues the secure download process.
@@ -743,7 +719,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_ERROR
  * @retval #ERR_LOG_CODE_NVM_VER_ERROR
  */
-#define user_secure_download_update          ( (int32_t(*)(uint32_t, uint8_t *))                              addr_user_secure_download_update         )
+#define user_secure_download_update ((int32_t(*)(uint32_t, uint8_t *))addr_user_secure_download_update)
 
 /**
  * @brief This user API function finalizes the secure download process.
@@ -760,7 +736,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_secure_download_finish          ( (int32_t(*)(void))                                             addr_user_secure_download_finish         )
+#define user_secure_download_finish ((int32_t(*)(void))addr_user_secure_download_finish)
 
 /**
  * @brief This user API function provides an alternative to writing to cache registers in addition to direct register access.
@@ -772,7 +748,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_SUCCESS
  * @retval #ERR_LOG_CODE_PARAM_INVALID
  */
-#define user_cache_operation                 ( (int32_t(*)(user_cache_op_t, uint32_t))                        addr_user_cache_operation                )
+#define user_cache_operation ((int32_t(*)(user_cache_op_t, uint32_t))addr_user_cache_operation)
 
 /**
  * @brief This user API function is used to restore the UBSL size in case of a Stop mode exit w/o reset.
@@ -780,7 +756,7 @@ typedef enum user_nvm_segment_t
  * @remark If user has an UBSL size configuration different than the default setting,
  * in case of stop mode exit w/o reset, this function must be called after exit from the Stop mode.
  */
-#define user_ubsl_size_restore               ( (void(*)(void))                                                addr_user_ubsl_size_restore              )
+#define user_ubsl_size_restore ((void (*)(void))addr_user_ubsl_size_restore)
 
 /**
  * @brief This user API function initializes a CMAC generation.
@@ -799,7 +775,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_cmac_generate_start  ( (int32_t(*)(uint32_t))                                         addr_user_crypto_aes_cmac_generate_start )
+#define user_crypto_aes_cmac_generate_start ((int32_t(*)(uint32_t))addr_user_crypto_aes_cmac_generate_start)
 
 /**
  * @brief This user API function updates the ongoing CMAC generation.
@@ -820,7 +796,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_cmac_generate_update ( (int32_t(*)(user_crypto_inp_buf_t *))                          addr_user_crypto_aes_cmac_generate_update)
+#define user_crypto_aes_cmac_generate_update ((int32_t(*)(user_crypto_inp_buf_t *))addr_user_crypto_aes_cmac_generate_update)
 
 /**
  * @brief This user API function finalizes the ongoing CMAC generation.
@@ -841,7 +817,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_cmac_generate_finish ( (int32_t(*)(user_crypto_io_buf_t *, bool))                     addr_user_crypto_aes_cmac_generate_finish)
+#define user_crypto_aes_cmac_generate_finish ((int32_t(*)(user_crypto_io_buf_t *, bool))addr_user_crypto_aes_cmac_generate_finish)
 
 /**
  * @brief This user API function initializes a CMAC verification operation.
@@ -860,7 +836,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_cmac_verify_start    ( (int32_t(*)(uint32_t))                                         addr_user_crypto_aes_cmac_verify_start   )
+#define user_crypto_aes_cmac_verify_start ((int32_t(*)(uint32_t))addr_user_crypto_aes_cmac_verify_start)
 
 /**
  * @brief This user API function updates the ongoing CMAC verification.
@@ -881,7 +857,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_cmac_verify_update   ( (int32_t(*)(user_crypto_inp_buf_t *))                          addr_user_crypto_aes_cmac_verify_update  )
+#define user_crypto_aes_cmac_verify_update ((int32_t(*)(user_crypto_inp_buf_t *))addr_user_crypto_aes_cmac_verify_update)
 
 /**
  * @brief This user API function finalizes the ongoing CMAC verification.
@@ -902,7 +878,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_ERROR
  * @retval #ERR_LOG_CODE_CMAC_VERIFY_FAIL
  */
-#define user_crypto_aes_cmac_verify_finish   ( (int32_t(*)(user_crypto_cmac_t *))                             addr_user_crypto_aes_cmac_verify_finish  )
+#define user_crypto_aes_cmac_verify_finish ((int32_t(*)(user_crypto_cmac_t *))addr_user_crypto_aes_cmac_verify_finish)
 
 /**
  * @brief This user API function initializes an AES operation.
@@ -924,7 +900,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_start                ( (int32_t(*)(user_crypto_fid_t, uint32_t, user_crypto_cbc_t *)) addr_user_crypto_aes_start               )
+#define user_crypto_aes_start ((int32_t(*)(user_crypto_fid_t, uint32_t, user_crypto_cbc_t *))addr_user_crypto_aes_start)
 
 /**
  * @brief This user API function updates the ongoing AES operation.
@@ -946,7 +922,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_update               ( (int32_t(*)(user_crypto_io_buf_t *))                           addr_user_crypto_aes_update              )
+#define user_crypto_aes_update ((int32_t(*)(user_crypto_io_buf_t *))addr_user_crypto_aes_update)
 
 /**
  * @brief This user API function finalizes the ongoing AES operation.
@@ -967,7 +943,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_AES_UNAVAILABLE_ERROR
  * @retval #ERR_LOG_CODE_AES_ERROR
  */
-#define user_crypto_aes_finish               ( (int32_t(*)(user_crypto_io_buf_t *))                           addr_user_crypto_aes_finish              )
+#define user_crypto_aes_finish ((int32_t(*)(user_crypto_io_buf_t *))addr_user_crypto_aes_finish)
 
 /**
  * @brief This user API function writes a cryptographic key to the target key slot.
@@ -993,7 +969,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_ACCESS_AB_MODE_ERROR
  * @retval #ERR_LOG_CODE_NVM_VER_ERROR
  */
-#define user_crypto_key_write                ( (int32_t(*)(user_key_write_t *))                               addr_user_crypto_key_write               )
+#define user_crypto_key_write ((int32_t(*)(user_key_write_t *))addr_user_crypto_key_write)
 
 /**
  * @brief This user API function erases a cryptographic key.
@@ -1018,7 +994,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_KEY_SIZE
  * @retval #ERR_LOG_CODE_KEY_ERASE_FAIL
  */
-#define user_crypto_key_erase                ( (int32_t(*)(user_key_erase_t *))                               addr_user_crypto_key_erase               )
+#define user_crypto_key_erase ((int32_t(*)(user_key_erase_t *))addr_user_crypto_key_erase)
 
 /**
  * @brief This user API function verifies an existing cryptographic key. An additional key repair operation can be enabled by setting \a do_repair.
@@ -1041,7 +1017,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_KEY_VERIFY_FAIL
  * @retval #ERR_LOG_CODE_NVM_VER_ERROR
  */
-#define user_crypto_key_verify               ( (int32_t(*)(uint8_t, bool))                                    addr_user_crypto_key_verify              )
+#define user_crypto_key_verify ((int32_t(*)(uint8_t, bool))addr_user_crypto_key_verify)
 
 /* User API extension, callable from UBSL segment only */
 /**
@@ -1056,7 +1032,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_PROTECT_WRONG_PASSWORD
  * @retval #ERR_LOG_CODE_SEMAPHORE_RESERVED
  */
-#define user_nvm_ubsl_temp_protect_clear     ( (int32_t(*)(uint32_t))                                         addr_user_nvm_ubsl_temp_protect_clear    )
+#define user_nvm_ubsl_temp_protect_clear ((int32_t(*)(uint32_t))addr_user_nvm_ubsl_temp_protect_clear)
 
 /**
  * @brief This user API function temporarily sets the write protection of the UBSL segment.
@@ -1070,7 +1046,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_USER_PROTECT_WRONG_PASSWORD
  * @retval #ERR_LOG_CODE_SEMAPHORE_RESERVED
  */
-#define user_nvm_ubsl_temp_protect_set       ( (int32_t(*)(uint32_t))                                         addr_user_nvm_ubsl_temp_protect_set      )
+#define user_nvm_ubsl_temp_protect_set ((int32_t(*)(uint32_t))addr_user_nvm_ubsl_temp_protect_set)
 
 /**
  * @brief This user API function configures and enables the secondary UBSL image.
@@ -1086,7 +1062,7 @@ typedef enum user_nvm_segment_t
  * @retval #ERR_LOG_CODE_ACCESS_AB_MODE_ERROR
  * @retval #ERR_LOG_CODE_NVM_VER_ERROR
  */
-#define user_secure_dualboot                 ( (int32_t(*)(uint32_t))                                         addr_user_secure_dualboot                )
+#define user_secure_dualboot ((int32_t(*)(uint32_t))addr_user_secure_dualboot)
 
 /*******************************************************************************
 **                     Global Inline Function Definitions                     **

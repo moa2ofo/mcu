@@ -1,0 +1,8 @@
+#ifndef TEST_BDRV_SETPH1ZCRISEINTNODEPTR_HELP_H
+#define TEST_BDRV_SETPH1ZCRISEINTNODEPTR_HELP_H
+
+#include "BDRV_setPh1ZCRiseIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_BDRV_SETPH1ZCRISEINTNODEPTR_HELP_H */

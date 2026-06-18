@@ -1,0 +1,90 @@
+/*
+ ***********************************************************************************************************************
+ *
+ * Copyright (c) Infineon Technologies AG
+ * All rights reserved.
+ *
+ * The applicable license agreement can be found at this pack's installation directory in the file
+ * license/IFX_SW_Licence_MOTIX_LITIX.txt
+ *
+ **********************************************************************************************************************/
+
+/**
+ * \file     system_tle989x.h
+ *
+ * \brief    System file for TLE989x
+ *
+ * \version  V0.4.7
+ * \date     05. Nov 2024
+ */
+
+/*******************************************************************************
+**                             Author(s) Identity                             **
+********************************************************************************
+** Initials     Name                                                          **
+** ---------------------------------------------------------------------------**
+** DM           Daniel Mysliwitz                                              **
+** BG           Blandine Guillot                                              **
+** JO           Julia Ott                                                     **
+*******************************************************************************/
+
+/*******************************************************************************
+**                          Revision Control History                          **
+********************************************************************************
+** V0.1.0: 2019-10-28, DM:   Initial version                                  **
+** V0.2.0: 2020-04-28, BG:   Updated revision history format                  **
+** V0.2.1: 2020-10-06, BG:   EP-492: Removed MISRA 2012 errors                **
+** V0.2.2: 2020-10-15, BG:   EP-515: Updated the fail-safe watchdog init      **
+** V0.3.0: 2020-10-15, JO:   EP-525: Set VTOR register to 0x11000100 at the   **
+**                           beginning of function System_init                **
+** V0.4.0: 2020-10-19, JO:   EP-524: Added initSysTick before SCU_initClk to  **
+**                           initialize Systick before (delay function        **
+**                           needed for XTAL startup timeout)                 **
+**                           Added handling of return value of SCU_initClk()  **
+** V0.4.1: 2020-11-12, JO:   EP-590: Removed \param none and \return none to  **
+**                           avoid doxygen warning                            **
+** V0.4.2: 2020-11-12, JO:   EP-582: Renamed System_init to SystemInit,       **
+**                           Changed return type of SystemInit to void (both  **
+**                           to be CMSIS standard  compliant)                 **
+**                           Updated location of command to relocate the      **
+**                           vector table                                     **
+**                           Added external variable e_systemInitReturnCode   **
+**                           that contains the return code of SystemInit      **
+** V0.4.3: 2020-12-18, DM:   EP-601: Removed global status variable for       **
+**                           SystemInit                                       **
+**                           Updated loading of VTOR register                 **
+** V0.4.4: 2021-07-12, JO:   EP-873: Added include of cmsis_misra.h           **
+** V0.4.5: 2021-11-11, JO:   EP-937: Updated copyright and branding           **
+** V0.4.6: 2022-09-23, JO:   EP-1243: Removed writing VTOR (done in firmware),**
+**                           call PMU_initFailSafeWatchdog based on CW define **
+** V0.4.7: 2024-11-05, JO:   EP-1494: Updated license                         **
+*******************************************************************************/
+
+#ifndef __SYSTEM_TLE989x_H
+#define __SYSTEM_TLE989x_H
+
+/*******************************************************************************
+**                                  Includes                                  **
+*******************************************************************************/
+
+#include "types.h"
+#include "cmsis_misra.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/*******************************************************************************
+**                        Global Variable Declarations                        **
+*******************************************************************************/
+
+
+/*******************************************************************************
+**                        Global Function Declarations                        **
+*******************************************************************************/
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __SYSTEM_TLE988x_H */

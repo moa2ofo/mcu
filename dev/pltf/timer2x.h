@@ -70,12 +70,12 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
-#include "tle989x.h"
-#include "tle_variants.h"
-#include "timer2x_defines.h"
 #include "isr_defines.h"
 #include "scu_defines.h"
+#include "timer2x_defines.h"
+#include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -124,29 +124,25 @@ INLINE void T21_clrExternalSts(void);
 
 /** \brief Start T20
  */
-INLINE void T20_start(void)
-{
+INLINE void T20_start(void) {
   T20->CON.bit.TR2 = 1u;
 }
 
 /** \brief Stop T20
  */
-INLINE void T20_stop(void)
-{
+INLINE void T20_stop(void) {
   T20->CON.bit.TR2 = 0u;
 }
 
 /** \brief Start T21
  */
-INLINE void T21_start(void)
-{
+INLINE void T21_start(void) {
   T21->CON.bit.TR2 = 1u;
 }
 
 /** \brief Stop T21
  */
-INLINE void T21_stop(void)
-{
+INLINE void T21_stop(void) {
   T21->CON.bit.TR2 = 0u;
 }
 
@@ -154,8 +150,7 @@ INLINE void T21_stop(void)
  *
  * \return uint16 T20 Count Value
  */
-INLINE uint16 T20_getCntVal(void)
-{
+INLINE uint16 T20_getCntVal(void) {
   return (uint16)T20->CNT.reg;
 }
 
@@ -163,8 +158,7 @@ INLINE uint16 T20_getCntVal(void)
  *
  * \return uint16 T21 Count Value
  */
-INLINE uint16 T21_getCntVal(void)
-{
+INLINE uint16 T21_getCntVal(void) {
   return (uint16)T21->CNT.reg;
 }
 
@@ -172,8 +166,7 @@ INLINE uint16 T21_getCntVal(void)
  *
  * \return uint16 T20 Capture/Reload Value
  */
-INLINE uint16 T20_getCapRelVal(void)
-{
+INLINE uint16 T20_getCapRelVal(void) {
   return (uint16)T20->RC.reg;
 }
 
@@ -181,8 +174,7 @@ INLINE uint16 T20_getCapRelVal(void)
  *
  * \return uint16 T21 Capture/Reload Value
  */
-INLINE uint16 T21_getCapRelVal(void)
-{
+INLINE uint16 T21_getCapRelVal(void) {
   return (uint16)T21->RC.reg;
 }
 
@@ -190,8 +182,7 @@ INLINE uint16 T21_getCapRelVal(void)
  *
  * \param u16_cntVal T20 Count Value
  */
-INLINE void T20_setCntVal(uint16 u16_cntVal)
-{
+INLINE void T20_setCntVal(uint16 u16_cntVal) {
   T20->CNT.reg = u16_cntVal;
 }
 
@@ -199,8 +190,7 @@ INLINE void T20_setCntVal(uint16 u16_cntVal)
  *
  * \param u16_cntVal T21 Count Value
  */
-INLINE void T21_setCntVal(uint16 u16_cntVal)
-{
+INLINE void T21_setCntVal(uint16 u16_cntVal) {
   T21->CNT.reg = u16_cntVal;
 }
 
@@ -208,8 +198,7 @@ INLINE void T21_setCntVal(uint16 u16_cntVal)
  *
  * \param u16_relCaptVal T20 Reload/Capture Value
  */
-INLINE void T20_setRelCaptVal(uint16 u16_relCaptVal)
-{
+INLINE void T20_setRelCaptVal(uint16 u16_relCaptVal) {
   T20->RC.reg = u16_relCaptVal;
 }
 
@@ -217,8 +206,7 @@ INLINE void T20_setRelCaptVal(uint16 u16_relCaptVal)
  *
  * \param u16_relCaptVal T21 Reload/Capture Value
  */
-INLINE void T21_setRelCaptVal(uint16 u16_relCaptVal)
-{
+INLINE void T21_setRelCaptVal(uint16 u16_relCaptVal) {
   T21->RC.reg = u16_relCaptVal;
 }
 
@@ -226,8 +214,7 @@ INLINE void T21_setRelCaptVal(uint16 u16_relCaptVal)
  *
  * \return uint8 T20 Overflow/Underflow Status
  */
-INLINE uint8 T20_getOverUnderflowSts(void)
-{
+INLINE uint8 T20_getOverUnderflowSts(void) {
   return (uint8)T20->CON.bit.TF2;
 }
 
@@ -235,8 +222,7 @@ INLINE uint8 T20_getOverUnderflowSts(void)
  *
  * \return uint8 T20 External Status
  */
-INLINE uint8 T20_getExternalSts(void)
-{
+INLINE uint8 T20_getExternalSts(void) {
   return (uint8)T20->CON.bit.EXF2;
 }
 
@@ -244,8 +230,7 @@ INLINE uint8 T20_getExternalSts(void)
  *
  * \return uint8 T21 Overflow/Underflow Status
  */
-INLINE uint8 T21_getOverUnderflowSts(void)
-{
+INLINE uint8 T21_getOverUnderflowSts(void) {
   return (uint8)T21->CON.bit.TF2;
 }
 
@@ -253,36 +238,31 @@ INLINE uint8 T21_getOverUnderflowSts(void)
  *
  * \return uint8 T21 External Status
  */
-INLINE uint8 T21_getExternalSts(void)
-{
+INLINE uint8 T21_getExternalSts(void) {
   return (uint8)T21->CON.bit.EXF2;
 }
 
 /** \brief Clear T20 Overflow/Underflow Status T20.ICLR.TF2CLR
  */
-INLINE void T20_clrOverUnderflowSts(void)
-{
+INLINE void T20_clrOverUnderflowSts(void) {
   T20->ICLR.bit.TF2CLR = 1u;
 }
 
 /** \brief Clear T20 External Status T20.ICLR.EXF2CLR
  */
-INLINE void T20_clrExternalSts(void)
-{
+INLINE void T20_clrExternalSts(void) {
   T20->ICLR.bit.EXF2CLR = 1u;
 }
 
 /** \brief Clear T21 Overflow/Underflow Status T21.ICLR.TF2CLR
  */
-INLINE void T21_clrOverUnderflowSts(void)
-{
+INLINE void T21_clrOverUnderflowSts(void) {
   T21->ICLR.bit.TF2CLR = 1u;
 }
 
 /** \brief Clear T21 External Status T21.ICLR.EXF2CLR
  */
-INLINE void T21_clrExternalSts(void)
-{
+INLINE void T21_clrExternalSts(void) {
   T21->ICLR.bit.EXF2CLR = 1u;
 }
 

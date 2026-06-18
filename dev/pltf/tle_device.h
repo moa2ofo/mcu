@@ -79,68 +79,68 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "tle_variants.h"
 #include "RTE_Components.h"
+#include "tle_variants.h"
 
 #ifdef RTE_DEVICE_TLELIB_ADC1
-  #include "adc1.h"
+#include "adc1.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_ADC2
-  #include "adc2.h"
+#include "adc2.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_BDRV
-  #include "bdrv.h"
+#include "bdrv.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_BOOTROM
-  #include "bootrom.h"
+#include "bootrom.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_CANCONTR
-  #include "can.h"
+#include "can.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_CANTRX
-  #include "cantrx.h"
+#include "cantrx.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_CCU7
-  #include "ccu7.h"
+#include "ccu7.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_CSACSC
-  #include "csacsc.h"
+#include "csacsc.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_DMA
-  #include "dma.h"
+#include "dma.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_GPIO
-  #include "gpio.h"
+#include "gpio.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_GPT12
-  #include "gpt12.h"
+#include "gpt12.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_INT
-  #include "int.h"
+#include "int.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_ISR
-  #include "isr.h"
+#include "isr.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_MON
-  #include "mon.h"
+#include "mon.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_PMU
-  #include "pmu.h"
+#include "pmu.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_SCU
-  #include "scu.h"
+#include "scu.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_SDADC
-  #include "sdadc.h"
+#include "sdadc.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_SSC
-  #include "ssc.h"
+#include "ssc.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_TIMER2X
-  #include "timer2x.h"
+#include "timer2x.h"
 #endif
 #ifdef RTE_DEVICE_TLELIB_UART
-  #include "uart.h"
+#include "uart.h"
 #endif
 
 /*******************************************************************************
@@ -149,7 +149,6 @@
 extern uint32 UC_FLASH0_UBSL_SIZE;
 extern uint32 UC_FLASH0_UDATA_START;
 extern uint32 UC_FLASH0_UDATA_SIZE;
-
 
 /*******************************************************************************
 **                        Global Function Declarations                        **

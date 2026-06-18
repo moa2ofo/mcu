@@ -1,0 +1,35 @@
+/**
+    * @file test/unitTest/TEST_CCU7_setCC70AIntNodePtr/test/test_CCU7_setCC70AIntNodePtr.c
+    * @brief Unit tests for CCU7_setCC70AIntNodePtr.
+    *
+    * @anchor UT_CCU7_setCC70AIntNodePtr
+    *
+    * @details
+    * This file contains the Unity unit test stub for the SW unit
+    * CCU7_setCC70AIntNodePtr.
+    */
+    
+#include "CCU7_setCC70AIntNodePtr.h"
+#include "unity.h"
+
+#include "mock_RTE_Components.h"
+#include "mock_ccu7_defines.h"
+#include "mock_ccu7.h"
+#include "mock_cmsis_compiler.h"
+#include "mock_cmsis_gcc.h"
+#include "mock_cmsis_misra.h"
+#include "mock_cmsis_version.h"
+#include "mock_core_cm3.h"
+#include "mock_error_codes.h"
+#include "mock_system_tle989x.h"
+#include "mock_tle989x.h"
+#include "mock_tle_variants.h"
+#include "mock_types.h"
+
+void setUp(void) {}
+void tearDown(void) {}
+
+void test_CCU7_setCC70AIntNodePtr(void)
+{
+    TEST_IGNORE_MESSAGE("Auto-generated stub test");
+}

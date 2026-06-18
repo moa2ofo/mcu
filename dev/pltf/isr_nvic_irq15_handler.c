@@ -13,20 +13,19 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "tle989x.h"
 #include "isr.h"
 #include "isr_defines.h"
-
+#include "tle989x.h"
 
 /* Check if NVIC node 15 is enabled */
-#if ((CPU_NVIC_ISER & CPU_NVIC_ISER_IRQEN15_Msk) == (1u << CPU_NVIC_ISER_IRQEN15_Pos))
+#if((CPU_NVIC_ISER & CPU_NVIC_ISER_IRQEN15_Msk) == (1u << CPU_NVIC_ISER_IRQEN15_Pos))
 
 /*******************************************************************************
 **                        Global Variable Definitions                         **
 *******************************************************************************/
 
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
-  uint8 u8_interrupt_cnt_irq15 = 0;
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+uint8 u8_interrupt_cnt_irq15 = 0;
 #endif
 
 /*******************************************************************************
@@ -37,22 +36,19 @@
 **                         Global Function Definitions                        **
 *******************************************************************************/
 
-void NVIC_IRQ15_Handler(void)
-{
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+void NVIC_IRQ15_Handler(void) {
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
   u8_interrupt_cnt_irq15 = 0;
 #endif
   /* Ch0 */
-#if (ADC1_CH0_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH0_Msk) >>  ADC1_INP0_INP_CH0_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH0_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH0_Msk) >> ADC1_INP0_INP_CH0_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH0 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH0 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH0 == 1u) {
+    if(ADC1->CHSTAT.bit.CH0 == 1u) {
       ADC1_CH0_CALLBACK();
       ADC1->CHSTATCLR.bit.CH0CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -61,16 +57,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch1 */
-#if (ADC1_CH1_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH1_Msk) >>  ADC1_INP0_INP_CH1_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH1_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH1_Msk) >> ADC1_INP0_INP_CH1_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH1 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH1 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH1 == 1u) {
+    if(ADC1->CHSTAT.bit.CH1 == 1u) {
       ADC1_CH1_CALLBACK();
       ADC1->CHSTATCLR.bit.CH1CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -79,16 +73,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch2 */
-#if (ADC1_CH2_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH2_Msk) >>  ADC1_INP0_INP_CH2_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH2_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH2_Msk) >> ADC1_INP0_INP_CH2_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH2 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH2 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH2 == 1u) {
+    if(ADC1->CHSTAT.bit.CH2 == 1u) {
       ADC1_CH2_CALLBACK();
       ADC1->CHSTATCLR.bit.CH2CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -97,16 +89,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch3 */
-#if (ADC1_CH3_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH3_Msk) >>  ADC1_INP0_INP_CH3_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH3_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH3_Msk) >> ADC1_INP0_INP_CH3_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH3 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH3 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH3 == 1u) {
+    if(ADC1->CHSTAT.bit.CH3 == 1u) {
       ADC1_CH3_CALLBACK();
       ADC1->CHSTATCLR.bit.CH3CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -115,16 +105,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch4 */
-#if (ADC1_CH4_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH4_Msk) >>  ADC1_INP0_INP_CH4_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH4_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH4_Msk) >> ADC1_INP0_INP_CH4_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH4 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH4 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH4 == 1u) {
+    if(ADC1->CHSTAT.bit.CH4 == 1u) {
       ADC1_CH4_CALLBACK();
       ADC1->CHSTATCLR.bit.CH4CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -133,16 +121,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch5 */
-#if (ADC1_CH5_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH5_Msk) >>  ADC1_INP0_INP_CH5_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH5_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH5_Msk) >> ADC1_INP0_INP_CH5_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH5 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH5 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH5 == 1u) {
+    if(ADC1->CHSTAT.bit.CH5 == 1u) {
       ADC1_CH5_CALLBACK();
       ADC1->CHSTATCLR.bit.CH5CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -151,16 +137,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch6 */
-#if (ADC1_CH6_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH6_Msk) >>  ADC1_INP0_INP_CH6_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH6_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH6_Msk) >> ADC1_INP0_INP_CH6_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH6 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH6 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH6 == 1u) {
+    if(ADC1->CHSTAT.bit.CH6 == 1u) {
       ADC1_CH6_CALLBACK();
       ADC1->CHSTATCLR.bit.CH6CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -169,16 +153,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch7 */
-#if (ADC1_CH7_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH7_Msk) >>  ADC1_INP0_INP_CH7_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH7_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH7_Msk) >> ADC1_INP0_INP_CH7_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH7 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH7 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH7 == 1u) {
+    if(ADC1->CHSTAT.bit.CH7 == 1u) {
       ADC1_CH7_CALLBACK();
       ADC1->CHSTATCLR.bit.CH7CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -187,16 +169,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch8 */
-#if (ADC1_CH8_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH8_Msk) >>  ADC1_INP0_INP_CH8_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH8_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH8_Msk) >> ADC1_INP0_INP_CH8_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH8 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH8 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH8 == 1u) {
+    if(ADC1->CHSTAT.bit.CH8 == 1u) {
       ADC1_CH8_CALLBACK();
       ADC1->CHSTATCLR.bit.CH8CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -205,16 +185,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch9 */
-#if (ADC1_CH9_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH9_Msk) >>  ADC1_INP0_INP_CH9_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH9_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH9_Msk) >> ADC1_INP0_INP_CH9_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH9 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH9 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH9 == 1u) {
+    if(ADC1->CHSTAT.bit.CH9 == 1u) {
       ADC1_CH9_CALLBACK();
       ADC1->CHSTATCLR.bit.CH9CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -223,16 +201,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch10 */
-#if (ADC1_CH10_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH10_Msk) >>  ADC1_INP0_INP_CH10_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH10_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH10_Msk) >> ADC1_INP0_INP_CH10_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH10 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH10 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH10 == 1u) {
+    if(ADC1->CHSTAT.bit.CH10 == 1u) {
       ADC1_CH10_CALLBACK();
       ADC1->CHSTATCLR.bit.CH10CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -241,16 +217,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch11 */
-#if (ADC1_CH11_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH11_Msk) >>  ADC1_INP0_INP_CH11_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH11_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH11_Msk) >> ADC1_INP0_INP_CH11_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH11 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH11 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH11 == 1u) {
+    if(ADC1->CHSTAT.bit.CH11 == 1u) {
       ADC1_CH11_CALLBACK();
       ADC1->CHSTATCLR.bit.CH11CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -259,16 +233,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch12 */
-#if (ADC1_CH12_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH12_Msk) >>  ADC1_INP0_INP_CH12_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH12_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH12_Msk) >> ADC1_INP0_INP_CH12_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH12 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH12 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH12 == 1u) {
+    if(ADC1->CHSTAT.bit.CH12 == 1u) {
       ADC1_CH12_CALLBACK();
       ADC1->CHSTATCLR.bit.CH12CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -277,16 +249,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch13 */
-#if (ADC1_CH13_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH13_Msk) >>  ADC1_INP0_INP_CH13_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH13_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH13_Msk) >> ADC1_INP0_INP_CH13_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH13 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH13 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH13 == 1u) {
+    if(ADC1->CHSTAT.bit.CH13 == 1u) {
       ADC1_CH13_CALLBACK();
       ADC1->CHSTATCLR.bit.CH13CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -295,16 +265,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch14 */
-#if (ADC1_CH14_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH14_Msk) >>  ADC1_INP0_INP_CH14_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH14_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH14_Msk) >> ADC1_INP0_INP_CH14_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH14 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH14 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH14 == 1u) {
+    if(ADC1->CHSTAT.bit.CH14 == 1u) {
       ADC1_CH14_CALLBACK();
       ADC1->CHSTATCLR.bit.CH14CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -313,16 +281,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch15 */
-#if (ADC1_CH15_INT_EN == 1)
-#if (((ADC1_INP0 & ADC1_INP0_INP_CH15_Msk) >>  ADC1_INP0_INP_CH15_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH15_INT_EN == 1)
+#if(((ADC1_INP0 & ADC1_INP0_INP_CH15_Msk) >> ADC1_INP0_INP_CH15_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH15 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH15 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH15 == 1u) {
+    if(ADC1->CHSTAT.bit.CH15 == 1u) {
       ADC1_CH15_CALLBACK();
       ADC1->CHSTATCLR.bit.CH15CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -331,16 +297,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch16 */
-#if (ADC1_CH16_INT_EN == 1)
-#if (((ADC1_INP1 & ADC1_INP1_INP_CH16_Msk) >>  ADC1_INP1_INP_CH16_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH16_INT_EN == 1)
+#if(((ADC1_INP1 & ADC1_INP1_INP_CH16_Msk) >> ADC1_INP1_INP_CH16_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH16 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH16 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH16 == 1u) {
+    if(ADC1->CHSTAT.bit.CH16 == 1u) {
       ADC1_CH16_CALLBACK();
       ADC1->CHSTATCLR.bit.CH16CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -349,16 +313,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch17 */
-#if (ADC1_CH17_INT_EN == 1)
-#if (((ADC1_INP1 & ADC1_INP1_INP_CH17_Msk) >>  ADC1_INP1_INP_CH17_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH17_INT_EN == 1)
+#if(((ADC1_INP1 & ADC1_INP1_INP_CH17_Msk) >> ADC1_INP1_INP_CH17_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH17 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH17 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH17 == 1u) {
+    if(ADC1->CHSTAT.bit.CH17 == 1u) {
       ADC1_CH17_CALLBACK();
       ADC1->CHSTATCLR.bit.CH17CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -367,16 +329,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch18 */
-#if (ADC1_CH18_INT_EN == 1)
-#if (((ADC1_INP1 & ADC1_INP1_INP_CH18_Msk) >>  ADC1_INP1_INP_CH18_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH18_INT_EN == 1)
+#if(((ADC1_INP1 & ADC1_INP1_INP_CH18_Msk) >> ADC1_INP1_INP_CH18_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH18 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH18 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH18 == 1u) {
+    if(ADC1->CHSTAT.bit.CH18 == 1u) {
       ADC1_CH18_CALLBACK();
       ADC1->CHSTATCLR.bit.CH18CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -385,16 +345,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Ch19 */
-#if (ADC1_CH19_INT_EN == 1)
-#if (((ADC1_INP1 & ADC1_INP1_INP_CH19_Msk) >>  ADC1_INP1_INP_CH19_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_CH19_INT_EN == 1)
+#if(((ADC1_INP1 & ADC1_INP1_INP_CH19_Msk) >> ADC1_INP1_INP_CH19_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_CH19 == 1u)
-  {
-    if (ADC1->CHSTAT.bit.CH19 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_CH19 == 1u) {
+    if(ADC1->CHSTAT.bit.CH19 == 1u) {
       ADC1_CH19_CALLBACK();
       ADC1->CHSTATCLR.bit.CH19CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -403,16 +361,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Sq0 */
-#if (ADC1_SQ0_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_SQ0_Msk) >>  ADC1_INP3_INP_SQ0_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_SQ0_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_SQ0_Msk) >> ADC1_INP3_INP_SQ0_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_SQ0 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.SQ0 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_SQ0 == 1u) {
+    if(ADC1->SQSTAT.bit.SQ0 == 1u) {
       ADC1_SQ0_CALLBACK();
       ADC1->SQSTATCLR.bit.SQ0CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -421,16 +377,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Sq1 */
-#if (ADC1_SQ1_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_SQ1_Msk) >>  ADC1_INP3_INP_SQ1_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_SQ1_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_SQ1_Msk) >> ADC1_INP3_INP_SQ1_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_SQ1 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.SQ1 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_SQ1 == 1u) {
+    if(ADC1->SQSTAT.bit.SQ1 == 1u) {
       ADC1_SQ1_CALLBACK();
       ADC1->SQSTATCLR.bit.SQ1CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -439,16 +393,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Sq2 */
-#if (ADC1_SQ2_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_SQ2_Msk) >>  ADC1_INP3_INP_SQ2_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_SQ2_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_SQ2_Msk) >> ADC1_INP3_INP_SQ2_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_SQ2 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.SQ2 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_SQ2 == 1u) {
+    if(ADC1->SQSTAT.bit.SQ2 == 1u) {
       ADC1_SQ2_CALLBACK();
       ADC1->SQSTATCLR.bit.SQ2CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -457,16 +409,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Sq3 */
-#if (ADC1_SQ3_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_SQ3_Msk) >>  ADC1_INP3_INP_SQ3_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_SQ3_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_SQ3_Msk) >> ADC1_INP3_INP_SQ3_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_SQ3 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.SQ3 == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_SQ3 == 1u) {
+    if(ADC1->SQSTAT.bit.SQ3 == 1u) {
       ADC1_SQ3_CALLBACK();
       ADC1->SQSTATCLR.bit.SQ3CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -475,16 +425,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* LOTH0 */
-#if (ADC1_LOTH0_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_LO0_Msk) >>  ADC1_INP2_INP_CMP_LO0_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_LOTH0_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_LO0_Msk) >> ADC1_INP2_INP_CMP_LO0_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_LO0 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_LO0_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_LO0 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_LO0_IS == 1u) {
       ADC1_LOTH0_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_LO0_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -493,16 +441,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* LOTH1 */
-#if (ADC1_LOTH1_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_LO1_Msk) >>  ADC1_INP2_INP_CMP_LO1_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_LOTH1_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_LO1_Msk) >> ADC1_INP2_INP_CMP_LO1_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_LO1 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_LO1_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_LO1 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_LO1_IS == 1u) {
       ADC1_LOTH1_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_LO1_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -511,16 +457,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* LOTH2 */
-#if (ADC1_LOTH2_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_LO2_Msk) >>  ADC1_INP2_INP_CMP_LO2_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_LOTH2_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_LO2_Msk) >> ADC1_INP2_INP_CMP_LO2_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_LO2 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_LO2_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_LO2 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_LO2_IS == 1u) {
       ADC1_LOTH2_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_LO2_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -529,16 +473,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* LOTH3 */
-#if (ADC1_LOTH3_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_LO3_Msk) >>  ADC1_INP2_INP_CMP_LO3_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_LOTH3_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_LO3_Msk) >> ADC1_INP2_INP_CMP_LO3_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_LO3 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_LO3_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_LO3 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_LO3_IS == 1u) {
       ADC1_LOTH3_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_LO3_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -547,16 +489,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* UPTH0 */
-#if (ADC1_UPTH0_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_UP0_Msk) >>  ADC1_INP2_INP_CMP_UP0_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_UPTH0_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_UP0_Msk) >> ADC1_INP2_INP_CMP_UP0_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_UP0 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_UP0_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_UP0 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_UP0_IS == 1u) {
       ADC1_UPTH0_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_UP0_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -565,16 +505,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* UPTH1 */
-#if (ADC1_UPTH1_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_UP1_Msk) >>  ADC1_INP2_INP_CMP_UP1_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_UPTH1_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_UP1_Msk) >> ADC1_INP2_INP_CMP_UP1_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_UP1 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_UP1_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_UP1 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_UP1_IS == 1u) {
       ADC1_UPTH1_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_UP1_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -583,16 +521,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* UPTH2 */
-#if (ADC1_UPTH2_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_UP2_Msk) >>  ADC1_INP2_INP_CMP_UP2_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_UPTH2_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_UP2_Msk) >> ADC1_INP2_INP_CMP_UP2_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_UP2 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_UP2_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_UP2 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_UP2_IS == 1u) {
       ADC1_UPTH2_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_UP2_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -601,16 +537,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* UPTH3 */
-#if (ADC1_UPTH3_INT_EN == 1)
-#if (((ADC1_INP2 & ADC1_INP2_INP_CMP_UP3_Msk) >>  ADC1_INP2_INP_CMP_UP3_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_UPTH3_INT_EN == 1)
+#if(((ADC1_INP2 & ADC1_INP2_INP_CMP_UP3_Msk) >> ADC1_INP2_INP_CMP_UP3_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN0.bit.IEN_UP3 == 1u)
-  {
-    if (ADC1->CMPSTAT.bit.CMP_UP3_IS == 1u)
-    {
+  if(ADC1->IEN0.bit.IEN_UP3 == 1u) {
+    if(ADC1->CMPSTAT.bit.CMP_UP3_IS == 1u) {
       ADC1_UPTH3_CALLBACK();
       ADC1->CMPSTATCLR.bit.CMP_UP3_ISCLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -619,16 +553,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Coll0 */
-#if (ADC1_COLL0_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_COLL0_Msk) >>  ADC1_INP3_INP_COLL0_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_COLL0_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_COLL0_Msk) >> ADC1_INP3_INP_COLL0_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_COLL0 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.COLL0 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_COLL0 == 1u) {
+    if(ADC1->SQSTAT.bit.COLL0 == 1u) {
       ADC1_COLL0_CALLBACK();
       ADC1->SQSTATCLR.bit.COLL0CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -637,16 +569,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Coll1 */
-#if (ADC1_COLL1_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_COLL1_Msk) >>  ADC1_INP3_INP_COLL1_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_COLL1_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_COLL1_Msk) >> ADC1_INP3_INP_COLL1_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_COLL1 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.COLL1 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_COLL1 == 1u) {
+    if(ADC1->SQSTAT.bit.COLL1 == 1u) {
       ADC1_COLL1_CALLBACK();
       ADC1->SQSTATCLR.bit.COLL1CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -655,16 +585,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Coll2 */
-#if (ADC1_COLL2_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_COLL2_Msk) >>  ADC1_INP3_INP_COLL2_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_COLL2_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_COLL2_Msk) >> ADC1_INP3_INP_COLL2_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_COLL2 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.COLL2 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_COLL2 == 1u) {
+    if(ADC1->SQSTAT.bit.COLL2 == 1u) {
       ADC1_COLL2_CALLBACK();
       ADC1->SQSTATCLR.bit.COLL2CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -673,16 +601,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* Coll3 */
-#if (ADC1_COLL3_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_COLL3_Msk) >>  ADC1_INP3_INP_COLL3_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_COLL3_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_COLL3_Msk) >> ADC1_INP3_INP_COLL3_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_COLL3 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.COLL3 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_COLL3 == 1u) {
+    if(ADC1->SQSTAT.bit.COLL3 == 1u) {
       ADC1_COLL3_CALLBACK();
       ADC1->SQSTATCLR.bit.COLL3CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -691,16 +617,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* WFR0 */
-#if (ADC1_WFR0_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_WFR0_Msk) >>  ADC1_INP3_INP_WFR0_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_WFR0_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_WFR0_Msk) >> ADC1_INP3_INP_WFR0_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_WFR0 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.WFR0 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_WFR0 == 1u) {
+    if(ADC1->SQSTAT.bit.WFR0 == 1u) {
       ADC1_WFR0_CALLBACK();
       ADC1->SQSTATCLR.bit.WFR0CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -709,16 +633,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* WFR1 */
-#if (ADC1_WFR1_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_WFR1_Msk) >>  ADC1_INP3_INP_WFR1_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_WFR1_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_WFR1_Msk) >> ADC1_INP3_INP_WFR1_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_WFR1 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.WFR1 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_WFR1 == 1u) {
+    if(ADC1->SQSTAT.bit.WFR1 == 1u) {
       ADC1_WFR1_CALLBACK();
       ADC1->SQSTATCLR.bit.WFR1CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -727,16 +649,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* WFR2 */
-#if (ADC1_WFR2_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_WFR2_Msk) >>  ADC1_INP3_INP_WFR2_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_WFR2_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_WFR2_Msk) >> ADC1_INP3_INP_WFR2_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_WFR2 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.WFR2 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_WFR2 == 1u) {
+    if(ADC1->SQSTAT.bit.WFR2 == 1u) {
       ADC1_WFR2_CALLBACK();
       ADC1->SQSTATCLR.bit.WFR2CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }
@@ -745,16 +665,14 @@ void NVIC_IRQ15_Handler(void)
 #endif /* Interrupt assigned to this node */
 #endif /* Interrupt enabled */
   /* WFR3 */
-#if (ADC1_WFR3_INT_EN == 1)
-#if (((ADC1_INP3 & ADC1_INP3_INP_WFR3_Msk) >>  ADC1_INP3_INP_WFR3_Pos) == ADC1_INP_NVIC_IRQ15)
+#if(ADC1_WFR3_INT_EN == 1)
+#if(((ADC1_INP3 & ADC1_INP3_INP_WFR3_Msk) >> ADC1_INP3_INP_WFR3_Pos) == ADC1_INP_NVIC_IRQ15)
 
-  if (ADC1->IEN1.bit.IEN_WFR3 == 1u)
-  {
-    if (ADC1->SQSTAT.bit.WFR3 == 1u)
-    {
+  if(ADC1->IEN1.bit.IEN_WFR3 == 1u) {
+    if(ADC1->SQSTAT.bit.WFR3 == 1u) {
       ADC1_WFR3_CALLBACK();
       ADC1->SQSTATCLR.bit.WFR3CLR = 1u;
-#if (NVIC_IRQ15_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ15_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq15 += 1u;
 #endif
     }

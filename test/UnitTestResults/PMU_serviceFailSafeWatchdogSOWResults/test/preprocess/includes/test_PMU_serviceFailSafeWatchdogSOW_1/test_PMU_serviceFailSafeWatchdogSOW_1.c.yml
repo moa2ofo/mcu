@@ -1,0 +1,17 @@
+---
+- utExecutionAndResults/utUnderTest/src/PMU_serviceFailSafeWatchdogSOW.h
+- utExecutionAndResults/utUnderTest/build/vendor/unity/src/unity.h
+- mock_RTE_Components.h
+- mock_pmu_defines.h
+- mock_scu_defines.h
+- mock_cmsis_compiler.h
+- mock_cmsis_gcc.h
+- mock_cmsis_misra.h
+- mock_cmsis_version.h
+- mock_core_cm3.h
+- mock_error_codes.h
+- mock_pmu.h
+- mock_system_tle989x.h
+- mock_tle989x.h
+- mock_tle_variants.h
+- mock_types.h

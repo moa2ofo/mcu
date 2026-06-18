@@ -81,11 +81,11 @@
 /*******************************************************************************
 **                                  Includes                                  **
 *******************************************************************************/
-#include "tle_variants.h"
-#include "types.h"
-#include "tle989x.h"
 #include "gpt12_defines.h"
 #include "scu_defines.h"
+#include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
 
 /*******************************************************************************
 **                          Global Macro Declarations                         **
@@ -102,52 +102,52 @@
 sint8 GPT12_init(void);
 sint8 GPT12_setIntervalTimerT3(uint32 u32_timeInterval_us);
 sint8 GPT12_setIntervalTimerT6(uint32 u32_timeInterval_us);
-INLINE void   GPT12_setCapRelVal(uint16 u16_value);
+INLINE void GPT12_setCapRelVal(uint16 u16_value);
 INLINE uint16 GPT12_getCapRelVal(void);
-INLINE void   GPT12_setT2Val(uint16 u16_value);
+INLINE void GPT12_setT2Val(uint16 u16_value);
 INLINE uint16 GPT12_getT2Val(void);
-INLINE void   GPT12_startT2(void);
-INLINE void   GPT12_stopT2(void);
-INLINE void   GPT12_setT3Val(uint16 u16_value);
+INLINE void GPT12_startT2(void);
+INLINE void GPT12_stopT2(void);
+INLINE void GPT12_setT3Val(uint16 u16_value);
 INLINE uint16 GPT12_getT3Val(void);
-INLINE void   GPT12_startT3(void);
-INLINE void   GPT12_stopT3(void);
-INLINE void   GPT12_setT4Val(uint16 u16_value);
+INLINE void GPT12_startT3(void);
+INLINE void GPT12_stopT3(void);
+INLINE void GPT12_setT4Val(uint16 u16_value);
 INLINE uint16 GPT12_getT4Val(void);
-INLINE void   GPT12_startT4(void);
-INLINE void   GPT12_stopT4(void);
-INLINE void   GPT12_setT5Val(uint16 u16_value);
+INLINE void GPT12_startT4(void);
+INLINE void GPT12_stopT4(void);
+INLINE void GPT12_setT5Val(uint16 u16_value);
 INLINE uint16 GPT12_getT5Val(void);
-INLINE void   GPT12_startT5(void);
-INLINE void   GPT12_stopT5(void);
-INLINE void   GPT12_setT6Val(uint16 u16_value);
+INLINE void GPT12_startT5(void);
+INLINE void GPT12_stopT5(void);
+INLINE void GPT12_setT6Val(uint16 u16_value);
 INLINE uint16 GPT12_getT6Val(void);
-INLINE void   GPT12_startT6(void);
-INLINE void   GPT12_stopT6(void);
-INLINE void   GPT12_enT2Int(void);
-INLINE void   GPT12_enT3Int(void);
-INLINE void   GPT12_enT4Int(void);
-INLINE void   GPT12_enT5Int(void);
-INLINE void   GPT12_enT6Int(void);
-INLINE void   GPT12_enCapRelInt(void);
-INLINE void   GPT12_disT2Int(void);
-INLINE void   GPT12_disT3Int(void);
-INLINE void   GPT12_disT4Int(void);
-INLINE void   GPT12_disT5Int(void);
-INLINE void   GPT12_disT6Int(void);
-INLINE void   GPT12_disCapRelInt(void);
-INLINE uint8  GPT12_getT2IntSts(void);
-INLINE uint8  GPT12_getT3IntSts(void);
-INLINE uint8  GPT12_getT4IntSts(void);
-INLINE uint8  GPT12_getT5IntSts(void);
-INLINE uint8  GPT12_getT6IntSts(void);
-INLINE uint8  GPT12_getCapRelIntSts(void);
-INLINE void   GPT12_clrT2IntSts(void);
-INLINE void   GPT12_clrT3IntSts(void);
-INLINE void   GPT12_clrT4IntSts(void);
-INLINE void   GPT12_clrT5IntSts(void);
-INLINE void   GPT12_clrT6IntSts(void);
-INLINE void   GPT12_clrCapRelIntSts(void);
+INLINE void GPT12_startT6(void);
+INLINE void GPT12_stopT6(void);
+INLINE void GPT12_enT2Int(void);
+INLINE void GPT12_enT3Int(void);
+INLINE void GPT12_enT4Int(void);
+INLINE void GPT12_enT5Int(void);
+INLINE void GPT12_enT6Int(void);
+INLINE void GPT12_enCapRelInt(void);
+INLINE void GPT12_disT2Int(void);
+INLINE void GPT12_disT3Int(void);
+INLINE void GPT12_disT4Int(void);
+INLINE void GPT12_disT5Int(void);
+INLINE void GPT12_disT6Int(void);
+INLINE void GPT12_disCapRelInt(void);
+INLINE uint8 GPT12_getT2IntSts(void);
+INLINE uint8 GPT12_getT3IntSts(void);
+INLINE uint8 GPT12_getT4IntSts(void);
+INLINE uint8 GPT12_getT5IntSts(void);
+INLINE uint8 GPT12_getT6IntSts(void);
+INLINE uint8 GPT12_getCapRelIntSts(void);
+INLINE void GPT12_clrT2IntSts(void);
+INLINE void GPT12_clrT3IntSts(void);
+INLINE void GPT12_clrT4IntSts(void);
+INLINE void GPT12_clrT5IntSts(void);
+INLINE void GPT12_clrT6IntSts(void);
+INLINE void GPT12_clrCapRelIntSts(void);
 
 /*******************************************************************************
 **                       Deprecated Function Declarations                     **
@@ -190,8 +190,7 @@ void GPT12_setCapRelIntNodePtr(void) __attribute__((deprecated("Do not change th
  *
  *  \param u16_value Current reload value or Captured value
  */
-INLINE void GPT12_setCapRelVal(uint16 u16_value)
-{
+INLINE void GPT12_setCapRelVal(uint16 u16_value) {
   GPT12->CAPREL.bit.CAPREL = u16_value;
 }
 
@@ -199,8 +198,7 @@ INLINE void GPT12_setCapRelVal(uint16 u16_value)
  *
  *  \return uint16 Current reload value or Captured value
  */
-INLINE uint16 GPT12_getCapRelVal(void)
-{
+INLINE uint16 GPT12_getCapRelVal(void) {
   return (uint16)GPT12->CAPREL.bit.CAPREL;
 }
 
@@ -208,8 +206,7 @@ INLINE uint16 GPT12_getCapRelVal(void)
  *
  *  \param u16_value Timer T2 Current Value
  */
-INLINE void GPT12_setT2Val(uint16 u16_value)
-{
+INLINE void GPT12_setT2Val(uint16 u16_value) {
   GPT12->T2.bit.T2 = u16_value;
 }
 
@@ -217,22 +214,19 @@ INLINE void GPT12_setT2Val(uint16 u16_value)
  *
  * \return uint16 Timer T2 Current Value
  */
-INLINE uint16 GPT12_getT2Val(void)
-{
+INLINE uint16 GPT12_getT2Val(void) {
   return (uint16)GPT12->T2.bit.T2;
 }
 
 /** \brief Start Timer T2
  */
-INLINE void GPT12_startT2(void)
-{
+INLINE void GPT12_startT2(void) {
   GPT12->T2CON.bit.T2R = 1u;
 }
 
 /** \brief Stop Timer T2
  */
-INLINE void GPT12_stopT2(void)
-{
+INLINE void GPT12_stopT2(void) {
   GPT12->T2CON.bit.T2R = 0u;
 }
 
@@ -240,8 +234,7 @@ INLINE void GPT12_stopT2(void)
  *
  *  \param u16_value Timer T3 Current Value
  */
-INLINE void GPT12_setT3Val(uint16 u16_value)
-{
+INLINE void GPT12_setT3Val(uint16 u16_value) {
   GPT12->T3.bit.T3 = u16_value;
 }
 
@@ -249,22 +242,19 @@ INLINE void GPT12_setT3Val(uint16 u16_value)
  *
  * \return uint16 Timer T3 Current Value
  */
-INLINE uint16 GPT12_getT3Val(void)
-{
+INLINE uint16 GPT12_getT3Val(void) {
   return (uint16)GPT12->T3.bit.T3;
 }
 
 /** \brief Start Timer T3
  */
-INLINE void GPT12_startT3(void)
-{
+INLINE void GPT12_startT3(void) {
   GPT12->T3CON.bit.T3R = 1u;
 }
 
 /** \brief Stop Timer T3
  */
-INLINE void GPT12_stopT3(void)
-{
+INLINE void GPT12_stopT3(void) {
   GPT12->T3CON.bit.T3R = 0u;
 }
 
@@ -272,8 +262,7 @@ INLINE void GPT12_stopT3(void)
  *
  *  \param u16_value Timer T4 Current Value
  */
-INLINE void GPT12_setT4Val(uint16 u16_value)
-{
+INLINE void GPT12_setT4Val(uint16 u16_value) {
   GPT12->T4.bit.T4 = u16_value;
 }
 
@@ -281,22 +270,19 @@ INLINE void GPT12_setT4Val(uint16 u16_value)
  *
  * \return uint16 Timer T4 Current Value
  */
-INLINE uint16 GPT12_getT4Val(void)
-{
+INLINE uint16 GPT12_getT4Val(void) {
   return (uint16)GPT12->T4.bit.T4;
 }
 
 /** \brief Start Timer T4
  */
-INLINE void GPT12_startT4(void)
-{
+INLINE void GPT12_startT4(void) {
   GPT12->T4CON.bit.T4R = 1u;
 }
 
 /** \brief Stop Timer T4
  */
-INLINE void GPT12_stopT4(void)
-{
+INLINE void GPT12_stopT4(void) {
   GPT12->T4CON.bit.T4R = 0u;
 }
 
@@ -304,8 +290,7 @@ INLINE void GPT12_stopT4(void)
  *
  *  \param u16_value Timer T5 Current Value
  */
-INLINE void GPT12_setT5Val(uint16 u16_value)
-{
+INLINE void GPT12_setT5Val(uint16 u16_value) {
   GPT12->T5.bit.T5 = u16_value;
 }
 
@@ -313,22 +298,19 @@ INLINE void GPT12_setT5Val(uint16 u16_value)
  *
  * \return uint16 Timer T5 Current Value
  */
-INLINE uint16 GPT12_getT5Val(void)
-{
+INLINE uint16 GPT12_getT5Val(void) {
   return (uint16)GPT12->T5.bit.T5;
 }
 
 /** \brief Start Timer T5
  */
-INLINE void GPT12_startT5(void)
-{
+INLINE void GPT12_startT5(void) {
   GPT12->T5CON.bit.T5R = 1u;
 }
 
 /** \brief Stop Timer T5
  */
-INLINE void GPT12_stopT5(void)
-{
+INLINE void GPT12_stopT5(void) {
   GPT12->T5CON.bit.T5R = 0u;
 }
 
@@ -336,8 +318,7 @@ INLINE void GPT12_stopT5(void)
  *
  *  \param u16_value Timer T6 Current Value
  */
-INLINE void GPT12_setT6Val(uint16 u16_value)
-{
+INLINE void GPT12_setT6Val(uint16 u16_value) {
   GPT12->T6.bit.T6 = u16_value;
 }
 
@@ -345,106 +326,91 @@ INLINE void GPT12_setT6Val(uint16 u16_value)
  *
  * \return uint16 Timer T6 Current Value
  */
-INLINE uint16 GPT12_getT6Val(void)
-{
+INLINE uint16 GPT12_getT6Val(void) {
   return (uint16)GPT12->T6.bit.T6;
 }
 
 /** \brief Start Timer T6
  */
-INLINE void GPT12_startT6(void)
-{
+INLINE void GPT12_startT6(void) {
   GPT12->T6CON.bit.T6R = 1u;
 }
 
 /** \brief Stop Timer T6
  */
-INLINE void GPT12_stopT6(void)
-{
+INLINE void GPT12_stopT6(void) {
   GPT12->T6CON.bit.T6R = 0u;
 }
 
 /** \brief Enable GPT1.T2 Interrupt
  */
-INLINE void GPT12_enT2Int(void)
-{
+INLINE void GPT12_enT2Int(void) {
   SCU->GPTIEN.bit.GPT1T2EN = 1u;
 }
 
 /** \brief Enable GPT1.T3 Interrupt
  */
-INLINE void GPT12_enT3Int(void)
-{
+INLINE void GPT12_enT3Int(void) {
   SCU->GPTIEN.bit.GPT1T3EN = 1u;
 }
 
 /** \brief Enable GPT1.T4 Interrupt
  */
-INLINE void GPT12_enT4Int(void)
-{
+INLINE void GPT12_enT4Int(void) {
   SCU->GPTIEN.bit.GPT1T4EN = 1u;
 }
 
 /** \brief Enable GPT2.T5 Interrupt
  */
-INLINE void GPT12_enT5Int(void)
-{
+INLINE void GPT12_enT5Int(void) {
   SCU->GPTIEN.bit.GPT2T5EN = 1u;
 }
 
 /** \brief Enable GPT2.T6 Interrupt
  */
-INLINE void GPT12_enT6Int(void)
-{
+INLINE void GPT12_enT6Int(void) {
   SCU->GPTIEN.bit.GPT2T6EN = 1u;
 }
 
 /** \brief Enable GPT2.CR Interrupt
  */
-INLINE void GPT12_enCapRelInt(void)
-{
+INLINE void GPT12_enCapRelInt(void) {
   SCU->GPTIEN.bit.GPT2CREN = 1u;
 }
 
 /** \brief Disable GPT1.T2 Interrupt
  */
-INLINE void GPT12_disT2Int(void)
-{
+INLINE void GPT12_disT2Int(void) {
   SCU->GPTIEN.bit.GPT1T2EN = 0u;
 }
 
 /** \brief Disable GPT1.T3 Interrupt
  */
-INLINE void GPT12_disT3Int(void)
-{
+INLINE void GPT12_disT3Int(void) {
   SCU->GPTIEN.bit.GPT1T3EN = 0u;
 }
 
 /** \brief Disable GPT1.T4 Interrupt
  */
-INLINE void GPT12_disT4Int(void)
-{
+INLINE void GPT12_disT4Int(void) {
   SCU->GPTIEN.bit.GPT1T4EN = 0u;
 }
 
 /** \brief Disable GPT2.T5 Interrupt
  */
-INLINE void GPT12_disT5Int(void)
-{
+INLINE void GPT12_disT5Int(void) {
   SCU->GPTIEN.bit.GPT2T5EN = 0u;
 }
 
 /** \brief Disable GPT2.T6 Interrupt
  */
-INLINE void GPT12_disT6Int(void)
-{
+INLINE void GPT12_disT6Int(void) {
   SCU->GPTIEN.bit.GPT2T6EN = 0u;
 }
 
 /** \brief Disable GPT2.CR Interrupt
  */
-INLINE void GPT12_disCapRelInt(void)
-{
+INLINE void GPT12_disCapRelInt(void) {
   SCU->GPTIEN.bit.GPT2CREN = 0u;
 }
 
@@ -452,8 +418,7 @@ INLINE void GPT12_disCapRelInt(void)
  *
  * \return uint8 GPT1.T2 Interrupt Status
  */
-INLINE uint8 GPT12_getT2IntSts(void)
-{
+INLINE uint8 GPT12_getT2IntSts(void) {
   return (uint8)SCU->GPTIS.bit.GPT1T2;
 }
 
@@ -461,8 +426,7 @@ INLINE uint8 GPT12_getT2IntSts(void)
  *
  * \return uint8 GPT1.T3 Interrupt Status
  */
-INLINE uint8 GPT12_getT3IntSts(void)
-{
+INLINE uint8 GPT12_getT3IntSts(void) {
   return (uint8)SCU->GPTIS.bit.GPT1T3;
 }
 
@@ -470,8 +434,7 @@ INLINE uint8 GPT12_getT3IntSts(void)
  *
  * \return uint8 GPT1.T4 Interrupt Status
  */
-INLINE uint8 GPT12_getT4IntSts(void)
-{
+INLINE uint8 GPT12_getT4IntSts(void) {
   return (uint8)SCU->GPTIS.bit.GPT1T4;
 }
 
@@ -479,8 +442,7 @@ INLINE uint8 GPT12_getT4IntSts(void)
  *
  * \return uint8 GPT2.T5 Interrupt Status
  */
-INLINE uint8 GPT12_getT5IntSts(void)
-{
+INLINE uint8 GPT12_getT5IntSts(void) {
   return (uint8)SCU->GPTIS.bit.GPT2T5;
 }
 
@@ -488,8 +450,7 @@ INLINE uint8 GPT12_getT5IntSts(void)
  *
  * \return uint8 GPT2.T6 Interrupt Status
  */
-INLINE uint8 GPT12_getT6IntSts(void)
-{
+INLINE uint8 GPT12_getT6IntSts(void) {
   return (uint8)SCU->GPTIS.bit.GPT2T6;
 }
 
@@ -497,50 +458,43 @@ INLINE uint8 GPT12_getT6IntSts(void)
  *
  * \return uint8 GPT2.CR Interrupt Status
  */
-INLINE uint8 GPT12_getCapRelIntSts(void)
-{
+INLINE uint8 GPT12_getCapRelIntSts(void) {
   return (uint8)SCU->GPTIS.bit.GPT2CR;
 }
 
 /** \brief Clear GPT1.T2 Interrupt Status SCU.GPTISC.GPT1T2CLR
  */
-INLINE void GPT12_clrT2IntSts(void)
-{
+INLINE void GPT12_clrT2IntSts(void) {
   SCU->GPTISC.bit.GPT1T2CLR = 1u;
 }
 
 /** \brief Clear GPT1.T3 Interrupt Status SCU.GPTISC.GPT1T3CLR
  */
-INLINE void GPT12_clrT3IntSts(void)
-{
+INLINE void GPT12_clrT3IntSts(void) {
   SCU->GPTISC.bit.GPT1T3CLR = 1u;
 }
 
 /** \brief Clear GPT1.T4 Interrupt Status SCU.GPTISC.GPT1T4CLR
  */
-INLINE void GPT12_clrT4IntSts(void)
-{
+INLINE void GPT12_clrT4IntSts(void) {
   SCU->GPTISC.bit.GPT1T4CLR = 1u;
 }
 
 /** \brief Clear GPT2.T5 Interrupt Status SCU.GPTISC.GPT2T5CLR
  */
-INLINE void GPT12_clrT5IntSts(void)
-{
+INLINE void GPT12_clrT5IntSts(void) {
   SCU->GPTISC.bit.GPT2T5CLR = 1u;
 }
 
 /** \brief Clear GPT2.T6 Interrupt Status SCU.GPTISC.GPT2T6CLR
  */
-INLINE void GPT12_clrT6IntSts(void)
-{
+INLINE void GPT12_clrT6IntSts(void) {
   SCU->GPTISC.bit.GPT2T6CLR = 1u;
 }
 
 /** \brief Clear GPT2.CR Interrupt Status SCU.GPTISC.GPT2CRCLR
  */
-INLINE void GPT12_clrCapRelIntSts(void)
-{
+INLINE void GPT12_clrCapRelIntSts(void) {
   SCU->GPTISC.bit.GPT2CRCLR = 1u;
 }
 

@@ -1,0 +1,8 @@
+#ifndef TEST_SSC0_SETEMPTYRXBUFFERINTNODEPTR_HELP_H
+#define TEST_SSC0_SETEMPTYRXBUFFERINTNODEPTR_HELP_H
+
+#include "SSC0_setEmptyRXBufferIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_SSC0_SETEMPTYRXBUFFERINTNODEPTR_HELP_H */

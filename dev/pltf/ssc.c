@@ -39,11 +39,10 @@
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 SSC0_init(void)
-{
+sint8 SSC0_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_CODE_MODULE_DISABLED_IN_CW;
-#if ((SCU_PMCON & SCU_PMCON_SSC0_DIS_Msk) == 0u)
+#if((SCU_PMCON & SCU_PMCON_SSC0_DIS_Msk) == 0u)
   s8_returnCode = ERR_LOG_SUCCESS;
   SSC0->CON.reg = (uint32)SSC0_CON;
   SSC0->INSEL.reg = (uint32)SSC0_INSEL;
@@ -57,11 +56,10 @@ sint8 SSC0_init(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 SSC1_init(void)
-{
+sint8 SSC1_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_CODE_MODULE_DISABLED_IN_CW;
-#if ((SCU_PMCON & SCU_PMCON_SSC1_DIS_Msk) == 0u)
+#if((SCU_PMCON & SCU_PMCON_SSC1_DIS_Msk) == 0u)
   s8_returnCode = ERR_LOG_SUCCESS;
   SSC1->CON.reg = (uint32)SSC1_CON;
   SSC1->INSEL.reg = (uint32)SSC1_INSEL;
@@ -75,62 +73,50 @@ sint8 SSC1_init(void)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void SSC0_setEmptyTXBufferIntNodePtr(void)
-{
+void SSC0_setEmptyTXBufferIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC0_setEmptyRXBufferIntNodePtr(void)
-{
+void SSC0_setEmptyRXBufferIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC0_setTXErrIntNodePtr(void)
-{
+void SSC0_setTXErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC0_setRXErrIntNodePtr(void)
-{
+void SSC0_setRXErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC0_setPhaseErrIntNodePtr(void)
-{
+void SSC0_setPhaseErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC0_setBaudrateErrIntNodePtr(void)
-{
+void SSC0_setBaudrateErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC1_setEmptyTXBufferIntNodePtr(void)
-{
+void SSC1_setEmptyTXBufferIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC1_setEmptyRXBufferIntNodePtr(void)
-{
+void SSC1_setEmptyRXBufferIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC1_setTXErrIntNodePtr(void)
-{
+void SSC1_setTXErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC1_setRXErrIntNodePtr(void)
-{
+void SSC1_setRXErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC1_setPhaseErrIntNodePtr(void)
-{
+void SSC1_setPhaseErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SSC1_setBaudrateErrIntNodePtr(void)
-{
+void SSC1_setBaudrateErrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }

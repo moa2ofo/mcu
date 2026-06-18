@@ -1,0 +1,600 @@
+# 0 "utExecutionAndResults/utUnderTest/src/cmsis_compiler.h"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 0 "<command-line>" 2
+# 1 "utExecutionAndResults/utUnderTest/src/cmsis_compiler.h"
+# 28 "utExecutionAndResults/utUnderTest/src/cmsis_compiler.h"
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 33 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 3 4
+# 1 "/usr/include/features.h" 1 3 4
+# 392 "/usr/include/features.h" 3 4
+# 1 "/usr/include/features-time64.h" 1 3 4
+# 20 "/usr/include/features-time64.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 21 "/usr/include/features-time64.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 1 3 4
+# 19 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 20 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 2 3 4
+# 22 "/usr/include/features-time64.h" 2 3 4
+# 393 "/usr/include/features.h" 2 3 4
+# 489 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
+# 561 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 562 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 563 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 490 "/usr/include/features.h" 2 3 4
+# 513 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
+# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 514 "/usr/include/features.h" 2 3 4
+# 34 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 2 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4
+# 27 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 1 3 4
+# 19 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 20 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 2 3 4
+# 29 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+
+# 31 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+
+
+
+
+
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
+
+
+
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+
+
+
+
+
+
+
+typedef long int __intmax_t;
+typedef unsigned long int __uintmax_t;
+# 141 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 1 3 4
+# 142 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/time64.h" 1 3 4
+# 143 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+typedef long int __suseconds64_t;
+
+typedef int __daddr_t;
+typedef int __key_t;
+
+
+typedef int __clockid_t;
+
+
+typedef void * __timer_t;
+
+
+typedef long int __blksize_t;
+
+
+
+
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+
+
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+
+
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+
+
+typedef long int __fsword_t;
+
+typedef long int __ssize_t;
+
+
+typedef long int __syscall_slong_t;
+
+typedef unsigned long int __syscall_ulong_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef char *__caddr_t;
+
+
+typedef long int __intptr_t;
+
+
+typedef unsigned int __socklen_t;
+
+
+
+
+typedef int __sig_atomic_t;
+# 28 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4
+# 29 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 30 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 3 4
+typedef __int8_t int8_t;
+typedef __int16_t int16_t;
+typedef __int32_t int32_t;
+typedef __int64_t int64_t;
+# 35 "/usr/include/stdint.h" 2 3 4
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 3 4
+typedef __uint8_t uint8_t;
+typedef __uint16_t uint16_t;
+typedef __uint32_t uint32_t;
+typedef __uint64_t uint64_t;
+# 38 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+
+typedef __int_least8_t int_least8_t;
+typedef __int_least16_t int_least16_t;
+typedef __int_least32_t int_least32_t;
+typedef __int_least64_t int_least64_t;
+
+
+typedef __uint_least8_t uint_least8_t;
+typedef __uint_least16_t uint_least16_t;
+typedef __uint_least32_t uint_least32_t;
+typedef __uint_least64_t uint_least64_t;
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+# 71 "/usr/include/stdint.h" 3 4
+typedef unsigned char uint_fast8_t;
+
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;
+# 87 "/usr/include/stdint.h" 3 4
+typedef long int intptr_t;
+
+
+typedef unsigned long int uintptr_t;
+# 101 "/usr/include/stdint.h" 3 4
+typedef __intmax_t intmax_t;
+typedef __uintmax_t uintmax_t;
+# 10 "/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h" 2 3 4
+# 29 "utExecutionAndResults/utUnderTest/src/cmsis_compiler.h" 2
+# 59 "utExecutionAndResults/utUnderTest/src/cmsis_compiler.h"
+# 1 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h" 1
+# 29 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wconversion"
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+# 71 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpacked"
+#pragma GCC diagnostic ignored "-Wattributes"
+  
+# 74 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+ struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+#pragma GCC diagnostic pop
+
+
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpacked"
+#pragma GCC diagnostic ignored "-Wattributes"
+  struct __attribute__((packed, aligned(1))) T_UINT16_WRITE { uint16_t v; };
+#pragma GCC diagnostic pop
+
+
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpacked"
+#pragma GCC diagnostic ignored "-Wattributes"
+  struct __attribute__((packed, aligned(1))) T_UINT16_READ { uint16_t v; };
+#pragma GCC diagnostic pop
+
+
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpacked"
+#pragma GCC diagnostic ignored "-Wattributes"
+  struct __attribute__((packed, aligned(1))) T_UINT32_WRITE { uint32_t v; };
+#pragma GCC diagnostic pop
+
+
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpacked"
+#pragma GCC diagnostic ignored "-Wattributes"
+  struct __attribute__((packed, aligned(1))) T_UINT32_READ { uint32_t v; };
+#pragma GCC diagnostic pop
+# 137 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline __attribute__((__noreturn__)) void __cmsis_start(void)
+{
+  extern void _start(void) __attribute__((__noreturn__));
+
+  typedef struct __copy_table {
+    uint32_t const* src;
+    uint32_t* dest;
+    uint32_t wlen;
+  } __copy_table_t;
+
+  typedef struct __zero_table {
+    uint32_t* dest;
+    uint32_t wlen;
+  } __zero_table_t;
+
+  extern const __copy_table_t __copy_table_start__;
+  extern const __copy_table_t __copy_table_end__;
+  extern const __zero_table_t __zero_table_start__;
+  extern const __zero_table_t __zero_table_end__;
+
+  for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable) {
+    for(uint32_t i=0u; i<pTable->wlen; ++i) {
+      pTable->dest[i] = pTable->src[i];
+    }
+  }
+
+  for (__zero_table_t const* pTable = &__zero_table_start__; pTable < &__zero_table_end__; ++pTable) {
+    for(uint32_t i=0u; i<pTable->wlen; ++i) {
+      pTable->dest[i] = 0u;
+    }
+  }
+
+  _start();
+}
+# 264 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline void __ISB(void)
+{
+  __asm volatile ("isb 0xF":::"memory");
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline void __DSB(void)
+{
+  __asm volatile ("dsb 0xF":::"memory");
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline void __DMB(void)
+{
+  __asm volatile ("dmb 0xF":::"memory");
+}
+# 298 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __REV(uint32_t value)
+{
+
+  return __builtin_bswap32(value);
+
+
+
+
+
+
+}
+# 317 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __REV16(uint32_t value)
+{
+  uint32_t result;
+
+  __asm ("rev16 %0, %1" : "=r" (result) : "r" (value) );
+  return result;
+}
+# 332 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline int16_t __REVSH(int16_t value)
+{
+
+  return (int16_t)__builtin_bswap16(value);
+
+
+
+
+
+
+}
+# 352 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __ROR(uint32_t op1, uint32_t op2)
+{
+  op2 %= 32U;
+  if (op2 == 0U)
+  {
+    return op1;
+  }
+  return (op1 >> op2) | (op1 << (32U - op2));
+}
+# 379 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __RBIT(uint32_t value)
+{
+  uint32_t result;
+
+
+
+
+
+
+  uint32_t s = (4U * 8U) - 1U;
+
+  result = value;
+  for (value >>= 1U; value != 0U; value >>= 1U)
+  {
+    result <<= 1U;
+    result |= value & 1U;
+    s--;
+  }
+  result <<= s;
+
+  return result;
+}
+# 409 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint8_t __CLZ(uint32_t value)
+{
+# 420 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+  if (value == 0U)
+  {
+    return 32U;
+  }
+  return __builtin_clz(value);
+}
+# 713 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline int32_t __SSAT(int32_t val, uint32_t sat)
+{
+  if ((sat >= 1U) && (sat <= 32U))
+  {
+    const int32_t max = (int32_t)((1U << (sat - 1U)) - 1U);
+    const int32_t min = -1 - max ;
+    if (val > max)
+    {
+      return max;
+    }
+    else if (val < min)
+    {
+      return min;
+    }
+  }
+  return val;
+}
+# 738 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __USAT(int32_t val, uint32_t sat)
+{
+  if (sat <= 31U)
+  {
+    const uint32_t max = ((1U << sat) - 1U);
+    if (val > (int32_t)max)
+    {
+      return max;
+    }
+    else if (val < 0)
+    {
+      return 0U;
+    }
+  }
+  return (uint32_t)val;
+}
+# 955 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline void __enable_irq(void)
+{
+  __asm volatile ("cpsie i" : : : "memory");
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline void __disable_irq(void)
+{
+  __asm volatile ("cpsid i" : : : "memory");
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline uint32_t __get_CONTROL(void)
+{
+  uint32_t result;
+
+  __asm volatile ("MRS %0, control" : "=r" (result) );
+  return(result);
+}
+# 1007 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline void __set_CONTROL(uint32_t control)
+{
+  __asm volatile ("MSR control, %0" : : "r" (control) : "memory");
+  __ISB();
+}
+# 1033 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __get_IPSR(void)
+{
+  uint32_t result;
+
+  __asm volatile ("MRS %0, ipsr" : "=r" (result) );
+  return(result);
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline uint32_t __get_APSR(void)
+{
+  uint32_t result;
+
+  __asm volatile ("MRS %0, apsr" : "=r" (result) );
+  return(result);
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline uint32_t __get_xPSR(void)
+{
+  uint32_t result;
+
+  __asm volatile ("MRS %0, xpsr" : "=r" (result) );
+  return(result);
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline uint32_t __get_PSP(void)
+{
+  uint32_t result;
+
+  __asm volatile ("MRS %0, psp" : "=r" (result) );
+  return(result);
+}
+# 1105 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline void __set_PSP(uint32_t topOfProcStack)
+{
+  __asm volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
+}
+# 1129 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __get_MSP(void)
+{
+  uint32_t result;
+
+  __asm volatile ("MRS %0, msp" : "=r" (result) );
+  return(result);
+}
+# 1159 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline void __set_MSP(uint32_t topOfMainStack)
+{
+  __asm volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
+}
+# 1210 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __get_PRIMASK(void)
+{
+  uint32_t result;
+
+  __asm volatile ("MRS %0, primask" : "=r" (result) );
+  return(result);
+}
+# 1240 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline void __set_PRIMASK(uint32_t priMask)
+{
+  __asm volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
+}
+# 1594 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+__attribute__((always_inline)) static inline uint32_t __get_FPSCR(void)
+{
+# 1610 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+  return(0U);
+
+}
+
+
+
+
+
+
+
+__attribute__((always_inline)) static inline void __set_FPSCR(uint32_t fpscr)
+{
+# 1633 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+  (void)fpscr;
+
+}
+# 2215 "utExecutionAndResults/utUnderTest/src/cmsis_gcc.h"
+#pragma GCC diagnostic pop
+# 60 "utExecutionAndResults/utUnderTest/src/cmsis_compiler.h" 2

@@ -1,0 +1,8 @@
+GIT ACTION FAILED
+Run: https://github.com/moa2ofo/mcu/actions/runs/27761795146
+generate_tests: performed
+docker info: performed
+swCmpBuildCheck: failed
+doxygen: failed
+unit tests: performed
+Timestamp (UTC): 2026-06-18T13:39:58Z

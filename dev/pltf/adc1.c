@@ -20,68 +20,65 @@
 *******************************************************************************/
 
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wpadded"
 #endif
 
-typedef union ADC1_RESx
-{
-  uint32_t reg;                           /*!< Result Register                         */
+typedef union ADC1_RESx {
+  uint32_t reg; /*!< Result Register                         */
 
-  struct
-  {
-    uint32_t RESULT     : 14;           /*!< [13..0] Result Value                      */
-    uint32_t            : 1;
-    uint32_t VALID      : 1;            /*!< [15..15] Valid flag                       */
+  struct {
+    uint32_t RESULT : 14; /*!< [13..0] Result Value                      */
+    uint32_t : 1;
+    uint32_t VALID : 1; /*!< [15..15] Valid flag                       */
   } bit;
 } tADC1_RESx;
 
-typedef union ADC1_FILx
-{
-  uint32_t reg;                           /*!< Filter Result Register                  */
+typedef union ADC1_FILx {
+  uint32_t reg; /*!< Filter Result Register                  */
 
-  struct
-  {
-    uint32_t FILRESULT  : 16;           /*!< [15..0] Filter Result Value               */
+  struct {
+    uint32_t FILRESULT : 16; /*!< [15..0] Filter Result Value               */
   } bit;
 } tADC1_FILx;
 
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 #endif
 
 /*******************************************************************************
 **                         Private Constant Definitions                       **
 *******************************************************************************/
 
-static const uint16 cu16_ADC1_analogInput_Att[] = {ADC1_ATT_TYPE0, /* analog input 0, attenuator type 0 */
-                                                   ADC1_ATT_TYPE1, /* analog input 1, attenuator type 1 */
-                                                   ADC1_ATT_TYPE0, /* analog input 2, attenuator type 0 */
-                                                   ADC1_ATT_TYPE1, /* analog input 3, attenuator type 1 */
-                                                   ADC1_ATT_TYPE1, /* analog input 4, attenuator type 1 */
-                                                   ADC1_ATT_TYPE1, /* analog input 5, attenuator type 1 */
-                                                   ADC1_ATT_TYPE1, /* analog input 6, attenuator type 1 */
-                                                   ADC1_ATT_TYPE1, /* analog input 7, attenuator type 1 */
-                                                   ADC1_ATT_TYPE1, /* analog input 8, attenuator type 1 */
-                                                   ADC1_ATT_TYPE1, /* analog input 9, attenuator type 1 */
-                                                   ADC1_ATT_TYPE0, /* analog input 10, attenuator type 0 */
-                                                   ADC1_ATT_TYPE1, /* analog input 11, attenuator type 1 */
-                                                   ADC1_ATT_TYPE0, /* analog input 12, attenuator type 0 */
-                                                   ADC1_ATT_TYPE1, /* analog input 13, attenuator type 1 */
-                                                   ADC1_ATT_TYPE0, /* analog input 14, attenuator type 0 */
-                                                   ADC1_ATT_TYPE1, /* analog input 15, attenuator type 1 */
-                                                   ADC1_ATT_TYPE2, /* analog input 16, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 17, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 18, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 19, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 20, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 21, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 22, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 23, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 24, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2, /* analog input 25, attenuator type 2 */
-                                                   ADC1_ATT_TYPE2  /* analog input 26, attenuator type 2 */
-                                                  };
+static const uint16 cu16_ADC1_analogInput_Att[] = {
+    ADC1_ATT_TYPE0, /* analog input 0, attenuator type 0 */
+    ADC1_ATT_TYPE1, /* analog input 1, attenuator type 1 */
+    ADC1_ATT_TYPE0, /* analog input 2, attenuator type 0 */
+    ADC1_ATT_TYPE1, /* analog input 3, attenuator type 1 */
+    ADC1_ATT_TYPE1, /* analog input 4, attenuator type 1 */
+    ADC1_ATT_TYPE1, /* analog input 5, attenuator type 1 */
+    ADC1_ATT_TYPE1, /* analog input 6, attenuator type 1 */
+    ADC1_ATT_TYPE1, /* analog input 7, attenuator type 1 */
+    ADC1_ATT_TYPE1, /* analog input 8, attenuator type 1 */
+    ADC1_ATT_TYPE1, /* analog input 9, attenuator type 1 */
+    ADC1_ATT_TYPE0, /* analog input 10, attenuator type 0 */
+    ADC1_ATT_TYPE1, /* analog input 11, attenuator type 1 */
+    ADC1_ATT_TYPE0, /* analog input 12, attenuator type 0 */
+    ADC1_ATT_TYPE1, /* analog input 13, attenuator type 1 */
+    ADC1_ATT_TYPE0, /* analog input 14, attenuator type 0 */
+    ADC1_ATT_TYPE1, /* analog input 15, attenuator type 1 */
+    ADC1_ATT_TYPE2, /* analog input 16, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 17, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 18, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 19, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 20, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 21, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 22, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 23, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 24, attenuator type 2 */
+    ADC1_ATT_TYPE2, /* analog input 25, attenuator type 2 */
+    ADC1_ATT_TYPE2  /* analog input 26, attenuator type 2 */
+};
 
 /*******************************************************************************
 **                          Private Type Declarations                         **
@@ -108,11 +105,10 @@ uint8 ADC1_getCalibEnFromChannel(uint8 u8_channel);
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 ADC1_init(void)
-{
+sint8 ADC1_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_CODE_MODULE_DISABLED_IN_CW;
-#if ((ADC1_GLOBCONF & ADC1_GLOBCONF_EN_Msk) == ADC1_GLOBCONF_EN_Msk)
+#if((ADC1_GLOBCONF & ADC1_GLOBCONF_EN_Msk) == ADC1_GLOBCONF_EN_Msk)
   s8_returnCode = ERR_LOG_SUCCESS;
   /* Enable internal VAREF */
   ARVG_enVAREF();
@@ -122,7 +118,8 @@ sint8 ADC1_init(void)
   ADC1->GLOBCONF.reg = (uint32)ADC1_GLOBCONF;
 
   /* ADC1 startup time: wait until ADC1 is ready */
-  while (ADC1_getReady() == 0) {}
+  while(ADC1_getReady() == 0) {
+  }
 
   /* Debug behavior, tbd */
   //ADC1->SUSCTR.reg = ...;
@@ -233,8 +230,7 @@ sint8 ADC1_init(void)
  * }
  * ~~~~~~~~~~~~~~~
  */
-sint8 ADC1_getChResult(uint16 *u16p_digValue, uint8 u8_channel)
-{
+sint8 ADC1_getChResult(uint16 *u16p_digValue, uint8 u8_channel) {
   uint32 u32_addr;
   const volatile tADC1_RESx *tpResult;
   uint16 u16_offs;
@@ -242,8 +238,7 @@ sint8 ADC1_getChResult(uint16 *u16p_digValue, uint8 u8_channel)
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if ((PtrRangeCheck(u16p_digValue) == true) && (u8_channel < (uint8)ADC1_DCH_CNT))
-  {
+  if((PtrRangeCheck(u16p_digValue) == true) && (u8_channel < (uint8)ADC1_DCH_CNT)) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->RES0.reg;
     /* Shift channel by 2 (mult by 4) to calculate address offset for channel */
@@ -251,12 +246,10 @@ sint8 ADC1_getChResult(uint16 *u16p_digValue, uint8 u8_channel)
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpResult = (volatile tADC1_RESx *) u32_addr;
+    tpResult = (volatile tADC1_RESx *)u32_addr;
     /* Update the value - to get a valid data, the ADC1.RESx.VALID bitfield must be checked before calling this function */
     *u16p_digValue = tpResult->bit.RESULT;
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -287,8 +280,7 @@ sint8 ADC1_getChResult(uint16 *u16p_digValue, uint8 u8_channel)
  * }
  * ~~~~~~~~~~~~~~~
  */
-sint8 ADC1_getChResult_mV(uint16 *u16p_digValue_mV, uint8 u8_channel)
-{
+sint8 ADC1_getChResult_mV(uint16 *u16p_digValue_mV, uint8 u8_channel) {
   uint32 u32_val_mV;
   uint16 u16_val;
   uint8 u8_aidx;
@@ -296,33 +288,24 @@ sint8 ADC1_getChResult_mV(uint16 *u16p_digValue_mV, uint8 u8_channel)
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if ((PtrRangeCheck(u16p_digValue_mV) == true) && (u8_channel < (uint8)ADC1_DCH_CNT))
-  {
-    if (ADC1_getChResult(&u16_val, u8_channel) == ERR_LOG_SUCCESS)
-    {
+  if((PtrRangeCheck(u16p_digValue_mV) == true) && (u8_channel < (uint8)ADC1_DCH_CNT)) {
+    if(ADC1_getChResult(&u16_val, u8_channel) == ERR_LOG_SUCCESS) {
       /* ADC1 Voltage(mV) = (10bit_value * VREF_5000(mV)) / ADC1_MAX_RESOLUTION */
       u32_val_mV = (uint32)(((uint32)u16_val * (uint16)ADC1_VREF_5000mV) / (uint16)ADC1_MAX_RESOLUTION);
       /* Read analog input selection for selected channel */
       u8_aidx = ADC1_getAnalogInputFromChannel(u8_channel);
 
       /* Check analog input range */
-      if (u8_aidx < (uint8)ADC1_AI_CNT)
-      {
+      if(u8_aidx < (uint8)ADC1_AI_CNT) {
         /* Adjust millivolt value based on attenuator for selected analog intut */
         *u16p_digValue_mV = (uint16)((uint32)(u32_val_mV * (uint16)ADC1_ATT_DENOM) / cu16_ADC1_analogInput_Att[u8_aidx]);
-      }
-      else
-      {
+      } else {
         s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
       }
-    }
-    else
-    {
+    } else {
       s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -354,30 +337,23 @@ sint8 ADC1_getChResult_mV(uint16 *u16p_digValue_mV, uint8 u8_channel)
  * }
  * ~~~~~~~~~~~~~~~
  */
-sint8 ADC1_getChFiltResult(uint16 *u16p_filtDigValue, uint8 u8_channel)
-{
+sint8 ADC1_getChFiltResult(uint16 *u16p_filtDigValue, uint8 u8_channel) {
   uint8 u8_fidx;
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if ((PtrRangeCheck(u16p_filtDigValue) == true) && (u8_channel < (uint8)ADC1_DCH_CNT))
-  {
+  if((PtrRangeCheck(u16p_filtDigValue) == true) && (u8_channel < (uint8)ADC1_DCH_CNT)) {
     /* Read analog input selection for selected channel */
     u8_fidx = ADC1_getFiltIdxFromChannel(u8_channel);
 
     /* Check analog input range */
-    if (u8_fidx < (uint8)ADC1_FILT_CNT)
-    {
+    if(u8_fidx < (uint8)ADC1_FILT_CNT) {
       s8_returnCode = ADC1_getFiltChResult(u16p_filtDigValue, u8_fidx);
-    }
-    else
-    {
+    } else {
       s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -409,8 +385,7 @@ sint8 ADC1_getChFiltResult(uint16 *u16p_filtDigValue, uint8 u8_channel)
  * }
  * ~~~~~~~~~~~~~~~
  */
-sint8 ADC1_getChFiltResult_mV(uint16 *u16p_filtDigValue_mV, uint8 u8_channel)
-{
+sint8 ADC1_getChFiltResult_mV(uint16 *u16p_filtDigValue_mV, uint8 u8_channel) {
   uint32 u32_val_mV;
   uint16 u16_val;
   uint8 u8_aidx;
@@ -418,33 +393,24 @@ sint8 ADC1_getChFiltResult_mV(uint16 *u16p_filtDigValue_mV, uint8 u8_channel)
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if ((PtrRangeCheck(u16p_filtDigValue_mV) == true) && (u8_channel < (uint8)ADC1_DCH_CNT))
-  {
-    if (ADC1_getChFiltResult(&u16_val, u8_channel) == ERR_LOG_SUCCESS)
-    {
+  if((PtrRangeCheck(u16p_filtDigValue_mV) == true) && (u8_channel < (uint8)ADC1_DCH_CNT)) {
+    if(ADC1_getChFiltResult(&u16_val, u8_channel) == ERR_LOG_SUCCESS) {
       /* ADC1 Voltage(mV) = (10bit_value * VREF_5000(mV)) / ADC1_MAX_RESOLUTION */
       u32_val_mV = (uint32)(((uint32)u16_val * (uint16)ADC1_VREF_5000mV) / (uint16)ADC1_MAX_RESOLUTION);
       /* Read analog input selection for selected channel */
       u8_aidx = ADC1_getAnalogInputFromChannel(u8_channel);
 
       /* Check analog input range */
-      if (u8_aidx < (uint8)ADC1_AI_CNT)
-      {
+      if(u8_aidx < (uint8)ADC1_AI_CNT) {
         /* Adjust millivolt value based on attenuator for selected analog intut */
         *u16p_filtDigValue_mV = (uint16)((uint32)(u32_val_mV * (uint16)ADC1_ATT_DENOM) / cu16_ADC1_analogInput_Att[u8_aidx]);
-      }
-      else
-      {
+      } else {
         s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
       }
-    }
-    else
-    {
+    } else {
       s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -475,8 +441,7 @@ sint8 ADC1_getChFiltResult_mV(uint16 *u16p_filtDigValue_mV, uint8 u8_channel)
  * }
  * ~~~~~~~~~~~~~~~
  */
-sint8 ADC1_getSeqResult(uint16 *u16p_DigValue, uint8 u8_seqIdx, uint8 u8_slotIdx)
-{
+sint8 ADC1_getSeqResult(uint16 *u16p_DigValue, uint8 u8_seqIdx, uint8 u8_slotIdx) {
   uint32 u32_addr;
   const volatile tADC1_SQCFGx *tpSqCfg;
   const volatile tADC1_SQSLOTx *tpSqSlot;
@@ -485,8 +450,7 @@ sint8 ADC1_getSeqResult(uint16 *u16p_DigValue, uint8 u8_seqIdx, uint8 u8_slotIdx
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if ((PtrRangeCheck(u16p_DigValue) == true) && (u8_seqIdx < (uint8)ADC1_SEQ_CNT))
-  {
+  if((PtrRangeCheck(u16p_DigValue) == true) && (u8_seqIdx < (uint8)ADC1_SEQ_CNT)) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->SQCFG0.reg;
     /* Shift seq. index by 3 (mult by 8) to calculate address offset for SQCFGx */
@@ -494,11 +458,10 @@ sint8 ADC1_getSeqResult(uint16 *u16p_DigValue, uint8 u8_seqIdx, uint8 u8_slotIdx
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpSqCfg = (volatile tADC1_SQCFGx *) u32_addr;
+    tpSqCfg = (volatile tADC1_SQCFGx *)u32_addr;
 
     /* Check if selected slot is enabled */
-    if (u8_slotIdx < tpSqCfg->bit.SLOTS)
-    {
+    if(u8_slotIdx < tpSqCfg->bit.SLOTS) {
       /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
       u32_addr = (uint32)&ADC1->SQSLOT0.reg;
       /* Shift slot index by 3 (mult by 8) to calculate address offset for SQSLOTx */
@@ -506,47 +469,33 @@ sint8 ADC1_getSeqResult(uint16 *u16p_DigValue, uint8 u8_seqIdx, uint8 u8_slotIdx
       /* Increment address by channel offset */
       u32_addr += u16_offs;
       /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-      tpSqSlot = (volatile tADC1_SQSLOTx *) u32_addr;
+      tpSqSlot = (volatile tADC1_SQSLOTx *)u32_addr;
 
-      switch (u8_slotIdx)
-      {
-        case 0:
-        {
-          s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL0);
-        }
-        break;
+      switch(u8_slotIdx) {
+      case 0: {
+        s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL0);
+      } break;
 
-        case 1:
-        {
-          s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL1);
-        }
-        break;
+      case 1: {
+        s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL1);
+      } break;
 
-        case 2:
-        {
-          s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL2);
-        }
-        break;
+      case 2: {
+        s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL2);
+      } break;
 
-        case 3:
-        {
-          s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL3);
-        }
-        break;
+      case 3: {
+        s8_returnCode = ADC1_getChResult(u16p_DigValue, (uint8)tpSqSlot->bit.CHSEL3);
+      } break;
 
-        default:
-        {
-          s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
-        }
+      default: {
+        s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
       }
-    }
-    else
-    {
+      }
+    } else {
       s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -577,8 +526,7 @@ sint8 ADC1_getSeqResult(uint16 *u16p_DigValue, uint8 u8_seqIdx, uint8 u8_slotIdx
  * }
  * ~~~~~~~~~~~~~~~
  */
-sint8 ADC1_getSeqResult_mV(uint16 *u16p_digValue_mV, uint8 u8_seqIdx, uint8 u8_slotIdx)
-{
+sint8 ADC1_getSeqResult_mV(uint16 *u16p_digValue_mV, uint8 u8_seqIdx, uint8 u8_slotIdx) {
   uint32 u32_addr;
   const volatile tADC1_SQCFGx *tpSqCfg;
   const volatile tADC1_SQSLOTx *tpSqSlot;
@@ -587,8 +535,7 @@ sint8 ADC1_getSeqResult_mV(uint16 *u16p_digValue_mV, uint8 u8_seqIdx, uint8 u8_s
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if ((PtrRangeCheck(u16p_digValue_mV) == true) && (u8_seqIdx < (uint8)ADC1_SEQ_CNT))
-  {
+  if((PtrRangeCheck(u16p_digValue_mV) == true) && (u8_seqIdx < (uint8)ADC1_SEQ_CNT)) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->SQCFG0.reg;
     /* Shift seq. index by 3 (mult by 8) to calculate address offset for SQCFGx register  */
@@ -596,11 +543,10 @@ sint8 ADC1_getSeqResult_mV(uint16 *u16p_digValue_mV, uint8 u8_seqIdx, uint8 u8_s
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpSqCfg = (volatile tADC1_SQCFGx *) u32_addr;
+    tpSqCfg = (volatile tADC1_SQCFGx *)u32_addr;
 
     /* Check if selected slot is enabled */
-    if (u8_slotIdx < tpSqCfg->bit.SLOTS)
-    {
+    if(u8_slotIdx < tpSqCfg->bit.SLOTS) {
       /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
       u32_addr = (uint32)&ADC1->SQSLOT0.reg;
       /* Shift slot index by 3 (mult by 8) to calculate address offset for SQSLOTx register */
@@ -608,47 +554,33 @@ sint8 ADC1_getSeqResult_mV(uint16 *u16p_digValue_mV, uint8 u8_seqIdx, uint8 u8_s
       /* Increment address by channel offset */
       u32_addr += u16_offs;
       /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-      tpSqSlot = (volatile tADC1_SQSLOTx *) u32_addr;
+      tpSqSlot = (volatile tADC1_SQSLOTx *)u32_addr;
 
-      switch (u8_slotIdx)
-      {
-        case 0:
-        {
-          s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL0);
-        }
-        break;
+      switch(u8_slotIdx) {
+      case 0: {
+        s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL0);
+      } break;
 
-        case 1:
-        {
-          s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL1);
-        }
-        break;
+      case 1: {
+        s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL1);
+      } break;
 
-        case 2:
-        {
-          s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL2);
-        }
-        break;
+      case 2: {
+        s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL2);
+      } break;
 
-        case 3:
-        {
-          s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL3);
-        }
-        break;
+      case 3: {
+        s8_returnCode = ADC1_getChResult_mV(u16p_digValue_mV, (uint8)tpSqSlot->bit.CHSEL3);
+      } break;
 
-        default:
-        {
-          s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
-        }
+      default: {
+        s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
       }
-    }
-    else
-    {
+      }
+    } else {
       s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -678,8 +610,7 @@ sint8 ADC1_getSeqResult_mV(uint16 *u16p_digValue_mV, uint8 u8_seqIdx, uint8 u8_s
  * }
  * ~~~~~~~~~~~~~~~
  */
-sint8 ADC1_startSequence(uint8 u8_seqIdx)
-{
+sint8 ADC1_startSequence(uint8 u8_seqIdx) {
   uint32 u32_addr;
   volatile tADC1_SQCFGx *tpSqCfg;
   uint16 u16_offs;
@@ -687,8 +618,7 @@ sint8 ADC1_startSequence(uint8 u8_seqIdx)
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if (u8_seqIdx < (uint8)ADC1_SEQ_CNT)
-  {
+  if(u8_seqIdx < (uint8)ADC1_SEQ_CNT) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->SQCFG0.reg;
     /* Shift seq. index by 3 (mult by 8) to calculate address offset for SQCFGx register */
@@ -696,11 +626,10 @@ sint8 ADC1_startSequence(uint8 u8_seqIdx)
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpSqCfg = (volatile tADC1_SQCFGx *) u32_addr;
+    tpSqCfg = (volatile tADC1_SQCFGx *)u32_addr;
 
     /* Check if software trigger is selected */
-    if (ADC1_SW_TRIGGER == tpSqCfg->bit.TRGSEL)
-    {
+    if(ADC1_SW_TRIGGER == tpSqCfg->bit.TRGSEL) {
       /* No gating by software */
       tpSqCfg->bit.GTSW = 1u;
       /* Trigger start of conversion by software */
@@ -708,9 +637,7 @@ sint8 ADC1_startSequence(uint8 u8_seqIdx)
       /* Sequence start triggered */
       s8_returnCode = ERR_LOG_SUCCESS;
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -742,8 +669,7 @@ sint8 ADC1_startSequence(uint8 u8_seqIdx)
  * }
  * ~~~~~~~~~~~~~~~
  */
-uint8 ADC1_getEndOfConvSts(uint8 u8_seqIdx, uint8 u8_slotIdx)
-{
+uint8 ADC1_getEndOfConvSts(uint8 u8_seqIdx, uint8 u8_slotIdx) {
   uint8 u8_channel;
   uint32 u32_addr;
   const volatile tADC1_SQSLOTx *tpSqSlt;
@@ -752,8 +678,7 @@ uint8 ADC1_getEndOfConvSts(uint8 u8_seqIdx, uint8 u8_slotIdx)
   u8_EOCSts = 0u;
 
   /* Check input parameter validity */
-  if (u8_seqIdx < (uint8)ADC1_SEQ_CNT)
-  {
+  if(u8_seqIdx < (uint8)ADC1_SEQ_CNT) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->SQSLOT0.reg;
     /* Shift seq. index by 3 (mult by 8) to calculate address offset for SQSLOTx register */
@@ -761,17 +686,15 @@ uint8 ADC1_getEndOfConvSts(uint8 u8_seqIdx, uint8 u8_slotIdx)
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpSqSlt = (volatile tADC1_SQSLOTx *) u32_addr;
+    tpSqSlt = (volatile tADC1_SQSLOTx *)u32_addr;
 
     /* Check input parameter validity */
-    if (u8_slotIdx < (uint8)ADC1_SLOT_CNT)
-    {
+    if(u8_slotIdx < (uint8)ADC1_SLOT_CNT) {
       /* Get digital channel out of slot configuration */
       u8_channel = (uint8)((tpSqSlt->reg >> (u8_slotIdx * 8u)) & (uint8)0xFF);
 
       /* Check input parameter validity */
-      if (u8_channel < (uint8)ADC1_DCH_CNT)
-      {
+      if(u8_channel < (uint8)ADC1_DCH_CNT) {
         /* get status register for configured channel */
         u8_EOCSts = (uint8)((ADC1->CHSTAT.reg >> u8_channel) & 1u);
       }
@@ -790,8 +713,7 @@ uint8 ADC1_getEndOfConvSts(uint8 u8_seqIdx, uint8 u8_slotIdx)
  * \param u8_channel digital channel number(0..19)
  * \return u8_fidx index of the filter channel configured for a given digital channel
  */
-uint8 ADC1_getFiltIdxFromChannel(uint8 u8_channel)
-{
+uint8 ADC1_getFiltIdxFromChannel(uint8 u8_channel) {
   const volatile tADC1_CHCFGx *tpChCfg;
   uint32 u32_addr;
   uint16 u16_offs;
@@ -800,8 +722,7 @@ uint8 ADC1_getFiltIdxFromChannel(uint8 u8_channel)
   u8_fidx = (uint8)ADC1_FILT_CH_DIS;
 
   /* Check input parameter validity */
-  if (u8_channel < (uint8)ADC1_DCH_CNT)
-  {
+  if(u8_channel < (uint8)ADC1_DCH_CNT) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->CHCFG0.reg;
     /* Shift channel by 2 (mult by 4) to calculate address offset for channel */
@@ -809,7 +730,7 @@ uint8 ADC1_getFiltIdxFromChannel(uint8 u8_channel)
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpChCfg = (volatile tADC1_CHCFGx *) u32_addr;
+    tpChCfg = (volatile tADC1_CHCFGx *)u32_addr;
     /* Read analog input selection for selected channel */
     u8_fidx = tpChCfg->bit.FILSEL;
   }
@@ -824,8 +745,7 @@ uint8 ADC1_getFiltIdxFromChannel(uint8 u8_channel)
  * \param u16p_filtDigValue pointer to filter digital value
  * \return sint8 0: success, <0: error codes
  */
-sint8 ADC1_getFiltChResult(uint16 *u16p_filtDigValue, uint8 u8_filtCh)
-{
+sint8 ADC1_getFiltChResult(uint16 *u16p_filtDigValue, uint8 u8_filtCh) {
   uint32 u32_addr;
   const volatile tADC1_FILx *tpResult;
   uint16 u16_offs;
@@ -833,8 +753,7 @@ sint8 ADC1_getFiltChResult(uint16 *u16p_filtDigValue, uint8 u8_filtCh)
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check input parameter validity */
-  if ((PtrRangeCheck(u16p_filtDigValue) == true) &&  (u8_filtCh < (uint8)ADC1_FILT_CNT))
-  {
+  if((PtrRangeCheck(u16p_filtDigValue) == true) && (u8_filtCh < (uint8)ADC1_FILT_CNT)) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->FIL0.reg;
     /* Shift channel by 2 (mult by 4) to calculate address offset for channel */
@@ -842,14 +761,12 @@ sint8 ADC1_getFiltChResult(uint16 *u16p_filtDigValue, uint8 u8_filtCh)
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpResult = (volatile tADC1_FILx *) u32_addr;
+    tpResult = (volatile tADC1_FILx *)u32_addr;
     /* Update the value only if there is valid data in result register **
     ** The filter value is stored as a 16bit value, shifting it down   **
     ** to a 14bit value for proper postprocessing                      */
     *u16p_filtDigValue = (uint16)(tpResult->bit.FILRESULT >> 2u);
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -861,8 +778,7 @@ sint8 ADC1_getFiltChResult(uint16 *u16p_filtDigValue, uint8 u8_filtCh)
  * \param u8_channel digital channel number(0..19)
  * \return u8_aidx analog input index from given digital channel
  */
-uint8 ADC1_getAnalogInputFromChannel(uint8 u8_channel)
-{
+uint8 ADC1_getAnalogInputFromChannel(uint8 u8_channel) {
   const volatile tADC1_CHCFGx *tpChCfg;
   uint32 u32_addr;
   uint16 u16_offs;
@@ -871,8 +787,7 @@ uint8 ADC1_getAnalogInputFromChannel(uint8 u8_channel)
   u8_aidx = (uint8)255;
 
   /* Check input parameter validity */
-  if (u8_channel < (uint8)ADC1_DCH_CNT)
-  {
+  if(u8_channel < (uint8)ADC1_DCH_CNT) {
     /* Violation: cast from pointer to unsigned int [MISRA Rule 45]*/
     u32_addr = (uint32)&ADC1->CHCFG0.reg;
     /* Shift channel by 2 (mult by 4) to calculate address offset for channel */
@@ -880,7 +795,7 @@ uint8 ADC1_getAnalogInputFromChannel(uint8 u8_channel)
     /* Increment address by channel offset */
     u32_addr += u16_offs;
     /* Violation: cast from unsigned int to pointer [MISRA Rule 45]*/
-    tpChCfg = (volatile tADC1_CHCFGx *) u32_addr;
+    tpChCfg = (volatile tADC1_CHCFGx *)u32_addr;
     /* Read analog input selection for selected channel */
     u8_aidx = tpChCfg->bit.INSEL;
   }
@@ -893,20 +808,17 @@ uint8 ADC1_getAnalogInputFromChannel(uint8 u8_channel)
  * \param u8_channel digital channel number(0..19)
  * \return u8_res calibration enable bit from the analog input used by the given digital channel
  */
-uint8 ADC1_getCalibEnFromChannel(uint8 u8_channel)
-{
+uint8 ADC1_getCalibEnFromChannel(uint8 u8_channel) {
   uint8 u8_aidx;
   uint8 u8_res;
   u8_res = 0;
 
   /* Check input parameter validity */
-  if (u8_channel < (uint8)ADC1_DCH_CNT)
-  {
+  if(u8_channel < (uint8)ADC1_DCH_CNT) {
     u8_aidx = ADC1_getAnalogInputFromChannel(u8_channel);
 
     /* Check analog input range */
-    if (u8_aidx < (uint8)ADC1_AI_CNT)
-    {
+    if(u8_aidx < (uint8)ADC1_AI_CNT) {
       u8_res = (uint8)((ADC1->CALEN.reg >> u8_aidx) & 1u);
     }
   }
@@ -918,203 +830,162 @@ uint8 ADC1_getCalibEnFromChannel(uint8 u8_channel)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void ADC1_setCh0IntNodePtr(void)
-{
+void ADC1_setCh0IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh1IntNodePtr(void)
-{
+void ADC1_setCh1IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh2IntNodePtr(void)
-{
+void ADC1_setCh2IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh3IntNodePtr(void)
-{
+void ADC1_setCh3IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh4IntNodePtr(void)
-{
+void ADC1_setCh4IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh5IntNodePtr(void)
-{
+void ADC1_setCh5IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh6IntNodePtr(void)
-{
+void ADC1_setCh6IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh7IntNodePtr(void)
-{
+void ADC1_setCh7IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh8IntNodePtr(void)
-{
+void ADC1_setCh8IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh9IntNodePtr(void)
-{
+void ADC1_setCh9IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh10IntNodePtr(void)
-{
+void ADC1_setCh10IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh11IntNodePtr(void)
-{
+void ADC1_setCh11IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh12IntNodePtr(void)
-{
+void ADC1_setCh12IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh13IntNodePtr(void)
-{
+void ADC1_setCh13IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh14IntNodePtr(void)
-{
+void ADC1_setCh14IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh15IntNodePtr(void)
-{
+void ADC1_setCh15IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh16IntNodePtr(void)
-{
+void ADC1_setCh16IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh17IntNodePtr(void)
-{
+void ADC1_setCh17IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh18IntNodePtr(void)
-{
+void ADC1_setCh18IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCh19IntNodePtr(void)
-{
+void ADC1_setCh19IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp0LoIntNodePtr(void)
-{
+void ADC1_setCmp0LoIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp1LoIntNodePtr(void)
-{
+void ADC1_setCmp1LoIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp2LoIntNodePtr(void)
-{
+void ADC1_setCmp2LoIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp3LoIntNodePtr(void)
-{
+void ADC1_setCmp3LoIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp0UpIntNodePtr(void)
-{
+void ADC1_setCmp0UpIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp1UpIntNodePtr(void)
-{
+void ADC1_setCmp1UpIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp2UpIntNodePtr(void)
-{
+void ADC1_setCmp2UpIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setCmp3UpIntNodePtr(void)
-{
+void ADC1_setCmp3UpIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq0IntNodePtr(void)
-{
+void ADC1_setSeq0IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq1IntNodePtr(void)
-{
+void ADC1_setSeq1IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq2IntNodePtr(void)
-{
+void ADC1_setSeq2IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq3IntNodePtr(void)
-{
+void ADC1_setSeq3IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq0CollIntNodePtr(void)
-{
+void ADC1_setSeq0CollIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq1CollIntNodePtr(void)
-{
+void ADC1_setSeq1CollIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq2CollIntNodePtr(void)
-{
+void ADC1_setSeq2CollIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq3CollIntNodePtr(void)
-{
+void ADC1_setSeq3CollIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq0WaitForReadIntNodePtr(void)
-{
+void ADC1_setSeq0WaitForReadIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq1WaitForReadIntNodePtr(void)
-{
+void ADC1_setSeq1WaitForReadIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq2WaitForReadIntNodePtr(void)
-{
+void ADC1_setSeq2WaitForReadIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void ADC1_setSeq3WaitForReadIntNodePtr(void)
-{
+void ADC1_setSeq3WaitForReadIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
-

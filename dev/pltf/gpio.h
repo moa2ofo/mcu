@@ -62,10 +62,10 @@
 /*******************************************************************************
 **                                  Includes                                  **
 *******************************************************************************/
-#include "tle_variants.h"
-#include "types.h"
 #include "gpio_defines.h"
 #include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
 
 /*******************************************************************************
 **                          Global Macro Declarations                         **
@@ -78,20 +78,13 @@
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_0_ALTSEL' or 'enum GPIO_P0_0_ALTSEL'
  */
-typedef enum GPIO_P0_0_ALTSEL
-{
-  GPIO_P0_0_ALTSEL_GPIO = 0,
-  GPIO_P0_0_ALTSEL_CCU7_CC72 = 1,
-  GPIO_P0_0_ALTSEL_T21_EXF2 = 2,
-  GPIO_P0_0_ALTSEL_UART0_RXDO = 3
-} tGPIO_P0_0_ALTSEL;
+typedef enum GPIO_P0_0_ALTSEL { GPIO_P0_0_ALTSEL_GPIO = 0, GPIO_P0_0_ALTSEL_CCU7_CC72 = 1, GPIO_P0_0_ALTSEL_T21_EXF2 = 2, GPIO_P0_0_ALTSEL_UART0_RXDO = 3 } tGPIO_P0_0_ALTSEL;
 
 /** \enum GPIO_P0_1_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_1_ALTSEL' or 'enum GPIO_P0_1_ALTSEL'
  */
-typedef enum GPIO_P0_1_ALTSEL
-{
+typedef enum GPIO_P0_1_ALTSEL {
   GPIO_P0_1_ALTSEL_GPIO = 0,
   GPIO_P0_1_ALTSEL_UART0_TXD = 1,
   GPIO_P0_1_ALTSEL_GPT12_T6OUT = 2,
@@ -106,8 +99,7 @@ typedef enum GPIO_P0_1_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_2_ALTSEL' or 'enum GPIO_P0_2_ALTSEL'
  */
-typedef enum GPIO_P0_2_ALTSEL
-{
+typedef enum GPIO_P0_2_ALTSEL {
   GPIO_P0_2_ALTSEL_GPIO = 0,
   GPIO_P0_2_ALTSEL_UART1_TXD = 1,
   GPIO_P0_2_ALTSEL_GPT12_T3OUT = 2,
@@ -121,8 +113,7 @@ typedef enum GPIO_P0_2_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_3_ALTSEL' or 'enum GPIO_P0_3_ALTSEL'
  */
-typedef enum GPIO_P0_3_ALTSEL
-{
+typedef enum GPIO_P0_3_ALTSEL {
   GPIO_P0_3_ALTSEL_GPIO = 0,
   GPIO_P0_3_ALTSEL_SSC0_SCLK = 1,
   GPIO_P0_3_ALTSEL_BEMFC_PH3_ZC_STS = 2,
@@ -137,8 +128,7 @@ typedef enum GPIO_P0_3_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_4_ALTSEL' or 'enum GPIO_P0_4_ALTSEL'
  */
-typedef enum GPIO_P0_4_ALTSEL
-{
+typedef enum GPIO_P0_4_ALTSEL {
   GPIO_P0_4_ALTSEL_GPIO = 0,
   GPIO_P0_4_ALTSEL_CCU7_CC70 = 1,
   GPIO_P0_4_ALTSEL_SDADC_DOUT0 = 2,
@@ -151,8 +141,7 @@ typedef enum GPIO_P0_4_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_5_ALTSEL' or 'enum GPIO_P0_5_ALTSEL'
  */
-typedef enum GPIO_P0_5_ALTSEL
-{
+typedef enum GPIO_P0_5_ALTSEL {
   GPIO_P0_5_ALTSEL_GPIO = 0,
   GPIO_P0_5_ALTSEL_CCU7_COUT70 = 1,
   GPIO_P0_5_ALTSEL_SDADC_DOUT0 = 2,
@@ -164,8 +153,7 @@ typedef enum GPIO_P0_5_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_6_ALTSEL' or 'enum GPIO_P0_6_ALTSEL'
  */
-typedef enum GPIO_P0_6_ALTSEL
-{
+typedef enum GPIO_P0_6_ALTSEL {
   GPIO_P0_6_ALTSEL_GPIO = 0,
   GPIO_P0_6_ALTSEL_CCU7_CC71 = 1,
   GPIO_P0_6_ALTSEL_SDADC_DOUT1 = 2,
@@ -180,8 +168,7 @@ typedef enum GPIO_P0_6_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_7_ALTSEL' or 'enum GPIO_P0_7_ALTSEL'
  */
-typedef enum GPIO_P0_7_ALTSEL
-{
+typedef enum GPIO_P0_7_ALTSEL {
   GPIO_P0_7_ALTSEL_GPIO = 0,
   GPIO_P0_7_ALTSEL_CCU7_COUT71 = 1,
   GPIO_P0_7_ALTSEL_SDADC_DOUT1 = 2,
@@ -196,8 +183,7 @@ typedef enum GPIO_P0_7_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_8_ALTSEL' or 'enum GPIO_P0_8_ALTSEL'
  */
-typedef enum GPIO_P0_8_ALTSEL
-{
+typedef enum GPIO_P0_8_ALTSEL {
   GPIO_P0_8_ALTSEL_GPIO = 0,
   GPIO_P0_8_ALTSEL_CCU7_COUT72 = 1,
   GPIO_P0_8_ALTSEL_SDADC_MCLK = 2,
@@ -209,8 +195,7 @@ typedef enum GPIO_P0_8_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_9_ALTSEL' or 'enum GPIO_P0_9_ALTSEL'
  */
-typedef enum GPIO_P0_9_ALTSEL
-{
+typedef enum GPIO_P0_9_ALTSEL {
   GPIO_P0_9_ALTSEL_GPIO = 0,
   GPIO_P0_9_ALTSEL_CCU7_CC72 = 1,
   GPIO_P0_9_ALTSEL_SDADC_MCLK = 2,
@@ -224,8 +209,7 @@ typedef enum GPIO_P0_9_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P0_10_ALTSEL' or 'enum GPIO_P0_10_ALTSEL'
  */
-typedef enum GPIO_P0_10_ALTSEL
-{
+typedef enum GPIO_P0_10_ALTSEL {
   GPIO_P0_10_ALTSEL_GPIO = 0,
   GPIO_P0_10_ALTSEL_SCU_RESET = 1,
   GPIO_P0_10_ALTSEL_SSC1_CS1 = 2,
@@ -240,29 +224,19 @@ typedef enum GPIO_P0_10_ALTSEL
  *  \brief Enum for the GPIO Direction control bit
  *  \note You can use this type via 'tGPIO_DIR' or 'enum GPIO_DIR'
  */
-typedef enum GPIO_DIR
-{
-  GPIO_DIR_INPUT = 0,
-  GPIO_DIR_OUTPUT = 1
-} tGPIO_DIR;
+typedef enum GPIO_DIR { GPIO_DIR_INPUT = 0, GPIO_DIR_OUTPUT = 1 } tGPIO_DIR;
 
 /** \enum GPIO_STATE
  *  \brief Enum for the GPIO Output bit
  *  \note You can use this type via 'tGPIO_STATE' or 'enum GPIO_STATE'
  */
-typedef enum GPIO_STATE
-{
-  GPIO_STATE_HIGH =   0x00000001,
-  GPIO_STATE_LOW =    0x00010000,
-  GPIO_STATE_TOGGLE = 0x00010001
-} tGPIO_STATE;
+typedef enum GPIO_STATE { GPIO_STATE_HIGH = 0x00000001, GPIO_STATE_LOW = 0x00010000, GPIO_STATE_TOGGLE = 0x00010001 } tGPIO_STATE;
 
 /** \enum GPIO_P1_0_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P1_0_ALTSEL' or 'enum GPIO_P1_0_ALTSEL'
  */
-typedef enum GPIO_P1_0_ALTSEL
-{
+typedef enum GPIO_P1_0_ALTSEL {
   GPIO_P1_0_ALTSEL_GPIO = 0,
   GPIO_P1_0_ALTSEL_SSC1_SCLK = 1,
   GPIO_P1_0_ALTSEL_CCU7_CC71 = 2,
@@ -277,8 +251,7 @@ typedef enum GPIO_P1_0_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P1_1_ALTSEL' or 'enum GPIO_P1_1_ALTSEL'
  */
-typedef enum GPIO_P1_1_ALTSEL
-{
+typedef enum GPIO_P1_1_ALTSEL {
   GPIO_P1_1_ALTSEL_GPIO = 0,
   GPIO_P1_1_ALTSEL_SSC1_MTSR = 1,
   GPIO_P1_1_ALTSEL_CCU7_COUT71 = 2,
@@ -293,8 +266,7 @@ typedef enum GPIO_P1_1_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P1_2_ALTSEL' or 'enum GPIO_P1_2_ALTSEL'
  */
-typedef enum GPIO_P1_2_ALTSEL
-{
+typedef enum GPIO_P1_2_ALTSEL {
   GPIO_P1_2_ALTSEL_GPIO = 0,
   GPIO_P1_2_ALTSEL_SSC1_MRST = 1,
   GPIO_P1_2_ALTSEL_CCU7_CC70 = 2,
@@ -309,8 +281,7 @@ typedef enum GPIO_P1_2_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P1_3_ALTSEL' or 'enum GPIO_P1_3_ALTSEL'
  */
-typedef enum GPIO_P1_3_ALTSEL
-{
+typedef enum GPIO_P1_3_ALTSEL {
   GPIO_P1_3_ALTSEL_GPIO = 0,
   GPIO_P1_3_ALTSEL_SSC0_CS2 = 1,
   GPIO_P1_3_ALTSEL_CCU7_COUT73 = 2,
@@ -324,8 +295,7 @@ typedef enum GPIO_P1_3_ALTSEL
  *  \brief Enum for the GPIO Alternate output select
  *  \note You can use this type via 'tGPIO_P1_4_ALTSEL' or 'enum GPIO_P1_4_ALTSEL'
  */
-typedef enum GPIO_P1_4_ALTSEL
-{
+typedef enum GPIO_P1_4_ALTSEL {
   GPIO_P1_4_ALTSEL_GPIO = 0,
   GPIO_P1_4_ALTSEL_SSC1_CS2 = 1,
   GPIO_P1_4_ALTSEL_SCU_CLKOUT = 2,
@@ -333,32 +303,31 @@ typedef enum GPIO_P1_4_ALTSEL
   GPIO_P1_4_ALTSEL_T21_EXF2 = 4
 } tGPIO_P1_4_ALTSEL;
 
-
 /*******************************************************************************
 **                        Global Function Declarations                        **
 *******************************************************************************/
-INLINE void   GPIO_setP00Altsel(tGPIO_P0_0_ALTSEL e_value);
-INLINE void   GPIO_setP01Altsel(tGPIO_P0_1_ALTSEL e_value);
-INLINE void   GPIO_setP02Altsel(tGPIO_P0_2_ALTSEL e_value);
-INLINE void   GPIO_setP03Altsel(tGPIO_P0_3_ALTSEL e_value);
-INLINE void   GPIO_setP04Altsel(tGPIO_P0_4_ALTSEL e_value);
-INLINE void   GPIO_setP05Altsel(tGPIO_P0_5_ALTSEL e_value);
-INLINE void   GPIO_setP06Altsel(tGPIO_P0_6_ALTSEL e_value);
-INLINE void   GPIO_setP07Altsel(tGPIO_P0_7_ALTSEL e_value);
-INLINE void   GPIO_setP08Altsel(tGPIO_P0_8_ALTSEL e_value);
-INLINE void   GPIO_setP09Altsel(tGPIO_P0_9_ALTSEL e_value);
-INLINE void   GPIO_setP010Altsel(tGPIO_P0_10_ALTSEL e_value);
-INLINE void   GPIO_setP00Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP01Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP02Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP03Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP04Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP05Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP06Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP07Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP08Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP09Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP010Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP00Altsel(tGPIO_P0_0_ALTSEL e_value);
+INLINE void GPIO_setP01Altsel(tGPIO_P0_1_ALTSEL e_value);
+INLINE void GPIO_setP02Altsel(tGPIO_P0_2_ALTSEL e_value);
+INLINE void GPIO_setP03Altsel(tGPIO_P0_3_ALTSEL e_value);
+INLINE void GPIO_setP04Altsel(tGPIO_P0_4_ALTSEL e_value);
+INLINE void GPIO_setP05Altsel(tGPIO_P0_5_ALTSEL e_value);
+INLINE void GPIO_setP06Altsel(tGPIO_P0_6_ALTSEL e_value);
+INLINE void GPIO_setP07Altsel(tGPIO_P0_7_ALTSEL e_value);
+INLINE void GPIO_setP08Altsel(tGPIO_P0_8_ALTSEL e_value);
+INLINE void GPIO_setP09Altsel(tGPIO_P0_9_ALTSEL e_value);
+INLINE void GPIO_setP010Altsel(tGPIO_P0_10_ALTSEL e_value);
+INLINE void GPIO_setP00Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP01Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP02Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP03Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP04Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP05Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP06Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP07Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP08Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP09Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP010Dir(tGPIO_DIR e_value);
 INLINE uint8 GPIO_getP00State(void);
 INLINE uint8 GPIO_getP01State(void);
 INLINE uint8 GPIO_getP02State(void);
@@ -370,37 +339,37 @@ INLINE uint8 GPIO_getP07State(void);
 INLINE uint8 GPIO_getP08State(void);
 INLINE uint8 GPIO_getP09State(void);
 INLINE uint8 GPIO_getP010State(void);
-INLINE void   GPIO_setP00State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP01State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP02State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP03State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP04State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP05State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP06State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP07State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP08State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP09State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP010State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP10Altsel(tGPIO_P1_0_ALTSEL e_value);
-INLINE void   GPIO_setP11Altsel(tGPIO_P1_1_ALTSEL e_value);
-INLINE void   GPIO_setP12Altsel(tGPIO_P1_2_ALTSEL e_value);
-INLINE void   GPIO_setP13Altsel(tGPIO_P1_3_ALTSEL e_value);
-INLINE void   GPIO_setP14Altsel(tGPIO_P1_4_ALTSEL e_value);
-INLINE void   GPIO_setP10Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP11Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP12Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP13Dir(tGPIO_DIR e_value);
-INLINE void   GPIO_setP14Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP00State(tGPIO_STATE e_value);
+INLINE void GPIO_setP01State(tGPIO_STATE e_value);
+INLINE void GPIO_setP02State(tGPIO_STATE e_value);
+INLINE void GPIO_setP03State(tGPIO_STATE e_value);
+INLINE void GPIO_setP04State(tGPIO_STATE e_value);
+INLINE void GPIO_setP05State(tGPIO_STATE e_value);
+INLINE void GPIO_setP06State(tGPIO_STATE e_value);
+INLINE void GPIO_setP07State(tGPIO_STATE e_value);
+INLINE void GPIO_setP08State(tGPIO_STATE e_value);
+INLINE void GPIO_setP09State(tGPIO_STATE e_value);
+INLINE void GPIO_setP010State(tGPIO_STATE e_value);
+INLINE void GPIO_setP10Altsel(tGPIO_P1_0_ALTSEL e_value);
+INLINE void GPIO_setP11Altsel(tGPIO_P1_1_ALTSEL e_value);
+INLINE void GPIO_setP12Altsel(tGPIO_P1_2_ALTSEL e_value);
+INLINE void GPIO_setP13Altsel(tGPIO_P1_3_ALTSEL e_value);
+INLINE void GPIO_setP14Altsel(tGPIO_P1_4_ALTSEL e_value);
+INLINE void GPIO_setP10Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP11Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP12Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP13Dir(tGPIO_DIR e_value);
+INLINE void GPIO_setP14Dir(tGPIO_DIR e_value);
 INLINE uint8 GPIO_getP10State(void);
 INLINE uint8 GPIO_getP11State(void);
 INLINE uint8 GPIO_getP12State(void);
 INLINE uint8 GPIO_getP13State(void);
 INLINE uint8 GPIO_getP14State(void);
-INLINE void   GPIO_setP10State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP11State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP12State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP13State(tGPIO_STATE e_value);
-INLINE void   GPIO_setP14State(tGPIO_STATE e_value);
+INLINE void GPIO_setP10State(tGPIO_STATE e_value);
+INLINE void GPIO_setP11State(tGPIO_STATE e_value);
+INLINE void GPIO_setP12State(tGPIO_STATE e_value);
+INLINE void GPIO_setP13State(tGPIO_STATE e_value);
+INLINE void GPIO_setP14State(tGPIO_STATE e_value);
 INLINE uint8 GPIO_getP20State(void);
 INLINE uint8 GPIO_getP21State(void);
 INLINE uint8 GPIO_getP22State(void);
@@ -440,8 +409,7 @@ void GPIO_init(void);
  *
  *  \param e_value P0.0 Alternate Select
  */
-INLINE void GPIO_setP00Altsel(tGPIO_P0_0_ALTSEL e_value)
-{
+INLINE void GPIO_setP00Altsel(tGPIO_P0_0_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL0 = (uint8)e_value;
 }
 
@@ -449,8 +417,7 @@ INLINE void GPIO_setP00Altsel(tGPIO_P0_0_ALTSEL e_value)
  *
  *  \param e_value P0.1 Alternate Select
  */
-INLINE void GPIO_setP01Altsel(tGPIO_P0_1_ALTSEL e_value)
-{
+INLINE void GPIO_setP01Altsel(tGPIO_P0_1_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL1 = (uint8)e_value;
 }
 
@@ -458,8 +425,7 @@ INLINE void GPIO_setP01Altsel(tGPIO_P0_1_ALTSEL e_value)
  *
  *  \param e_value P0.2 Alternate Select
  */
-INLINE void GPIO_setP02Altsel(tGPIO_P0_2_ALTSEL e_value)
-{
+INLINE void GPIO_setP02Altsel(tGPIO_P0_2_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL2 = (uint8)e_value;
 }
 
@@ -467,8 +433,7 @@ INLINE void GPIO_setP02Altsel(tGPIO_P0_2_ALTSEL e_value)
  *
  *  \param e_value P0.3 Alternate Select
  */
-INLINE void GPIO_setP03Altsel(tGPIO_P0_3_ALTSEL e_value)
-{
+INLINE void GPIO_setP03Altsel(tGPIO_P0_3_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL3 = (uint8)e_value;
 }
 
@@ -476,8 +441,7 @@ INLINE void GPIO_setP03Altsel(tGPIO_P0_3_ALTSEL e_value)
  *
  *  \param e_value P0.4 Alternate Select
  */
-INLINE void GPIO_setP04Altsel(tGPIO_P0_4_ALTSEL e_value)
-{
+INLINE void GPIO_setP04Altsel(tGPIO_P0_4_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL4 = (uint8)e_value;
 }
 
@@ -485,8 +449,7 @@ INLINE void GPIO_setP04Altsel(tGPIO_P0_4_ALTSEL e_value)
  *
  *  \param e_value P0.5 Alternate Select
  */
-INLINE void GPIO_setP05Altsel(tGPIO_P0_5_ALTSEL e_value)
-{
+INLINE void GPIO_setP05Altsel(tGPIO_P0_5_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL5 = (uint8)e_value;
 }
 
@@ -494,8 +457,7 @@ INLINE void GPIO_setP05Altsel(tGPIO_P0_5_ALTSEL e_value)
  *
  *  \param e_value P0.6 Alternate Select
  */
-INLINE void GPIO_setP06Altsel(tGPIO_P0_6_ALTSEL e_value)
-{
+INLINE void GPIO_setP06Altsel(tGPIO_P0_6_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL6 = (uint8)e_value;
 }
 
@@ -503,8 +465,7 @@ INLINE void GPIO_setP06Altsel(tGPIO_P0_6_ALTSEL e_value)
  *
  *  \param e_value P0.7 Alternate Select
  */
-INLINE void GPIO_setP07Altsel(tGPIO_P0_7_ALTSEL e_value)
-{
+INLINE void GPIO_setP07Altsel(tGPIO_P0_7_ALTSEL e_value) {
   GPIO->P0_ALTSEL0.bit.ALTSEL7 = (uint8)e_value;
 }
 
@@ -512,8 +473,7 @@ INLINE void GPIO_setP07Altsel(tGPIO_P0_7_ALTSEL e_value)
  *
  *  \param e_value P0.8 Alternate Select
  */
-INLINE void GPIO_setP08Altsel(tGPIO_P0_8_ALTSEL e_value)
-{
+INLINE void GPIO_setP08Altsel(tGPIO_P0_8_ALTSEL e_value) {
   GPIO->P0_ALTSEL1.bit.ALTSEL8 = (uint8)e_value;
 }
 
@@ -521,8 +481,7 @@ INLINE void GPIO_setP08Altsel(tGPIO_P0_8_ALTSEL e_value)
  *
  *  \param e_value P0.9 Alternate Select
  */
-INLINE void GPIO_setP09Altsel(tGPIO_P0_9_ALTSEL e_value)
-{
+INLINE void GPIO_setP09Altsel(tGPIO_P0_9_ALTSEL e_value) {
   GPIO->P0_ALTSEL1.bit.ALTSEL9 = (uint8)e_value;
 }
 
@@ -530,8 +489,7 @@ INLINE void GPIO_setP09Altsel(tGPIO_P0_9_ALTSEL e_value)
  *
  *  \param e_value P0.10 Alternate Select
  */
-INLINE void GPIO_setP010Altsel(tGPIO_P0_10_ALTSEL e_value)
-{
+INLINE void GPIO_setP010Altsel(tGPIO_P0_10_ALTSEL e_value) {
   GPIO->P0_ALTSEL1.bit.ALTSEL10 = (uint8)e_value;
 }
 
@@ -539,8 +497,7 @@ INLINE void GPIO_setP010Altsel(tGPIO_P0_10_ALTSEL e_value)
  *
  *  \param e_value P0.0 Direction
  */
-INLINE void GPIO_setP00Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP00Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR0 = (uint8)e_value;
 }
 
@@ -548,8 +505,7 @@ INLINE void GPIO_setP00Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.1 Direction
  */
-INLINE void GPIO_setP01Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP01Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR1 = (uint8)e_value;
 }
 
@@ -557,8 +513,7 @@ INLINE void GPIO_setP01Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.2 Direction
  */
-INLINE void GPIO_setP02Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP02Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR2 = (uint8)e_value;
 }
 
@@ -566,8 +521,7 @@ INLINE void GPIO_setP02Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.3 Direction
  */
-INLINE void GPIO_setP03Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP03Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR3 = (uint8)e_value;
 }
 
@@ -575,8 +529,7 @@ INLINE void GPIO_setP03Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.4 Direction
  */
-INLINE void GPIO_setP04Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP04Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR4 = (uint8)e_value;
 }
 
@@ -584,8 +537,7 @@ INLINE void GPIO_setP04Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.5 Direction
  */
-INLINE void GPIO_setP05Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP05Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR5 = (uint8)e_value;
 }
 
@@ -593,8 +545,7 @@ INLINE void GPIO_setP05Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.6 Direction
  */
-INLINE void GPIO_setP06Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP06Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR6 = (uint8)e_value;
 }
 
@@ -602,8 +553,7 @@ INLINE void GPIO_setP06Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.7 Direction
  */
-INLINE void GPIO_setP07Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP07Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR7 = (uint8)e_value;
 }
 
@@ -611,8 +561,7 @@ INLINE void GPIO_setP07Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.8 Direction
  */
-INLINE void GPIO_setP08Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP08Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR8 = (uint8)e_value;
 }
 
@@ -620,8 +569,7 @@ INLINE void GPIO_setP08Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.9 Direction
  */
-INLINE void GPIO_setP09Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP09Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR9 = (uint8)e_value;
 }
 
@@ -629,8 +577,7 @@ INLINE void GPIO_setP09Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P0.10 Direction
  */
-INLINE void GPIO_setP010Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP010Dir(tGPIO_DIR e_value) {
   GPIO->P0_DIR.bit.DIR10 = (uint8)e_value;
 }
 
@@ -638,8 +585,7 @@ INLINE void GPIO_setP010Dir(tGPIO_DIR e_value)
  *
  * \return uint8 P0.0 State
  */
-INLINE uint8 GPIO_getP00State(void)
-{
+INLINE uint8 GPIO_getP00State(void) {
   return (uint8)GPIO->P0_IN.bit.PI0;
 }
 
@@ -647,8 +593,7 @@ INLINE uint8 GPIO_getP00State(void)
  *
  * \return uint8 P0.1 State
  */
-INLINE uint8 GPIO_getP01State(void)
-{
+INLINE uint8 GPIO_getP01State(void) {
   return (uint8)GPIO->P0_IN.bit.PI1;
 }
 
@@ -656,8 +601,7 @@ INLINE uint8 GPIO_getP01State(void)
  *
  * \return uint8 P0.2 State
  */
-INLINE uint8 GPIO_getP02State(void)
-{
+INLINE uint8 GPIO_getP02State(void) {
   return (uint8)GPIO->P0_IN.bit.PI2;
 }
 
@@ -665,8 +609,7 @@ INLINE uint8 GPIO_getP02State(void)
  *
  * \return uint8 P0.3 State
  */
-INLINE uint8 GPIO_getP03State(void)
-{
+INLINE uint8 GPIO_getP03State(void) {
   return (uint8)GPIO->P0_IN.bit.PI3;
 }
 
@@ -674,8 +617,7 @@ INLINE uint8 GPIO_getP03State(void)
  *
  * \return uint8 P0.4 State
  */
-INLINE uint8 GPIO_getP04State(void)
-{
+INLINE uint8 GPIO_getP04State(void) {
   return (uint8)GPIO->P0_IN.bit.PI4;
 }
 
@@ -683,8 +625,7 @@ INLINE uint8 GPIO_getP04State(void)
  *
  * \return uint8 P0.5 State
  */
-INLINE uint8 GPIO_getP05State(void)
-{
+INLINE uint8 GPIO_getP05State(void) {
   return (uint8)GPIO->P0_IN.bit.PI5;
 }
 
@@ -692,8 +633,7 @@ INLINE uint8 GPIO_getP05State(void)
  *
  * \return uint8 P0.6 State
  */
-INLINE uint8 GPIO_getP06State(void)
-{
+INLINE uint8 GPIO_getP06State(void) {
   return (uint8)GPIO->P0_IN.bit.PI6;
 }
 
@@ -701,8 +641,7 @@ INLINE uint8 GPIO_getP06State(void)
  *
  * \return uint8 P0.7 State
  */
-INLINE uint8 GPIO_getP07State(void)
-{
+INLINE uint8 GPIO_getP07State(void) {
   return (uint8)GPIO->P0_IN.bit.PI7;
 }
 
@@ -710,8 +649,7 @@ INLINE uint8 GPIO_getP07State(void)
  *
  * \return uint8 P0.8 State
  */
-INLINE uint8 GPIO_getP08State(void)
-{
+INLINE uint8 GPIO_getP08State(void) {
   return (uint8)GPIO->P0_IN.bit.PI8;
 }
 
@@ -719,8 +657,7 @@ INLINE uint8 GPIO_getP08State(void)
  *
  * \return uint8 P0.9 State
  */
-INLINE uint8 GPIO_getP09State(void)
-{
+INLINE uint8 GPIO_getP09State(void) {
   return (uint8)GPIO->P0_IN.bit.PI9;
 }
 
@@ -728,8 +665,7 @@ INLINE uint8 GPIO_getP09State(void)
  *
  * \return uint8 P0.10 State
  */
-INLINE uint8 GPIO_getP010State(void)
-{
+INLINE uint8 GPIO_getP010State(void) {
   return (uint8)GPIO->P0_IN.bit.PI10;
 }
 
@@ -737,8 +673,7 @@ INLINE uint8 GPIO_getP010State(void)
  *
  *  \param e_value P0.0 State
  */
-INLINE void GPIO_setP00State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP00State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value;
 }
 
@@ -746,8 +681,7 @@ INLINE void GPIO_setP00State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.1 State
  */
-INLINE void GPIO_setP01State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP01State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS1_Pos;
 }
 
@@ -755,8 +689,7 @@ INLINE void GPIO_setP01State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.2 State
  */
-INLINE void GPIO_setP02State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP02State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS2_Pos;
 }
 
@@ -764,8 +697,7 @@ INLINE void GPIO_setP02State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.3 State
  */
-INLINE void GPIO_setP03State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP03State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS3_Pos;
 }
 
@@ -773,8 +705,7 @@ INLINE void GPIO_setP03State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.4 State
  */
-INLINE void GPIO_setP04State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP04State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS4_Pos;
 }
 
@@ -782,8 +713,7 @@ INLINE void GPIO_setP04State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.5 State
  */
-INLINE void GPIO_setP05State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP05State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS5_Pos;
 }
 
@@ -791,8 +721,7 @@ INLINE void GPIO_setP05State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.6 State
  */
-INLINE void GPIO_setP06State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP06State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS6_Pos;
 }
 
@@ -800,8 +729,7 @@ INLINE void GPIO_setP06State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.7 State
  */
-INLINE void GPIO_setP07State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP07State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS7_Pos;
 }
 
@@ -809,8 +737,7 @@ INLINE void GPIO_setP07State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.8 State
  */
-INLINE void GPIO_setP08State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP08State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS8_Pos;
 }
 
@@ -818,8 +745,7 @@ INLINE void GPIO_setP08State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.9 State
  */
-INLINE void GPIO_setP09State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP09State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS9_Pos;
 }
 
@@ -827,8 +753,7 @@ INLINE void GPIO_setP09State(tGPIO_STATE e_value)
  *
  *  \param e_value P0.10 State
  */
-INLINE void GPIO_setP010State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP010State(tGPIO_STATE e_value) {
   GPIO->P0_OMR.reg = (uint32)e_value << GPIO_P0_OMR_PS10_Pos;
 }
 
@@ -836,8 +761,7 @@ INLINE void GPIO_setP010State(tGPIO_STATE e_value)
  *
  *  \param e_value P1.0 Alternate Select
  */
-INLINE void GPIO_setP10Altsel(tGPIO_P1_0_ALTSEL e_value)
-{
+INLINE void GPIO_setP10Altsel(tGPIO_P1_0_ALTSEL e_value) {
   GPIO->P1_ALTSEL0.bit.ALTSEL0 = (uint8)e_value;
 }
 
@@ -845,8 +769,7 @@ INLINE void GPIO_setP10Altsel(tGPIO_P1_0_ALTSEL e_value)
  *
  *  \param e_value P1.1 Alternate Select
  */
-INLINE void GPIO_setP11Altsel(tGPIO_P1_1_ALTSEL e_value)
-{
+INLINE void GPIO_setP11Altsel(tGPIO_P1_1_ALTSEL e_value) {
   GPIO->P1_ALTSEL0.bit.ALTSEL1 = (uint8)e_value;
 }
 
@@ -854,8 +777,7 @@ INLINE void GPIO_setP11Altsel(tGPIO_P1_1_ALTSEL e_value)
  *
  *  \param e_value P1.2 Alternate Select
  */
-INLINE void GPIO_setP12Altsel(tGPIO_P1_2_ALTSEL e_value)
-{
+INLINE void GPIO_setP12Altsel(tGPIO_P1_2_ALTSEL e_value) {
   GPIO->P1_ALTSEL0.bit.ALTSEL2 = (uint8)e_value;
 }
 
@@ -863,8 +785,7 @@ INLINE void GPIO_setP12Altsel(tGPIO_P1_2_ALTSEL e_value)
  *
  *  \param e_value P1.3 Alternate Select
  */
-INLINE void GPIO_setP13Altsel(tGPIO_P1_3_ALTSEL e_value)
-{
+INLINE void GPIO_setP13Altsel(tGPIO_P1_3_ALTSEL e_value) {
   GPIO->P1_ALTSEL0.bit.ALTSEL3 = (uint8)e_value;
 }
 
@@ -872,8 +793,7 @@ INLINE void GPIO_setP13Altsel(tGPIO_P1_3_ALTSEL e_value)
  *
  *  \param e_value P1.4 Alternate Select
  */
-INLINE void GPIO_setP14Altsel(tGPIO_P1_4_ALTSEL e_value)
-{
+INLINE void GPIO_setP14Altsel(tGPIO_P1_4_ALTSEL e_value) {
   GPIO->P1_ALTSEL0.bit.ALTSEL4 = (uint8)e_value;
 }
 
@@ -881,8 +801,7 @@ INLINE void GPIO_setP14Altsel(tGPIO_P1_4_ALTSEL e_value)
  *
  *  \param e_value P1.0 Direction
  */
-INLINE void GPIO_setP10Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP10Dir(tGPIO_DIR e_value) {
   GPIO->P1_DIR.bit.DIR0 = (uint8)e_value;
 }
 
@@ -890,8 +809,7 @@ INLINE void GPIO_setP10Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P1.1 Direction
  */
-INLINE void GPIO_setP11Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP11Dir(tGPIO_DIR e_value) {
   GPIO->P1_DIR.bit.DIR1 = (uint8)e_value;
 }
 
@@ -899,8 +817,7 @@ INLINE void GPIO_setP11Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P1.2 Direction
  */
-INLINE void GPIO_setP12Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP12Dir(tGPIO_DIR e_value) {
   GPIO->P1_DIR.bit.DIR2 = (uint8)e_value;
 }
 
@@ -908,8 +825,7 @@ INLINE void GPIO_setP12Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P1.3 Direction
  */
-INLINE void GPIO_setP13Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP13Dir(tGPIO_DIR e_value) {
   GPIO->P1_DIR.bit.DIR3 = (uint8)e_value;
 }
 
@@ -917,8 +833,7 @@ INLINE void GPIO_setP13Dir(tGPIO_DIR e_value)
  *
  *  \param e_value P1.4 Direction
  */
-INLINE void GPIO_setP14Dir(tGPIO_DIR e_value)
-{
+INLINE void GPIO_setP14Dir(tGPIO_DIR e_value) {
   GPIO->P1_DIR.bit.DIR4 = (uint8)e_value;
 }
 
@@ -926,8 +841,7 @@ INLINE void GPIO_setP14Dir(tGPIO_DIR e_value)
  *
  * \return uint8 P1.0 State
  */
-INLINE uint8 GPIO_getP10State(void)
-{
+INLINE uint8 GPIO_getP10State(void) {
   return (uint8)GPIO->P1_IN.bit.PI0;
 }
 
@@ -935,8 +849,7 @@ INLINE uint8 GPIO_getP10State(void)
  *
  * \return uint8 P1.1 State
  */
-INLINE uint8 GPIO_getP11State(void)
-{
+INLINE uint8 GPIO_getP11State(void) {
   return (uint8)GPIO->P1_IN.bit.PI1;
 }
 
@@ -944,8 +857,7 @@ INLINE uint8 GPIO_getP11State(void)
  *
  * \return uint8 P1.2 State
  */
-INLINE uint8 GPIO_getP12State(void)
-{
+INLINE uint8 GPIO_getP12State(void) {
   return (uint8)GPIO->P1_IN.bit.PI2;
 }
 
@@ -953,8 +865,7 @@ INLINE uint8 GPIO_getP12State(void)
  *
  * \return uint8 P1.3 State
  */
-INLINE uint8 GPIO_getP13State(void)
-{
+INLINE uint8 GPIO_getP13State(void) {
   return (uint8)GPIO->P1_IN.bit.PI3;
 }
 
@@ -962,8 +873,7 @@ INLINE uint8 GPIO_getP13State(void)
  *
  * \return uint8 P1.4 State
  */
-INLINE uint8 GPIO_getP14State(void)
-{
+INLINE uint8 GPIO_getP14State(void) {
   return (uint8)GPIO->P1_IN.bit.PI4;
 }
 
@@ -971,8 +881,7 @@ INLINE uint8 GPIO_getP14State(void)
  *
  *  \param e_value P1.0 State
  */
-INLINE void GPIO_setP10State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP10State(tGPIO_STATE e_value) {
   GPIO->P1_OMR.reg = (uint32)e_value << GPIO_P1_OMR_PS0_Pos;
 }
 
@@ -980,8 +889,7 @@ INLINE void GPIO_setP10State(tGPIO_STATE e_value)
  *
  *  \param e_value P1.1 State
  */
-INLINE void GPIO_setP11State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP11State(tGPIO_STATE e_value) {
   GPIO->P1_OMR.reg = (uint32)e_value << GPIO_P1_OMR_PS1_Pos;
 }
 
@@ -989,8 +897,7 @@ INLINE void GPIO_setP11State(tGPIO_STATE e_value)
  *
  *  \param e_value P1.2 State
  */
-INLINE void GPIO_setP12State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP12State(tGPIO_STATE e_value) {
   GPIO->P1_OMR.reg = (uint32)e_value << GPIO_P1_OMR_PS2_Pos;
 }
 
@@ -998,8 +905,7 @@ INLINE void GPIO_setP12State(tGPIO_STATE e_value)
  *
  *  \param e_value P1.3 State
  */
-INLINE void GPIO_setP13State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP13State(tGPIO_STATE e_value) {
   GPIO->P1_OMR.reg = (uint32)e_value << GPIO_P1_OMR_PS3_Pos;
 }
 
@@ -1007,8 +913,7 @@ INLINE void GPIO_setP13State(tGPIO_STATE e_value)
  *
  *  \param e_value P1.4 State
  */
-INLINE void GPIO_setP14State(tGPIO_STATE e_value)
-{
+INLINE void GPIO_setP14State(tGPIO_STATE e_value) {
   GPIO->P1_OMR.reg = (uint32)e_value << GPIO_P1_OMR_PS4_Pos;
 }
 
@@ -1016,8 +921,7 @@ INLINE void GPIO_setP14State(tGPIO_STATE e_value)
  *
  * \return uint8 P2.0 State
  */
-INLINE uint8 GPIO_getP20State(void)
-{
+INLINE uint8 GPIO_getP20State(void) {
   return (uint8)GPIO->P2_IN.bit.PI0;
 }
 
@@ -1025,8 +929,7 @@ INLINE uint8 GPIO_getP20State(void)
  *
  * \return uint8 P2.1 State
  */
-INLINE uint8 GPIO_getP21State(void)
-{
+INLINE uint8 GPIO_getP21State(void) {
   return (uint8)GPIO->P2_IN.bit.PI1;
 }
 
@@ -1034,8 +937,7 @@ INLINE uint8 GPIO_getP21State(void)
  *
  * \return uint8 P2.2 State
  */
-INLINE uint8 GPIO_getP22State(void)
-{
+INLINE uint8 GPIO_getP22State(void) {
   return (uint8)GPIO->P2_IN.bit.PI2;
 }
 
@@ -1043,8 +945,7 @@ INLINE uint8 GPIO_getP22State(void)
  *
  * \return uint8 P2.3 State
  */
-INLINE uint8 GPIO_getP23State(void)
-{
+INLINE uint8 GPIO_getP23State(void) {
   return (uint8)GPIO->P2_IN.bit.PI3;
 }
 
@@ -1052,8 +953,7 @@ INLINE uint8 GPIO_getP23State(void)
  *
  * \return uint8 P2.4 State
  */
-INLINE uint8 GPIO_getP24State(void)
-{
+INLINE uint8 GPIO_getP24State(void) {
   return (uint8)GPIO->P2_IN.bit.PI4;
 }
 
@@ -1061,8 +961,7 @@ INLINE uint8 GPIO_getP24State(void)
  *
  * \return uint8 P2.5 State
  */
-INLINE uint8 GPIO_getP25State(void)
-{
+INLINE uint8 GPIO_getP25State(void) {
   return (uint8)GPIO->P2_IN.bit.PI5;
 }
 
@@ -1070,8 +969,7 @@ INLINE uint8 GPIO_getP25State(void)
  *
  * \return uint8 P2.6 State
  */
-INLINE uint8 GPIO_getP26State(void)
-{
+INLINE uint8 GPIO_getP26State(void) {
   return (uint8)GPIO->P2_IN.bit.PI6;
 }
 
@@ -1079,8 +977,7 @@ INLINE uint8 GPIO_getP26State(void)
  *
  * \return uint8 P2.7 State
  */
-INLINE uint8 GPIO_getP27State(void)
-{
+INLINE uint8 GPIO_getP27State(void) {
   return (uint8)GPIO->P2_IN.bit.PI7;
 }
 
@@ -1088,8 +985,7 @@ INLINE uint8 GPIO_getP27State(void)
  *
  * \return uint8 P2.8 State
  */
-INLINE uint8 GPIO_getP28State(void)
-{
+INLINE uint8 GPIO_getP28State(void) {
   return (uint8)GPIO->P2_IN.bit.PI8;
 }
 
@@ -1097,152 +993,130 @@ INLINE uint8 GPIO_getP28State(void)
  *
  * \return uint8 P2.9 State
  */
-INLINE uint8 GPIO_getP29State(void)
-{
+INLINE uint8 GPIO_getP29State(void) {
   return (uint8)GPIO->P2_IN.bit.PI9;
 }
 
 /** \brief Enable P2.0 Digital Input
  */
-INLINE void GPIO_enP20Input(void)
-{
+INLINE void GPIO_enP20Input(void) {
   GPIO->P2_INDIS.bit.INDIS0 = 0u;
 }
 
 /** \brief Disable P2.0 Digital Input
  */
-INLINE void GPIO_disP20Input(void)
-{
+INLINE void GPIO_disP20Input(void) {
   GPIO->P2_INDIS.bit.INDIS0 = 1u;
 }
 
 /** \brief Enable P2.1 Digital Input
  */
-INLINE void GPIO_enP21Input(void)
-{
+INLINE void GPIO_enP21Input(void) {
   GPIO->P2_INDIS.bit.INDIS1 = 0u;
 }
 
 /** \brief Disable P2.1 Digital Input
  */
-INLINE void GPIO_disP21Input(void)
-{
+INLINE void GPIO_disP21Input(void) {
   GPIO->P2_INDIS.bit.INDIS1 = 1u;
 }
 
 /** \brief Enable P2.2 Digital Input
  */
-INLINE void GPIO_enP22Input(void)
-{
+INLINE void GPIO_enP22Input(void) {
   GPIO->P2_INDIS.bit.INDIS2 = 0u;
 }
 
 /** \brief Disable P2.2 Digital Input
  */
-INLINE void GPIO_disP22Input(void)
-{
+INLINE void GPIO_disP22Input(void) {
   GPIO->P2_INDIS.bit.INDIS2 = 1u;
 }
 
 /** \brief Enable P2.3 Digital Input
  */
-INLINE void GPIO_enP23Input(void)
-{
+INLINE void GPIO_enP23Input(void) {
   GPIO->P2_INDIS.bit.INDIS3 = 0u;
 }
 
 /** \brief Disable P2.3 Digital Input
  */
-INLINE void GPIO_disP23Input(void)
-{
+INLINE void GPIO_disP23Input(void) {
   GPIO->P2_INDIS.bit.INDIS3 = 1u;
 }
 
 /** \brief Enable P2.4 Digital Input
  */
-INLINE void GPIO_enP24Input(void)
-{
+INLINE void GPIO_enP24Input(void) {
   GPIO->P2_INDIS.bit.INDIS4 = 0u;
 }
 
 /** \brief Disable P2.4 Digital Input
  */
-INLINE void GPIO_disP24Input(void)
-{
+INLINE void GPIO_disP24Input(void) {
   GPIO->P2_INDIS.bit.INDIS4 = 1u;
 }
 
 /** \brief Enable P2.5 Digital Input
  */
-INLINE void GPIO_enP25Input(void)
-{
+INLINE void GPIO_enP25Input(void) {
   GPIO->P2_INDIS.bit.INDIS5 = 0u;
 }
 
 /** \brief Disable P2.5 Digital Input
  */
-INLINE void GPIO_disP25Input(void)
-{
+INLINE void GPIO_disP25Input(void) {
   GPIO->P2_INDIS.bit.INDIS5 = 1u;
 }
 
 /** \brief Enable P2.6 Digital Input
  */
-INLINE void GPIO_enP26Input(void)
-{
+INLINE void GPIO_enP26Input(void) {
   GPIO->P2_INDIS.bit.INDIS6 = 0u;
 }
 
 /** \brief Disable P2.6 Digital Input
  */
-INLINE void GPIO_disP26Input(void)
-{
+INLINE void GPIO_disP26Input(void) {
   GPIO->P2_INDIS.bit.INDIS6 = 1u;
 }
 
 /** \brief Enable P2.7 Digital Input
  */
-INLINE void GPIO_enP27Input(void)
-{
+INLINE void GPIO_enP27Input(void) {
   GPIO->P2_INDIS.bit.INDIS7 = 0u;
 }
 
 /** \brief Disable P2.7 Digital Input
  */
-INLINE void GPIO_disP27Input(void)
-{
+INLINE void GPIO_disP27Input(void) {
   GPIO->P2_INDIS.bit.INDIS7 = 1u;
 }
 
 /** \brief Enable P2.8 Digital Input
  */
-INLINE void GPIO_enP28Input(void)
-{
+INLINE void GPIO_enP28Input(void) {
   GPIO->P2_INDIS.bit.INDIS8 = 0u;
 }
 
 /** \brief Disable P2.8 Digital Input
  */
-INLINE void GPIO_disP28Input(void)
-{
+INLINE void GPIO_disP28Input(void) {
   GPIO->P2_INDIS.bit.INDIS8 = 1u;
 }
 
 /** \brief Enable P2.9 Digital Input
  */
-INLINE void GPIO_enP29Input(void)
-{
+INLINE void GPIO_enP29Input(void) {
   GPIO->P2_INDIS.bit.INDIS9 = 0u;
 }
 
 /** \brief Disable P2.9 Digital Input
  */
-INLINE void GPIO_disP29Input(void)
-{
+INLINE void GPIO_disP29Input(void) {
   GPIO->P2_INDIS.bit.INDIS9 = 1u;
 }
 
 /** @}*/
 
 #endif /* _GPIO_H */
-

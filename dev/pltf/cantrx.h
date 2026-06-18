@@ -52,9 +52,9 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
-#include "tle989x.h"
 #include "cantrx_defines.h"
+#include "tle989x.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -112,15 +112,13 @@ void CANTRX_setCANTRXIntNodePtr(void) __attribute__((deprecated("Do not change t
 
 /** \brief Enable Bus Dominant Timeout Interrupt
  */
-INLINE void CANTRX_enBusDominantTimeoutInt(void)
-{
+INLINE void CANTRX_enBusDominantTimeoutInt(void) {
   CANTRX->IRQEN.bit.BUS_TO_IEN = 1u;
 }
 
 /** \brief Disable Bus Dominant Timeout Interrupt
  */
-INLINE void CANTRX_disBusDominantTimeoutInt(void)
-{
+INLINE void CANTRX_disBusDominantTimeoutInt(void) {
   CANTRX->IRQEN.bit.BUS_TO_IEN = 0u;
 }
 
@@ -128,8 +126,7 @@ INLINE void CANTRX_disBusDominantTimeoutInt(void)
  *
  * \return uint8 Bus Dominant Timeout Interrupt Status
  */
-INLINE uint8 CANTRX_getBusDominantTimeoutIntSts(void)
-{
+INLINE uint8 CANTRX_getBusDominantTimeoutIntSts(void) {
   return CANTRX->IRQS.bit.BUS_TO_IS;
 }
 
@@ -137,36 +134,31 @@ INLINE uint8 CANTRX_getBusDominantTimeoutIntSts(void)
  *
  * \return uint8 Bus Dominant Timeout Status
  */
-INLINE uint8 CANTRX_getBusDominantTimeoutSts(void)
-{
+INLINE uint8 CANTRX_getBusDominantTimeoutSts(void) {
   return CANTRX->IRQS.bit.BUS_TO_STS;
 }
 
 /** \brief Clear Bus Dominant Timeout Interrupt Status
  */
-INLINE void CANTRX_clrBusDominantTimeoutIntSts(void)
-{
+INLINE void CANTRX_clrBusDominantTimeoutIntSts(void) {
   CANTRX->IRQCLR.bit.BUS_TO_ISC = 1u;
 }
 
 /** \brief Clear Bus Dominant Timeout Status
  */
-INLINE void CANTRX_clrBusDominantTimeoutSts(void)
-{
+INLINE void CANTRX_clrBusDominantTimeoutSts(void) {
   CANTRX->IRQCLR.bit.BUS_TO_SC = 1u;
 }
 
 /** \brief Enable TXD Dominant Timeout Interrupt
  */
-INLINE void CANTRX_enTXDDominantTimeoutInt(void)
-{
+INLINE void CANTRX_enTXDDominantTimeoutInt(void) {
   CANTRX->IRQEN.bit.TXD_TO_IEN = 1u;
 }
 
 /** \brief Disable TXD Dominant Timeout Interrupt
  */
-INLINE void CANTRX_disTXDDominantTimeoutInt(void)
-{
+INLINE void CANTRX_disTXDDominantTimeoutInt(void) {
   CANTRX->IRQEN.bit.TXD_TO_IEN = 0u;
 }
 
@@ -174,8 +166,7 @@ INLINE void CANTRX_disTXDDominantTimeoutInt(void)
  *
  * \return uint8 TXD Dominant Timeout Interrupt Status
  */
-INLINE uint8 CANTRX_getTXDDominantTimeoutIntSts(void)
-{
+INLINE uint8 CANTRX_getTXDDominantTimeoutIntSts(void) {
   return CANTRX->IRQS.bit.TXD_TO_IS;
 }
 
@@ -183,36 +174,31 @@ INLINE uint8 CANTRX_getTXDDominantTimeoutIntSts(void)
  *
  * \return uint8 TXD Dominant Timeout Status
  */
-INLINE uint8 CANTRX_getTXDDominantTimeoutSts(void)
-{
+INLINE uint8 CANTRX_getTXDDominantTimeoutSts(void) {
   return CANTRX->IRQS.bit.TXD_TO_STS;
 }
 
 /** \brief Clear TXD Dominant Timeout Interrupt Status
  */
-INLINE void CANTRX_clrTXDDominantTimeoutIntSts(void)
-{
+INLINE void CANTRX_clrTXDDominantTimeoutIntSts(void) {
   CANTRX->IRQCLR.bit.TXD_TO_ISC = 1u;
 }
 
 /** \brief Clear TXD Dominant Timeout Status
  */
-INLINE void CANTRX_clrTXDDominantTimeoutSts(void)
-{
+INLINE void CANTRX_clrTXDDominantTimeoutSts(void) {
   CANTRX->IRQCLR.bit.TXD_TO_SC = 1u;
 }
 
 /** \brief Enable CAN Overtemperature Interrupt
  */
-INLINE void CANTRX_enCANOvertempInt(void)
-{
+INLINE void CANTRX_enCANOvertempInt(void) {
   CANTRX->IRQEN.bit.OT_IEN = 1u;
 }
 
 /** \brief Disable CAN Overtemperature Interrupt
  */
-INLINE void CANTRX_disCANOvertempInt(void)
-{
+INLINE void CANTRX_disCANOvertempInt(void) {
   CANTRX->IRQEN.bit.OT_IEN = 0u;
 }
 
@@ -220,8 +206,7 @@ INLINE void CANTRX_disCANOvertempInt(void)
  *
  * \return uint8 CAN Overtemperature Interrupt Status
  */
-INLINE uint8 CANTRX_getCANOvertempIntSts(void)
-{
+INLINE uint8 CANTRX_getCANOvertempIntSts(void) {
   return CANTRX->IRQS.bit.OT_IS;
 }
 
@@ -229,36 +214,31 @@ INLINE uint8 CANTRX_getCANOvertempIntSts(void)
  *
  * \return uint8 CAN Overtemperature Status
  */
-INLINE uint8 CANTRX_getCANOvertempSts(void)
-{
+INLINE uint8 CANTRX_getCANOvertempSts(void) {
   return CANTRX->IRQS.bit.OT_STS;
 }
 
 /** \brief Clear CAN Overtemperature Interrupt Status
  */
-INLINE void CANTRX_clrCANOvertempIntSts(void)
-{
+INLINE void CANTRX_clrCANOvertempIntSts(void) {
   CANTRX->IRQCLR.bit.OT_ISC = 1u;
 }
 
 /** \brief Clear CAN Overtemperature Status
  */
-INLINE void CANTRX_clrCANOvertempSts(void)
-{
+INLINE void CANTRX_clrCANOvertempSts(void) {
   CANTRX->IRQCLR.bit.OT_SC = 1u;
 }
 
 /** \brief Enable Bus Active During CAN Sleep Interrupt
  */
-INLINE void CANTRX_enActBusWhenCANSleepInt(void)
-{
+INLINE void CANTRX_enActBusWhenCANSleepInt(void) {
   CANTRX->IRQEN.bit.BUS_ACT_IEN = 1u;
 }
 
 /** \brief Disable Bus Active During CAN Sleep Interrupt
  */
-INLINE void CANTRX_disActBusWhenCANSleepInt(void)
-{
+INLINE void CANTRX_disActBusWhenCANSleepInt(void) {
   CANTRX->IRQEN.bit.BUS_ACT_IEN = 0u;
 }
 
@@ -266,8 +246,7 @@ INLINE void CANTRX_disActBusWhenCANSleepInt(void)
  *
  * \return uint8 Bus Active During CAN Sleep Interrupt Status
  */
-INLINE uint8 CANTRX_getActBusWhenCANSleepIntSts(void)
-{
+INLINE uint8 CANTRX_getActBusWhenCANSleepIntSts(void) {
   return CANTRX->IRQS.bit.BUS_ACT_IS;
 }
 
@@ -275,15 +254,13 @@ INLINE uint8 CANTRX_getActBusWhenCANSleepIntSts(void)
  *
  * \return uint8 CAN Supply Undervoltage Status
  */
-INLINE uint8 CANTRX_getCANSupplyUndervoltageSts(void)
-{
+INLINE uint8 CANTRX_getCANSupplyUndervoltageSts(void) {
   return CANTRX->IRQS.bit.UV_STS;
 }
 
 /** \brief Clear Bus Active During CAN Sleep Interrupt Status
  */
-INLINE void CANTRX_clrActBusWhenCANSleepIntSts(void)
-{
+INLINE void CANTRX_clrActBusWhenCANSleepIntSts(void) {
   CANTRX->IRQCLR.bit.BUS_ACT_ISC = 1u;
 }
 

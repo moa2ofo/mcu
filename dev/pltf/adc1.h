@@ -105,10 +105,10 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "tle_variants.h"
-#include "types.h"
 #include "adc1_defines.h"
 #include "tle989x.h"
+#include "tle_variants.h"
+#include "types.h"
 
 /*******************************************************************************
 **                          Global Macro Declarations                         **
@@ -217,211 +217,196 @@
 *******************************************************************************/
 
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wpadded"
 #endif
 
 /** \enum ADC1_Seq0Trig
  *  \brief Enumeration for the trigger source of the sequence 0
  *  \note You can use this type via 'tADC1_Seq0Trig' or 'enum ADC1_Seq0Trig'
  */
-typedef enum ADC1_Seq0Trig
-{
-  ADC1_Seq0Trig_SW           = 0u,            /*!< 0 Software Trigger */
-  ADC1_Seq0Trig_T12ZM        = 1u,            /*!< 1 T12 Zero Match */
-  ADC1_Seq0Trig_T12PM        = 2u,            /*!< 2 T12 Period Match */
-  ADC1_Seq0Trig_T13PM        = 4u,            /*!< 4 T13 Period Match */
-  ADC1_Seq0Trig_T16CM        = 5u,            /*!< 5 T16 Compare Match */
-  ADC1_Seq0Trig_HallCorrect  = 6u,            /*!< 6 Correct Hall Event */
-  ADC1_Seq0Trig_Seq0Complete = 7u,            /*!< 7 Sequence 0 complete */
-  ADC1_Seq0Trig_Seq3Complete = 8u             /*!< 8 Sequence 3 complete */
+typedef enum ADC1_Seq0Trig {
+  ADC1_Seq0Trig_SW = 0u,           /*!< 0 Software Trigger */
+  ADC1_Seq0Trig_T12ZM = 1u,        /*!< 1 T12 Zero Match */
+  ADC1_Seq0Trig_T12PM = 2u,        /*!< 2 T12 Period Match */
+  ADC1_Seq0Trig_T13PM = 4u,        /*!< 4 T13 Period Match */
+  ADC1_Seq0Trig_T16CM = 5u,        /*!< 5 T16 Compare Match */
+  ADC1_Seq0Trig_HallCorrect = 6u,  /*!< 6 Correct Hall Event */
+  ADC1_Seq0Trig_Seq0Complete = 7u, /*!< 7 Sequence 0 complete */
+  ADC1_Seq0Trig_Seq3Complete = 8u  /*!< 8 Sequence 3 complete */
 } tADC1_Seq0Trig;
 
 /** \enum ADC1_Seq1Trig
  *  \brief Enumeration for the trigger source of the sequence 1
  *  \note You can use this type via 'tADC1_Seq1Trig' or 'enum ADC1_Seq1Trig'
  */
-typedef enum ADC1_Seq1Trig
-{
-  ADC1_Seq1Trig_SW           = 0u,            /*!< 0 Software Trigger */
-  ADC1_Seq1Trig_T12ZM        = 1u,            /*!< 1 T12 Zero Match */
-  ADC1_Seq1Trig_T12CC70ACM   = 2u,            /*!< 2 T12 CC70A Compare Match */
-  ADC1_Seq1Trig_T12C72BCM    = 3u,            /*!< 3 T12 C72B Compare Match */
-  ADC1_Seq1Trig_T14PM        = 4u,            /*!< 4 T14 Period Match */
-  ADC1_Seq1Trig_T13CM        = 5u,            /*!< 5 T13 Compare Match */
-  ADC1_Seq1Trig_GPT1         = 6u,            /*!< 6 GPT1 */
-  ADC1_Seq1Trig_Seq1Complete = 7u,            /*!< 7 Sequence 1 complete */
-  ADC1_Seq1Trig_Seq0Complete = 8u             /*!< 8 Sequence 0 complete */
+typedef enum ADC1_Seq1Trig {
+  ADC1_Seq1Trig_SW = 0u,           /*!< 0 Software Trigger */
+  ADC1_Seq1Trig_T12ZM = 1u,        /*!< 1 T12 Zero Match */
+  ADC1_Seq1Trig_T12CC70ACM = 2u,   /*!< 2 T12 CC70A Compare Match */
+  ADC1_Seq1Trig_T12C72BCM = 3u,    /*!< 3 T12 C72B Compare Match */
+  ADC1_Seq1Trig_T14PM = 4u,        /*!< 4 T14 Period Match */
+  ADC1_Seq1Trig_T13CM = 5u,        /*!< 5 T13 Compare Match */
+  ADC1_Seq1Trig_GPT1 = 6u,         /*!< 6 GPT1 */
+  ADC1_Seq1Trig_Seq1Complete = 7u, /*!< 7 Sequence 1 complete */
+  ADC1_Seq1Trig_Seq0Complete = 8u  /*!< 8 Sequence 0 complete */
 } tADC1_Seq1Trig;
 
 /** \enum ADC1_Seq2Trig
  *  \brief Enumeration for the trigger source of the sequence 2
  *  \note You can use this type via 'tADC1_Seq2Trig' or 'enum ADC1_Seq2Trig'
  */
-typedef enum ADC1_Seq2Trig
-{
-  ADC1_Seq2Trig_SW           = 0u,            /*!< 0 Software Trigger */
-  ADC1_Seq2Trig_T12ZM        = 1u,            /*!< 1 T12 Zero Match */
-  ADC1_Seq2Trig_T12CC71ACM   = 2u,            /*!< 2 T12 CC71A Compare Match */
-  ADC1_Seq2Trig_T12C70BCM    = 3u,            /*!< 3 T12 C70B Compare Match */
-  ADC1_Seq2Trig_T15PM        = 4u,            /*!< 4 T15 Period Match */
-  ADC1_Seq2Trig_T14CM        = 5u,            /*!< 5 T14 Compare Match */
-  ADC1_Seq2Trig_GPT2         = 6u,            /*!< 6 GPT2 */
-  ADC1_Seq2Trig_Seq2Complete = 7u,            /*!< 7 Sequence 2 complete */
-  ADC1_Seq2Trig_Seq1Complete = 8u             /*!< 8 Sequence 1 complete */
+typedef enum ADC1_Seq2Trig {
+  ADC1_Seq2Trig_SW = 0u,           /*!< 0 Software Trigger */
+  ADC1_Seq2Trig_T12ZM = 1u,        /*!< 1 T12 Zero Match */
+  ADC1_Seq2Trig_T12CC71ACM = 2u,   /*!< 2 T12 CC71A Compare Match */
+  ADC1_Seq2Trig_T12C70BCM = 3u,    /*!< 3 T12 C70B Compare Match */
+  ADC1_Seq2Trig_T15PM = 4u,        /*!< 4 T15 Period Match */
+  ADC1_Seq2Trig_T14CM = 5u,        /*!< 5 T14 Compare Match */
+  ADC1_Seq2Trig_GPT2 = 6u,         /*!< 6 GPT2 */
+  ADC1_Seq2Trig_Seq2Complete = 7u, /*!< 7 Sequence 2 complete */
+  ADC1_Seq2Trig_Seq1Complete = 8u  /*!< 8 Sequence 1 complete */
 } tADC1_Seq2Trig;
 
 /** \enum ADC1_Seq3Trig
  *  \brief Enumeration for the trigger source of the sequence 3
  *  \note You can use this type via 'tADC1_Seq3Trig' or 'enum ADC1_Seq3Trig'
  */
-typedef enum ADC1_Seq3Trig
-{
-  ADC1_SQ3Trig_SW           = 0u,            /*!< 0 Software Trigger */
-  ADC1_SQ3Trig_T12ZM        = 1u,            /*!< 1 T12 Zero Match */
-  ADC1_SQ3Trig_T12CC72ACM   = 2u,            /*!< 2 T12 CC72A Compare Match */
-  ADC1_SQ3Trig_T12C71BCM    = 3u,            /*!< 3 T12 C71B Compare Match */
-  ADC1_SQ3Trig_T16PM        = 4u,            /*!< 4 T16 Period Match */
-  ADC1_SQ3Trig_T15CM        = 5u,            /*!< 5 T15 Compare Match */
-  ADC1_SQ3Trig_Seq3Complete = 7u,            /*!< 7 Sequence 3 complete */
-  ADC1_SQ3Trig_Seq2Complete = 8u             /*!< 8 Sequence 2 complete */
+typedef enum ADC1_Seq3Trig {
+  ADC1_SQ3Trig_SW = 0u,           /*!< 0 Software Trigger */
+  ADC1_SQ3Trig_T12ZM = 1u,        /*!< 1 T12 Zero Match */
+  ADC1_SQ3Trig_T12CC72ACM = 2u,   /*!< 2 T12 CC72A Compare Match */
+  ADC1_SQ3Trig_T12C71BCM = 3u,    /*!< 3 T12 C71B Compare Match */
+  ADC1_SQ3Trig_T16PM = 4u,        /*!< 4 T16 Period Match */
+  ADC1_SQ3Trig_T15CM = 5u,        /*!< 5 T15 Compare Match */
+  ADC1_SQ3Trig_Seq3Complete = 7u, /*!< 7 Sequence 3 complete */
+  ADC1_SQ3Trig_Seq2Complete = 8u  /*!< 8 Sequence 2 complete */
 } tADC1_Seq3Trig;
 
 /** \enum ADC1_CHINSELx
  *  \brief Enumeration for the input selection of the ADC channels
  *  \note You can use this type via 'tADC1_CHINSELx' or 'enum ADC1_CHINSELx'
  */
-typedef enum tADC1_CHINSELx
-{
-  ADC1_CHINSELx_VS_3V_25V    = 0,  /**< VS (3..25V) */
-  ADC1_CHINSELx_VS_3V_35V    = 1,  /**< VS (3..35V) */
-  ADC1_CHINSELx_VDH_3V_25V   = 2,  /**< VDH (3..25V) */
-  ADC1_CHINSELx_VDH_3V_35V   = 3,  /**< VDH (3..35V) */
-  ADC1_CHINSELx_SH1          = 5,  /**< SH1 (Motor Contact 1) */
-  ADC1_CHINSELx_SH2          = 7,  /**< SH2 (Motor Contact 2) */
-  ADC1_CHINSELx_SH3          = 9,  /**< SH3 (Motor Contact 3) */
-  ADC1_CHINSELx_MON1_3V_25V  = 10, /**< MON1 (3..25V) */
-  ADC1_CHINSELx_MON1_3V_35V  = 11, /**< MON1 (3..35V) */
+typedef enum tADC1_CHINSELx {
+  ADC1_CHINSELx_VS_3V_25V = 0,    /**< VS (3..25V) */
+  ADC1_CHINSELx_VS_3V_35V = 1,    /**< VS (3..35V) */
+  ADC1_CHINSELx_VDH_3V_25V = 2,   /**< VDH (3..25V) */
+  ADC1_CHINSELx_VDH_3V_35V = 3,   /**< VDH (3..35V) */
+  ADC1_CHINSELx_SH1 = 5,          /**< SH1 (Motor Contact 1) */
+  ADC1_CHINSELx_SH2 = 7,          /**< SH2 (Motor Contact 2) */
+  ADC1_CHINSELx_SH3 = 9,          /**< SH3 (Motor Contact 3) */
+  ADC1_CHINSELx_MON1_3V_25V = 10, /**< MON1 (3..25V) */
+  ADC1_CHINSELx_MON1_3V_35V = 11, /**< MON1 (3..35V) */
 #ifdef UC_FEATURE_64PIN
-  ADC1_CHINSELx_MON2_3V_25V  = 12, /**< MON2 (3..25V) */
-  ADC1_CHINSELx_MON2_3V_35V  = 13, /**< MON2 (3..35V) */
-  ADC1_CHINSELx_MON3_3V_25V  = 14, /**< MON3 (3..25V) */
-  ADC1_CHINSELx_MON3_3V_35V  = 15, /**< MON3 (3..35V) */
+  ADC1_CHINSELx_MON2_3V_25V = 12, /**< MON2 (3..25V) */
+  ADC1_CHINSELx_MON2_3V_35V = 13, /**< MON2 (3..35V) */
+  ADC1_CHINSELx_MON3_3V_25V = 14, /**< MON3 (3..25V) */
+  ADC1_CHINSELx_MON3_3V_35V = 15, /**< MON3 (3..35V) */
 #endif
   ADC1_CHINSELx_REF_VOLT_1V2 = 16, /**< Ref. Volt. 1.2V */
-  ADC1_CHINSELx_VDDEXT       = 17, /**< VDDEXT */
-  ADC1_CHINSELx_CSA          = 18, /**< CSA */
-  ADC1_CHINSELx_P2_0         = 19, /**< P2.0 */
-  ADC1_CHINSELx_P2_1         = 20, /**< P2.1 */
+  ADC1_CHINSELx_VDDEXT = 17,       /**< VDDEXT */
+  ADC1_CHINSELx_CSA = 18,          /**< CSA */
+  ADC1_CHINSELx_P2_0 = 19,         /**< P2.0 */
+  ADC1_CHINSELx_P2_1 = 20,         /**< P2.1 */
 #ifdef UC_FEATURE_64PIN
-  ADC1_CHINSELx_P2_7         = 21, /**< P2.7 */
+  ADC1_CHINSELx_P2_7 = 21, /**< P2.7 */
 #endif
-  ADC1_CHINSELx_P2_3         = 22, /**< P2.3 */
-  ADC1_CHINSELx_P2_4         = 23, /**< P2.4 */
-  ADC1_CHINSELx_P2_5         = 24, /**< P2.5 */
-  ADC1_CHINSELx_P2_6         = 25, /**< P2.6 */
-  ADC1_CHINSELx_P2_2         = 26  /**< P2.2 */
+  ADC1_CHINSELx_P2_3 = 22, /**< P2.3 */
+  ADC1_CHINSELx_P2_4 = 23, /**< P2.4 */
+  ADC1_CHINSELx_P2_5 = 24, /**< P2.5 */
+  ADC1_CHINSELx_P2_6 = 25, /**< P2.6 */
+  ADC1_CHINSELx_P2_2 = 26  /**< P2.2 */
 } tADC1_CHINSELx;
 
 /** \struct tADC1_SQCFGx
  *  \brief Structure for the ADC1 Sequence Configuration Register
  */
-typedef union ADC1_SQCFGx
-{
-  uint32 reg;                         /*!< Sequence Configuration Register */
-  struct
-  {
-    uint32 SLOTS      : 3;            /*!< [2..0] Number of used Slots in Sequence */
-    uint32            : 1;
-    uint32 SQREP      : 2;            /*!< [5..4] Sequence repetition */
-    uint32 COLLCFG    : 1;            /*!< [6..6] Collision Config */
-    uint32 WFRCFG     : 1;            /*!< [7..7] Wait for Read Enable */
-    uint32 TRGSEL     : 4;            /*!< [11..8] Trigger Select */
-    uint32 GTSEL      : 2;            /*!< [13..12] Gating Select */
-    uint32 TRGSW      : 1;            /*!< [14..14] Software Trigger Bit */
-    uint32 GTSW       : 1;            /*!< [15..15] Trigger Software Gating */
+typedef union ADC1_SQCFGx {
+  uint32 reg; /*!< Sequence Configuration Register */
+  struct {
+    uint32 SLOTS : 3; /*!< [2..0] Number of used Slots in Sequence */
+    uint32 : 1;
+    uint32 SQREP : 2;   /*!< [5..4] Sequence repetition */
+    uint32 COLLCFG : 1; /*!< [6..6] Collision Config */
+    uint32 WFRCFG : 1;  /*!< [7..7] Wait for Read Enable */
+    uint32 TRGSEL : 4;  /*!< [11..8] Trigger Select */
+    uint32 GTSEL : 2;   /*!< [13..12] Gating Select */
+    uint32 TRGSW : 1;   /*!< [14..14] Software Trigger Bit */
+    uint32 GTSW : 1;    /*!< [15..15] Trigger Software Gating */
   } bit;
 } tADC1_SQCFGx;
 
 /** \struct tADC1_SQSLOTx
  *  \brief Structure for the ADC1 SQ Channel Slot Register
  */
-typedef union ADC1_SQSLOTx
-{
-  uint32 reg;                         /*!< SQ Channel Slot Register */
-  struct
-  {
-    uint32 CHSEL0     : 5;            /*!< [4..0] Channel Select */
-    uint32            : 3;
-    uint32 CHSEL1     : 5;            /*!< [12..8] Channel Select */
-    uint32            : 3;
-    uint32 CHSEL2     : 5;            /*!< [20..16] Channel Select */
-    uint32            : 3;
-    uint32 CHSEL3     : 5;            /*!< [28..24] Channel Select */
+typedef union ADC1_SQSLOTx {
+  uint32 reg; /*!< SQ Channel Slot Register */
+  struct {
+    uint32 CHSEL0 : 5; /*!< [4..0] Channel Select */
+    uint32 : 3;
+    uint32 CHSEL1 : 5; /*!< [12..8] Channel Select */
+    uint32 : 3;
+    uint32 CHSEL2 : 5; /*!< [20..16] Channel Select */
+    uint32 : 3;
+    uint32 CHSEL3 : 5; /*!< [28..24] Channel Select */
   } bit;
 } tADC1_SQSLOTx;
 
 /** \struct tADC1_CHCFGx
  *  \brief Structure for the ADC1 Channel Configuration Register
  */
-typedef union ADC1_CHCFGx
-{
-  uint32 reg;                         /*!< Channel Configuration Register */
-  struct
-  {
-    uint32 INSEL      : 5;            /*!< [4..0] ADC Input Selection */
-    uint32            : 3;
-    uint32 CHREP      : 4;            /*!< [11..8] Channel Repetition */
-    uint32            : 4;
-    uint32 FILSEL     : 3;            /*!< [18..16] Filter Selection */
-    uint32 CMPSEL     : 3;            /*!< [21..19] Compare Selection */
-    uint32 CLASSEL    : 2;            /*!< [23..22] Conversion Class Selection */
+typedef union ADC1_CHCFGx {
+  uint32 reg; /*!< Channel Configuration Register */
+  struct {
+    uint32 INSEL : 5; /*!< [4..0] ADC Input Selection */
+    uint32 : 3;
+    uint32 CHREP : 4; /*!< [11..8] Channel Repetition */
+    uint32 : 4;
+    uint32 FILSEL : 3;  /*!< [18..16] Filter Selection */
+    uint32 CMPSEL : 3;  /*!< [21..19] Compare Selection */
+    uint32 CLASSEL : 2; /*!< [23..22] Conversion Class Selection */
   } bit;
 } tADC1_CHCFGx;
 
 /** \struct tADC1_CONVCFGx
  *  \brief Structure for the ADC1 Channel Configuration Register
  */
-typedef union ADC1_CONVCFGx
-{
-  uint32 reg;                         /*!< Channel Configuration Register */
-  struct
-  {
-    uint32 TCONF      : 2;            /*!< [1..0] Tracking Conversion config */
-    uint32 OVERS      : 2;            /*!< [3..2] Oversampling config */
-    uint32 STC        : 4;            /*!< [7..4] Sample Time config */
-    uint32 SESP       : 1;            /*!< [8..8] Spreaded early sample point config */
-    uint32            : 1;
-    uint32 MSBD       : 1;            /*!< [10..10] MSB doubling enable */
-    uint32 PCAL       : 1;            /*!< [11..11] Post Calibration enable */
-    uint32 BWD        : 2;            /*!< [13..12] BWD timing config */
-    uint32 BWD_HI_CUR : 1;            /*!< [14..14] BWD current configuration */
+typedef union ADC1_CONVCFGx {
+  uint32 reg; /*!< Channel Configuration Register */
+  struct {
+    uint32 TCONF : 2; /*!< [1..0] Tracking Conversion config */
+    uint32 OVERS : 2; /*!< [3..2] Oversampling config */
+    uint32 STC : 4;   /*!< [7..4] Sample Time config */
+    uint32 SESP : 1;  /*!< [8..8] Spreaded early sample point config */
+    uint32 : 1;
+    uint32 MSBD : 1;       /*!< [10..10] MSB doubling enable */
+    uint32 PCAL : 1;       /*!< [11..11] Post Calibration enable */
+    uint32 BWD : 2;        /*!< [13..12] BWD timing config */
+    uint32 BWD_HI_CUR : 1; /*!< [14..14] BWD current configuration */
   } bit;
 } tADC1_CONVCFGx;
 
 /** \struct tADC1_CMPCFGx
  *  \brief Structure for the ADC1 Compare Channel 0 Control Register
  */
-typedef union ADC1_CMPCFGx
-{
-  uint32 reg;                         /*!< Compare Channel 0 Control Register */
-  struct
-  {
-    uint32 LOWER      : 8;            /*!< [7..0] Lower Compare Value */
-    uint32 INP_SEL    : 1;            /*!< [8..8] Input selection for the comparator unit */
-    uint32            : 3;
-    uint32 HYST_LO    : 2;            /*!< [13..12] Hysteresis set for lower compare threshold */
-    uint32            : 2;
-    uint32 UPPER      : 8;            /*!< [23..16] Upper Compare Value */
-    uint32 BLANK_TIME : 3;            /*!< [26..24] Blank Time configuration */
-    uint32 RST_BLANK_TIME: 1;            /*!< [27..27] Restart Blank time */
-    uint32 HYST_UP    : 2;            /*!< [29..28] Hysteresis setting for upper compare threshold */
-    uint32 MODE       : 2;            /*!< [31..30] Compare Mode */
+typedef union ADC1_CMPCFGx {
+  uint32 reg; /*!< Compare Channel 0 Control Register */
+  struct {
+    uint32 LOWER : 8;   /*!< [7..0] Lower Compare Value */
+    uint32 INP_SEL : 1; /*!< [8..8] Input selection for the comparator unit */
+    uint32 : 3;
+    uint32 HYST_LO : 2; /*!< [13..12] Hysteresis set for lower compare threshold */
+    uint32 : 2;
+    uint32 UPPER : 8;          /*!< [23..16] Upper Compare Value */
+    uint32 BLANK_TIME : 3;     /*!< [26..24] Blank Time configuration */
+    uint32 RST_BLANK_TIME : 1; /*!< [27..27] Restart Blank time */
+    uint32 HYST_UP : 2;        /*!< [29..28] Hysteresis setting for upper compare threshold */
+    uint32 MODE : 2;           /*!< [31..30] Compare Mode */
   } bit;
 } tADC1_CMPCFGx;
 
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 #endif
 
 /*******************************************************************************
@@ -673,26 +658,26 @@ INLINE void ADC1_setConvClass0Config(tADC1_CONVCFGx s_value);
 INLINE void ADC1_setConvClass1Config(tADC1_CONVCFGx s_value);
 INLINE void ADC1_setConvClass2Config(tADC1_CONVCFGx s_value);
 INLINE void ADC1_setConvClass3Config(tADC1_CONVCFGx s_value);
-INLINE void ADC1_enCalibCh0 (void);
-INLINE void ADC1_disCalibCh0 (void);
-INLINE void ADC1_enCalibCh1 (void);
-INLINE void ADC1_disCalibCh1 (void);
-INLINE void ADC1_enCalibCh2 (void);
-INLINE void ADC1_disCalibCh2 (void);
-INLINE void ADC1_enCalibCh3 (void);
-INLINE void ADC1_disCalibCh3 (void);
-INLINE void ADC1_enCalibCh4 (void);
-INLINE void ADC1_disCalibCh4 (void);
-INLINE void ADC1_enCalibCh5 (void);
-INLINE void ADC1_disCalibCh5 (void);
-INLINE void ADC1_enCalibCh6 (void);
-INLINE void ADC1_disCalibCh6 (void);
-INLINE void ADC1_enCalibCh7 (void);
-INLINE void ADC1_disCalibCh7 (void);
-INLINE void ADC1_enCalibCh8 (void);
-INLINE void ADC1_disCalibCh8 (void);
-INLINE void ADC1_enCalibCh9 (void);
-INLINE void ADC1_disCalibCh9 (void);
+INLINE void ADC1_enCalibCh0(void);
+INLINE void ADC1_disCalibCh0(void);
+INLINE void ADC1_enCalibCh1(void);
+INLINE void ADC1_disCalibCh1(void);
+INLINE void ADC1_enCalibCh2(void);
+INLINE void ADC1_disCalibCh2(void);
+INLINE void ADC1_enCalibCh3(void);
+INLINE void ADC1_disCalibCh3(void);
+INLINE void ADC1_enCalibCh4(void);
+INLINE void ADC1_disCalibCh4(void);
+INLINE void ADC1_enCalibCh5(void);
+INLINE void ADC1_disCalibCh5(void);
+INLINE void ADC1_enCalibCh6(void);
+INLINE void ADC1_disCalibCh6(void);
+INLINE void ADC1_enCalibCh7(void);
+INLINE void ADC1_disCalibCh7(void);
+INLINE void ADC1_enCalibCh8(void);
+INLINE void ADC1_disCalibCh8(void);
+INLINE void ADC1_enCalibCh9(void);
+INLINE void ADC1_disCalibCh9(void);
 INLINE void ADC1_enCalibCh10(void);
 INLINE void ADC1_disCalibCh10(void);
 INLINE void ADC1_enCalibCh11(void);
@@ -727,26 +712,26 @@ INLINE void ADC1_enCalibCh25(void);
 INLINE void ADC1_disCalibCh25(void);
 INLINE void ADC1_enCalibCh26(void);
 INLINE void ADC1_disCalibCh26(void);
-INLINE void ADC1_enCalibProtCh0 (void);
-INLINE void ADC1_disCalibProtCh0 (void);
-INLINE void ADC1_enCalibProtCh1 (void);
-INLINE void ADC1_disCalibProtCh1 (void);
-INLINE void ADC1_enCalibProtCh2 (void);
-INLINE void ADC1_disCalibProtCh2 (void);
-INLINE void ADC1_enCalibProtCh3 (void);
-INLINE void ADC1_disCalibProtCh3 (void);
-INLINE void ADC1_enCalibProtCh4 (void);
-INLINE void ADC1_disCalibProtCh4 (void);
-INLINE void ADC1_enCalibProtCh5 (void);
-INLINE void ADC1_disCalibProtCh5 (void);
-INLINE void ADC1_enCalibProtCh6 (void);
-INLINE void ADC1_disCalibProtCh6 (void);
-INLINE void ADC1_enCalibProtCh7 (void);
-INLINE void ADC1_disCalibProtCh7 (void);
-INLINE void ADC1_enCalibProtCh8 (void);
-INLINE void ADC1_disCalibProtCh8 (void);
-INLINE void ADC1_enCalibProtCh9 (void);
-INLINE void ADC1_disCalibProtCh9 (void);
+INLINE void ADC1_enCalibProtCh0(void);
+INLINE void ADC1_disCalibProtCh0(void);
+INLINE void ADC1_enCalibProtCh1(void);
+INLINE void ADC1_disCalibProtCh1(void);
+INLINE void ADC1_enCalibProtCh2(void);
+INLINE void ADC1_disCalibProtCh2(void);
+INLINE void ADC1_enCalibProtCh3(void);
+INLINE void ADC1_disCalibProtCh3(void);
+INLINE void ADC1_enCalibProtCh4(void);
+INLINE void ADC1_disCalibProtCh4(void);
+INLINE void ADC1_enCalibProtCh5(void);
+INLINE void ADC1_disCalibProtCh5(void);
+INLINE void ADC1_enCalibProtCh6(void);
+INLINE void ADC1_disCalibProtCh6(void);
+INLINE void ADC1_enCalibProtCh7(void);
+INLINE void ADC1_disCalibProtCh7(void);
+INLINE void ADC1_enCalibProtCh8(void);
+INLINE void ADC1_disCalibProtCh8(void);
+INLINE void ADC1_enCalibProtCh9(void);
+INLINE void ADC1_disCalibProtCh9(void);
 INLINE void ADC1_enCalibProtCh10(void);
 INLINE void ADC1_disCalibProtCh10(void);
 INLINE void ADC1_enCalibProtCh11(void);
@@ -1126,7 +1111,6 @@ INLINE uint8 ARVG_getVAREFOvercurrentSts(void);
 INLINE void ARVG_clrVAREFOvercurrentIntSts(void);
 INLINE void ARVG_clrVAREFOvercurrentSts(void);
 
-
 /*******************************************************************************
 **                       Deprecated Function Declarations                     **
 *******************************************************************************/
@@ -1331,22 +1315,19 @@ void ADC1_setSeq2WaitForReadIntNodePtr(void) __attribute__((deprecated("Do not c
  */
 void ADC1_setSeq3WaitForReadIntNodePtr(void) __attribute__((deprecated("Do not change this at runtime, use the ConfigWizard to configure this feature!")));
 
-
 /*******************************************************************************
 **                      Global Inline Function Definitions                    **
 *******************************************************************************/
 
 /** \brief Enable ADC1 Module
  */
-INLINE void ADC1_enPower(void)
-{
+INLINE void ADC1_enPower(void) {
   ADC1->GLOBCONF.bit.EN = 1u;
 }
 
 /** \brief Disable ADC1 Module
  */
-INLINE void ADC1_disPower(void)
-{
+INLINE void ADC1_disPower(void) {
   ADC1->GLOBCONF.bit.EN = 0u;
 }
 
@@ -1354,8 +1335,7 @@ INLINE void ADC1_disPower(void)
  *
  *  \param u8_value Clock Divider Settings
  */
-INLINE void ADC1_setClockDiv(uint8 u8_value)
-{
+INLINE void ADC1_setClockDiv(uint8 u8_value) {
   ADC1->CLKCON.bit.CLKDIV = u8_value;
 }
 
@@ -1363,22 +1343,19 @@ INLINE void ADC1_setClockDiv(uint8 u8_value)
  *
  * \return uint8 Clock Divider Settings
  */
-INLINE uint8 ADC1_getClockDiv(void)
-{
+INLINE uint8 ADC1_getClockDiv(void) {
   return (uint8)ADC1->CLKCON.bit.CLKDIV;
 }
 
 /** \brief Enable ADC1 Suspend
  */
-INLINE void ADC1_enSuspend(void)
-{
+INLINE void ADC1_enSuspend(void) {
   ADC1->SUSCTR.bit.SUSEN = 1u;
 }
 
 /** \brief Disable ADC1 Suspend
  */
-INLINE void ADC1_disSuspend(void)
-{
+INLINE void ADC1_disSuspend(void) {
   ADC1->SUSCTR.bit.SUSEN = 0u;
 }
 
@@ -1386,8 +1363,7 @@ INLINE void ADC1_disSuspend(void)
  *
  *  \param u8_value Suspend Mode
  */
-INLINE void ADC1_setSuspendMode(uint8 u8_value)
-{
+INLINE void ADC1_setSuspendMode(uint8 u8_value) {
   ADC1->SUSCTR.bit.SUSMOD = u8_value;
 }
 
@@ -1395,8 +1371,7 @@ INLINE void ADC1_setSuspendMode(uint8 u8_value)
  *
  * \return uint8 Suspend Mode
  */
-INLINE uint8 ADC1_getSuspendMode(void)
-{
+INLINE uint8 ADC1_getSuspendMode(void) {
   return (uint8)ADC1->SUSCTR.bit.SUSMOD;
 }
 
@@ -1404,8 +1379,7 @@ INLINE uint8 ADC1_getSuspendMode(void)
  *
  * \return uint8 Suspend Mode Status
  */
-INLINE uint8 ADC1_getSuspendSts(void)
-{
+INLINE uint8 ADC1_getSuspendSts(void) {
   return (uint8)ADC1->SUSSTAT.bit.STAT;
 }
 
@@ -1413,8 +1387,7 @@ INLINE uint8 ADC1_getSuspendSts(void)
  *
  * \return uint8 Module Ready
  */
-INLINE uint8 ADC1_getReady(void)
-{
+INLINE uint8 ADC1_getReady(void) {
   return (uint8)ADC1->SUSSTAT.bit.READY;
 }
 
@@ -1422,8 +1395,7 @@ INLINE uint8 ADC1_getReady(void)
  *
  *  \param s_value Sequence 0 configuration
  */
-INLINE void ADC1_setSeq0Config(tADC1_SQCFGx s_value)
-{
+INLINE void ADC1_setSeq0Config(tADC1_SQCFGx s_value) {
   ADC1->SQCFG0.reg = (uint32)s_value.reg;
 }
 
@@ -1431,8 +1403,7 @@ INLINE void ADC1_setSeq0Config(tADC1_SQCFGx s_value)
  *
  *  \param u8_value Sequence repetition
  */
-INLINE void ADC1_setSeq0Repetition(uint8 u8_value)
-{
+INLINE void ADC1_setSeq0Repetition(uint8 u8_value) {
   ADC1->SQCFG0.bit.SQREP = u8_value;
 }
 
@@ -1440,36 +1411,31 @@ INLINE void ADC1_setSeq0Repetition(uint8 u8_value)
  *
  *  \return uint8 Sequence repetition
  */
-INLINE uint8 ADC1_getSeq0Repetition(void)
-{
+INLINE uint8 ADC1_getSeq0Repetition(void) {
   return (uint8)ADC1->SQCFG0.bit.SQREP;
 }
 
 /** \brief Enable Collision Config
  */
-INLINE void ADC1_enSeq0CollisionDetect(void)
-{
+INLINE void ADC1_enSeq0CollisionDetect(void) {
   ADC1->SQCFG0.bit.COLLCFG = 1u;
 }
 
 /** \brief Disable Collision Config
  */
-INLINE void ADC1_disSeq0CollisionDetect(void)
-{
+INLINE void ADC1_disSeq0CollisionDetect(void) {
   ADC1->SQCFG0.bit.COLLCFG = 0u;
 }
 
 /** \brief Enable Wait for Read Enable
  */
-INLINE void ADC1_enSeq0WaitForRead(void)
-{
+INLINE void ADC1_enSeq0WaitForRead(void) {
   ADC1->SQCFG0.bit.WFRCFG = 1u;
 }
 
 /** \brief Disable Wait for Read Enable
  */
-INLINE void ADC1_disSeq0WaitForRead(void)
-{
+INLINE void ADC1_disSeq0WaitForRead(void) {
   ADC1->SQCFG0.bit.WFRCFG = 0u;
 }
 
@@ -1477,8 +1443,7 @@ INLINE void ADC1_disSeq0WaitForRead(void)
  *
  *  \param e_Seq0Trig Trigger Select
  */
-INLINE void ADC1_setSeq0TriggerSelect(tADC1_Seq0Trig e_Seq0Trig)
-{
+INLINE void ADC1_setSeq0TriggerSelect(tADC1_Seq0Trig e_Seq0Trig) {
   ADC1->SQCFG0.bit.TRGSEL = (uint8)e_Seq0Trig;
 }
 
@@ -1486,8 +1451,7 @@ INLINE void ADC1_setSeq0TriggerSelect(tADC1_Seq0Trig e_Seq0Trig)
  *
  *  \return uint8 Trigger Select
  */
-INLINE uint8 ADC1_getSeq0TriggerSelect(void)
-{
+INLINE uint8 ADC1_getSeq0TriggerSelect(void) {
   return ADC1->SQCFG0.bit.TRGSEL;
 }
 
@@ -1495,8 +1459,7 @@ INLINE uint8 ADC1_getSeq0TriggerSelect(void)
  *
  *  \param u8_value Gating Select
  */
-INLINE void ADC1_setSeq0GatingSelect(uint8 u8_value)
-{
+INLINE void ADC1_setSeq0GatingSelect(uint8 u8_value) {
   ADC1->SQCFG0.bit.GTSEL = u8_value;
 }
 
@@ -1504,22 +1467,19 @@ INLINE void ADC1_setSeq0GatingSelect(uint8 u8_value)
  *
  *  \return uint8 Gating Select
  */
-INLINE uint8 ADC1_getSeq0GatingSelect(void)
-{
+INLINE uint8 ADC1_getSeq0GatingSelect(void) {
   return (uint8)ADC1->SQCFG0.bit.GTSEL;
 }
 
 /** \brief Enable Trigger Software Gating
  */
-INLINE void ADC1_enSeq0TriggerGate(void)
-{
+INLINE void ADC1_enSeq0TriggerGate(void) {
   ADC1->SQCFG0.bit.GTSW = 1u;
 }
 
 /** \brief Disable Trigger Software Gating
  */
-INLINE void ADC1_disSeq0TriggerGate(void)
-{
+INLINE void ADC1_disSeq0TriggerGate(void) {
   ADC1->SQCFG0.bit.GTSW = 0u;
 }
 
@@ -1527,8 +1487,7 @@ INLINE void ADC1_disSeq0TriggerGate(void)
  *
  *  \param u8_value Channel Select for Sequence 0 Slot 0
  */
-INLINE void ADC1_setSeq0Slot0(uint8 u8_value)
-{
+INLINE void ADC1_setSeq0Slot0(uint8 u8_value) {
   ADC1->SQSLOT0.bit.CHSEL0 = u8_value;
 }
 
@@ -1536,8 +1495,7 @@ INLINE void ADC1_setSeq0Slot0(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 0 Slot 0
  */
-INLINE uint8 ADC1_getSeq0Slot0(void)
-{
+INLINE uint8 ADC1_getSeq0Slot0(void) {
   return (uint8)ADC1->SQSLOT0.bit.CHSEL0;
 }
 
@@ -1545,8 +1503,7 @@ INLINE uint8 ADC1_getSeq0Slot0(void)
  *
  *  \param u8_value Channel Select for Sequence 0 Slot 1
  */
-INLINE void ADC1_setSeq0Slot1(uint8 u8_value)
-{
+INLINE void ADC1_setSeq0Slot1(uint8 u8_value) {
   ADC1->SQSLOT0.bit.CHSEL1 = u8_value;
 }
 
@@ -1554,8 +1511,7 @@ INLINE void ADC1_setSeq0Slot1(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 0 Slot 1
  */
-INLINE uint8 ADC1_getSeq0Slot1(void)
-{
+INLINE uint8 ADC1_getSeq0Slot1(void) {
   return (uint8)ADC1->SQSLOT0.bit.CHSEL1;
 }
 
@@ -1563,8 +1519,7 @@ INLINE uint8 ADC1_getSeq0Slot1(void)
  *
  *  \param u8_value Channel Select for Sequence 0 Slot 2
  */
-INLINE void ADC1_setSeq0Slot2(uint8 u8_value)
-{
+INLINE void ADC1_setSeq0Slot2(uint8 u8_value) {
   ADC1->SQSLOT0.bit.CHSEL2 = u8_value;
 }
 
@@ -1572,8 +1527,7 @@ INLINE void ADC1_setSeq0Slot2(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 0 Slot 2
  */
-INLINE uint8 ADC1_getSeq0Slot2(void)
-{
+INLINE uint8 ADC1_getSeq0Slot2(void) {
   return (uint8)ADC1->SQSLOT0.bit.CHSEL2;
 }
 
@@ -1581,8 +1535,7 @@ INLINE uint8 ADC1_getSeq0Slot2(void)
  *
  *  \param u8_value Channel Select for Sequence 0 Slot 3
  */
-INLINE void ADC1_setSeq0Slot3(uint8 u8_value)
-{
+INLINE void ADC1_setSeq0Slot3(uint8 u8_value) {
   ADC1->SQSLOT0.bit.CHSEL3 = u8_value;
 }
 
@@ -1590,8 +1543,7 @@ INLINE void ADC1_setSeq0Slot3(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 0 Slot 3
  */
-INLINE uint8 ADC1_getSeq0Slot3(void)
-{
+INLINE uint8 ADC1_getSeq0Slot3(void) {
   return (uint8)ADC1->SQSLOT0.bit.CHSEL3;
 }
 
@@ -1599,8 +1551,7 @@ INLINE uint8 ADC1_getSeq0Slot3(void)
  *
  *  \param s_value Sequence 1 configuration
  */
-INLINE void ADC1_setSeq1Config(tADC1_SQCFGx s_value)
-{
+INLINE void ADC1_setSeq1Config(tADC1_SQCFGx s_value) {
   ADC1->SQCFG1.reg = (uint32)s_value.reg;
 }
 
@@ -1608,8 +1559,7 @@ INLINE void ADC1_setSeq1Config(tADC1_SQCFGx s_value)
  *
  *  \param u8_value Sequence repetition
  */
-INLINE void ADC1_setSeq1Repetition(uint8 u8_value)
-{
+INLINE void ADC1_setSeq1Repetition(uint8 u8_value) {
   ADC1->SQCFG1.bit.SQREP = u8_value;
 }
 
@@ -1617,36 +1567,31 @@ INLINE void ADC1_setSeq1Repetition(uint8 u8_value)
  *
  *  \return uint8 Sequence repetition
  */
-INLINE uint8 ADC1_getSeq1Repetition(void)
-{
+INLINE uint8 ADC1_getSeq1Repetition(void) {
   return (uint8)ADC1->SQCFG1.bit.SQREP;
 }
 
 /** \brief Enable Collision Config
  */
-INLINE void ADC1_enSeq1CollisionDetect(void)
-{
+INLINE void ADC1_enSeq1CollisionDetect(void) {
   ADC1->SQCFG1.bit.COLLCFG = 1u;
 }
 
 /** \brief Disable Collision Config
  */
-INLINE void ADC1_disSeq1CollisionDetect(void)
-{
+INLINE void ADC1_disSeq1CollisionDetect(void) {
   ADC1->SQCFG1.bit.COLLCFG = 0u;
 }
 
 /** \brief Enable Wait for Read Enable
  */
-INLINE void ADC1_enSeq1WaitForRead(void)
-{
+INLINE void ADC1_enSeq1WaitForRead(void) {
   ADC1->SQCFG1.bit.WFRCFG = 1u;
 }
 
 /** \brief Disable Wait for Read Enable
  */
-INLINE void ADC1_disSeq1WaitForRead(void)
-{
+INLINE void ADC1_disSeq1WaitForRead(void) {
   ADC1->SQCFG1.bit.WFRCFG = 0u;
 }
 
@@ -1654,8 +1599,7 @@ INLINE void ADC1_disSeq1WaitForRead(void)
  *
  *  \param e_Seq1Trig Trigger Select
  */
-INLINE void ADC1_setSeq1TriggerSelect(tADC1_Seq1Trig e_Seq1Trig)
-{
+INLINE void ADC1_setSeq1TriggerSelect(tADC1_Seq1Trig e_Seq1Trig) {
   ADC1->SQCFG1.bit.TRGSEL = (uint8)e_Seq1Trig;
 }
 
@@ -1663,8 +1607,7 @@ INLINE void ADC1_setSeq1TriggerSelect(tADC1_Seq1Trig e_Seq1Trig)
  *
  *  \return uint8 Trigger Select
  */
-INLINE uint8 ADC1_getSeq1TriggerSelect(void)
-{
+INLINE uint8 ADC1_getSeq1TriggerSelect(void) {
   return ADC1->SQCFG1.bit.TRGSEL;
 }
 
@@ -1672,8 +1615,7 @@ INLINE uint8 ADC1_getSeq1TriggerSelect(void)
  *
  *  \param u8_value Gating Select
  */
-INLINE void ADC1_setSeq1GatingSelect(uint8 u8_value)
-{
+INLINE void ADC1_setSeq1GatingSelect(uint8 u8_value) {
   ADC1->SQCFG1.bit.GTSEL = u8_value;
 }
 
@@ -1681,22 +1623,19 @@ INLINE void ADC1_setSeq1GatingSelect(uint8 u8_value)
  *
  *  \return uint8 Gating Select
  */
-INLINE uint8 ADC1_getSeq1GatingSelect(void)
-{
+INLINE uint8 ADC1_getSeq1GatingSelect(void) {
   return (uint8)ADC1->SQCFG1.bit.GTSEL;
 }
 
 /** \brief Enable Trigger Software Gating
  */
-INLINE void ADC1_enSeq1TriggerGate(void)
-{
+INLINE void ADC1_enSeq1TriggerGate(void) {
   ADC1->SQCFG1.bit.GTSW = 1u;
 }
 
 /** \brief Disable Trigger Software Gating
  */
-INLINE void ADC1_disSeq1TriggerGate(void)
-{
+INLINE void ADC1_disSeq1TriggerGate(void) {
   ADC1->SQCFG1.bit.GTSW = 0u;
 }
 
@@ -1704,8 +1643,7 @@ INLINE void ADC1_disSeq1TriggerGate(void)
  *
  *  \param u8_value Channel Select for Sequence 1 Slot 0
  */
-INLINE void ADC1_setSeq1Slot0(uint8 u8_value)
-{
+INLINE void ADC1_setSeq1Slot0(uint8 u8_value) {
   ADC1->SQSLOT1.bit.CHSEL0 = u8_value;
 }
 
@@ -1713,8 +1651,7 @@ INLINE void ADC1_setSeq1Slot0(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 1 Slot 0
  */
-INLINE uint8 ADC1_getSeq1Slot0(void)
-{
+INLINE uint8 ADC1_getSeq1Slot0(void) {
   return (uint8)ADC1->SQSLOT1.bit.CHSEL0;
 }
 
@@ -1722,8 +1659,7 @@ INLINE uint8 ADC1_getSeq1Slot0(void)
  *
  *  \param u8_value Channel Select for Sequence 1 Slot 1
  */
-INLINE void ADC1_setSeq1Slot1(uint8 u8_value)
-{
+INLINE void ADC1_setSeq1Slot1(uint8 u8_value) {
   ADC1->SQSLOT1.bit.CHSEL1 = u8_value;
 }
 
@@ -1731,8 +1667,7 @@ INLINE void ADC1_setSeq1Slot1(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 1 Slot 1
  */
-INLINE uint8 ADC1_getSeq1Slot1(void)
-{
+INLINE uint8 ADC1_getSeq1Slot1(void) {
   return (uint8)ADC1->SQSLOT1.bit.CHSEL1;
 }
 
@@ -1740,8 +1675,7 @@ INLINE uint8 ADC1_getSeq1Slot1(void)
  *
  *  \param u8_value Channel Select for Sequence 1 Slot 2
  */
-INLINE void ADC1_setSeq1Slot2(uint8 u8_value)
-{
+INLINE void ADC1_setSeq1Slot2(uint8 u8_value) {
   ADC1->SQSLOT1.bit.CHSEL2 = u8_value;
 }
 
@@ -1749,8 +1683,7 @@ INLINE void ADC1_setSeq1Slot2(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 1 Slot 2
  */
-INLINE uint8 ADC1_getSeq1Slot2(void)
-{
+INLINE uint8 ADC1_getSeq1Slot2(void) {
   return (uint8)ADC1->SQSLOT1.bit.CHSEL2;
 }
 
@@ -1758,8 +1691,7 @@ INLINE uint8 ADC1_getSeq1Slot2(void)
  *
  *  \param u8_value Channel Select for Sequence 1 Slot 3
  */
-INLINE void ADC1_setSeq1Slot3(uint8 u8_value)
-{
+INLINE void ADC1_setSeq1Slot3(uint8 u8_value) {
   ADC1->SQSLOT1.bit.CHSEL3 = u8_value;
 }
 
@@ -1767,8 +1699,7 @@ INLINE void ADC1_setSeq1Slot3(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 1 Slot 3
  */
-INLINE uint8 ADC1_getSeq1Slot3(void)
-{
+INLINE uint8 ADC1_getSeq1Slot3(void) {
   return (uint8)ADC1->SQSLOT1.bit.CHSEL3;
 }
 
@@ -1776,8 +1707,7 @@ INLINE uint8 ADC1_getSeq1Slot3(void)
  *
  *  \param s_value Sequence 2 configuration
  */
-INLINE void ADC1_setSeq2Config(tADC1_SQCFGx s_value)
-{
+INLINE void ADC1_setSeq2Config(tADC1_SQCFGx s_value) {
   ADC1->SQCFG2.reg = (uint32)s_value.reg;
 }
 
@@ -1785,8 +1715,7 @@ INLINE void ADC1_setSeq2Config(tADC1_SQCFGx s_value)
  *
  *  \param u8_value Sequence repetition
  */
-INLINE void ADC1_setSeq2Repetition(uint8 u8_value)
-{
+INLINE void ADC1_setSeq2Repetition(uint8 u8_value) {
   ADC1->SQCFG2.bit.SQREP = u8_value;
 }
 
@@ -1794,36 +1723,31 @@ INLINE void ADC1_setSeq2Repetition(uint8 u8_value)
  *
  *  \return uint8 Sequence repetition
  */
-INLINE uint8 ADC1_getSeq2Repetition(void)
-{
+INLINE uint8 ADC1_getSeq2Repetition(void) {
   return (uint8)ADC1->SQCFG2.bit.SQREP;
 }
 
 /** \brief Enable Collision Config
  */
-INLINE void ADC1_enSeq2CollisionDetect(void)
-{
+INLINE void ADC1_enSeq2CollisionDetect(void) {
   ADC1->SQCFG2.bit.COLLCFG = 1u;
 }
 
 /** \brief Disable Collision Config
  */
-INLINE void ADC1_disSeq2CollisionDetect(void)
-{
+INLINE void ADC1_disSeq2CollisionDetect(void) {
   ADC1->SQCFG2.bit.COLLCFG = 0u;
 }
 
 /** \brief Enable Wait for Read Enable
  */
-INLINE void ADC1_enSeq2WaitForRead(void)
-{
+INLINE void ADC1_enSeq2WaitForRead(void) {
   ADC1->SQCFG2.bit.WFRCFG = 1u;
 }
 
 /** \brief Disable Wait for Read Enable
  */
-INLINE void ADC1_disSeq2WaitForRead(void)
-{
+INLINE void ADC1_disSeq2WaitForRead(void) {
   ADC1->SQCFG2.bit.WFRCFG = 0u;
 }
 
@@ -1831,8 +1755,7 @@ INLINE void ADC1_disSeq2WaitForRead(void)
  *
  *  \param e_Seq2Trig Trigger Select
  */
-INLINE void ADC1_setSeq2TriggerSelect(tADC1_Seq2Trig e_Seq2Trig)
-{
+INLINE void ADC1_setSeq2TriggerSelect(tADC1_Seq2Trig e_Seq2Trig) {
   ADC1->SQCFG2.bit.TRGSEL = (uint8)e_Seq2Trig;
 }
 
@@ -1840,8 +1763,7 @@ INLINE void ADC1_setSeq2TriggerSelect(tADC1_Seq2Trig e_Seq2Trig)
  *
  *  \return uint8 Trigger Select
  */
-INLINE uint8 ADC1_getSeq2TriggerSelect(void)
-{
+INLINE uint8 ADC1_getSeq2TriggerSelect(void) {
   return ADC1->SQCFG2.bit.TRGSEL;
 }
 
@@ -1849,8 +1771,7 @@ INLINE uint8 ADC1_getSeq2TriggerSelect(void)
  *
  *  \param u8_value Gating Select
  */
-INLINE void ADC1_setSeq2GatingSelect(uint8 u8_value)
-{
+INLINE void ADC1_setSeq2GatingSelect(uint8 u8_value) {
   ADC1->SQCFG2.bit.GTSEL = u8_value;
 }
 
@@ -1858,22 +1779,19 @@ INLINE void ADC1_setSeq2GatingSelect(uint8 u8_value)
  *
  *  \return uint8 Gating Select
  */
-INLINE uint8 ADC1_getSeq2GatingSelect(void)
-{
+INLINE uint8 ADC1_getSeq2GatingSelect(void) {
   return (uint8)ADC1->SQCFG2.bit.GTSEL;
 }
 
 /** \brief Enable Trigger Software Gating
  */
-INLINE void ADC1_enSeq2TriggerGate(void)
-{
+INLINE void ADC1_enSeq2TriggerGate(void) {
   ADC1->SQCFG2.bit.GTSW = 1u;
 }
 
 /** \brief Disable Trigger Software Gating
  */
-INLINE void ADC1_disSeq2TriggerGate(void)
-{
+INLINE void ADC1_disSeq2TriggerGate(void) {
   ADC1->SQCFG2.bit.GTSW = 0u;
 }
 
@@ -1881,8 +1799,7 @@ INLINE void ADC1_disSeq2TriggerGate(void)
  *
  *  \param u8_value Channel Select for Sequence 2 Slot 0
  */
-INLINE void ADC1_setSeq2Slot0(uint8 u8_value)
-{
+INLINE void ADC1_setSeq2Slot0(uint8 u8_value) {
   ADC1->SQSLOT2.bit.CHSEL0 = u8_value;
 }
 
@@ -1890,8 +1807,7 @@ INLINE void ADC1_setSeq2Slot0(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 2 Slot 0
  */
-INLINE uint8 ADC1_getSeq2Slot0(void)
-{
+INLINE uint8 ADC1_getSeq2Slot0(void) {
   return (uint8)ADC1->SQSLOT2.bit.CHSEL0;
 }
 
@@ -1899,8 +1815,7 @@ INLINE uint8 ADC1_getSeq2Slot0(void)
  *
  *  \param u8_value Channel Select for Sequence 2 Slot 1
  */
-INLINE void ADC1_setSeq2Slot1(uint8 u8_value)
-{
+INLINE void ADC1_setSeq2Slot1(uint8 u8_value) {
   ADC1->SQSLOT2.bit.CHSEL1 = u8_value;
 }
 
@@ -1908,8 +1823,7 @@ INLINE void ADC1_setSeq2Slot1(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 2 Slot 1
  */
-INLINE uint8 ADC1_getSeq2Slot1(void)
-{
+INLINE uint8 ADC1_getSeq2Slot1(void) {
   return (uint8)ADC1->SQSLOT2.bit.CHSEL1;
 }
 
@@ -1917,8 +1831,7 @@ INLINE uint8 ADC1_getSeq2Slot1(void)
  *
  *  \param u8_value Channel Select for Sequence 2 Slot 2
  */
-INLINE void ADC1_setSeq2Slot2(uint8 u8_value)
-{
+INLINE void ADC1_setSeq2Slot2(uint8 u8_value) {
   ADC1->SQSLOT2.bit.CHSEL2 = u8_value;
 }
 
@@ -1926,8 +1839,7 @@ INLINE void ADC1_setSeq2Slot2(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 2 Slot 2
  */
-INLINE uint8 ADC1_getSeq2Slot2(void)
-{
+INLINE uint8 ADC1_getSeq2Slot2(void) {
   return (uint8)ADC1->SQSLOT2.bit.CHSEL2;
 }
 
@@ -1935,8 +1847,7 @@ INLINE uint8 ADC1_getSeq2Slot2(void)
  *
  *  \param u8_value Channel Select for Sequence 2 Slot 3
  */
-INLINE void ADC1_setSeq2Slot3(uint8 u8_value)
-{
+INLINE void ADC1_setSeq2Slot3(uint8 u8_value) {
   ADC1->SQSLOT2.bit.CHSEL3 = u8_value;
 }
 
@@ -1944,8 +1855,7 @@ INLINE void ADC1_setSeq2Slot3(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 2 Slot 3
  */
-INLINE uint8 ADC1_getSeq2Slot3(void)
-{
+INLINE uint8 ADC1_getSeq2Slot3(void) {
   return (uint8)ADC1->SQSLOT2.bit.CHSEL3;
 }
 
@@ -1953,8 +1863,7 @@ INLINE uint8 ADC1_getSeq2Slot3(void)
  *
  *  \param s_value Sequence 3 configuration
  */
-INLINE void ADC1_setSeq3Config(tADC1_SQCFGx s_value)
-{
+INLINE void ADC1_setSeq3Config(tADC1_SQCFGx s_value) {
   ADC1->SQCFG3.reg = (uint32)s_value.reg;
 }
 
@@ -1962,8 +1871,7 @@ INLINE void ADC1_setSeq3Config(tADC1_SQCFGx s_value)
  *
  *  \param u8_value Sequence repetition
  */
-INLINE void ADC1_setSeq3Repetition(uint8 u8_value)
-{
+INLINE void ADC1_setSeq3Repetition(uint8 u8_value) {
   ADC1->SQCFG3.bit.SQREP = u8_value;
 }
 
@@ -1971,36 +1879,31 @@ INLINE void ADC1_setSeq3Repetition(uint8 u8_value)
  *
  *  \return uint8 Sequence repetition
  */
-INLINE uint8 ADC1_getSeq3Repetition(void)
-{
+INLINE uint8 ADC1_getSeq3Repetition(void) {
   return (uint8)ADC1->SQCFG3.bit.SQREP;
 }
 
 /** \brief Enable Collision Config
  */
-INLINE void ADC1_enSeq3CollisionDetect(void)
-{
+INLINE void ADC1_enSeq3CollisionDetect(void) {
   ADC1->SQCFG3.bit.COLLCFG = 1u;
 }
 
 /** \brief Disable Collision Config
  */
-INLINE void ADC1_disSeq3CollisionDetect(void)
-{
+INLINE void ADC1_disSeq3CollisionDetect(void) {
   ADC1->SQCFG3.bit.COLLCFG = 0u;
 }
 
 /** \brief Enable Wait for Read Enable
  */
-INLINE void ADC1_enSeq3WaitForRead(void)
-{
+INLINE void ADC1_enSeq3WaitForRead(void) {
   ADC1->SQCFG3.bit.WFRCFG = 1u;
 }
 
 /** \brief Disable Wait for Read Enable
  */
-INLINE void ADC1_disSeq3WaitForRead(void)
-{
+INLINE void ADC1_disSeq3WaitForRead(void) {
   ADC1->SQCFG3.bit.WFRCFG = 0u;
 }
 
@@ -2008,8 +1911,7 @@ INLINE void ADC1_disSeq3WaitForRead(void)
  *
  *  \param e_Seq3Trig Trigger Select
  */
-INLINE void ADC1_setSeq3TriggerSelect(tADC1_Seq3Trig e_Seq3Trig)
-{
+INLINE void ADC1_setSeq3TriggerSelect(tADC1_Seq3Trig e_Seq3Trig) {
   ADC1->SQCFG3.bit.TRGSEL = (uint8)e_Seq3Trig;
 }
 
@@ -2017,8 +1919,7 @@ INLINE void ADC1_setSeq3TriggerSelect(tADC1_Seq3Trig e_Seq3Trig)
  *
  *  \return uint8 Trigger Select
  */
-INLINE uint8 ADC1_getSeq3TriggerSelect(void)
-{
+INLINE uint8 ADC1_getSeq3TriggerSelect(void) {
   return ADC1->SQCFG3.bit.TRGSEL;
 }
 
@@ -2026,8 +1927,7 @@ INLINE uint8 ADC1_getSeq3TriggerSelect(void)
  *
  *  \param u8_value Gating Select
  */
-INLINE void ADC1_setSeq3GatingSelect(uint8 u8_value)
-{
+INLINE void ADC1_setSeq3GatingSelect(uint8 u8_value) {
   ADC1->SQCFG3.bit.GTSEL = u8_value;
 }
 
@@ -2035,22 +1935,19 @@ INLINE void ADC1_setSeq3GatingSelect(uint8 u8_value)
  *
  *  \return uint8 Gating Select
  */
-INLINE uint8 ADC1_getSeq3GatingSelect(void)
-{
+INLINE uint8 ADC1_getSeq3GatingSelect(void) {
   return (uint8)ADC1->SQCFG3.bit.GTSEL;
 }
 
 /** \brief Enable Trigger Software Gating
  */
-INLINE void ADC1_enSeq3TriggerGate(void)
-{
+INLINE void ADC1_enSeq3TriggerGate(void) {
   ADC1->SQCFG3.bit.GTSW = 1u;
 }
 
 /** \brief Disable Trigger Software Gating
  */
-INLINE void ADC1_disSeq3TriggerGate(void)
-{
+INLINE void ADC1_disSeq3TriggerGate(void) {
   ADC1->SQCFG3.bit.GTSW = 0u;
 }
 
@@ -2058,8 +1955,7 @@ INLINE void ADC1_disSeq3TriggerGate(void)
  *
  *  \param u8_value Channel Select for Sequence 3 Slot 0
  */
-INLINE void ADC1_setSeq3Slot0(uint8 u8_value)
-{
+INLINE void ADC1_setSeq3Slot0(uint8 u8_value) {
   ADC1->SQSLOT3.bit.CHSEL0 = u8_value;
 }
 
@@ -2067,8 +1963,7 @@ INLINE void ADC1_setSeq3Slot0(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 3 Slot 0
  */
-INLINE uint8 ADC1_getSeq3Slot0(void)
-{
+INLINE uint8 ADC1_getSeq3Slot0(void) {
   return (uint8)ADC1->SQSLOT3.bit.CHSEL0;
 }
 
@@ -2076,8 +1971,7 @@ INLINE uint8 ADC1_getSeq3Slot0(void)
  *
  *  \param u8_value Channel Select for Sequence 3 Slot 1
  */
-INLINE void ADC1_setSeq3Slot1(uint8 u8_value)
-{
+INLINE void ADC1_setSeq3Slot1(uint8 u8_value) {
   ADC1->SQSLOT3.bit.CHSEL1 = u8_value;
 }
 
@@ -2085,8 +1979,7 @@ INLINE void ADC1_setSeq3Slot1(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 3 Slot 1
  */
-INLINE uint8 ADC1_getSeq3Slot1(void)
-{
+INLINE uint8 ADC1_getSeq3Slot1(void) {
   return (uint8)ADC1->SQSLOT3.bit.CHSEL1;
 }
 
@@ -2094,8 +1987,7 @@ INLINE uint8 ADC1_getSeq3Slot1(void)
  *
  *  \param u8_value Channel Select for Sequence 3 Slot 2
  */
-INLINE void ADC1_setSeq3Slot2(uint8 u8_value)
-{
+INLINE void ADC1_setSeq3Slot2(uint8 u8_value) {
   ADC1->SQSLOT3.bit.CHSEL2 = u8_value;
 }
 
@@ -2103,8 +1995,7 @@ INLINE void ADC1_setSeq3Slot2(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 3 Slot 2
  */
-INLINE uint8 ADC1_getSeq3Slot2(void)
-{
+INLINE uint8 ADC1_getSeq3Slot2(void) {
   return (uint8)ADC1->SQSLOT3.bit.CHSEL2;
 }
 
@@ -2112,8 +2003,7 @@ INLINE uint8 ADC1_getSeq3Slot2(void)
  *
  *  \param u8_value Channel Select for Sequence 3 Slot 3
  */
-INLINE void ADC1_setSeq3Slot3(uint8 u8_value)
-{
+INLINE void ADC1_setSeq3Slot3(uint8 u8_value) {
   ADC1->SQSLOT3.bit.CHSEL3 = u8_value;
 }
 
@@ -2121,8 +2011,7 @@ INLINE void ADC1_setSeq3Slot3(uint8 u8_value)
  *
  * \return uint8 Channel Select for Sequence 3 Slot 3
  */
-INLINE uint8 ADC1_getSeq3Slot3(void)
-{
+INLINE uint8 ADC1_getSeq3Slot3(void) {
   return (uint8)ADC1->SQSLOT3.bit.CHSEL3;
 }
 
@@ -2130,8 +2019,7 @@ INLINE uint8 ADC1_getSeq3Slot3(void)
  *
  * \return uint8 Sequence 0 Wait for Read Status
  */
-INLINE uint8 ADC1_getSeq0WaitForRead(void)
-{
+INLINE uint8 ADC1_getSeq0WaitForRead(void) {
   return (uint8)ADC1->SQSTAT.bit.WFR0;
 }
 
@@ -2139,8 +2027,7 @@ INLINE uint8 ADC1_getSeq0WaitForRead(void)
  *
  * \return uint8 Sequence 1 Wait for Read Status
  */
-INLINE uint8 ADC1_getSeq1WaitForRead(void)
-{
+INLINE uint8 ADC1_getSeq1WaitForRead(void) {
   return (uint8)ADC1->SQSTAT.bit.WFR1;
 }
 
@@ -2148,8 +2035,7 @@ INLINE uint8 ADC1_getSeq1WaitForRead(void)
  *
  * \return uint8 Sequence 2 Wait for Read Status
  */
-INLINE uint8 ADC1_getSeq2WaitForRead(void)
-{
+INLINE uint8 ADC1_getSeq2WaitForRead(void) {
   return (uint8)ADC1->SQSTAT.bit.WFR2;
 }
 
@@ -2157,8 +2043,7 @@ INLINE uint8 ADC1_getSeq2WaitForRead(void)
  *
  * \return uint8 Sequence 3 Wait for Read Status
  */
-INLINE uint8 ADC1_getSeq3WaitForRead(void)
-{
+INLINE uint8 ADC1_getSeq3WaitForRead(void) {
   return (uint8)ADC1->SQSTAT.bit.WFR3;
 }
 
@@ -2166,8 +2051,7 @@ INLINE uint8 ADC1_getSeq3WaitForRead(void)
  *
  * \return uint8 Sequence 0 Collision Status
  */
-INLINE uint8 ADC1_getSeq0CollSts(void)
-{
+INLINE uint8 ADC1_getSeq0CollSts(void) {
   return (uint8)ADC1->SQSTAT.bit.COLL0;
 }
 
@@ -2175,8 +2059,7 @@ INLINE uint8 ADC1_getSeq0CollSts(void)
  *
  * \return uint8 Sequence 1 Collision Status
  */
-INLINE uint8 ADC1_getSeq1CollSts(void)
-{
+INLINE uint8 ADC1_getSeq1CollSts(void) {
   return (uint8)ADC1->SQSTAT.bit.COLL1;
 }
 
@@ -2184,8 +2067,7 @@ INLINE uint8 ADC1_getSeq1CollSts(void)
  *
  * \return uint8 Sequence 2 Collision Status
  */
-INLINE uint8 ADC1_getSeq2CollSts(void)
-{
+INLINE uint8 ADC1_getSeq2CollSts(void) {
   return (uint8)ADC1->SQSTAT.bit.COLL2;
 }
 
@@ -2193,8 +2075,7 @@ INLINE uint8 ADC1_getSeq2CollSts(void)
  *
  * \return uint8 Sequence 3 Collision Status
  */
-INLINE uint8 ADC1_getSeq3CollSts(void)
-{
+INLINE uint8 ADC1_getSeq3CollSts(void) {
   return (uint8)ADC1->SQSTAT.bit.COLL3;
 }
 
@@ -2202,8 +2083,7 @@ INLINE uint8 ADC1_getSeq3CollSts(void)
  *
  * \return uint8 Sequence 0 Interrupt Status
  */
-INLINE uint8 ADC1_getSeq0IntSts(void)
-{
+INLINE uint8 ADC1_getSeq0IntSts(void) {
   return (uint8)ADC1->SQSTAT.bit.SQ0;
 }
 
@@ -2211,8 +2091,7 @@ INLINE uint8 ADC1_getSeq0IntSts(void)
  *
  * \return uint8 Sequence 1 Interrupt Status
  */
-INLINE uint8 ADC1_getSeq1IntSts(void)
-{
+INLINE uint8 ADC1_getSeq1IntSts(void) {
   return (uint8)ADC1->SQSTAT.bit.SQ1;
 }
 
@@ -2220,8 +2099,7 @@ INLINE uint8 ADC1_getSeq1IntSts(void)
  *
  * \return uint8 Sequence 2 Interrupt Status
  */
-INLINE uint8 ADC1_getSeq2IntSts(void)
-{
+INLINE uint8 ADC1_getSeq2IntSts(void) {
   return (uint8)ADC1->SQSTAT.bit.SQ2;
 }
 
@@ -2229,8 +2107,7 @@ INLINE uint8 ADC1_getSeq2IntSts(void)
  *
  * \return uint8 Sequence 3 Interrupt Status
  */
-INLINE uint8 ADC1_getSeq3IntSts(void)
-{
+INLINE uint8 ADC1_getSeq3IntSts(void) {
   return (uint8)ADC1->SQSTAT.bit.SQ3;
 }
 
@@ -2238,176 +2115,151 @@ INLINE uint8 ADC1_getSeq3IntSts(void)
  *
  * \return uint8 Actual  Sequence processed
  */
-INLINE uint8 ADC1_getCurrSeq(void)
-{
+INLINE uint8 ADC1_getCurrSeq(void) {
   return (uint8)ADC1->SQSTAT.bit.SQNUM;
 }
 
 /** \brief Clear Sequence 0 Wait for Read Status
  */
-INLINE void ADC1_clrSeq0WaitForRead(void)
-{
+INLINE void ADC1_clrSeq0WaitForRead(void) {
   ADC1->SQSTATCLR.bit.WFR0CLR = 1u;
 }
 
 /** \brief Clear Sequence 1 Wait for Read Status
  */
-INLINE void ADC1_clrSeq1WaitForRead(void)
-{
+INLINE void ADC1_clrSeq1WaitForRead(void) {
   ADC1->SQSTATCLR.bit.WFR1CLR = 1u;
 }
 
 /** \brief Clear Sequence 2 Wait for Read Status
  */
-INLINE void ADC1_clrSeq2WaitForRead(void)
-{
+INLINE void ADC1_clrSeq2WaitForRead(void) {
   ADC1->SQSTATCLR.bit.WFR2CLR = 1u;
 }
 
 /** \brief Clear Sequence 3 Wait for Read Status
  */
-INLINE void ADC1_clrSeq3WaitForRead(void)
-{
+INLINE void ADC1_clrSeq3WaitForRead(void) {
   ADC1->SQSTATCLR.bit.WFR3CLR = 1u;
 }
 
 /** \brief Clear Sequence 0 Collision Status
  */
-INLINE void ADC1_clrSeq0CollSts(void)
-{
+INLINE void ADC1_clrSeq0CollSts(void) {
   ADC1->SQSTATCLR.bit.COLL0CLR = 1u;
 }
 
 /** \brief Clear Sequence 1 Collision Status
  */
-INLINE void ADC1_clrSeq1CollSts(void)
-{
+INLINE void ADC1_clrSeq1CollSts(void) {
   ADC1->SQSTATCLR.bit.COLL1CLR = 1u;
 }
 
 /** \brief Clear Sequence 2 Collision Status
  */
-INLINE void ADC1_clrSeq2CollSts(void)
-{
+INLINE void ADC1_clrSeq2CollSts(void) {
   ADC1->SQSTATCLR.bit.COLL2CLR = 1u;
 }
 
 /** \brief Clear Sequence 3 Collision Status
  */
-INLINE void ADC1_clrSeq3CollSts(void)
-{
+INLINE void ADC1_clrSeq3CollSts(void) {
   ADC1->SQSTATCLR.bit.COLL3CLR = 1u;
 }
 
 /** \brief Clear Sequence 0 Interrupt Status
  */
-INLINE void ADC1_clrSeq0IntSts(void)
-{
+INLINE void ADC1_clrSeq0IntSts(void) {
   ADC1->SQSTATCLR.bit.SQ0CLR = 1u;
 }
 
 /** \brief Clear Sequence 1 Interrupt Status
  */
-INLINE void ADC1_clrSeq1IntSts(void)
-{
+INLINE void ADC1_clrSeq1IntSts(void) {
   ADC1->SQSTATCLR.bit.SQ1CLR = 1u;
 }
 
 /** \brief Clear Sequence 2 Interrupt Status
  */
-INLINE void ADC1_clrSeq2IntSts(void)
-{
+INLINE void ADC1_clrSeq2IntSts(void) {
   ADC1->SQSTATCLR.bit.SQ2CLR = 1u;
 }
 
 /** \brief Clear Sequence 3 Interrupt Status
  */
-INLINE void ADC1_clrSeq3IntSts(void)
-{
+INLINE void ADC1_clrSeq3IntSts(void) {
   ADC1->SQSTATCLR.bit.SQ3CLR = 1u;
 }
 
 /** \brief Set Sequence 0 Wait for Read Status
  */
-INLINE void ADC1_setSeq0WaitForRead(void)
-{
+INLINE void ADC1_setSeq0WaitForRead(void) {
   ADC1->SQSTATSET.bit.WFR0SET = 1u;
 }
 
 /** \brief Set Sequence 1 Wait for Read Status
  */
-INLINE void ADC1_setSeq1WaitForRead(void)
-{
+INLINE void ADC1_setSeq1WaitForRead(void) {
   ADC1->SQSTATSET.bit.WFR1SET = 1u;
 }
 
 /** \brief Set Sequence 2 Wait for Read Status
  */
-INLINE void ADC1_setSeq2WaitForRead(void)
-{
+INLINE void ADC1_setSeq2WaitForRead(void) {
   ADC1->SQSTATSET.bit.WFR2SET = 1u;
 }
 
 /** \brief Set Sequence 3 Wait for Read Status
  */
-INLINE void ADC1_setSeq3WaitForRead(void)
-{
+INLINE void ADC1_setSeq3WaitForRead(void) {
   ADC1->SQSTATSET.bit.WFR3SET = 1u;
 }
 
 /** \brief Set Sequence 0 Collision Status
  */
-INLINE void ADC1_setSeq0CollSts(void)
-{
+INLINE void ADC1_setSeq0CollSts(void) {
   ADC1->SQSTATSET.bit.COLL0SET = 1u;
 }
 
 /** \brief Set Sequence 1 Collision Status
  */
-INLINE void ADC1_setSeq1CollSts(void)
-{
+INLINE void ADC1_setSeq1CollSts(void) {
   ADC1->SQSTATSET.bit.COLL1SET = 1u;
 }
 
 /** \brief Set Sequence 2 Collision Status
  */
-INLINE void ADC1_setSeq2CollSts(void)
-{
+INLINE void ADC1_setSeq2CollSts(void) {
   ADC1->SQSTATSET.bit.COLL2SET = 1u;
 }
 
 /** \brief Set Sequence 3 Collision Status
  */
-INLINE void ADC1_setSeq3CollSts(void)
-{
+INLINE void ADC1_setSeq3CollSts(void) {
   ADC1->SQSTATSET.bit.COLL3SET = 1u;
 }
 
 /** \brief Set Sequence 0 Interrupt Status
  */
-INLINE void ADC1_setSeq0IntSts(void)
-{
+INLINE void ADC1_setSeq0IntSts(void) {
   ADC1->SQSTATSET.bit.SQ0SET = 1u;
 }
 
 /** \brief Set Sequence 1 Interrupt Status
  */
-INLINE void ADC1_setSeq1IntSts(void)
-{
+INLINE void ADC1_setSeq1IntSts(void) {
   ADC1->SQSTATSET.bit.SQ1SET = 1u;
 }
 
 /** \brief Set Sequence 2 Interrupt Status
  */
-INLINE void ADC1_setSeq2IntSts(void)
-{
+INLINE void ADC1_setSeq2IntSts(void) {
   ADC1->SQSTATSET.bit.SQ2SET = 1u;
 }
 
 /** \brief Set Sequence 3 Interrupt Status
  */
-INLINE void ADC1_setSeq3IntSts(void)
-{
+INLINE void ADC1_setSeq3IntSts(void) {
   ADC1->SQSTATSET.bit.SQ3SET = 1u;
 }
 
@@ -2415,8 +2267,7 @@ INLINE void ADC1_setSeq3IntSts(void)
  *
  *  \param s_value Channel 0 configuration
  */
-INLINE void ADC1_setCh0Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh0Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG0.reg = (uint32)s_value.reg;
 }
 
@@ -2424,8 +2275,7 @@ INLINE void ADC1_setCh0Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 1 configuration
  */
-INLINE void ADC1_setCh1Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh1Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG1.reg = (uint32)s_value.reg;
 }
 
@@ -2433,8 +2283,7 @@ INLINE void ADC1_setCh1Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 2 configuration
  */
-INLINE void ADC1_setCh2Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh2Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG2.reg = (uint32)s_value.reg;
 }
 
@@ -2442,8 +2291,7 @@ INLINE void ADC1_setCh2Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 3 configuration
  */
-INLINE void ADC1_setCh3Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh3Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG3.reg = (uint32)s_value.reg;
 }
 
@@ -2451,8 +2299,7 @@ INLINE void ADC1_setCh3Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 4 configuration
  */
-INLINE void ADC1_setCh4Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh4Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG4.reg = (uint32)s_value.reg;
 }
 
@@ -2460,8 +2307,7 @@ INLINE void ADC1_setCh4Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 5 configuration
  */
-INLINE void ADC1_setCh5Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh5Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG5.reg = (uint32)s_value.reg;
 }
 
@@ -2469,8 +2315,7 @@ INLINE void ADC1_setCh5Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 6 configuration
  */
-INLINE void ADC1_setCh6Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh6Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG6.reg = (uint32)s_value.reg;
 }
 
@@ -2478,8 +2323,7 @@ INLINE void ADC1_setCh6Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 7 configuration
  */
-INLINE void ADC1_setCh7Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh7Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG7.reg = (uint32)s_value.reg;
 }
 
@@ -2487,8 +2331,7 @@ INLINE void ADC1_setCh7Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 8 configuration
  */
-INLINE void ADC1_setCh8Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh8Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG8.reg = (uint32)s_value.reg;
 }
 
@@ -2496,8 +2339,7 @@ INLINE void ADC1_setCh8Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 9 configuration
  */
-INLINE void ADC1_setCh9Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh9Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG9.reg = (uint32)s_value.reg;
 }
 
@@ -2505,8 +2347,7 @@ INLINE void ADC1_setCh9Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 10 configuration
  */
-INLINE void ADC1_setCh10Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh10Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG10.reg = (uint32)s_value.reg;
 }
 
@@ -2514,8 +2355,7 @@ INLINE void ADC1_setCh10Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 11 configuration
  */
-INLINE void ADC1_setCh11Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh11Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG11.reg = (uint32)s_value.reg;
 }
 
@@ -2523,8 +2363,7 @@ INLINE void ADC1_setCh11Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 12 configuration
  */
-INLINE void ADC1_setCh12Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh12Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG12.reg = (uint32)s_value.reg;
 }
 
@@ -2532,8 +2371,7 @@ INLINE void ADC1_setCh12Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 13 configuration
  */
-INLINE void ADC1_setCh13Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh13Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG13.reg = (uint32)s_value.reg;
 }
 
@@ -2541,8 +2379,7 @@ INLINE void ADC1_setCh13Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 14 configuration
  */
-INLINE void ADC1_setCh14Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh14Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG14.reg = (uint32)s_value.reg;
 }
 
@@ -2550,8 +2387,7 @@ INLINE void ADC1_setCh14Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 15 configuration
  */
-INLINE void ADC1_setCh15Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh15Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG15.reg = (uint32)s_value.reg;
 }
 
@@ -2559,8 +2395,7 @@ INLINE void ADC1_setCh15Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 16 configuration
  */
-INLINE void ADC1_setCh16Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh16Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG16.reg = (uint32)s_value.reg;
 }
 
@@ -2568,8 +2403,7 @@ INLINE void ADC1_setCh16Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 17 configuration
  */
-INLINE void ADC1_setCh17Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh17Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG17.reg = (uint32)s_value.reg;
 }
 
@@ -2577,8 +2411,7 @@ INLINE void ADC1_setCh17Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 18 configuration
  */
-INLINE void ADC1_setCh18Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh18Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG18.reg = (uint32)s_value.reg;
 }
 
@@ -2586,8 +2419,7 @@ INLINE void ADC1_setCh18Config(tADC1_CHCFGx s_value)
  *
  *  \param s_value Channel 19 configuration
  */
-INLINE void ADC1_setCh19Config(tADC1_CHCFGx s_value)
-{
+INLINE void ADC1_setCh19Config(tADC1_CHCFGx s_value) {
   ADC1->CHCFG19.reg = (uint32)s_value.reg;
 }
 
@@ -2595,8 +2427,7 @@ INLINE void ADC1_setCh19Config(tADC1_CHCFGx s_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh0Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh0Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG0.bit.INSEL = (uint8)e_value;
 }
 
@@ -2604,8 +2435,7 @@ INLINE void ADC1_setCh0Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh1Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh1Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG1.bit.INSEL = (uint8)e_value;
 }
 
@@ -2613,8 +2443,7 @@ INLINE void ADC1_setCh1Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh2Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh2Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG2.bit.INSEL = (uint8)e_value;
 }
 
@@ -2622,8 +2451,7 @@ INLINE void ADC1_setCh2Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh3Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh3Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG3.bit.INSEL = (uint8)e_value;
 }
 
@@ -2631,8 +2459,7 @@ INLINE void ADC1_setCh3Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh4Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh4Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG4.bit.INSEL = (uint8)e_value;
 }
 
@@ -2640,8 +2467,7 @@ INLINE void ADC1_setCh4Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh5Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh5Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG5.bit.INSEL = (uint8)e_value;
 }
 
@@ -2649,8 +2475,7 @@ INLINE void ADC1_setCh5Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh6Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh6Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG6.bit.INSEL = (uint8)e_value;
 }
 
@@ -2658,8 +2483,7 @@ INLINE void ADC1_setCh6Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh7Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh7Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG7.bit.INSEL = (uint8)e_value;
 }
 
@@ -2667,8 +2491,7 @@ INLINE void ADC1_setCh7Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh8Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh8Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG8.bit.INSEL = (uint8)e_value;
 }
 
@@ -2676,8 +2499,7 @@ INLINE void ADC1_setCh8Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh9Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh9Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG9.bit.INSEL = (uint8)e_value;
 }
 
@@ -2685,8 +2507,7 @@ INLINE void ADC1_setCh9Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh10Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh10Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG10.bit.INSEL = (uint8)e_value;
 }
 
@@ -2694,8 +2515,7 @@ INLINE void ADC1_setCh10Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh11Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh11Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG11.bit.INSEL = (uint8)e_value;
 }
 
@@ -2703,8 +2523,7 @@ INLINE void ADC1_setCh11Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh12Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh12Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG12.bit.INSEL = (uint8)e_value;
 }
 
@@ -2712,8 +2531,7 @@ INLINE void ADC1_setCh12Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh13Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh13Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG13.bit.INSEL = (uint8)e_value;
 }
 
@@ -2721,8 +2539,7 @@ INLINE void ADC1_setCh13Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh14Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh14Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG14.bit.INSEL = (uint8)e_value;
 }
 
@@ -2730,8 +2547,7 @@ INLINE void ADC1_setCh14Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh15Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh15Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG15.bit.INSEL = (uint8)e_value;
 }
 
@@ -2739,8 +2555,7 @@ INLINE void ADC1_setCh15Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh16Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh16Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG16.bit.INSEL = (uint8)e_value;
 }
 
@@ -2748,8 +2563,7 @@ INLINE void ADC1_setCh16Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh17Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh17Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG17.bit.INSEL = (uint8)e_value;
 }
 
@@ -2757,8 +2571,7 @@ INLINE void ADC1_setCh17Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh18Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh18Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG18.bit.INSEL = (uint8)e_value;
 }
 
@@ -2766,8 +2579,7 @@ INLINE void ADC1_setCh18Insel(tADC1_CHINSELx e_value)
  *
  *  \param e_value input selection for the channel
  */
-INLINE void ADC1_setCh19Insel(tADC1_CHINSELx e_value)
-{
+INLINE void ADC1_setCh19Insel(tADC1_CHINSELx e_value) {
   ADC1->CHCFG19.bit.INSEL = (uint8)e_value;
 }
 
@@ -2775,8 +2587,7 @@ INLINE void ADC1_setCh19Insel(tADC1_CHINSELx e_value)
  *
  * \return uint8 Channel 0 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh0EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh0EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH0;
 }
 
@@ -2784,8 +2595,7 @@ INLINE uint8 ADC1_getCh0EndOfConvSts(void)
  *
  * \return uint8 Channel 1 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh1EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh1EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH1;
 }
 
@@ -2793,8 +2603,7 @@ INLINE uint8 ADC1_getCh1EndOfConvSts(void)
  *
  * \return uint8 Channel 2 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh2EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh2EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH2;
 }
 
@@ -2802,8 +2611,7 @@ INLINE uint8 ADC1_getCh2EndOfConvSts(void)
  *
  * \return uint8 Channel 3 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh3EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh3EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH3;
 }
 
@@ -2811,8 +2619,7 @@ INLINE uint8 ADC1_getCh3EndOfConvSts(void)
  *
  * \return uint8 Channel 4 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh4EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh4EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH4;
 }
 
@@ -2820,8 +2627,7 @@ INLINE uint8 ADC1_getCh4EndOfConvSts(void)
  *
  * \return uint8 Channel 5 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh5EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh5EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH5;
 }
 
@@ -2829,8 +2635,7 @@ INLINE uint8 ADC1_getCh5EndOfConvSts(void)
  *
  * \return uint8 Channel 6 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh6EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh6EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH6;
 }
 
@@ -2838,8 +2643,7 @@ INLINE uint8 ADC1_getCh6EndOfConvSts(void)
  *
  * \return uint8 Channel 7 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh7EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh7EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH7;
 }
 
@@ -2847,8 +2651,7 @@ INLINE uint8 ADC1_getCh7EndOfConvSts(void)
  *
  * \return uint8 Channel 8 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh8EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh8EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH8;
 }
 
@@ -2856,8 +2659,7 @@ INLINE uint8 ADC1_getCh8EndOfConvSts(void)
  *
  * \return uint8 Channel 9 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh9EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh9EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH9;
 }
 
@@ -2865,8 +2667,7 @@ INLINE uint8 ADC1_getCh9EndOfConvSts(void)
  *
  * \return uint8 Channel 10 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh10EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh10EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH10;
 }
 
@@ -2874,8 +2675,7 @@ INLINE uint8 ADC1_getCh10EndOfConvSts(void)
  *
  * \return uint8 Channel 11 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh11EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh11EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH11;
 }
 
@@ -2883,8 +2683,7 @@ INLINE uint8 ADC1_getCh11EndOfConvSts(void)
  *
  * \return uint8 Channel 12 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh12EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh12EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH12;
 }
 
@@ -2892,8 +2691,7 @@ INLINE uint8 ADC1_getCh12EndOfConvSts(void)
  *
  * \return uint8 Channel 13 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh13EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh13EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH13;
 }
 
@@ -2901,8 +2699,7 @@ INLINE uint8 ADC1_getCh13EndOfConvSts(void)
  *
  * \return uint8 Channel 14 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh14EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh14EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH14;
 }
 
@@ -2910,8 +2707,7 @@ INLINE uint8 ADC1_getCh14EndOfConvSts(void)
  *
  * \return uint8 Channel 15 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh15EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh15EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH15;
 }
 
@@ -2919,8 +2715,7 @@ INLINE uint8 ADC1_getCh15EndOfConvSts(void)
  *
  * \return uint8 Channel 16 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh16EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh16EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH16;
 }
 
@@ -2928,8 +2723,7 @@ INLINE uint8 ADC1_getCh16EndOfConvSts(void)
  *
  * \return uint8 Channel 17 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh17EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh17EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH17;
 }
 
@@ -2937,8 +2731,7 @@ INLINE uint8 ADC1_getCh17EndOfConvSts(void)
  *
  * \return uint8 Channel 18 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh18EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh18EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH18;
 }
 
@@ -2946,8 +2739,7 @@ INLINE uint8 ADC1_getCh18EndOfConvSts(void)
  *
  * \return uint8 Channel 19 End Of Conversion Status
  */
-INLINE uint8 ADC1_getCh19EndOfConvSts(void)
-{
+INLINE uint8 ADC1_getCh19EndOfConvSts(void) {
   return (uint8)ADC1->CHSTAT.bit.CH19;
 }
 
@@ -2955,288 +2747,247 @@ INLINE uint8 ADC1_getCh19EndOfConvSts(void)
  *
  * \return uint8 Current Channel under conversion
  */
-INLINE uint8 ADC1_getCurrChannel(void)
-{
+INLINE uint8 ADC1_getCurrChannel(void) {
   return (uint8)ADC1->CHSTAT.bit.CHNUM;
 }
 
 /** \brief Clear Channel 0 End Of Conversion Status
  */
-INLINE void ADC1_clrCh0EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh0EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH0CLR = 1u;
 }
 
 /** \brief Clear Channel 1 End Of Conversion Status
  */
-INLINE void ADC1_clrCh1EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh1EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH1CLR = 1u;
 }
 
 /** \brief Clear Channel 2 End Of Conversion Status
  */
-INLINE void ADC1_clrCh2EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh2EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH2CLR = 1u;
 }
 
 /** \brief Clear Channel 3 End Of Conversion Status
  */
-INLINE void ADC1_clrCh3EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh3EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH3CLR = 1u;
 }
 
 /** \brief Clear Channel 4 End Of Conversion Status
  */
-INLINE void ADC1_clrCh4EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh4EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH4CLR = 1u;
 }
 
 /** \brief Clear Channel 5 End Of Conversion Status
  */
-INLINE void ADC1_clrCh5EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh5EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH5CLR = 1u;
 }
 
 /** \brief Clear Channel 6 End Of Conversion Status
  */
-INLINE void ADC1_clrCh6EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh6EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH6CLR = 1u;
 }
 
 /** \brief Clear Channel 7 End Of Conversion Status
  */
-INLINE void ADC1_clrCh7EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh7EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH7CLR = 1u;
 }
 
 /** \brief Clear Channel 8 End Of Conversion Status
  */
-INLINE void ADC1_clrCh8EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh8EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH8CLR = 1u;
 }
 
 /** \brief Clear Channel 9 End Of Conversion Status
  */
-INLINE void ADC1_clrCh9EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh9EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH9CLR = 1u;
 }
 
 /** \brief Clear Channel 10 End Of Conversion Status
  */
-INLINE void ADC1_clrCh10EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh10EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH10CLR = 1u;
 }
 
 /** \brief Clear Channel 11 End Of Conversion Status
  */
-INLINE void ADC1_clrCh11EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh11EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH11CLR = 1u;
 }
 
 /** \brief Clear Channel 12 End Of Conversion Status
  */
-INLINE void ADC1_clrCh12EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh12EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH12CLR = 1u;
 }
 
 /** \brief Clear Channel 13 End Of Conversion Status
  */
-INLINE void ADC1_clrCh13EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh13EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH13CLR = 1u;
 }
 
 /** \brief Clear Channel 14 End Of Conversion Status
  */
-INLINE void ADC1_clrCh14EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh14EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH14CLR = 1u;
 }
 
 /** \brief Clear Channel 15 End Of Conversion Status
  */
-INLINE void ADC1_clrCh15EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh15EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH15CLR = 1u;
 }
 
 /** \brief Clear Channel 16 End Of Conversion Status
  */
-INLINE void ADC1_clrCh16EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh16EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH16CLR = 1u;
 }
 
 /** \brief Clear Channel 17 End Of Conversion Status
  */
-INLINE void ADC1_clrCh17EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh17EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH17CLR = 1u;
 }
 
 /** \brief Clear Channel 18 End Of Conversion Status
  */
-INLINE void ADC1_clrCh18EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh18EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH18CLR = 1u;
 }
 
 /** \brief Clear Channel 19 End Of Conversion Status
  */
-INLINE void ADC1_clrCh19EndOfConvSts(void)
-{
+INLINE void ADC1_clrCh19EndOfConvSts(void) {
   ADC1->CHSTATCLR.bit.CH19CLR = 1u;
 }
 
 /** \brief Set Channel 0 End Of Conversion Status
  */
-INLINE void ADC1_setCh0EndOfConvSts(void)
-{
+INLINE void ADC1_setCh0EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH0SET = 1u;
 }
 
 /** \brief Set Channel 1 End Of Conversion Status
  */
-INLINE void ADC1_setCh1EndOfConvSts(void)
-{
+INLINE void ADC1_setCh1EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH1SET = 1u;
 }
 
 /** \brief Set Channel 2 End Of Conversion Status
  */
-INLINE void ADC1_setCh2EndOfConvSts(void)
-{
+INLINE void ADC1_setCh2EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH2SET = 1u;
 }
 
 /** \brief Set Channel 3 End Of Conversion Status
  */
-INLINE void ADC1_setCh3EndOfConvSts(void)
-{
+INLINE void ADC1_setCh3EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH3SET = 1u;
 }
 
 /** \brief Set Channel 4 End Of Conversion Status
  */
-INLINE void ADC1_setCh4EndOfConvSts(void)
-{
+INLINE void ADC1_setCh4EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH4SET = 1u;
 }
 
 /** \brief Set Channel 5 End Of Conversion Status
  */
-INLINE void ADC1_setCh5EndOfConvSts(void)
-{
+INLINE void ADC1_setCh5EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH5SET = 1u;
 }
 
 /** \brief Set Channel 6 End Of Conversion Status
  */
-INLINE void ADC1_setCh6EndOfConvSts(void)
-{
+INLINE void ADC1_setCh6EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH6SET = 1u;
 }
 
 /** \brief Set Channel 7 End Of Conversion Status
  */
-INLINE void ADC1_setCh7EndOfConvSts(void)
-{
+INLINE void ADC1_setCh7EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH7SET = 1u;
 }
 
 /** \brief Set Channel 8 End Of Conversion Status
  */
-INLINE void ADC1_setCh8EndOfConvSts(void)
-{
+INLINE void ADC1_setCh8EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH8SET = 1u;
 }
 
 /** \brief Set Channel 9 End Of Conversion Status
  */
-INLINE void ADC1_setCh9EndOfConvSts(void)
-{
+INLINE void ADC1_setCh9EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH9SET = 1u;
 }
 
 /** \brief Set Channel 10 End Of Conversion Status
  */
-INLINE void ADC1_setCh10EndOfConvSts(void)
-{
+INLINE void ADC1_setCh10EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH10SET = 1u;
 }
 
 /** \brief Set Channel 11 End Of Conversion Status
  */
-INLINE void ADC1_setCh11EndOfConvSts(void)
-{
+INLINE void ADC1_setCh11EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH11SET = 1u;
 }
 
 /** \brief Set Channel 12 End Of Conversion Status
  */
-INLINE void ADC1_setCh12EndOfConvSts(void)
-{
+INLINE void ADC1_setCh12EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH12SET = 1u;
 }
 
 /** \brief Set Channel 13 End Of Conversion Status
  */
-INLINE void ADC1_setCh13EndOfConvSts(void)
-{
+INLINE void ADC1_setCh13EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH13SET = 1u;
 }
 
 /** \brief Set Channel 14 End Of Conversion Status
  */
-INLINE void ADC1_setCh14EndOfConvSts(void)
-{
+INLINE void ADC1_setCh14EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH14SET = 1u;
 }
 
 /** \brief Set Channel 15 End Of Conversion Status
  */
-INLINE void ADC1_setCh15EndOfConvSts(void)
-{
+INLINE void ADC1_setCh15EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH15SET = 1u;
 }
 
 /** \brief Set Channel 16 End Of Conversion Status
  */
-INLINE void ADC1_setCh16EndOfConvSts(void)
-{
+INLINE void ADC1_setCh16EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH16SET = 1u;
 }
 
 /** \brief Set Channel 17 End Of Conversion Status
  */
-INLINE void ADC1_setCh17EndOfConvSts(void)
-{
+INLINE void ADC1_setCh17EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH17SET = 1u;
 }
 
 /** \brief Set Channel 18 End Of Conversion Status
  */
-INLINE void ADC1_setCh18EndOfConvSts(void)
-{
+INLINE void ADC1_setCh18EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH18SET = 1u;
 }
 
 /** \brief Set Channel 19 End Of Conversion Status
  */
-INLINE void ADC1_setCh19EndOfConvSts(void)
-{
+INLINE void ADC1_setCh19EndOfConvSts(void) {
   ADC1->CHSTATSET.bit.CH19SET = 1u;
 }
 
@@ -3244,8 +2995,7 @@ INLINE void ADC1_setCh19EndOfConvSts(void)
  *
  *  \param s_value Conversion Class 0
  */
-INLINE void ADC1_setConvClass0Config(tADC1_CONVCFGx s_value)
-{
+INLINE void ADC1_setConvClass0Config(tADC1_CONVCFGx s_value) {
   ADC1->CONVCFG0.reg = (uint32)s_value.reg;
 }
 
@@ -3253,8 +3003,7 @@ INLINE void ADC1_setConvClass0Config(tADC1_CONVCFGx s_value)
  *
  *  \param s_value Conversion Class 1
  */
-INLINE void ADC1_setConvClass1Config(tADC1_CONVCFGx s_value)
-{
+INLINE void ADC1_setConvClass1Config(tADC1_CONVCFGx s_value) {
   ADC1->CONVCFG1.reg = (uint32)s_value.reg;
 }
 
@@ -3262,8 +3011,7 @@ INLINE void ADC1_setConvClass1Config(tADC1_CONVCFGx s_value)
  *
  *  \param s_value Conversion Class 2
  */
-INLINE void ADC1_setConvClass2Config(tADC1_CONVCFGx s_value)
-{
+INLINE void ADC1_setConvClass2Config(tADC1_CONVCFGx s_value) {
   ADC1->CONVCFG2.reg = (uint32)s_value.reg;
 }
 
@@ -3271,764 +3019,655 @@ INLINE void ADC1_setConvClass2Config(tADC1_CONVCFGx s_value)
  *
  *  \param s_value Conversion Class 3
  */
-INLINE void ADC1_setConvClass3Config(tADC1_CONVCFGx s_value)
-{
+INLINE void ADC1_setConvClass3Config(tADC1_CONVCFGx s_value) {
   ADC1->CONVCFG3.reg = (uint32)s_value.reg;
 }
 
 /** \brief Enable Calibration Channel 0
  */
-INLINE void ADC1_enCalibCh0 (void)
-{
+INLINE void ADC1_enCalibCh0(void) {
   ADC1->CALEN.bit.CALEN0 = 1u;
 }
 
 /** \brief Disable Calibration Channel 0
  */
-INLINE void ADC1_disCalibCh0 (void)
-{
+INLINE void ADC1_disCalibCh0(void) {
   ADC1->CALEN.bit.CALEN0 = 0u;
 }
 
 /** \brief Enable Calibration Channel 1
  */
-INLINE void ADC1_enCalibCh1 (void)
-{
+INLINE void ADC1_enCalibCh1(void) {
   ADC1->CALEN.bit.CALEN1 = 1u;
 }
 
 /** \brief Disable Calibration Channel 1
  */
-INLINE void ADC1_disCalibCh1 (void)
-{
+INLINE void ADC1_disCalibCh1(void) {
   ADC1->CALEN.bit.CALEN1 = 0u;
 }
 
 /** \brief Enable Calibration Channel 2
  */
-INLINE void ADC1_enCalibCh2 (void)
-{
+INLINE void ADC1_enCalibCh2(void) {
   ADC1->CALEN.bit.CALEN2 = 1u;
 }
 
 /** \brief Disable Calibration Channel 2
  */
-INLINE void ADC1_disCalibCh2 (void)
-{
+INLINE void ADC1_disCalibCh2(void) {
   ADC1->CALEN.bit.CALEN2 = 0u;
 }
 
 /** \brief Enable Calibration Channel 3
  */
-INLINE void ADC1_enCalibCh3 (void)
-{
+INLINE void ADC1_enCalibCh3(void) {
   ADC1->CALEN.bit.CALEN3 = 1u;
 }
 
 /** \brief Disable Calibration Channel 3
  */
-INLINE void ADC1_disCalibCh3 (void)
-{
+INLINE void ADC1_disCalibCh3(void) {
   ADC1->CALEN.bit.CALEN3 = 0u;
 }
 
 /** \brief Enable Calibration Channel 4
  */
-INLINE void ADC1_enCalibCh4 (void)
-{
+INLINE void ADC1_enCalibCh4(void) {
   ADC1->CALEN.bit.CALEN4 = 1u;
 }
 
 /** \brief Disable Calibration Channel 4
  */
-INLINE void ADC1_disCalibCh4 (void)
-{
+INLINE void ADC1_disCalibCh4(void) {
   ADC1->CALEN.bit.CALEN4 = 0u;
 }
 
 /** \brief Enable Calibration Channel 5
  */
-INLINE void ADC1_enCalibCh5 (void)
-{
+INLINE void ADC1_enCalibCh5(void) {
   ADC1->CALEN.bit.CALEN5 = 1u;
 }
 
 /** \brief Disable Calibration Channel 5
  */
-INLINE void ADC1_disCalibCh5 (void)
-{
+INLINE void ADC1_disCalibCh5(void) {
   ADC1->CALEN.bit.CALEN5 = 0u;
 }
 
 /** \brief Enable Calibration Channel 6
  */
-INLINE void ADC1_enCalibCh6 (void)
-{
+INLINE void ADC1_enCalibCh6(void) {
   ADC1->CALEN.bit.CALEN6 = 1u;
 }
 
 /** \brief Disable Calibration Channel 6
  */
-INLINE void ADC1_disCalibCh6 (void)
-{
+INLINE void ADC1_disCalibCh6(void) {
   ADC1->CALEN.bit.CALEN6 = 0u;
 }
 
 /** \brief Enable Calibration Channel 7
  */
-INLINE void ADC1_enCalibCh7 (void)
-{
+INLINE void ADC1_enCalibCh7(void) {
   ADC1->CALEN.bit.CALEN7 = 1u;
 }
 
 /** \brief Disable Calibration Channel 7
  */
-INLINE void ADC1_disCalibCh7 (void)
-{
+INLINE void ADC1_disCalibCh7(void) {
   ADC1->CALEN.bit.CALEN7 = 0u;
 }
 
 /** \brief Enable Calibration Channel 8
  */
-INLINE void ADC1_enCalibCh8 (void)
-{
+INLINE void ADC1_enCalibCh8(void) {
   ADC1->CALEN.bit.CALEN8 = 1u;
 }
 
 /** \brief Disable Calibration Channel 8
  */
-INLINE void ADC1_disCalibCh8 (void)
-{
+INLINE void ADC1_disCalibCh8(void) {
   ADC1->CALEN.bit.CALEN8 = 0u;
 }
 
 /** \brief Enable Calibration Channel 9
  */
-INLINE void ADC1_enCalibCh9 (void)
-{
+INLINE void ADC1_enCalibCh9(void) {
   ADC1->CALEN.bit.CALEN9 = 1u;
 }
 
 /** \brief Disable Calibration Channel 9
  */
-INLINE void ADC1_disCalibCh9 (void)
-{
+INLINE void ADC1_disCalibCh9(void) {
   ADC1->CALEN.bit.CALEN9 = 0u;
 }
 
 /** \brief Enable Calibration Channel 10
  */
-INLINE void ADC1_enCalibCh10(void)
-{
+INLINE void ADC1_enCalibCh10(void) {
   ADC1->CALEN.bit.CALEN10 = 1u;
 }
 
 /** \brief Disable Calibration Channel 10
  */
-INLINE void ADC1_disCalibCh10(void)
-{
+INLINE void ADC1_disCalibCh10(void) {
   ADC1->CALEN.bit.CALEN10 = 0u;
 }
 
 /** \brief Enable Calibration Channel 11
  */
-INLINE void ADC1_enCalibCh11(void)
-{
+INLINE void ADC1_enCalibCh11(void) {
   ADC1->CALEN.bit.CALEN11 = 1u;
 }
 
 /** \brief Disable Calibration Channel 11
  */
-INLINE void ADC1_disCalibCh11(void)
-{
+INLINE void ADC1_disCalibCh11(void) {
   ADC1->CALEN.bit.CALEN11 = 0u;
 }
 
 /** \brief Enable Calibration Channel 12
  */
-INLINE void ADC1_enCalibCh12(void)
-{
+INLINE void ADC1_enCalibCh12(void) {
   ADC1->CALEN.bit.CALEN12 = 1u;
 }
 
 /** \brief Disable Calibration Channel 12
  */
-INLINE void ADC1_disCalibCh12(void)
-{
+INLINE void ADC1_disCalibCh12(void) {
   ADC1->CALEN.bit.CALEN12 = 0u;
 }
 
 /** \brief Enable Calibration Channel 13
  */
-INLINE void ADC1_enCalibCh13(void)
-{
+INLINE void ADC1_enCalibCh13(void) {
   ADC1->CALEN.bit.CALEN13 = 1u;
 }
 
 /** \brief Disable Calibration Channel 13
  */
-INLINE void ADC1_disCalibCh13(void)
-{
+INLINE void ADC1_disCalibCh13(void) {
   ADC1->CALEN.bit.CALEN13 = 0u;
 }
 
 /** \brief Enable Calibration Channel 14
  */
-INLINE void ADC1_enCalibCh14(void)
-{
+INLINE void ADC1_enCalibCh14(void) {
   ADC1->CALEN.bit.CALEN14 = 1u;
 }
 
 /** \brief Disable Calibration Channel 14
  */
-INLINE void ADC1_disCalibCh14(void)
-{
+INLINE void ADC1_disCalibCh14(void) {
   ADC1->CALEN.bit.CALEN14 = 0u;
 }
 
 /** \brief Enable Calibration Channel 15
  */
-INLINE void ADC1_enCalibCh15(void)
-{
+INLINE void ADC1_enCalibCh15(void) {
   ADC1->CALEN.bit.CALEN15 = 1u;
 }
 
 /** \brief Disable Calibration Channel 15
  */
-INLINE void ADC1_disCalibCh15(void)
-{
+INLINE void ADC1_disCalibCh15(void) {
   ADC1->CALEN.bit.CALEN15 = 0u;
 }
 
 /** \brief Enable Calibration Channel 16
  */
-INLINE void ADC1_enCalibCh16(void)
-{
+INLINE void ADC1_enCalibCh16(void) {
   ADC1->CALEN.bit.CALEN16 = 1u;
 }
 
 /** \brief Disable Calibration Channel 16
  */
-INLINE void ADC1_disCalibCh16(void)
-{
+INLINE void ADC1_disCalibCh16(void) {
   ADC1->CALEN.bit.CALEN16 = 0u;
 }
 
 /** \brief Enable Calibration Channel 17
  */
-INLINE void ADC1_enCalibCh17(void)
-{
+INLINE void ADC1_enCalibCh17(void) {
   ADC1->CALEN.bit.CALEN17 = 1u;
 }
 
 /** \brief Disable Calibration Channel 17
  */
-INLINE void ADC1_disCalibCh17(void)
-{
+INLINE void ADC1_disCalibCh17(void) {
   ADC1->CALEN.bit.CALEN17 = 0u;
 }
 
 /** \brief Enable Calibration Channel 18
  */
-INLINE void ADC1_enCalibCh18(void)
-{
+INLINE void ADC1_enCalibCh18(void) {
   ADC1->CALEN.bit.CALEN18 = 1u;
 }
 
 /** \brief Disable Calibration Channel 18
  */
-INLINE void ADC1_disCalibCh18(void)
-{
+INLINE void ADC1_disCalibCh18(void) {
   ADC1->CALEN.bit.CALEN18 = 0u;
 }
 
 /** \brief Enable Calibration Channel 19
  */
-INLINE void ADC1_enCalibCh19(void)
-{
+INLINE void ADC1_enCalibCh19(void) {
   ADC1->CALEN.bit.CALEN19 = 1u;
 }
 
 /** \brief Disable Calibration Channel 19
  */
-INLINE void ADC1_disCalibCh19(void)
-{
+INLINE void ADC1_disCalibCh19(void) {
   ADC1->CALEN.bit.CALEN19 = 0u;
 }
 
 /** \brief Enable Calibration Channel 20
  */
-INLINE void ADC1_enCalibCh20(void)
-{
+INLINE void ADC1_enCalibCh20(void) {
   ADC1->CALEN.bit.CALEN20 = 1u;
 }
 
 /** \brief Disable Calibration Channel 20
  */
-INLINE void ADC1_disCalibCh20(void)
-{
+INLINE void ADC1_disCalibCh20(void) {
   ADC1->CALEN.bit.CALEN20 = 0u;
 }
 
 /** \brief Enable Calibration Channel 21
  */
-INLINE void ADC1_enCalibCh21(void)
-{
+INLINE void ADC1_enCalibCh21(void) {
   ADC1->CALEN.bit.CALEN21 = 1u;
 }
 
 /** \brief Disable Calibration Channel 21
  */
-INLINE void ADC1_disCalibCh21(void)
-{
+INLINE void ADC1_disCalibCh21(void) {
   ADC1->CALEN.bit.CALEN21 = 0u;
 }
 
 /** \brief Enable Calibration Channel 22
  */
-INLINE void ADC1_enCalibCh22(void)
-{
+INLINE void ADC1_enCalibCh22(void) {
   ADC1->CALEN.bit.CALEN22 = 1u;
 }
 
 /** \brief Disable Calibration Channel 22
  */
-INLINE void ADC1_disCalibCh22(void)
-{
+INLINE void ADC1_disCalibCh22(void) {
   ADC1->CALEN.bit.CALEN22 = 0u;
 }
 
 /** \brief Enable Calibration Channel 23
  */
-INLINE void ADC1_enCalibCh23(void)
-{
+INLINE void ADC1_enCalibCh23(void) {
   ADC1->CALEN.bit.CALEN23 = 1u;
 }
 
 /** \brief Disable Calibration Channel 23
  */
-INLINE void ADC1_disCalibCh23(void)
-{
+INLINE void ADC1_disCalibCh23(void) {
   ADC1->CALEN.bit.CALEN23 = 0u;
 }
 
 /** \brief Enable Calibration Channel 24
  */
-INLINE void ADC1_enCalibCh24(void)
-{
+INLINE void ADC1_enCalibCh24(void) {
   ADC1->CALEN.bit.CALEN24 = 1u;
 }
 
 /** \brief Disable Calibration Channel 24
  */
-INLINE void ADC1_disCalibCh24(void)
-{
+INLINE void ADC1_disCalibCh24(void) {
   ADC1->CALEN.bit.CALEN24 = 0u;
 }
 
 /** \brief Enable Calibration Channel 25
  */
-INLINE void ADC1_enCalibCh25(void)
-{
+INLINE void ADC1_enCalibCh25(void) {
   ADC1->CALEN.bit.CALEN25 = 1u;
 }
 
 /** \brief Disable Calibration Channel 25
  */
-INLINE void ADC1_disCalibCh25(void)
-{
+INLINE void ADC1_disCalibCh25(void) {
   ADC1->CALEN.bit.CALEN25 = 0u;
 }
 
 /** \brief Enable Calibration Channel 26
  */
-INLINE void ADC1_enCalibCh26(void)
-{
+INLINE void ADC1_enCalibCh26(void) {
   ADC1->CALEN.bit.CALEN26 = 1u;
 }
 
 /** \brief Disable Calibration Channel 26
  */
-INLINE void ADC1_disCalibCh26(void)
-{
+INLINE void ADC1_disCalibCh26(void) {
   ADC1->CALEN.bit.CALEN26 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 0
  */
-INLINE void ADC1_enCalibProtCh0 (void)
-{
+INLINE void ADC1_enCalibProtCh0(void) {
   ADC1->CALPEN.bit.CALPEN0 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 0
  */
-INLINE void ADC1_disCalibProtCh0 (void)
-{
+INLINE void ADC1_disCalibProtCh0(void) {
   ADC1->CALPEN.bit.CALPEN0 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 1
  */
-INLINE void ADC1_enCalibProtCh1 (void)
-{
+INLINE void ADC1_enCalibProtCh1(void) {
   ADC1->CALPEN.bit.CALPEN1 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 1
  */
-INLINE void ADC1_disCalibProtCh1 (void)
-{
+INLINE void ADC1_disCalibProtCh1(void) {
   ADC1->CALPEN.bit.CALPEN1 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 2
  */
-INLINE void ADC1_enCalibProtCh2 (void)
-{
+INLINE void ADC1_enCalibProtCh2(void) {
   ADC1->CALPEN.bit.CALPEN2 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 2
  */
-INLINE void ADC1_disCalibProtCh2 (void)
-{
+INLINE void ADC1_disCalibProtCh2(void) {
   ADC1->CALPEN.bit.CALPEN2 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 3
  */
-INLINE void ADC1_enCalibProtCh3 (void)
-{
+INLINE void ADC1_enCalibProtCh3(void) {
   ADC1->CALPEN.bit.CALPEN3 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 3
  */
-INLINE void ADC1_disCalibProtCh3 (void)
-{
+INLINE void ADC1_disCalibProtCh3(void) {
   ADC1->CALPEN.bit.CALPEN3 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 4
  */
-INLINE void ADC1_enCalibProtCh4 (void)
-{
+INLINE void ADC1_enCalibProtCh4(void) {
   ADC1->CALPEN.bit.CALPEN4 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 4
  */
-INLINE void ADC1_disCalibProtCh4 (void)
-{
+INLINE void ADC1_disCalibProtCh4(void) {
   ADC1->CALPEN.bit.CALPEN4 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 5
  */
-INLINE void ADC1_enCalibProtCh5 (void)
-{
+INLINE void ADC1_enCalibProtCh5(void) {
   ADC1->CALPEN.bit.CALPEN5 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 5
  */
-INLINE void ADC1_disCalibProtCh5 (void)
-{
+INLINE void ADC1_disCalibProtCh5(void) {
   ADC1->CALPEN.bit.CALPEN5 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 6
  */
-INLINE void ADC1_enCalibProtCh6 (void)
-{
+INLINE void ADC1_enCalibProtCh6(void) {
   ADC1->CALPEN.bit.CALPEN6 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 6
  */
-INLINE void ADC1_disCalibProtCh6 (void)
-{
+INLINE void ADC1_disCalibProtCh6(void) {
   ADC1->CALPEN.bit.CALPEN6 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 7
  */
-INLINE void ADC1_enCalibProtCh7 (void)
-{
+INLINE void ADC1_enCalibProtCh7(void) {
   ADC1->CALPEN.bit.CALPEN7 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 7
  */
-INLINE void ADC1_disCalibProtCh7 (void)
-{
+INLINE void ADC1_disCalibProtCh7(void) {
   ADC1->CALPEN.bit.CALPEN7 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 8
  */
-INLINE void ADC1_enCalibProtCh8 (void)
-{
+INLINE void ADC1_enCalibProtCh8(void) {
   ADC1->CALPEN.bit.CALPEN8 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 8
  */
-INLINE void ADC1_disCalibProtCh8 (void)
-{
+INLINE void ADC1_disCalibProtCh8(void) {
   ADC1->CALPEN.bit.CALPEN8 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 9
  */
-INLINE void ADC1_enCalibProtCh9 (void)
-{
+INLINE void ADC1_enCalibProtCh9(void) {
   ADC1->CALPEN.bit.CALPEN9 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 9
  */
-INLINE void ADC1_disCalibProtCh9 (void)
-{
+INLINE void ADC1_disCalibProtCh9(void) {
   ADC1->CALPEN.bit.CALPEN9 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 10
  */
-INLINE void ADC1_enCalibProtCh10(void)
-{
+INLINE void ADC1_enCalibProtCh10(void) {
   ADC1->CALPEN.bit.CALPEN10 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 10
  */
-INLINE void ADC1_disCalibProtCh10(void)
-{
+INLINE void ADC1_disCalibProtCh10(void) {
   ADC1->CALPEN.bit.CALPEN10 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 11
  */
-INLINE void ADC1_enCalibProtCh11(void)
-{
+INLINE void ADC1_enCalibProtCh11(void) {
   ADC1->CALPEN.bit.CALPEN11 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 11
  */
-INLINE void ADC1_disCalibProtCh11(void)
-{
+INLINE void ADC1_disCalibProtCh11(void) {
   ADC1->CALPEN.bit.CALPEN11 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 12
  */
-INLINE void ADC1_enCalibProtCh12(void)
-{
+INLINE void ADC1_enCalibProtCh12(void) {
   ADC1->CALPEN.bit.CALPEN12 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 12
  */
-INLINE void ADC1_disCalibProtCh12(void)
-{
+INLINE void ADC1_disCalibProtCh12(void) {
   ADC1->CALPEN.bit.CALPEN12 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 13
  */
-INLINE void ADC1_enCalibProtCh13(void)
-{
+INLINE void ADC1_enCalibProtCh13(void) {
   ADC1->CALPEN.bit.CALPEN13 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 13
  */
-INLINE void ADC1_disCalibProtCh13(void)
-{
+INLINE void ADC1_disCalibProtCh13(void) {
   ADC1->CALPEN.bit.CALPEN13 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 14
  */
-INLINE void ADC1_enCalibProtCh14(void)
-{
+INLINE void ADC1_enCalibProtCh14(void) {
   ADC1->CALPEN.bit.CALPEN14 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 14
  */
-INLINE void ADC1_disCalibProtCh14(void)
-{
+INLINE void ADC1_disCalibProtCh14(void) {
   ADC1->CALPEN.bit.CALPEN14 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 15
  */
-INLINE void ADC1_enCalibProtCh15(void)
-{
+INLINE void ADC1_enCalibProtCh15(void) {
   ADC1->CALPEN.bit.CALPEN15 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 15
  */
-INLINE void ADC1_disCalibProtCh15(void)
-{
+INLINE void ADC1_disCalibProtCh15(void) {
   ADC1->CALPEN.bit.CALPEN15 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 16
  */
-INLINE void ADC1_enCalibProtCh16(void)
-{
+INLINE void ADC1_enCalibProtCh16(void) {
   ADC1->CALPEN.bit.CALPEN16 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 16
  */
-INLINE void ADC1_disCalibProtCh16(void)
-{
+INLINE void ADC1_disCalibProtCh16(void) {
   ADC1->CALPEN.bit.CALPEN16 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 17
  */
-INLINE void ADC1_enCalibProtCh17(void)
-{
+INLINE void ADC1_enCalibProtCh17(void) {
   ADC1->CALPEN.bit.CALPEN17 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 17
  */
-INLINE void ADC1_disCalibProtCh17(void)
-{
+INLINE void ADC1_disCalibProtCh17(void) {
   ADC1->CALPEN.bit.CALPEN17 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 18
  */
-INLINE void ADC1_enCalibProtCh18(void)
-{
+INLINE void ADC1_enCalibProtCh18(void) {
   ADC1->CALPEN.bit.CALPEN18 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 18
  */
-INLINE void ADC1_disCalibProtCh18(void)
-{
+INLINE void ADC1_disCalibProtCh18(void) {
   ADC1->CALPEN.bit.CALPEN18 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 19
  */
-INLINE void ADC1_enCalibProtCh19(void)
-{
+INLINE void ADC1_enCalibProtCh19(void) {
   ADC1->CALPEN.bit.CALPEN19 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 19
  */
-INLINE void ADC1_disCalibProtCh19(void)
-{
+INLINE void ADC1_disCalibProtCh19(void) {
   ADC1->CALPEN.bit.CALPEN19 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 20
  */
-INLINE void ADC1_enCalibProtCh20(void)
-{
+INLINE void ADC1_enCalibProtCh20(void) {
   ADC1->CALPEN.bit.CALPEN20 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 20
  */
-INLINE void ADC1_disCalibProtCh20(void)
-{
+INLINE void ADC1_disCalibProtCh20(void) {
   ADC1->CALPEN.bit.CALPEN20 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 21
  */
-INLINE void ADC1_enCalibProtCh21(void)
-{
+INLINE void ADC1_enCalibProtCh21(void) {
   ADC1->CALPEN.bit.CALPEN21 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 21
  */
-INLINE void ADC1_disCalibProtCh21(void)
-{
+INLINE void ADC1_disCalibProtCh21(void) {
   ADC1->CALPEN.bit.CALPEN21 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 22
  */
-INLINE void ADC1_enCalibProtCh22(void)
-{
+INLINE void ADC1_enCalibProtCh22(void) {
   ADC1->CALPEN.bit.CALPEN22 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 22
  */
-INLINE void ADC1_disCalibProtCh22(void)
-{
+INLINE void ADC1_disCalibProtCh22(void) {
   ADC1->CALPEN.bit.CALPEN22 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 23
  */
-INLINE void ADC1_enCalibProtCh23(void)
-{
+INLINE void ADC1_enCalibProtCh23(void) {
   ADC1->CALPEN.bit.CALPEN23 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 23
  */
-INLINE void ADC1_disCalibProtCh23(void)
-{
+INLINE void ADC1_disCalibProtCh23(void) {
   ADC1->CALPEN.bit.CALPEN23 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 24
  */
-INLINE void ADC1_enCalibProtCh24(void)
-{
+INLINE void ADC1_enCalibProtCh24(void) {
   ADC1->CALPEN.bit.CALPEN24 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 24
  */
-INLINE void ADC1_disCalibProtCh24(void)
-{
+INLINE void ADC1_disCalibProtCh24(void) {
   ADC1->CALPEN.bit.CALPEN24 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 25
  */
-INLINE void ADC1_enCalibProtCh25(void)
-{
+INLINE void ADC1_enCalibProtCh25(void) {
   ADC1->CALPEN.bit.CALPEN25 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 25
  */
-INLINE void ADC1_disCalibProtCh25(void)
-{
+INLINE void ADC1_disCalibProtCh25(void) {
   ADC1->CALPEN.bit.CALPEN25 = 0u;
 }
 
 /** \brief Enable Calibration Protection Channel 26
  */
-INLINE void ADC1_enCalibProtCh26(void)
-{
+INLINE void ADC1_enCalibProtCh26(void) {
   ADC1->CALPEN.bit.CALPEN26 = 1u;
 }
 
 /** \brief Disable Calibration Protection Channel 26
  */
-INLINE void ADC1_disCalibProtCh26(void)
-{
+INLINE void ADC1_disCalibProtCh26(void) {
   ADC1->CALPEN.bit.CALPEN26 = 0u;
 }
 
@@ -4036,8 +3675,7 @@ INLINE void ADC1_disCalibProtCh26(void)
  *
  *  \param u8_value Filter 0 Coefficient
  */
-INLINE void ADC1_setFilter0Coeff(uint8 u8_value)
-{
+INLINE void ADC1_setFilter0Coeff(uint8 u8_value) {
   ADC1->FILTCFG.bit.COEF_A0 = u8_value;
 }
 
@@ -4045,8 +3683,7 @@ INLINE void ADC1_setFilter0Coeff(uint8 u8_value)
  *
  * \return uint8 Filter 0 Coefficient
  */
-INLINE uint8 ADC1_getFilter0Coeff(void)
-{
+INLINE uint8 ADC1_getFilter0Coeff(void) {
   return (uint8)ADC1->FILTCFG.bit.COEF_A0;
 }
 
@@ -4054,8 +3691,7 @@ INLINE uint8 ADC1_getFilter0Coeff(void)
  *
  *  \param u8_value Filter 1 Coefficient
  */
-INLINE void ADC1_setFilter1Coeff(uint8 u8_value)
-{
+INLINE void ADC1_setFilter1Coeff(uint8 u8_value) {
   ADC1->FILTCFG.bit.COEF_A1 = u8_value;
 }
 
@@ -4063,8 +3699,7 @@ INLINE void ADC1_setFilter1Coeff(uint8 u8_value)
  *
  * \return uint8 Filter 1 Coefficient
  */
-INLINE uint8 ADC1_getFilter1Coeff(void)
-{
+INLINE uint8 ADC1_getFilter1Coeff(void) {
   return (uint8)ADC1->FILTCFG.bit.COEF_A1;
 }
 
@@ -4072,8 +3707,7 @@ INLINE uint8 ADC1_getFilter1Coeff(void)
  *
  *  \param u8_value Filter 2 Coefficient
  */
-INLINE void ADC1_setFilter2Coeff(uint8 u8_value)
-{
+INLINE void ADC1_setFilter2Coeff(uint8 u8_value) {
   ADC1->FILTCFG.bit.COEF_A2 = u8_value;
 }
 
@@ -4081,8 +3715,7 @@ INLINE void ADC1_setFilter2Coeff(uint8 u8_value)
  *
  * \return uint8 Filter 2 Coefficient
  */
-INLINE uint8 ADC1_getFilter2Coeff(void)
-{
+INLINE uint8 ADC1_getFilter2Coeff(void) {
   return (uint8)ADC1->FILTCFG.bit.COEF_A2;
 }
 
@@ -4090,8 +3723,7 @@ INLINE uint8 ADC1_getFilter2Coeff(void)
  *
  *  \param u8_value Filter 3 Coefficient
  */
-INLINE void ADC1_setFilter3Coeff(uint8 u8_value)
-{
+INLINE void ADC1_setFilter3Coeff(uint8 u8_value) {
   ADC1->FILTCFG.bit.COEF_A3 = u8_value;
 }
 
@@ -4099,8 +3731,7 @@ INLINE void ADC1_setFilter3Coeff(uint8 u8_value)
  *
  * \return uint8 Filter 3 Coefficient
  */
-INLINE uint8 ADC1_getFilter3Coeff(void)
-{
+INLINE uint8 ADC1_getFilter3Coeff(void) {
   return (uint8)ADC1->FILTCFG.bit.COEF_A3;
 }
 
@@ -4108,8 +3739,7 @@ INLINE uint8 ADC1_getFilter3Coeff(void)
  *
  * \return uint16 Result Value Filter 0
  */
-INLINE uint16 ADC1_getFilter0Result(void)
-{
+INLINE uint16 ADC1_getFilter0Result(void) {
   return (uint16)ADC1->FIL0.bit.FILRESULT;
 }
 
@@ -4117,8 +3747,7 @@ INLINE uint16 ADC1_getFilter0Result(void)
  *
  * \return uint16 Result Value Filter 1
  */
-INLINE uint16 ADC1_getFilter1Result(void)
-{
+INLINE uint16 ADC1_getFilter1Result(void) {
   return (uint16)ADC1->FIL1.bit.FILRESULT;
 }
 
@@ -4126,8 +3755,7 @@ INLINE uint16 ADC1_getFilter1Result(void)
  *
  * \return uint16 Result Value Filter 2
  */
-INLINE uint16 ADC1_getFilter2Result(void)
-{
+INLINE uint16 ADC1_getFilter2Result(void) {
   return (uint16)ADC1->FIL2.bit.FILRESULT;
 }
 
@@ -4135,8 +3763,7 @@ INLINE uint16 ADC1_getFilter2Result(void)
  *
  * \return uint16 Result Value Filter 3
  */
-INLINE uint16 ADC1_getFilter3Result(void)
-{
+INLINE uint16 ADC1_getFilter3Result(void) {
   return (uint16)ADC1->FIL3.bit.FILRESULT;
 }
 
@@ -4144,8 +3771,7 @@ INLINE uint16 ADC1_getFilter3Result(void)
  *
  * \return uint8 Filter 0 Event flag
  */
-INLINE uint8 ADC1_getFilter0Sts(void)
-{
+INLINE uint8 ADC1_getFilter0Sts(void) {
   return (uint8)ADC1->FILSTAT.bit.FIL0;
 }
 
@@ -4153,8 +3779,7 @@ INLINE uint8 ADC1_getFilter0Sts(void)
  *
  * \return uint8 Filter 1 Event flag
  */
-INLINE uint8 ADC1_getFilter1Sts(void)
-{
+INLINE uint8 ADC1_getFilter1Sts(void) {
   return (uint8)ADC1->FILSTAT.bit.FIL1;
 }
 
@@ -4162,8 +3787,7 @@ INLINE uint8 ADC1_getFilter1Sts(void)
  *
  * \return uint8 Filter 2 Event flag
  */
-INLINE uint8 ADC1_getFilter2Sts(void)
-{
+INLINE uint8 ADC1_getFilter2Sts(void) {
   return (uint8)ADC1->FILSTAT.bit.FIL2;
 }
 
@@ -4171,64 +3795,55 @@ INLINE uint8 ADC1_getFilter2Sts(void)
  *
  * \return uint8 Filter 3 Event flag
  */
-INLINE uint8 ADC1_getFilter3Sts(void)
-{
+INLINE uint8 ADC1_getFilter3Sts(void) {
   return (uint8)ADC1->FILSTAT.bit.FIL3;
 }
 
 /** \brief Clear Filter 0 Event flag
  */
-INLINE void ADC1_clrFilter0Sts(void)
-{
+INLINE void ADC1_clrFilter0Sts(void) {
   ADC1->FILSTATCLR.bit.FIL0CLR = 1u;
 }
 
 /** \brief Clear Filter 1 Event flag
  */
-INLINE void ADC1_clrFilter1Sts(void)
-{
+INLINE void ADC1_clrFilter1Sts(void) {
   ADC1->FILSTATCLR.bit.FIL1CLR = 1u;
 }
 
 /** \brief Clear Filter 2 Event flag
  */
-INLINE void ADC1_clrFilter2Sts(void)
-{
+INLINE void ADC1_clrFilter2Sts(void) {
   ADC1->FILSTATCLR.bit.FIL2CLR = 1u;
 }
 
 /** \brief Clear Filter 3 Event flag
  */
-INLINE void ADC1_clrFilter3Sts(void)
-{
+INLINE void ADC1_clrFilter3Sts(void) {
   ADC1->FILSTATCLR.bit.FIL3CLR = 1u;
 }
 
 /** \brief Set Filter 0 Event flag
  */
-INLINE void ADC1_setFilter0Sts(void)
-{
+INLINE void ADC1_setFilter0Sts(void) {
   ADC1->FILSTATSET.bit.FIL0SET = 1u;
 }
 
 /** \brief Set Filter 1 Event flag
  */
-INLINE void ADC1_setFilter1Sts(void)
-{
+INLINE void ADC1_setFilter1Sts(void) {
   ADC1->FILSTATSET.bit.FIL1SET = 1u;
 }
 
 /** \brief Set Filter 2 Event flag
  */
-INLINE void ADC1_setFilter2Sts(void)
-{
+INLINE void ADC1_setFilter2Sts(void) {
   ADC1->FILSTATSET.bit.FIL2SET = 1u;
 }
 
 /** \brief Set Filter 3 Event flag
  */
-INLINE void ADC1_setFilter3Sts(void)
-{
+INLINE void ADC1_setFilter3Sts(void) {
   ADC1->FILSTATSET.bit.FIL3SET = 1u;
 }
 
@@ -4236,8 +3851,7 @@ INLINE void ADC1_setFilter3Sts(void)
  *
  * \return uint16 Result Value Channel 0
  */
-INLINE uint16 ADC1_getCh0Result(void)
-{
+INLINE uint16 ADC1_getCh0Result(void) {
   return (uint16)ADC1->RES0.bit.RESULT;
 }
 
@@ -4245,8 +3859,7 @@ INLINE uint16 ADC1_getCh0Result(void)
  *
  * \return uint8 Result Valid Flag Channel 0
  */
-INLINE uint8 ADC1_getCh0ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh0ResultValidSts(void) {
   return (uint8)ADC1->RES0.bit.VALID;
 }
 
@@ -4254,8 +3867,7 @@ INLINE uint8 ADC1_getCh0ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 1
  */
-INLINE uint16 ADC1_getCh1Result(void)
-{
+INLINE uint16 ADC1_getCh1Result(void) {
   return (uint16)ADC1->RES1.bit.RESULT;
 }
 
@@ -4263,8 +3875,7 @@ INLINE uint16 ADC1_getCh1Result(void)
  *
  * \return uint8 Result Valid Flag Channel 1
  */
-INLINE uint8 ADC1_getCh1ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh1ResultValidSts(void) {
   return (uint8)ADC1->RES1.bit.VALID;
 }
 
@@ -4272,8 +3883,7 @@ INLINE uint8 ADC1_getCh1ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 2
  */
-INLINE uint16 ADC1_getCh2Result(void)
-{
+INLINE uint16 ADC1_getCh2Result(void) {
   return (uint16)ADC1->RES2.bit.RESULT;
 }
 
@@ -4281,8 +3891,7 @@ INLINE uint16 ADC1_getCh2Result(void)
  *
  * \return uint8 Result Valid Flag Channel 2
  */
-INLINE uint8 ADC1_getCh2ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh2ResultValidSts(void) {
   return (uint8)ADC1->RES2.bit.VALID;
 }
 
@@ -4290,8 +3899,7 @@ INLINE uint8 ADC1_getCh2ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 3
  */
-INLINE uint16 ADC1_getCh3Result(void)
-{
+INLINE uint16 ADC1_getCh3Result(void) {
   return (uint16)ADC1->RES3.bit.RESULT;
 }
 
@@ -4299,8 +3907,7 @@ INLINE uint16 ADC1_getCh3Result(void)
  *
  * \return uint8 Result Valid Flag Channel 3
  */
-INLINE uint8 ADC1_getCh3ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh3ResultValidSts(void) {
   return (uint8)ADC1->RES3.bit.VALID;
 }
 
@@ -4308,8 +3915,7 @@ INLINE uint8 ADC1_getCh3ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 4
  */
-INLINE uint16 ADC1_getCh4Result(void)
-{
+INLINE uint16 ADC1_getCh4Result(void) {
   return (uint16)ADC1->RES4.bit.RESULT;
 }
 
@@ -4317,8 +3923,7 @@ INLINE uint16 ADC1_getCh4Result(void)
  *
  * \return uint8 Result Valid Flag Channel 4
  */
-INLINE uint8 ADC1_getCh4ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh4ResultValidSts(void) {
   return (uint8)ADC1->RES4.bit.VALID;
 }
 
@@ -4326,8 +3931,7 @@ INLINE uint8 ADC1_getCh4ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 5
  */
-INLINE uint16 ADC1_getCh5Result(void)
-{
+INLINE uint16 ADC1_getCh5Result(void) {
   return (uint16)ADC1->RES5.bit.RESULT;
 }
 
@@ -4335,8 +3939,7 @@ INLINE uint16 ADC1_getCh5Result(void)
  *
  * \return uint8 Result Valid Flag Channel 5
  */
-INLINE uint8 ADC1_getCh5ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh5ResultValidSts(void) {
   return (uint8)ADC1->RES5.bit.VALID;
 }
 
@@ -4344,8 +3947,7 @@ INLINE uint8 ADC1_getCh5ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 6
  */
-INLINE uint16 ADC1_getCh6Result(void)
-{
+INLINE uint16 ADC1_getCh6Result(void) {
   return (uint16)ADC1->RES6.bit.RESULT;
 }
 
@@ -4353,8 +3955,7 @@ INLINE uint16 ADC1_getCh6Result(void)
  *
  * \return uint8 Result Valid Flag Channel 6
  */
-INLINE uint8 ADC1_getCh6ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh6ResultValidSts(void) {
   return (uint8)ADC1->RES6.bit.VALID;
 }
 
@@ -4362,8 +3963,7 @@ INLINE uint8 ADC1_getCh6ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 7
  */
-INLINE uint16 ADC1_getCh7Result(void)
-{
+INLINE uint16 ADC1_getCh7Result(void) {
   return (uint16)ADC1->RES7.bit.RESULT;
 }
 
@@ -4371,8 +3971,7 @@ INLINE uint16 ADC1_getCh7Result(void)
  *
  * \return uint8 Result Valid Flag Channel 7
  */
-INLINE uint8 ADC1_getCh7ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh7ResultValidSts(void) {
   return (uint8)ADC1->RES7.bit.VALID;
 }
 
@@ -4380,8 +3979,7 @@ INLINE uint8 ADC1_getCh7ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 8
  */
-INLINE uint16 ADC1_getCh8Result(void)
-{
+INLINE uint16 ADC1_getCh8Result(void) {
   return (uint16)ADC1->RES8.bit.RESULT;
 }
 
@@ -4389,8 +3987,7 @@ INLINE uint16 ADC1_getCh8Result(void)
  *
  * \return uint8 Result Valid Flag Channel 8
  */
-INLINE uint8 ADC1_getCh8ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh8ResultValidSts(void) {
   return (uint8)ADC1->RES8.bit.VALID;
 }
 
@@ -4398,8 +3995,7 @@ INLINE uint8 ADC1_getCh8ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 9
  */
-INLINE uint16 ADC1_getCh9Result(void)
-{
+INLINE uint16 ADC1_getCh9Result(void) {
   return (uint16)ADC1->RES9.bit.RESULT;
 }
 
@@ -4407,8 +4003,7 @@ INLINE uint16 ADC1_getCh9Result(void)
  *
  * \return uint8 Result Valid Flag Channel 9
  */
-INLINE uint8 ADC1_getCh9ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh9ResultValidSts(void) {
   return (uint8)ADC1->RES9.bit.VALID;
 }
 
@@ -4416,8 +4011,7 @@ INLINE uint8 ADC1_getCh9ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 10
  */
-INLINE uint16 ADC1_getCh10Result(void)
-{
+INLINE uint16 ADC1_getCh10Result(void) {
   return (uint16)ADC1->RES10.bit.RESULT;
 }
 
@@ -4425,8 +4019,7 @@ INLINE uint16 ADC1_getCh10Result(void)
  *
  * \return uint8 Result Valid Flag Channel 10
  */
-INLINE uint8 ADC1_getCh10ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh10ResultValidSts(void) {
   return (uint8)ADC1->RES10.bit.VALID;
 }
 
@@ -4434,8 +4027,7 @@ INLINE uint8 ADC1_getCh10ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 11
  */
-INLINE uint16 ADC1_getCh11Result(void)
-{
+INLINE uint16 ADC1_getCh11Result(void) {
   return (uint16)ADC1->RES11.bit.RESULT;
 }
 
@@ -4443,8 +4035,7 @@ INLINE uint16 ADC1_getCh11Result(void)
  *
  * \return uint8 Result Valid Flag Channel 11
  */
-INLINE uint8 ADC1_getCh11ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh11ResultValidSts(void) {
   return (uint8)ADC1->RES11.bit.VALID;
 }
 
@@ -4452,8 +4043,7 @@ INLINE uint8 ADC1_getCh11ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 12
  */
-INLINE uint16 ADC1_getCh12Result(void)
-{
+INLINE uint16 ADC1_getCh12Result(void) {
   return (uint16)ADC1->RES12.bit.RESULT;
 }
 
@@ -4461,8 +4051,7 @@ INLINE uint16 ADC1_getCh12Result(void)
  *
  * \return uint8 Result Valid Flag Channel 12
  */
-INLINE uint8 ADC1_getCh12ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh12ResultValidSts(void) {
   return (uint8)ADC1->RES12.bit.VALID;
 }
 
@@ -4470,8 +4059,7 @@ INLINE uint8 ADC1_getCh12ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 13
  */
-INLINE uint16 ADC1_getCh13Result(void)
-{
+INLINE uint16 ADC1_getCh13Result(void) {
   return (uint16)ADC1->RES13.bit.RESULT;
 }
 
@@ -4479,8 +4067,7 @@ INLINE uint16 ADC1_getCh13Result(void)
  *
  * \return uint8 Result Valid Flag Channel 13
  */
-INLINE uint8 ADC1_getCh13ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh13ResultValidSts(void) {
   return (uint8)ADC1->RES13.bit.VALID;
 }
 
@@ -4488,8 +4075,7 @@ INLINE uint8 ADC1_getCh13ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 14
  */
-INLINE uint16 ADC1_getCh14Result(void)
-{
+INLINE uint16 ADC1_getCh14Result(void) {
   return (uint16)ADC1->RES14.bit.RESULT;
 }
 
@@ -4497,8 +4083,7 @@ INLINE uint16 ADC1_getCh14Result(void)
  *
  * \return uint8 Result Valid Flag Channel 14
  */
-INLINE uint8 ADC1_getCh14ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh14ResultValidSts(void) {
   return (uint8)ADC1->RES14.bit.VALID;
 }
 
@@ -4506,8 +4091,7 @@ INLINE uint8 ADC1_getCh14ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 15
  */
-INLINE uint16 ADC1_getCh15Result(void)
-{
+INLINE uint16 ADC1_getCh15Result(void) {
   return (uint16)ADC1->RES15.bit.RESULT;
 }
 
@@ -4515,8 +4099,7 @@ INLINE uint16 ADC1_getCh15Result(void)
  *
  * \return uint8 Result Valid Flag Channel 15
  */
-INLINE uint8 ADC1_getCh15ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh15ResultValidSts(void) {
   return (uint8)ADC1->RES15.bit.VALID;
 }
 
@@ -4524,8 +4107,7 @@ INLINE uint8 ADC1_getCh15ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 16
  */
-INLINE uint16 ADC1_getCh16Result(void)
-{
+INLINE uint16 ADC1_getCh16Result(void) {
   return (uint16)ADC1->RES16.bit.RESULT;
 }
 
@@ -4533,8 +4115,7 @@ INLINE uint16 ADC1_getCh16Result(void)
  *
  * \return uint8 Result Valid Flag Channel 16
  */
-INLINE uint8 ADC1_getCh16ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh16ResultValidSts(void) {
   return (uint8)ADC1->RES16.bit.VALID;
 }
 
@@ -4542,8 +4123,7 @@ INLINE uint8 ADC1_getCh16ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 17
  */
-INLINE uint16 ADC1_getCh17Result(void)
-{
+INLINE uint16 ADC1_getCh17Result(void) {
   return (uint16)ADC1->RES17.bit.RESULT;
 }
 
@@ -4551,8 +4131,7 @@ INLINE uint16 ADC1_getCh17Result(void)
  *
  * \return uint8 Result Valid Flag Channel 17
  */
-INLINE uint8 ADC1_getCh17ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh17ResultValidSts(void) {
   return (uint8)ADC1->RES17.bit.VALID;
 }
 
@@ -4560,8 +4139,7 @@ INLINE uint8 ADC1_getCh17ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 18
  */
-INLINE uint16 ADC1_getCh18Result(void)
-{
+INLINE uint16 ADC1_getCh18Result(void) {
   return (uint16)ADC1->RES18.bit.RESULT;
 }
 
@@ -4569,8 +4147,7 @@ INLINE uint16 ADC1_getCh18Result(void)
  *
  * \return uint8 Result Valid Flag Channel 18
  */
-INLINE uint8 ADC1_getCh18ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh18ResultValidSts(void) {
   return (uint8)ADC1->RES18.bit.VALID;
 }
 
@@ -4578,8 +4155,7 @@ INLINE uint8 ADC1_getCh18ResultValidSts(void)
  *
  * \return uint16 Result Value Channel 19
  */
-INLINE uint16 ADC1_getCh19Result(void)
-{
+INLINE uint16 ADC1_getCh19Result(void) {
   return (uint16)ADC1->RES19.bit.RESULT;
 }
 
@@ -4587,8 +4163,7 @@ INLINE uint16 ADC1_getCh19Result(void)
  *
  * \return uint8 Result Valid Flag Channel 19
  */
-INLINE uint8 ADC1_getCh19ResultValidSts(void)
-{
+INLINE uint8 ADC1_getCh19ResultValidSts(void) {
   return (uint8)ADC1->RES19.bit.VALID;
 }
 
@@ -4596,8 +4171,7 @@ INLINE uint8 ADC1_getCh19ResultValidSts(void)
  *
  *  \param s_value Compare Channel 0 configuration
  */
-INLINE void ADC1_setCmp0Config(tADC1_CMPCFGx s_value)
-{
+INLINE void ADC1_setCmp0Config(tADC1_CMPCFGx s_value) {
   ADC1->CMPCFG0.reg = (uint32)s_value.reg;
 }
 
@@ -4605,8 +4179,7 @@ INLINE void ADC1_setCmp0Config(tADC1_CMPCFGx s_value)
  *
  *  \param s_value Compare Channel 1 configuration
  */
-INLINE void ADC1_setCmp1Config(tADC1_CMPCFGx s_value)
-{
+INLINE void ADC1_setCmp1Config(tADC1_CMPCFGx s_value) {
   ADC1->CMPCFG1.reg = (uint32)s_value.reg;
 }
 
@@ -4614,8 +4187,7 @@ INLINE void ADC1_setCmp1Config(tADC1_CMPCFGx s_value)
  *
  *  \param s_value Compare Channel 2 configuration
  */
-INLINE void ADC1_setCmp2Config(tADC1_CMPCFGx s_value)
-{
+INLINE void ADC1_setCmp2Config(tADC1_CMPCFGx s_value) {
   ADC1->CMPCFG2.reg = (uint32)s_value.reg;
 }
 
@@ -4623,8 +4195,7 @@ INLINE void ADC1_setCmp2Config(tADC1_CMPCFGx s_value)
  *
  *  \param s_value Compare Channel 3 configuration
  */
-INLINE void ADC1_setCmp3Config(tADC1_CMPCFGx s_value)
-{
+INLINE void ADC1_setCmp3Config(tADC1_CMPCFGx s_value) {
   ADC1->CMPCFG3.reg = (uint32)s_value.reg;
 }
 
@@ -4632,8 +4203,7 @@ INLINE void ADC1_setCmp3Config(tADC1_CMPCFGx s_value)
  *
  * \return uint8 Compare 0 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp0UpIntSts(void)
-{
+INLINE uint8 ADC1_getCmp0UpIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP0_IS;
 }
 
@@ -4641,8 +4211,7 @@ INLINE uint8 ADC1_getCmp0UpIntSts(void)
  *
  * \return uint8 Compare 1 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp1UpIntSts(void)
-{
+INLINE uint8 ADC1_getCmp1UpIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP1_IS;
 }
 
@@ -4650,8 +4219,7 @@ INLINE uint8 ADC1_getCmp1UpIntSts(void)
  *
  * \return uint8 Compare 2 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp2UpIntSts(void)
-{
+INLINE uint8 ADC1_getCmp2UpIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP2_IS;
 }
 
@@ -4659,8 +4227,7 @@ INLINE uint8 ADC1_getCmp2UpIntSts(void)
  *
  * \return uint8 Compare 3 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp3UpIntSts(void)
-{
+INLINE uint8 ADC1_getCmp3UpIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP3_IS;
 }
 
@@ -4668,8 +4235,7 @@ INLINE uint8 ADC1_getCmp3UpIntSts(void)
  *
  * \return uint8 Compare 0 Upper Threshold Status
  */
-INLINE uint8 ADC1_getCmp0UpThSts(void)
-{
+INLINE uint8 ADC1_getCmp0UpThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP0_STS;
 }
 
@@ -4677,8 +4243,7 @@ INLINE uint8 ADC1_getCmp0UpThSts(void)
  *
  * \return uint8 Compare 1 Upper Threshold Status
  */
-INLINE uint8 ADC1_getCmp1UpThSts(void)
-{
+INLINE uint8 ADC1_getCmp1UpThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP1_STS;
 }
 
@@ -4686,8 +4251,7 @@ INLINE uint8 ADC1_getCmp1UpThSts(void)
  *
  * \return uint8 Compare 2 Upper Threshold Status
  */
-INLINE uint8 ADC1_getCmp2UpThSts(void)
-{
+INLINE uint8 ADC1_getCmp2UpThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP2_STS;
 }
 
@@ -4695,8 +4259,7 @@ INLINE uint8 ADC1_getCmp2UpThSts(void)
  *
  * \return uint8 Compare 3 Upper Threshold Status
  */
-INLINE uint8 ADC1_getCmp3UpThSts(void)
-{
+INLINE uint8 ADC1_getCmp3UpThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_UP3_STS;
 }
 
@@ -4704,8 +4267,7 @@ INLINE uint8 ADC1_getCmp3UpThSts(void)
  *
  * \return uint8 Compare 0 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp0LoIntSts(void)
-{
+INLINE uint8 ADC1_getCmp0LoIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO0_IS;
 }
 
@@ -4713,8 +4275,7 @@ INLINE uint8 ADC1_getCmp0LoIntSts(void)
  *
  * \return uint8 Compare 1 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp1LoIntSts(void)
-{
+INLINE uint8 ADC1_getCmp1LoIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO1_IS;
 }
 
@@ -4722,8 +4283,7 @@ INLINE uint8 ADC1_getCmp1LoIntSts(void)
  *
  * \return uint8 Compare 2 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp2LoIntSts(void)
-{
+INLINE uint8 ADC1_getCmp2LoIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO2_IS;
 }
 
@@ -4731,8 +4291,7 @@ INLINE uint8 ADC1_getCmp2LoIntSts(void)
  *
  * \return uint8 Compare 3 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC1_getCmp3LoIntSts(void)
-{
+INLINE uint8 ADC1_getCmp3LoIntSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO3_IS;
 }
 
@@ -4740,8 +4299,7 @@ INLINE uint8 ADC1_getCmp3LoIntSts(void)
  *
  * \return uint8 Compare 0 Lower Threshold Status
  */
-INLINE uint8 ADC1_getCmp0LoThSts(void)
-{
+INLINE uint8 ADC1_getCmp0LoThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO0_STS;
 }
 
@@ -4749,8 +4307,7 @@ INLINE uint8 ADC1_getCmp0LoThSts(void)
  *
  * \return uint8 Compare 1 Lower Threshold Status
  */
-INLINE uint8 ADC1_getCmp1LoThSts(void)
-{
+INLINE uint8 ADC1_getCmp1LoThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO1_STS;
 }
 
@@ -4758,8 +4315,7 @@ INLINE uint8 ADC1_getCmp1LoThSts(void)
  *
  * \return uint8 Compare 2 Lower Threshold Status
  */
-INLINE uint8 ADC1_getCmp2LoThSts(void)
-{
+INLINE uint8 ADC1_getCmp2LoThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO2_STS;
 }
 
@@ -4767,792 +4323,679 @@ INLINE uint8 ADC1_getCmp2LoThSts(void)
  *
  * \return uint8 Compare 3 Lower Threshold Status
  */
-INLINE uint8 ADC1_getCmp3LoThSts(void)
-{
+INLINE uint8 ADC1_getCmp3LoThSts(void) {
   return (uint8)ADC1->CMPSTAT.bit.CMP_LO3_STS;
 }
 
 /** \brief Clear Compare 0 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp0UpIntSts(void)
-{
+INLINE void ADC1_clrCmp0UpIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP0_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp1UpIntSts(void)
-{
+INLINE void ADC1_clrCmp1UpIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP1_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp2UpIntSts(void)
-{
+INLINE void ADC1_clrCmp2UpIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP2_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp3UpIntSts(void)
-{
+INLINE void ADC1_clrCmp3UpIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP3_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 0 Upper Threshold Status
  */
-INLINE void ADC1_clrCmp0UpThSts(void)
-{
+INLINE void ADC1_clrCmp0UpThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP0_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Upper Threshold Status
  */
-INLINE void ADC1_clrCmp1UpThSts(void)
-{
+INLINE void ADC1_clrCmp1UpThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP1_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Upper Threshold Status
  */
-INLINE void ADC1_clrCmp2UpThSts(void)
-{
+INLINE void ADC1_clrCmp2UpThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP2_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Upper Threshold Status
  */
-INLINE void ADC1_clrCmp3UpThSts(void)
-{
+INLINE void ADC1_clrCmp3UpThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_UP3_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 0 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp0LoIntSts(void)
-{
+INLINE void ADC1_clrCmp0LoIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO0_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp1LoIntSts(void)
-{
+INLINE void ADC1_clrCmp1LoIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO1_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp2LoIntSts(void)
-{
+INLINE void ADC1_clrCmp2LoIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO2_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_clrCmp3LoIntSts(void)
-{
+INLINE void ADC1_clrCmp3LoIntSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO3_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 0 Lower Threshold Status
  */
-INLINE void ADC1_clrCmp0LoThSts(void)
-{
+INLINE void ADC1_clrCmp0LoThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO0_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Lower Threshold Status
  */
-INLINE void ADC1_clrCmp1LoThSts(void)
-{
+INLINE void ADC1_clrCmp1LoThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO1_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Lower Threshold Status
  */
-INLINE void ADC1_clrCmp2LoThSts(void)
-{
+INLINE void ADC1_clrCmp2LoThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO2_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Lower Threshold Status
  */
-INLINE void ADC1_clrCmp3LoThSts(void)
-{
+INLINE void ADC1_clrCmp3LoThSts(void) {
   ADC1->CMPSTATCLR.bit.CMP_LO3_STSCLR = 1u;
 }
 
 /** \brief Set Compare 0 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp0UpIntSts(void)
-{
+INLINE void ADC1_setCmp0UpIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP0_ISSET = 1u;
 }
 
 /** \brief Set Compare 1 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp1UpIntSts(void)
-{
+INLINE void ADC1_setCmp1UpIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP1_ISSET = 1u;
 }
 
 /** \brief Set Compare 2 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp2UpIntSts(void)
-{
+INLINE void ADC1_setCmp2UpIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP2_ISSET = 1u;
 }
 
 /** \brief Set Compare 3 Upper Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp3UpIntSts(void)
-{
+INLINE void ADC1_setCmp3UpIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP3_ISSET = 1u;
 }
 
 /** \brief Set Compare 0 Upper Threshold Status
  */
-INLINE void ADC1_setCmp0UpThSts(void)
-{
+INLINE void ADC1_setCmp0UpThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP0_STSSET = 1u;
 }
 
 /** \brief Set Compare 1 Upper Threshold Status
  */
-INLINE void ADC1_setCmp1UpThSts(void)
-{
+INLINE void ADC1_setCmp1UpThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP1_STSSET = 1u;
 }
 
 /** \brief Set Compare 2 Upper Threshold Status
  */
-INLINE void ADC1_setCmp2UpThSts(void)
-{
+INLINE void ADC1_setCmp2UpThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP2_STSSET = 1u;
 }
 
 /** \brief Set Compare 3 Upper Threshold Status
  */
-INLINE void ADC1_setCmp3UpThSts(void)
-{
+INLINE void ADC1_setCmp3UpThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_UP3_STSSET = 1u;
 }
 
 /** \brief Set Compare 0 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp0LoIntSts(void)
-{
+INLINE void ADC1_setCmp0LoIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO0_ISSET = 1u;
 }
 
 /** \brief Set Compare 1 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp1LoIntSts(void)
-{
+INLINE void ADC1_setCmp1LoIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO1_ISSET = 1u;
 }
 
 /** \brief Set Compare 2 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp2LoIntSts(void)
-{
+INLINE void ADC1_setCmp2LoIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO2_ISSET = 1u;
 }
 
 /** \brief Set Compare 3 Lower Threshold Interrupt Status
  */
-INLINE void ADC1_setCmp3LoIntSts(void)
-{
+INLINE void ADC1_setCmp3LoIntSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO3_ISSET = 1u;
 }
 
 /** \brief Set Compare 0 Lower Threshold Status
  */
-INLINE void ADC1_setCmp0LoThSts(void)
-{
+INLINE void ADC1_setCmp0LoThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO0_STSSET = 1u;
 }
 
 /** \brief Set Compare 1 Lower Threshold Status
  */
-INLINE void ADC1_setCmp1LoThSts(void)
-{
+INLINE void ADC1_setCmp1LoThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO1_STSSET = 1u;
 }
 
 /** \brief Set Compare 2 Lower Threshold Status
  */
-INLINE void ADC1_setCmp2LoThSts(void)
-{
+INLINE void ADC1_setCmp2LoThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO2_STSSET = 1u;
 }
 
 /** \brief Set Compare 3 Lower Threshold Status
  */
-INLINE void ADC1_setCmp3LoThSts(void)
-{
+INLINE void ADC1_setCmp3LoThSts(void) {
   ADC1->CMPSTATSET.bit.CMP_LO3_STSSET = 1u;
 }
 
 /** \brief Enable Compare 0 Upper Threshold Interrupt
  */
-INLINE void ADC1_enCmp0UpInt(void)
-{
+INLINE void ADC1_enCmp0UpInt(void) {
   ADC1->IEN0.bit.IEN_UP0 = 1u;
 }
 
 /** \brief Disable Compare 0 Upper Threshold Interrupt
  */
-INLINE void ADC1_disCmp0UpInt(void)
-{
+INLINE void ADC1_disCmp0UpInt(void) {
   ADC1->IEN0.bit.IEN_UP0 = 0u;
 }
 
 /** \brief Enable Compare 1 Upper Threshold Interrupt
  */
-INLINE void ADC1_enCmp1UpInt(void)
-{
+INLINE void ADC1_enCmp1UpInt(void) {
   ADC1->IEN0.bit.IEN_UP1 = 1u;
 }
 
 /** \brief Disable Compare 1 Upper Threshold Interrupt
  */
-INLINE void ADC1_disCmp1UpInt(void)
-{
+INLINE void ADC1_disCmp1UpInt(void) {
   ADC1->IEN0.bit.IEN_UP1 = 0u;
 }
 
 /** \brief Enable Compare 2 Upper Threshold Interrupt
  */
-INLINE void ADC1_enCmp2UpInt(void)
-{
+INLINE void ADC1_enCmp2UpInt(void) {
   ADC1->IEN0.bit.IEN_UP2 = 1u;
 }
 
 /** \brief Disable Compare 2 Upper Threshold Interrupt
  */
-INLINE void ADC1_disCmp2UpInt(void)
-{
+INLINE void ADC1_disCmp2UpInt(void) {
   ADC1->IEN0.bit.IEN_UP2 = 0u;
 }
 
 /** \brief Enable Compare 3 Upper Threshold Interrupt
  */
-INLINE void ADC1_enCmp3UpInt(void)
-{
+INLINE void ADC1_enCmp3UpInt(void) {
   ADC1->IEN0.bit.IEN_UP3 = 1u;
 }
 
 /** \brief Disable Compare 3 Upper Threshold Interrupt
  */
-INLINE void ADC1_disCmp3UpInt(void)
-{
+INLINE void ADC1_disCmp3UpInt(void) {
   ADC1->IEN0.bit.IEN_UP3 = 0u;
 }
 
 /** \brief Enable Compare 0 Lower Threshold Interrupt
  */
-INLINE void ADC1_enCmp0LoInt(void)
-{
+INLINE void ADC1_enCmp0LoInt(void) {
   ADC1->IEN0.bit.IEN_LO0 = 1u;
 }
 
 /** \brief Disable Compare 0 Lower Threshold Interrupt
  */
-INLINE void ADC1_disCmp0LoInt(void)
-{
+INLINE void ADC1_disCmp0LoInt(void) {
   ADC1->IEN0.bit.IEN_LO0 = 0u;
 }
 
 /** \brief Enable Compare 1 Lower Threshold Interrupt
  */
-INLINE void ADC1_enCmp1LoInt(void)
-{
+INLINE void ADC1_enCmp1LoInt(void) {
   ADC1->IEN0.bit.IEN_LO1 = 1u;
 }
 
 /** \brief Disable Compare 1 Lower Threshold Interrupt
  */
-INLINE void ADC1_disCmp1LoInt(void)
-{
+INLINE void ADC1_disCmp1LoInt(void) {
   ADC1->IEN0.bit.IEN_LO1 = 0u;
 }
 
 /** \brief Enable Compare 2 Lower Threshold Interrupt
  */
-INLINE void ADC1_enCmp2LoInt(void)
-{
+INLINE void ADC1_enCmp2LoInt(void) {
   ADC1->IEN0.bit.IEN_LO2 = 1u;
 }
 
 /** \brief Disable Compare 2 Lower Threshold Interrupt
  */
-INLINE void ADC1_disCmp2LoInt(void)
-{
+INLINE void ADC1_disCmp2LoInt(void) {
   ADC1->IEN0.bit.IEN_LO2 = 0u;
 }
 
 /** \brief Enable Compare 3 Lower Threshold Interrupt
  */
-INLINE void ADC1_enCmp3LoInt(void)
-{
+INLINE void ADC1_enCmp3LoInt(void) {
   ADC1->IEN0.bit.IEN_LO3 = 1u;
 }
 
 /** \brief Disable Compare 3 Lower Threshold Interrupt
  */
-INLINE void ADC1_disCmp3LoInt(void)
-{
+INLINE void ADC1_disCmp3LoInt(void) {
   ADC1->IEN0.bit.IEN_LO3 = 0u;
 }
 
 /** \brief Enable Sequence 0 Interrupt
  */
-INLINE void ADC1_enSeq0Int(void)
-{
+INLINE void ADC1_enSeq0Int(void) {
   ADC1->IEN0.bit.IEN_SQ0 = 1u;
 }
 
 /** \brief Disable Sequence 0 Interrupt
  */
-INLINE void ADC1_disSeq0Int(void)
-{
+INLINE void ADC1_disSeq0Int(void) {
   ADC1->IEN0.bit.IEN_SQ0 = 0u;
 }
 
 /** \brief Enable Sequence 1 Interrupt
  */
-INLINE void ADC1_enSeq1Int(void)
-{
+INLINE void ADC1_enSeq1Int(void) {
   ADC1->IEN0.bit.IEN_SQ1 = 1u;
 }
 
 /** \brief Disable Sequence 1 Interrupt
  */
-INLINE void ADC1_disSeq1Int(void)
-{
+INLINE void ADC1_disSeq1Int(void) {
   ADC1->IEN0.bit.IEN_SQ1 = 0u;
 }
 
 /** \brief Enable Sequence 2 Interrupt
  */
-INLINE void ADC1_enSeq2Int(void)
-{
+INLINE void ADC1_enSeq2Int(void) {
   ADC1->IEN0.bit.IEN_SQ2 = 1u;
 }
 
 /** \brief Disable Sequence 2 Interrupt
  */
-INLINE void ADC1_disSeq2Int(void)
-{
+INLINE void ADC1_disSeq2Int(void) {
   ADC1->IEN0.bit.IEN_SQ2 = 0u;
 }
 
 /** \brief Enable Sequence 3 Interrupt
  */
-INLINE void ADC1_enSeq3Int(void)
-{
+INLINE void ADC1_enSeq3Int(void) {
   ADC1->IEN0.bit.IEN_SQ3 = 1u;
 }
 
 /** \brief Disable Sequence 3 Interrupt
  */
-INLINE void ADC1_disSeq3Int(void)
-{
+INLINE void ADC1_disSeq3Int(void) {
   ADC1->IEN0.bit.IEN_SQ3 = 0u;
 }
 
 /** \brief Enable Channel 0 Interrupt
  */
-INLINE void ADC1_enCh0Int(void)
-{
+INLINE void ADC1_enCh0Int(void) {
   ADC1->IEN0.bit.IEN_CH0 = 1u;
 }
 
 /** \brief Disable Channel 0 Interrupt
  */
-INLINE void ADC1_disCh0Int(void)
-{
+INLINE void ADC1_disCh0Int(void) {
   ADC1->IEN0.bit.IEN_CH0 = 0u;
 }
 
 /** \brief Enable Channel 1 Interrupt
  */
-INLINE void ADC1_enCh1Int(void)
-{
+INLINE void ADC1_enCh1Int(void) {
   ADC1->IEN0.bit.IEN_CH1 = 1u;
 }
 
 /** \brief Disable Channel 1 Interrupt
  */
-INLINE void ADC1_disCh1Int(void)
-{
+INLINE void ADC1_disCh1Int(void) {
   ADC1->IEN0.bit.IEN_CH1 = 0u;
 }
 
 /** \brief Enable Channel 2 Interrupt
  */
-INLINE void ADC1_enCh2Int(void)
-{
+INLINE void ADC1_enCh2Int(void) {
   ADC1->IEN0.bit.IEN_CH2 = 1u;
 }
 
 /** \brief Disable Channel 2 Interrupt
  */
-INLINE void ADC1_disCh2Int(void)
-{
+INLINE void ADC1_disCh2Int(void) {
   ADC1->IEN0.bit.IEN_CH2 = 0u;
 }
 
 /** \brief Enable Channel 3 Interrupt
  */
-INLINE void ADC1_enCh3Int(void)
-{
+INLINE void ADC1_enCh3Int(void) {
   ADC1->IEN0.bit.IEN_CH3 = 1u;
 }
 
 /** \brief Disable Channel 3 Interrupt
  */
-INLINE void ADC1_disCh3Int(void)
-{
+INLINE void ADC1_disCh3Int(void) {
   ADC1->IEN0.bit.IEN_CH3 = 0u;
 }
 
 /** \brief Enable Channel 4 Interrupt
  */
-INLINE void ADC1_enCh4Int(void)
-{
+INLINE void ADC1_enCh4Int(void) {
   ADC1->IEN0.bit.IEN_CH4 = 1u;
 }
 
 /** \brief Disable Channel 4 Interrupt
  */
-INLINE void ADC1_disCh4Int(void)
-{
+INLINE void ADC1_disCh4Int(void) {
   ADC1->IEN0.bit.IEN_CH4 = 0u;
 }
 
 /** \brief Enable Channel 5 Interrupt
  */
-INLINE void ADC1_enCh5Int(void)
-{
+INLINE void ADC1_enCh5Int(void) {
   ADC1->IEN0.bit.IEN_CH5 = 1u;
 }
 
 /** \brief Disable Channel 5 Interrupt
  */
-INLINE void ADC1_disCh5Int(void)
-{
+INLINE void ADC1_disCh5Int(void) {
   ADC1->IEN0.bit.IEN_CH5 = 0u;
 }
 
 /** \brief Enable Channel 6 Interrupt
  */
-INLINE void ADC1_enCh6Int(void)
-{
+INLINE void ADC1_enCh6Int(void) {
   ADC1->IEN0.bit.IEN_CH6 = 1u;
 }
 
 /** \brief Disable Channel 6 Interrupt
  */
-INLINE void ADC1_disCh6Int(void)
-{
+INLINE void ADC1_disCh6Int(void) {
   ADC1->IEN0.bit.IEN_CH6 = 0u;
 }
 
 /** \brief Enable Channel 7 Interrupt
  */
-INLINE void ADC1_enCh7Int(void)
-{
+INLINE void ADC1_enCh7Int(void) {
   ADC1->IEN0.bit.IEN_CH7 = 1u;
 }
 
 /** \brief Disable Channel 7 Interrupt
  */
-INLINE void ADC1_disCh7Int(void)
-{
+INLINE void ADC1_disCh7Int(void) {
   ADC1->IEN0.bit.IEN_CH7 = 0u;
 }
 
 /** \brief Enable Channel 8 Interrupt
  */
-INLINE void ADC1_enCh8Int(void)
-{
+INLINE void ADC1_enCh8Int(void) {
   ADC1->IEN0.bit.IEN_CH8 = 1u;
 }
 
 /** \brief Disable Channel 8 Interrupt
  */
-INLINE void ADC1_disCh8Int(void)
-{
+INLINE void ADC1_disCh8Int(void) {
   ADC1->IEN0.bit.IEN_CH8 = 0u;
 }
 
 /** \brief Enable Channel 9 Interrupt
  */
-INLINE void ADC1_enCh9Int(void)
-{
+INLINE void ADC1_enCh9Int(void) {
   ADC1->IEN0.bit.IEN_CH9 = 1u;
 }
 
 /** \brief Disable Channel 9 Interrupt
  */
-INLINE void ADC1_disCh9Int(void)
-{
+INLINE void ADC1_disCh9Int(void) {
   ADC1->IEN0.bit.IEN_CH9 = 0u;
 }
 
 /** \brief Enable Channel 10 Interrupt
  */
-INLINE void ADC1_enCh10Int(void)
-{
+INLINE void ADC1_enCh10Int(void) {
   ADC1->IEN0.bit.IEN_CH10 = 1u;
 }
 
 /** \brief Disable Channel 10 Interrupt
  */
-INLINE void ADC1_disCh10Int(void)
-{
+INLINE void ADC1_disCh10Int(void) {
   ADC1->IEN0.bit.IEN_CH10 = 0u;
 }
 
 /** \brief Enable Channel 11 Interrupt
  */
-INLINE void ADC1_enCh11Int(void)
-{
+INLINE void ADC1_enCh11Int(void) {
   ADC1->IEN0.bit.IEN_CH11 = 1u;
 }
 
 /** \brief Disable Channel 11 Interrupt
  */
-INLINE void ADC1_disCh11Int(void)
-{
+INLINE void ADC1_disCh11Int(void) {
   ADC1->IEN0.bit.IEN_CH11 = 0u;
 }
 
 /** \brief Enable Channel 12 Interrupt
  */
-INLINE void ADC1_enCh12Int(void)
-{
+INLINE void ADC1_enCh12Int(void) {
   ADC1->IEN0.bit.IEN_CH12 = 1u;
 }
 
 /** \brief Disable Channel 12 Interrupt
  */
-INLINE void ADC1_disCh12Int(void)
-{
+INLINE void ADC1_disCh12Int(void) {
   ADC1->IEN0.bit.IEN_CH12 = 0u;
 }
 
 /** \brief Enable Channel 13 Interrupt
  */
-INLINE void ADC1_enCh13Int(void)
-{
+INLINE void ADC1_enCh13Int(void) {
   ADC1->IEN0.bit.IEN_CH13 = 1u;
 }
 
 /** \brief Disable Channel 13 Interrupt
  */
-INLINE void ADC1_disCh13Int(void)
-{
+INLINE void ADC1_disCh13Int(void) {
   ADC1->IEN0.bit.IEN_CH13 = 0u;
 }
 
 /** \brief Enable Channel 14 Interrupt
  */
-INLINE void ADC1_enCh14Int(void)
-{
+INLINE void ADC1_enCh14Int(void) {
   ADC1->IEN0.bit.IEN_CH14 = 1u;
 }
 
 /** \brief Disable Channel 14 Interrupt
  */
-INLINE void ADC1_disCh14Int(void)
-{
+INLINE void ADC1_disCh14Int(void) {
   ADC1->IEN0.bit.IEN_CH14 = 0u;
 }
 
 /** \brief Enable Channel 15 Interrupt
  */
-INLINE void ADC1_enCh15Int(void)
-{
+INLINE void ADC1_enCh15Int(void) {
   ADC1->IEN0.bit.IEN_CH15 = 1u;
 }
 
 /** \brief Disable Channel 15 Interrupt
  */
-INLINE void ADC1_disCh15Int(void)
-{
+INLINE void ADC1_disCh15Int(void) {
   ADC1->IEN0.bit.IEN_CH15 = 0u;
 }
 
 /** \brief Enable Channel 16 Interrupt
  */
-INLINE void ADC1_enCh16Int(void)
-{
+INLINE void ADC1_enCh16Int(void) {
   ADC1->IEN0.bit.IEN_CH16 = 1u;
 }
 
 /** \brief Disable Channel 16 Interrupt
  */
-INLINE void ADC1_disCh16Int(void)
-{
+INLINE void ADC1_disCh16Int(void) {
   ADC1->IEN0.bit.IEN_CH16 = 0u;
 }
 
 /** \brief Enable Channel 17 Interrupt
  */
-INLINE void ADC1_enCh17Int(void)
-{
+INLINE void ADC1_enCh17Int(void) {
   ADC1->IEN0.bit.IEN_CH17 = 1u;
 }
 
 /** \brief Disable Channel 17 Interrupt
  */
-INLINE void ADC1_disCh17Int(void)
-{
+INLINE void ADC1_disCh17Int(void) {
   ADC1->IEN0.bit.IEN_CH17 = 0u;
 }
 
 /** \brief Enable Channel 18 Interrupt
  */
-INLINE void ADC1_enCh18Int(void)
-{
+INLINE void ADC1_enCh18Int(void) {
   ADC1->IEN0.bit.IEN_CH18 = 1u;
 }
 
 /** \brief Disable Channel 18 Interrupt
  */
-INLINE void ADC1_disCh18Int(void)
-{
+INLINE void ADC1_disCh18Int(void) {
   ADC1->IEN0.bit.IEN_CH18 = 0u;
 }
 
 /** \brief Enable Channel 19 Interrupt
  */
-INLINE void ADC1_enCh19Int(void)
-{
+INLINE void ADC1_enCh19Int(void) {
   ADC1->IEN0.bit.IEN_CH19 = 1u;
 }
 
 /** \brief Disable Channel 19 Interrupt
  */
-INLINE void ADC1_disCh19Int(void)
-{
+INLINE void ADC1_disCh19Int(void) {
   ADC1->IEN0.bit.IEN_CH19 = 0u;
 }
 
 /** \brief Enable Sequence 0 Wait for Read Interrupt
  */
-INLINE void ADC1_enSeq0WaitForReadInt(void)
-{
+INLINE void ADC1_enSeq0WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR0 = 1u;
 }
 
 /** \brief Disable Sequence 0 Wait for Read Interrupt
  */
-INLINE void ADC1_disSeq0WaitForReadInt(void)
-{
+INLINE void ADC1_disSeq0WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR0 = 0u;
 }
 
 /** \brief Enable Sequence 1 Wait for Read Interrupt
  */
-INLINE void ADC1_enSeq1WaitForReadInt(void)
-{
+INLINE void ADC1_enSeq1WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR1 = 1u;
 }
 
 /** \brief Disable Sequence 1 Wait for Read Interrupt
  */
-INLINE void ADC1_disSeq1WaitForReadInt(void)
-{
+INLINE void ADC1_disSeq1WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR1 = 0u;
 }
 
 /** \brief Enable Sequence 2 Wait for Read Interrupt
  */
-INLINE void ADC1_enSeq2WaitForReadInt(void)
-{
+INLINE void ADC1_enSeq2WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR2 = 1u;
 }
 
 /** \brief Disable Sequence 2 Wait for Read Interrupt
  */
-INLINE void ADC1_disSeq2WaitForReadInt(void)
-{
+INLINE void ADC1_disSeq2WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR2 = 0u;
 }
 
 /** \brief Enable Sequence 3 Wait for Read Interrupt
  */
-INLINE void ADC1_enSeq3WaitForReadInt(void)
-{
+INLINE void ADC1_enSeq3WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR3 = 1u;
 }
 
 /** \brief Disable Sequence 3 Wait for Read Interrupt
  */
-INLINE void ADC1_disSeq3WaitForReadInt(void)
-{
+INLINE void ADC1_disSeq3WaitForReadInt(void) {
   ADC1->IEN1.bit.IEN_WFR3 = 0u;
 }
 
 /** \brief Enable Sequence 0 Collision Detection Interrupt
  */
-INLINE void ADC1_enSeq0CollInt(void)
-{
+INLINE void ADC1_enSeq0CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL0 = 1u;
 }
 
 /** \brief Disable Sequence 0 Collision Detection Interrupt
  */
-INLINE void ADC1_disSeq0CollInt(void)
-{
+INLINE void ADC1_disSeq0CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL0 = 0u;
 }
 
 /** \brief Enable Sequence 1 Collision Detection Interrupt
  */
-INLINE void ADC1_enSeq1CollInt(void)
-{
+INLINE void ADC1_enSeq1CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL1 = 1u;
 }
 
 /** \brief Disable Sequence 1 Collision Detection Interrupt
  */
-INLINE void ADC1_disSeq1CollInt(void)
-{
+INLINE void ADC1_disSeq1CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL1 = 0u;
 }
 
 /** \brief Enable Sequence 2 Collision Detection Interrupt
  */
-INLINE void ADC1_enSeq2CollInt(void)
-{
+INLINE void ADC1_enSeq2CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL2 = 1u;
 }
 
 /** \brief Disable Sequence 2 Collision Detection Interrupt
  */
-INLINE void ADC1_disSeq2CollInt(void)
-{
+INLINE void ADC1_disSeq2CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL2 = 0u;
 }
 
 /** \brief Enable Sequence 3 Collision Detection Interrupt
  */
-INLINE void ADC1_enSeq3CollInt(void)
-{
+INLINE void ADC1_enSeq3CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL3 = 1u;
 }
 
 /** \brief Disable Sequence 3 Collision Detection Interrupt
  */
-INLINE void ADC1_disSeq3CollInt(void)
-{
+INLINE void ADC1_disSeq3CollInt(void) {
   ADC1->IEN1.bit.IEN_COLL3 = 0u;
 }
 
@@ -5560,8 +5003,7 @@ INLINE void ADC1_disSeq3CollInt(void)
  *
  * \return uint8 Channel 0 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh0IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh0IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH0;
 }
 
@@ -5569,8 +5011,7 @@ INLINE uint8 ADC1_getCh0IntNodePtr(void)
  *
  * \return uint8 Channel 1 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh1IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh1IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH1;
 }
 
@@ -5578,8 +5019,7 @@ INLINE uint8 ADC1_getCh1IntNodePtr(void)
  *
  * \return uint8 Channel 2 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh2IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh2IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH2;
 }
 
@@ -5587,8 +5027,7 @@ INLINE uint8 ADC1_getCh2IntNodePtr(void)
  *
  * \return uint8 Channel 3 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh3IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh3IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH3;
 }
 
@@ -5596,8 +5035,7 @@ INLINE uint8 ADC1_getCh3IntNodePtr(void)
  *
  * \return uint8 Channel 4 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh4IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh4IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH4;
 }
 
@@ -5605,8 +5043,7 @@ INLINE uint8 ADC1_getCh4IntNodePtr(void)
  *
  * \return uint8 Channel 5 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh5IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh5IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH5;
 }
 
@@ -5614,8 +5051,7 @@ INLINE uint8 ADC1_getCh5IntNodePtr(void)
  *
  * \return uint8 Channel 6 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh6IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh6IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH6;
 }
 
@@ -5623,8 +5059,7 @@ INLINE uint8 ADC1_getCh6IntNodePtr(void)
  *
  * \return uint8 Channel 7 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh7IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh7IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH7;
 }
 
@@ -5632,8 +5067,7 @@ INLINE uint8 ADC1_getCh7IntNodePtr(void)
  *
  * \return uint8 Channel 8 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh8IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh8IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH8;
 }
 
@@ -5641,8 +5075,7 @@ INLINE uint8 ADC1_getCh8IntNodePtr(void)
  *
  * \return uint8 Channel 9 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh9IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh9IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH9;
 }
 
@@ -5650,8 +5083,7 @@ INLINE uint8 ADC1_getCh9IntNodePtr(void)
  *
  * \return uint8 Channel 10 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh10IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh10IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH10;
 }
 
@@ -5659,8 +5091,7 @@ INLINE uint8 ADC1_getCh10IntNodePtr(void)
  *
  * \return uint8 Channel 11 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh11IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh11IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH11;
 }
 
@@ -5668,8 +5099,7 @@ INLINE uint8 ADC1_getCh11IntNodePtr(void)
  *
  * \return uint8 Channel 12 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh12IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh12IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH12;
 }
 
@@ -5677,8 +5107,7 @@ INLINE uint8 ADC1_getCh12IntNodePtr(void)
  *
  * \return uint8 Channel 13 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh13IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh13IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH13;
 }
 
@@ -5686,8 +5115,7 @@ INLINE uint8 ADC1_getCh13IntNodePtr(void)
  *
  * \return uint8 Channel 14 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh14IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh14IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH14;
 }
 
@@ -5695,8 +5123,7 @@ INLINE uint8 ADC1_getCh14IntNodePtr(void)
  *
  * \return uint8 Channel 15 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh15IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh15IntNodePtr(void) {
   return (uint8)ADC1->INP0.bit.INP_CH15;
 }
 
@@ -5704,8 +5131,7 @@ INLINE uint8 ADC1_getCh15IntNodePtr(void)
  *
  * \return uint8 Channel 16 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh16IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh16IntNodePtr(void) {
   return (uint8)ADC1->INP1.bit.INP_CH16;
 }
 
@@ -5713,8 +5139,7 @@ INLINE uint8 ADC1_getCh16IntNodePtr(void)
  *
  * \return uint8 Channel 17 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh17IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh17IntNodePtr(void) {
   return (uint8)ADC1->INP1.bit.INP_CH17;
 }
 
@@ -5722,8 +5147,7 @@ INLINE uint8 ADC1_getCh17IntNodePtr(void)
  *
  * \return uint8 Channel 18 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh18IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh18IntNodePtr(void) {
   return (uint8)ADC1->INP1.bit.INP_CH18;
 }
 
@@ -5731,8 +5155,7 @@ INLINE uint8 ADC1_getCh18IntNodePtr(void)
  *
  * \return uint8 Channel 19 Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCh19IntNodePtr(void)
-{
+INLINE uint8 ADC1_getCh19IntNodePtr(void) {
   return (uint8)ADC1->INP1.bit.INP_CH19;
 }
 
@@ -5740,8 +5163,7 @@ INLINE uint8 ADC1_getCh19IntNodePtr(void)
  *
  * \return uint8 Compare Lo Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp0LoIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp0LoIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_LO0;
 }
 
@@ -5749,8 +5171,7 @@ INLINE uint8 ADC1_getCmp0LoIntNodePtr(void)
  *
  * \return uint8 Compare Lo Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp1LoIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp1LoIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_LO1;
 }
 
@@ -5758,8 +5179,7 @@ INLINE uint8 ADC1_getCmp1LoIntNodePtr(void)
  *
  * \return uint8 Compare Lo Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp2LoIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp2LoIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_LO2;
 }
 
@@ -5767,8 +5187,7 @@ INLINE uint8 ADC1_getCmp2LoIntNodePtr(void)
  *
  * \return uint8 Compare Lo Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp3LoIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp3LoIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_LO3;
 }
 
@@ -5776,8 +5195,7 @@ INLINE uint8 ADC1_getCmp3LoIntNodePtr(void)
  *
  * \return uint8 Compare Up Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp0UpIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp0UpIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_UP0;
 }
 
@@ -5785,8 +5203,7 @@ INLINE uint8 ADC1_getCmp0UpIntNodePtr(void)
  *
  * \return uint8 Compare Up Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp1UpIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp1UpIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_UP1;
 }
 
@@ -5794,8 +5211,7 @@ INLINE uint8 ADC1_getCmp1UpIntNodePtr(void)
  *
  * \return uint8 Compare Up Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp2UpIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp2UpIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_UP2;
 }
 
@@ -5803,8 +5219,7 @@ INLINE uint8 ADC1_getCmp2UpIntNodePtr(void)
  *
  * \return uint8 Compare Up Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getCmp3UpIntNodePtr(void)
-{
+INLINE uint8 ADC1_getCmp3UpIntNodePtr(void) {
   return (uint8)ADC1->INP2.bit.INP_CMP_UP3;
 }
 
@@ -5812,8 +5227,7 @@ INLINE uint8 ADC1_getCmp3UpIntNodePtr(void)
  *
  * \return uint8 Sequence Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq0IntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq0IntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_SQ0;
 }
 
@@ -5821,8 +5235,7 @@ INLINE uint8 ADC1_getSeq0IntNodePtr(void)
  *
  * \return uint8 Sequence Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq1IntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq1IntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_SQ1;
 }
 
@@ -5830,8 +5243,7 @@ INLINE uint8 ADC1_getSeq1IntNodePtr(void)
  *
  * \return uint8 Sequence Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq2IntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq2IntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_SQ2;
 }
 
@@ -5839,8 +5251,7 @@ INLINE uint8 ADC1_getSeq2IntNodePtr(void)
  *
  * \return uint8 Sequence Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq3IntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq3IntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_SQ3;
 }
 
@@ -5848,8 +5259,7 @@ INLINE uint8 ADC1_getSeq3IntNodePtr(void)
  *
  * \return uint8 Collision Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq0CollIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq0CollIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_COLL0;
 }
 
@@ -5857,8 +5267,7 @@ INLINE uint8 ADC1_getSeq0CollIntNodePtr(void)
  *
  * \return uint8 Collision Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq1CollIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq1CollIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_COLL1;
 }
 
@@ -5866,8 +5275,7 @@ INLINE uint8 ADC1_getSeq1CollIntNodePtr(void)
  *
  * \return uint8 Collision Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq2CollIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq2CollIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_COLL2;
 }
 
@@ -5875,8 +5283,7 @@ INLINE uint8 ADC1_getSeq2CollIntNodePtr(void)
  *
  * \return uint8 Collision Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq3CollIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq3CollIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_COLL3;
 }
 
@@ -5884,8 +5291,7 @@ INLINE uint8 ADC1_getSeq3CollIntNodePtr(void)
  *
  * \return uint8 Wait for read  Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq0WaitForReadIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq0WaitForReadIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_WFR0;
 }
 
@@ -5893,8 +5299,7 @@ INLINE uint8 ADC1_getSeq0WaitForReadIntNodePtr(void)
  *
  * \return uint8 Wait for read  Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq1WaitForReadIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq1WaitForReadIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_WFR1;
 }
 
@@ -5902,8 +5307,7 @@ INLINE uint8 ADC1_getSeq1WaitForReadIntNodePtr(void)
  *
  * \return uint8 Wait for read  Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq2WaitForReadIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq2WaitForReadIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_WFR2;
 }
 
@@ -5911,8 +5315,7 @@ INLINE uint8 ADC1_getSeq2WaitForReadIntNodePtr(void)
  *
  * \return uint8 Wait for read  Interrupt Node Pointer
  */
-INLINE uint8 ADC1_getSeq3WaitForReadIntNodePtr(void)
-{
+INLINE uint8 ADC1_getSeq3WaitForReadIntNodePtr(void) {
   return (uint8)ADC1->INP3.bit.INP_WFR3;
 }
 
@@ -5920,8 +5323,7 @@ INLINE uint8 ADC1_getSeq3WaitForReadIntNodePtr(void)
  *
  *  \param u8_value Sequence Shadow Transfer Selection
  */
-INLINE void ADC1_setSeqHwShadowTrans(uint8 u8_value)
-{
+INLINE void ADC1_setSeqHwShadowTrans(uint8 u8_value) {
   ADC1->SHDCTR.bit.ST_SQSEL = u8_value;
 }
 
@@ -5929,8 +5331,7 @@ INLINE void ADC1_setSeqHwShadowTrans(uint8 u8_value)
  *
  * \return uint8 Sequence Shadow Transfer Selection
  */
-INLINE uint8 ADC1_getSeqHwShadowTrans(void)
-{
+INLINE uint8 ADC1_getSeqHwShadowTrans(void) {
   return (uint8)ADC1->SHDCTR.bit.ST_SQSEL;
 }
 
@@ -5938,8 +5339,7 @@ INLINE uint8 ADC1_getSeqHwShadowTrans(void)
  *
  *  \param u8_value Trigger Shadow Transfer Selection
  */
-INLINE void ADC1_setTriggHwShadowTrans(uint8 u8_value)
-{
+INLINE void ADC1_setTriggHwShadowTrans(uint8 u8_value) {
   ADC1->SHDCTR.bit.ST_TRGSEL = u8_value;
 }
 
@@ -5947,8 +5347,7 @@ INLINE void ADC1_setTriggHwShadowTrans(uint8 u8_value)
  *
  * \return uint8 Trigger Shadow Transfer Selection
  */
-INLINE uint8 ADC1_getTriggHwShadowTrans(void)
-{
+INLINE uint8 ADC1_getTriggHwShadowTrans(void) {
   return (uint8)ADC1->SHDCTR.bit.ST_TRGSEL;
 }
 
@@ -5956,8 +5355,7 @@ INLINE uint8 ADC1_getTriggHwShadowTrans(void)
  *
  *  \param u8_value Gating Shadow Transfer Selection
  */
-INLINE void ADC1_setGateHwShadowTrans(uint8 u8_value)
-{
+INLINE void ADC1_setGateHwShadowTrans(uint8 u8_value) {
   ADC1->SHDCTR.bit.ST_GTGSEL = u8_value;
 }
 
@@ -5965,57 +5363,49 @@ INLINE void ADC1_setGateHwShadowTrans(uint8 u8_value)
  *
  * \return uint8 Gating Shadow Transfer Selection
  */
-INLINE uint8 ADC1_getGateHwShadowTrans(void)
-{
+INLINE uint8 ADC1_getGateHwShadowTrans(void) {
   return (uint8)ADC1->SHDCTR.bit.ST_GTGSEL;
 }
 
 /** \brief Enable Sequence Shadow Transfer Selection
  */
-INLINE void ADC1_enSeqHwShadowTrans(void)
-{
+INLINE void ADC1_enSeqHwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_SQSEL = 1u;
 }
 
 /** \brief Disable Sequence Shadow Transfer Selection
  */
-INLINE void ADC1_disSeqHwShadowTrans(void)
-{
+INLINE void ADC1_disSeqHwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_SQSEL = 0u;
 }
 
 /** \brief Enable Trigger Shadow Transfer Selection
  */
-INLINE void ADC1_enTriggHwShadowTrans(void)
-{
+INLINE void ADC1_enTriggHwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_TRGSEL = 1u;
 }
 
 /** \brief Disable Trigger Shadow Transfer Selection
  */
-INLINE void ADC1_disTriggHwShadowTrans(void)
-{
+INLINE void ADC1_disTriggHwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_TRGSEL = 0u;
 }
 
 /** \brief Enable Gating Shadow Transfer  Selection
  */
-INLINE void ADC1_enGateHwShadowTrans(void)
-{
+INLINE void ADC1_enGateHwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_GTGSEL = 1u;
 }
 
 /** \brief Disable Gating Shadow Transfer  Selection
  */
-INLINE void ADC1_disGateHwShadowTrans(void)
-{
+INLINE void ADC1_disGateHwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_GTGSEL = 0u;
 }
 
 /** \brief Set Sequence Software Shadow Transfer
  */
-INLINE void ADC1_setSeqSwShadowTrans(void)
-{
+INLINE void ADC1_setSeqSwShadowTrans(void) {
   ADC1->SHDCTR.bit.ST_SQSW = 1u;
 }
 
@@ -6023,15 +5413,13 @@ INLINE void ADC1_setSeqSwShadowTrans(void)
  *
  * \return uint8 Sequence Software Shadow Transfer
  */
-INLINE uint8 ADC1_getSeqSwShadowTrans(void)
-{
+INLINE uint8 ADC1_getSeqSwShadowTrans(void) {
   return (uint8)ADC1->SHDCTR.bit.ST_SQSW;
 }
 
 /** \brief Set Trigger Software Shadow Transfer
  */
-INLINE void ADC1_setTriggSwShadowTrans(void)
-{
+INLINE void ADC1_setTriggSwShadowTrans(void) {
   ADC1->SHDCTR.bit.ST_TRGSW = 1u;
 }
 
@@ -6039,15 +5427,13 @@ INLINE void ADC1_setTriggSwShadowTrans(void)
  *
  * \return uint8 Trigger Software Shadow Transfer
  */
-INLINE uint8 ADC1_getTriggSwShadowTrans(void)
-{
+INLINE uint8 ADC1_getTriggSwShadowTrans(void) {
   return (uint8)ADC1->SHDCTR.bit.ST_TRGSW;
 }
 
 /** \brief Set Gating Software Shadow Transfer
  */
-INLINE void ADC1_setGateSwShadowTrans(void)
-{
+INLINE void ADC1_setGateSwShadowTrans(void) {
   ADC1->SHDCTR.bit.ST_GTGSW = 1u;
 }
 
@@ -6055,50 +5441,43 @@ INLINE void ADC1_setGateSwShadowTrans(void)
  *
  * \return uint8 Gating Software Shadow Transfer
  */
-INLINE uint8 ADC1_getGateSwShadowTrans(void)
-{
+INLINE uint8 ADC1_getGateSwShadowTrans(void) {
   return (uint8)ADC1->SHDCTR.bit.ST_GTGSW;
 }
 
 /** \brief Enable Sequence Shadow Transfer
  */
-INLINE void ADC1_enSeqSwShadowTrans(void)
-{
+INLINE void ADC1_enSeqSwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_SQ = 1u;
 }
 
 /** \brief Disable Sequence Shadow Transfer
  */
-INLINE void ADC1_disSeqSwShadowTrans(void)
-{
+INLINE void ADC1_disSeqSwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_SQ = 0u;
 }
 
 /** \brief Enable Trigger Shadow Transfer
  */
-INLINE void ADC1_enTriggSwShadowTrans(void)
-{
+INLINE void ADC1_enTriggSwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_TRG = 1u;
 }
 
 /** \brief Disable Trigger Shadow Transfer
  */
-INLINE void ADC1_disTriggSwShadowTrans(void)
-{
+INLINE void ADC1_disTriggSwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_TRG = 0u;
 }
 
 /** \brief Enable Gating Shadow Transfer
  */
-INLINE void ADC1_enGateSwShadowTrans(void)
-{
+INLINE void ADC1_enGateSwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_GTG = 1u;
 }
 
 /** \brief Disable Gating Shadow Transfer
  */
-INLINE void ADC1_disGateSwShadowTrans(void)
-{
+INLINE void ADC1_disGateSwShadowTrans(void) {
   ADC1->SHDCTR.bit.STE_GTG = 0u;
 }
 
@@ -6106,8 +5485,7 @@ INLINE void ADC1_disGateSwShadowTrans(void)
  *
  *  \param u8_value Calibration Offset analog input 1
  */
-INLINE void ADC1_setCalibOffsAnaIn1(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn1(uint8 u8_value) {
   ADC1->CALAI1.bit.CALOFFS = u8_value;
 }
 
@@ -6115,8 +5493,7 @@ INLINE void ADC1_setCalibOffsAnaIn1(uint8 u8_value)
  *
  * \return uint8 Calibration Offset analog input 1
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn1(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn1(void) {
   return (uint8)ADC1->CALAI1.bit.CALOFFS;
 }
 
@@ -6124,8 +5501,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn1(void)
  *
  * \param u16_value Calibration Gain analog input 1
  */
-INLINE void ADC1_setCalibGainAnaIn1(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn1(uint16 u16_value) {
   ADC1->CALAI1.bit.CALGAIN = u16_value;
 }
 
@@ -6133,8 +5509,7 @@ INLINE void ADC1_setCalibGainAnaIn1(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 1
  */
-INLINE uint16 ADC1_getCalibGainAnaIn1(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn1(void) {
   return (uint16)ADC1->CALAI1.bit.CALGAIN;
 }
 
@@ -6142,8 +5517,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn1(void)
  *
  *  \param u8_value Calibration Offset analog input 3
  */
-INLINE void ADC1_setCalibOffsAnaIn3(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn3(uint8 u8_value) {
   ADC1->CALAI3.bit.CALOFFS = u8_value;
 }
 
@@ -6151,8 +5525,7 @@ INLINE void ADC1_setCalibOffsAnaIn3(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 3
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn3(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn3(void) {
   return (uint8)ADC1->CALAI3.bit.CALOFFS;
 }
 
@@ -6160,8 +5533,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn3(void)
  *
  *  \param u16_value Calibration Gain analog input 3
  */
-INLINE void ADC1_setCalibGainAnaIn3(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn3(uint16 u16_value) {
   ADC1->CALAI3.bit.CALGAIN = u16_value;
 }
 
@@ -6169,8 +5541,7 @@ INLINE void ADC1_setCalibGainAnaIn3(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 3
  */
-INLINE uint16 ADC1_getCalibGainAnaIn3(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn3(void) {
   return (uint16)ADC1->CALAI3.bit.CALGAIN;
 }
 
@@ -6178,8 +5549,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn3(void)
  *
  *  \param u8_value Calibration Offset analog input 5
  */
-INLINE void ADC1_setCalibOffsAnaIn5(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn5(uint8 u8_value) {
   ADC1->CALAI5.bit.CALOFFS = u8_value;
 }
 
@@ -6187,8 +5557,7 @@ INLINE void ADC1_setCalibOffsAnaIn5(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 5
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn5(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn5(void) {
   return (uint8)ADC1->CALAI5.bit.CALOFFS;
 }
 
@@ -6196,8 +5565,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn5(void)
  *
  *  \param u16_value Calibration Gain analog input 5
  */
-INLINE void ADC1_setCalibGainAnaIn5(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn5(uint16 u16_value) {
   ADC1->CALAI5.bit.CALGAIN = u16_value;
 }
 
@@ -6205,8 +5573,7 @@ INLINE void ADC1_setCalibGainAnaIn5(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 5
  */
-INLINE uint16 ADC1_getCalibGainAnaIn5(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn5(void) {
   return (uint16)ADC1->CALAI5.bit.CALGAIN;
 }
 
@@ -6214,8 +5581,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn5(void)
  *
  *  \param u8_value Calibration Offset analog input 7
  */
-INLINE void ADC1_setCalibOffsAnaIn7(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn7(uint8 u8_value) {
   ADC1->CALAI7.bit.CALOFFS = u8_value;
 }
 
@@ -6223,8 +5589,7 @@ INLINE void ADC1_setCalibOffsAnaIn7(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 7
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn7(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn7(void) {
   return (uint8)ADC1->CALAI7.bit.CALOFFS;
 }
 
@@ -6232,8 +5597,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn7(void)
  *
  *  \param u16_value Calibration Gain analog input 7
  */
-INLINE void ADC1_setCalibGainAnaIn7(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn7(uint16 u16_value) {
   ADC1->CALAI7.bit.CALGAIN = u16_value;
 }
 
@@ -6241,8 +5605,7 @@ INLINE void ADC1_setCalibGainAnaIn7(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 7
  */
-INLINE uint16 ADC1_getCalibGainAnaIn7(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn7(void) {
   return (uint16)ADC1->CALAI7.bit.CALGAIN;
 }
 
@@ -6250,8 +5613,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn7(void)
  *
  *  \param u8_value Calibration Offset analog input 9
  */
-INLINE void ADC1_setCalibOffsAnaIn9(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn9(uint8 u8_value) {
   ADC1->CALAI9.bit.CALOFFS = u8_value;
 }
 
@@ -6259,8 +5621,7 @@ INLINE void ADC1_setCalibOffsAnaIn9(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 9
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn9(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn9(void) {
   return (uint8)ADC1->CALAI9.bit.CALOFFS;
 }
 
@@ -6268,8 +5629,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn9(void)
  *
  *  \param u16_value Calibration Gain analog input 9
  */
-INLINE void ADC1_setCalibGainAnaIn9(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn9(uint16 u16_value) {
   ADC1->CALAI9.bit.CALGAIN = u16_value;
 }
 
@@ -6277,8 +5637,7 @@ INLINE void ADC1_setCalibGainAnaIn9(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 9
  */
-INLINE uint16 ADC1_getCalibGainAnaIn9(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn9(void) {
   return (uint16)ADC1->CALAI9.bit.CALGAIN;
 }
 
@@ -6286,8 +5645,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn9(void)
  *
  *  \param u8_value Calibration Offset analog input 11
  */
-INLINE void ADC1_setCalibOffsAnaIn11(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn11(uint8 u8_value) {
   ADC1->CALAI11.bit.CALOFFS = u8_value;
 }
 
@@ -6295,8 +5653,7 @@ INLINE void ADC1_setCalibOffsAnaIn11(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 11
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn11(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn11(void) {
   return (uint8)ADC1->CALAI11.bit.CALOFFS;
 }
 
@@ -6304,8 +5661,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn11(void)
  *
  *  \param u16_value Calibration Gain analog input 11
  */
-INLINE void ADC1_setCalibGainAnaIn11(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn11(uint16 u16_value) {
   ADC1->CALAI11.bit.CALGAIN = u16_value;
 }
 
@@ -6313,8 +5669,7 @@ INLINE void ADC1_setCalibGainAnaIn11(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 11
  */
-INLINE uint16 ADC1_getCalibGainAnaIn11(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn11(void) {
   return (uint16)ADC1->CALAI11.bit.CALGAIN;
 }
 
@@ -6322,8 +5677,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn11(void)
  *
  *  \param u8_value Calibration Offset analog input 13
  */
-INLINE void ADC1_setCalibOffsAnaIn13(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn13(uint8 u8_value) {
   ADC1->CALAI13.bit.CALOFFS = u8_value;
 }
 
@@ -6331,8 +5685,7 @@ INLINE void ADC1_setCalibOffsAnaIn13(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 13
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn13(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn13(void) {
   return (uint8)ADC1->CALAI13.bit.CALOFFS;
 }
 
@@ -6340,8 +5693,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn13(void)
  *
  *  \param u16_value Calibration Gain analog input 13
  */
-INLINE void ADC1_setCalibGainAnaIn13(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn13(uint16 u16_value) {
   ADC1->CALAI13.bit.CALGAIN = u16_value;
 }
 
@@ -6349,8 +5701,7 @@ INLINE void ADC1_setCalibGainAnaIn13(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 13
  */
-INLINE uint16 ADC1_getCalibGainAnaIn13(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn13(void) {
   return (uint16)ADC1->CALAI13.bit.CALGAIN;
 }
 
@@ -6358,8 +5709,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn13(void)
  *
  *  \param u8_value Calibration Offset analog input 15
  */
-INLINE void ADC1_setCalibOffsAnaIn15(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn15(uint8 u8_value) {
   ADC1->CALAI15.bit.CALOFFS = u8_value;
 }
 
@@ -6367,8 +5717,7 @@ INLINE void ADC1_setCalibOffsAnaIn15(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 15
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn15(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn15(void) {
   return (uint8)ADC1->CALAI15.bit.CALOFFS;
 }
 
@@ -6376,8 +5725,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn15(void)
  *
  *  \param u16_value Calibration Gain analog input 15
  */
-INLINE void ADC1_setCalibGainAnaIn15(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn15(uint16 u16_value) {
   ADC1->CALAI15.bit.CALGAIN = u16_value;
 }
 
@@ -6385,8 +5733,7 @@ INLINE void ADC1_setCalibGainAnaIn15(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 15
  */
-INLINE uint16 ADC1_getCalibGainAnaIn15(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn15(void) {
   return (uint16)ADC1->CALAI15.bit.CALGAIN;
 }
 
@@ -6394,8 +5741,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn15(void)
  *
  *  \param u8_value Calibration Offset analog input 16
 */
-INLINE void ADC1_setCalibOffsAnaIn16(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn16(uint8 u8_value) {
   ADC1->CALAI16.bit.CALOFFS = u8_value;
 }
 
@@ -6403,8 +5749,7 @@ INLINE void ADC1_setCalibOffsAnaIn16(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 16
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn16(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn16(void) {
   return (uint8)ADC1->CALAI16.bit.CALOFFS;
 }
 
@@ -6412,8 +5757,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn16(void)
  *
  *  \param u16_value Calibration Gain analog input 16
  */
-INLINE void ADC1_setCalibGainAnaIn16(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn16(uint16 u16_value) {
   ADC1->CALAI16.bit.CALGAIN = u16_value;
 }
 
@@ -6421,8 +5765,7 @@ INLINE void ADC1_setCalibGainAnaIn16(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 16
  */
-INLINE uint16 ADC1_getCalibGainAnaIn16(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn16(void) {
   return (uint16)ADC1->CALAI16.bit.CALGAIN;
 }
 
@@ -6430,8 +5773,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn16(void)
  *
  *  \param u8_value Calibration Offset analog input 17
  */
-INLINE void ADC1_setCalibOffsAnaIn17(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn17(uint8 u8_value) {
   ADC1->CALAI17.bit.CALOFFS = u8_value;
 }
 
@@ -6439,8 +5781,7 @@ INLINE void ADC1_setCalibOffsAnaIn17(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 17
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn17(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn17(void) {
   return (uint8)ADC1->CALAI17.bit.CALOFFS;
 }
 
@@ -6448,8 +5789,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn17(void)
  *
  *  \param u16_value Calibration Gain analog input 17
  */
-INLINE void ADC1_setCalibGainAnaIn17(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn17(uint16 u16_value) {
   ADC1->CALAI17.bit.CALGAIN = u16_value;
 }
 
@@ -6457,8 +5797,7 @@ INLINE void ADC1_setCalibGainAnaIn17(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 17
  */
-INLINE uint16 ADC1_getCalibGainAnaIn17(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn17(void) {
   return (uint16)ADC1->CALAI17.bit.CALGAIN;
 }
 
@@ -6466,8 +5805,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn17(void)
  *
  *  \param u8_value Calibration Offset analog input 18
  */
-INLINE void ADC1_setCalibOffsAnaIn18(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn18(uint8 u8_value) {
   ADC1->CALAI18.bit.CALOFFS = u8_value;
 }
 
@@ -6475,8 +5813,7 @@ INLINE void ADC1_setCalibOffsAnaIn18(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 18
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn18(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn18(void) {
   return (uint8)ADC1->CALAI18.bit.CALOFFS;
 }
 
@@ -6484,8 +5821,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn18(void)
  *
  *  \param u16_value Calibration Gain analog input 18
  */
-INLINE void ADC1_setCalibGainAnaIn18(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn18(uint16 u16_value) {
   ADC1->CALAI18.bit.CALGAIN = u16_value;
 }
 
@@ -6493,8 +5829,7 @@ INLINE void ADC1_setCalibGainAnaIn18(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 18
  */
-INLINE uint16 ADC1_getCalibGainAnaIn18(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn18(void) {
   return (uint16)ADC1->CALAI18.bit.CALGAIN;
 }
 
@@ -6502,8 +5837,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn18(void)
  *
  *  \param u8_value Calibration Offset analog input 19
  */
-INLINE void ADC1_setCalibOffsAnaIn19(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn19(uint8 u8_value) {
   ADC1->CALAI19.bit.CALOFFS = u8_value;
 }
 
@@ -6511,8 +5845,7 @@ INLINE void ADC1_setCalibOffsAnaIn19(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 19
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn19(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn19(void) {
   return (uint8)ADC1->CALAI19.bit.CALOFFS;
 }
 
@@ -6520,8 +5853,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn19(void)
  *
  *  \param u16_value Calibration Gain analog input 19
  */
-INLINE void ADC1_setCalibGainAnaIn19(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn19(uint16 u16_value) {
   ADC1->CALAI19.bit.CALGAIN = u16_value;
 }
 
@@ -6529,8 +5861,7 @@ INLINE void ADC1_setCalibGainAnaIn19(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 19
  */
-INLINE uint16 ADC1_getCalibGainAnaIn19(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn19(void) {
   return (uint16)ADC1->CALAI19.bit.CALGAIN;
 }
 
@@ -6538,8 +5869,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn19(void)
  *
  *  \param u8_value Calibration Offset analog input 20
  */
-INLINE void ADC1_setCalibOffsAnaIn20(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn20(uint8 u8_value) {
   ADC1->CALAI20.bit.CALOFFS = u8_value;
 }
 
@@ -6547,8 +5877,7 @@ INLINE void ADC1_setCalibOffsAnaIn20(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 20
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn20(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn20(void) {
   return (uint8)ADC1->CALAI20.bit.CALOFFS;
 }
 
@@ -6556,8 +5885,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn20(void)
  *
  *  \param u16_value Calibration Gain analog input 20
  */
-INLINE void ADC1_setCalibGainAnaIn20(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn20(uint16 u16_value) {
   ADC1->CALAI20.bit.CALGAIN = u16_value;
 }
 
@@ -6565,8 +5893,7 @@ INLINE void ADC1_setCalibGainAnaIn20(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 20
  */
-INLINE uint16 ADC1_getCalibGainAnaIn20(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn20(void) {
   return (uint16)ADC1->CALAI20.bit.CALGAIN;
 }
 
@@ -6574,8 +5901,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn20(void)
  *
  *  \param u8_value Calibration Offset analog input 21
  */
-INLINE void ADC1_setCalibOffsAnaIn21(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn21(uint8 u8_value) {
   ADC1->CALAI21.bit.CALOFFS = u8_value;
 }
 
@@ -6583,8 +5909,7 @@ INLINE void ADC1_setCalibOffsAnaIn21(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 21
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn21(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn21(void) {
   return (uint8)ADC1->CALAI21.bit.CALOFFS;
 }
 
@@ -6592,8 +5917,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn21(void)
  *
  *  \param u16_value Calibration Gain analog input 21
  */
-INLINE void ADC1_setCalibGainAnaIn21(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn21(uint16 u16_value) {
   ADC1->CALAI21.bit.CALGAIN = u16_value;
 }
 
@@ -6601,8 +5925,7 @@ INLINE void ADC1_setCalibGainAnaIn21(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 21
  */
-INLINE uint16 ADC1_getCalibGainAnaIn21(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn21(void) {
   return (uint16)ADC1->CALAI21.bit.CALGAIN;
 }
 
@@ -6610,8 +5933,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn21(void)
  *
  *  \param u8_value Calibration Offset analog input 22
  */
-INLINE void ADC1_setCalibOffsAnaIn22(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn22(uint8 u8_value) {
   ADC1->CALAI22.bit.CALOFFS = u8_value;
 }
 
@@ -6619,8 +5941,7 @@ INLINE void ADC1_setCalibOffsAnaIn22(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 22
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn22(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn22(void) {
   return (uint8)ADC1->CALAI22.bit.CALOFFS;
 }
 
@@ -6628,8 +5949,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn22(void)
  *
  *  \param u16_value Calibration Gain analog input 22
  */
-INLINE void ADC1_setCalibGainAnaIn22(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn22(uint16 u16_value) {
   ADC1->CALAI22.bit.CALGAIN = u16_value;
 }
 
@@ -6637,8 +5957,7 @@ INLINE void ADC1_setCalibGainAnaIn22(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 22
  */
-INLINE uint16 ADC1_getCalibGainAnaIn22(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn22(void) {
   return (uint16)ADC1->CALAI22.bit.CALGAIN;
 }
 
@@ -6646,8 +5965,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn22(void)
  *
  *  \param u8_value Calibration Offset analog input 23
  */
-INLINE void ADC1_setCalibOffsAnaIn23(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn23(uint8 u8_value) {
   ADC1->CALAI23.bit.CALOFFS = u8_value;
 }
 
@@ -6655,8 +5973,7 @@ INLINE void ADC1_setCalibOffsAnaIn23(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 23
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn23(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn23(void) {
   return (uint8)ADC1->CALAI23.bit.CALOFFS;
 }
 
@@ -6664,8 +5981,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn23(void)
  *
  *  \param u16_value Calibration Gain analog input 23
  */
-INLINE void ADC1_setCalibGainAnaIn23(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn23(uint16 u16_value) {
   ADC1->CALAI23.bit.CALGAIN = u16_value;
 }
 
@@ -6673,8 +5989,7 @@ INLINE void ADC1_setCalibGainAnaIn23(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 23
  */
-INLINE uint16 ADC1_getCalibGainAnaIn23(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn23(void) {
   return (uint16)ADC1->CALAI23.bit.CALGAIN;
 }
 
@@ -6682,8 +5997,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn23(void)
  *
  *  \param u8_value Calibration Offset analog input 24
  */
-INLINE void ADC1_setCalibOffsAnaIn24(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn24(uint8 u8_value) {
   ADC1->CALAI24.bit.CALOFFS = u8_value;
 }
 
@@ -6691,8 +6005,7 @@ INLINE void ADC1_setCalibOffsAnaIn24(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 24
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn24(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn24(void) {
   return (uint8)ADC1->CALAI24.bit.CALOFFS;
 }
 
@@ -6700,8 +6013,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn24(void)
  *
  *  \param u16_value Calibration Gain analog input 24
  */
-INLINE void ADC1_setCalibGainAnaIn24(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn24(uint16 u16_value) {
   ADC1->CALAI24.bit.CALGAIN = u16_value;
 }
 
@@ -6709,8 +6021,7 @@ INLINE void ADC1_setCalibGainAnaIn24(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 24
  */
-INLINE uint16 ADC1_getCalibGainAnaIn24(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn24(void) {
   return (uint16)ADC1->CALAI24.bit.CALGAIN;
 }
 
@@ -6718,8 +6029,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn24(void)
  *
  *  \param u8_value Calibration Offset analog input 25
  */
-INLINE void ADC1_setCalibOffsAnaIn25(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn25(uint8 u8_value) {
   ADC1->CALAI25.bit.CALOFFS = u8_value;
 }
 
@@ -6727,8 +6037,7 @@ INLINE void ADC1_setCalibOffsAnaIn25(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 25
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn25(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn25(void) {
   return (uint8)ADC1->CALAI25.bit.CALOFFS;
 }
 
@@ -6736,8 +6045,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn25(void)
  *
  *  \param u16_value Calibration Gain analog input 25
  */
-INLINE void ADC1_setCalibGainAnaIn25(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn25(uint16 u16_value) {
   ADC1->CALAI25.bit.CALGAIN = u16_value;
 }
 
@@ -6745,8 +6053,7 @@ INLINE void ADC1_setCalibGainAnaIn25(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 25
  */
-INLINE uint16 ADC1_getCalibGainAnaIn25(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn25(void) {
   return (uint16)ADC1->CALAI25.bit.CALGAIN;
 }
 
@@ -6754,8 +6061,7 @@ INLINE uint16 ADC1_getCalibGainAnaIn25(void)
  *
  *  \param u8_value Calibration Offset analog input 26
  */
-INLINE void ADC1_setCalibOffsAnaIn26(uint8 u8_value)
-{
+INLINE void ADC1_setCalibOffsAnaIn26(uint8 u8_value) {
   ADC1->CALAI26.bit.CALOFFS = u8_value;
 }
 
@@ -6763,8 +6069,7 @@ INLINE void ADC1_setCalibOffsAnaIn26(uint8 u8_value)
  *
  *  \return uint8 Calibration Offset analog input 26
  */
-INLINE uint8 ADC1_getCalibOffsAnaIn26(void)
-{
+INLINE uint8 ADC1_getCalibOffsAnaIn26(void) {
   return (uint8)ADC1->CALAI26.bit.CALOFFS;
 }
 
@@ -6772,8 +6077,7 @@ INLINE uint8 ADC1_getCalibOffsAnaIn26(void)
  *
  *  \param u16_value Calibration Gain analog input 26
  */
-INLINE void ADC1_setCalibGainAnaIn26(uint16 u16_value)
-{
+INLINE void ADC1_setCalibGainAnaIn26(uint16 u16_value) {
   ADC1->CALAI26.bit.CALGAIN = u16_value;
 }
 
@@ -6781,36 +6085,31 @@ INLINE void ADC1_setCalibGainAnaIn26(uint16 u16_value)
  *
  *  \return uint16 Calibration Gain analog input 26
  */
-INLINE uint16 ADC1_getCalibGainAnaIn26(void)
-{
+INLINE uint16 ADC1_getCalibGainAnaIn26(void) {
   return (uint16)ADC1->CALAI26.bit.CALGAIN;
 }
 
 /** \brief Enable VAREF
  */
-INLINE void ARVG_enVAREF(void)
-{
+INLINE void ARVG_enVAREF(void) {
   ARVG->VAREF_CTRL.bit.EN = 1u;
 }
 
 /** \brief Disable VAREF
  */
-INLINE void ARVG_disVAREF(void)
-{
+INLINE void ARVG_disVAREF(void) {
   ARVG->VAREF_CTRL.bit.EN = 0u;
 }
 
 /** \brief Enable VAREF Overcurrent Interrupt
  */
-INLINE void ARVG_enVAREFOvercurrentInt(void)
-{
+INLINE void ARVG_enVAREFOvercurrentInt(void) {
   ARVG->VAREF_IEN.bit.OC_IEN = 1u;
 }
 
 /** \brief Disable VAREF Overcurrent Interrupt
  */
-INLINE void ARVG_disVAREFOvercurrentInt(void)
-{
+INLINE void ARVG_disVAREFOvercurrentInt(void) {
   ARVG->VAREF_IEN.bit.OC_IEN = 0u;
 }
 
@@ -6818,8 +6117,7 @@ INLINE void ARVG_disVAREFOvercurrentInt(void)
  *
  *  \return uint8 VAREF Overcurrent Interrupt Status
  */
-INLINE uint8 ARVG_getVAREFOvercurrentIntSts(void)
-{
+INLINE uint8 ARVG_getVAREFOvercurrentIntSts(void) {
   return (uint8)ARVG->VAREF_IRQ.bit.OC_IS;
 }
 
@@ -6827,26 +6125,22 @@ INLINE uint8 ARVG_getVAREFOvercurrentIntSts(void)
  *
  *  \return uint8 VAREF Overcurrent Interrupt Status
  */
-INLINE uint8 ARVG_getVAREFOvercurrentSts(void)
-{
+INLINE uint8 ARVG_getVAREFOvercurrentSts(void) {
   return (uint8)ARVG->VAREF_IRQ.bit.OC_STS;
 }
 
 /** \brief Clear VAREF Overcurrent Interrupt Status
  */
-INLINE void ARVG_clrVAREFOvercurrentIntSts(void)
-{
+INLINE void ARVG_clrVAREFOvercurrentIntSts(void) {
   ARVG->VAREF_IRQ_CLR.bit.OC_IS_CLR = 1u;
 }
 
 /** \brief Clear VAREF Overcurrent Status
  */
-INLINE void ARVG_clrVAREFOvercurrentSts(void)
-{
+INLINE void ARVG_clrVAREFOvercurrentSts(void) {
   ARVG->VAREF_IRQ_CLR.bit.OC_STS_CLR = 1u;
 }
 
 /** @}*/
 
 #endif /* _ADC1_H */
-

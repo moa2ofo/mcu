@@ -47,8 +47,7 @@ static bool b_SOWactive = false;
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 PMU_init(void)
-{
+sint8 PMU_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_SUCCESS;
   PMU->START_CONFIG.reg = (uint32)PMU_START_CONFIG;
@@ -65,8 +64,7 @@ sint8 PMU_init(void)
 
   /* Checking for possible hardware failure trigger source(s) and for possible wake-up
   trigger source(s) and resetting the status flags if necessary can be done in the application */
-  if (PMU->WAKE_FAIL_STS.reg != (uint32)0u)
-  {
+  if(PMU->WAKE_FAIL_STS.reg != (uint32)0u) {
     s8_returnCode = ERR_LOG_ERROR;
   }
 
@@ -94,8 +92,7 @@ sint8 PMU_init(void)
 
 /** \brief Count up since the last watchdog trigger
  */
-void PMU_countFailSafeWatchdog(void)
-{
+void PMU_countFailSafeWatchdog(void) {
   u32_failsafeWatchdogCnt++;
 }
 
@@ -103,16 +100,14 @@ void PMU_countFailSafeWatchdog(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 PMU_initFailSafeWatchdog(void)
-{
+sint8 PMU_initFailSafeWatchdog(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_SUCCESS;
   /* Initialisation of the tick counter */
   u32_failsafeWatchdogCnt = 0u;
 
   /* A successful self-test of the fail-safe watchdog sets the FS_STS.WD_FAIL_STS bit */
-  if (PMU_getWDFailSts() == 1u)
-  {
+  if(PMU_getWDFailSts() == 1u) {
     /* The watchdog starts in Long Open Window (typically 180 ms) */
     /* The fail-safe watchdog period can only be programmed during the LOW phase */
     /* wd_en is masked: the FW automatically resets the EN bit when entering debug mode or sets it when entering user mode */
@@ -125,20 +120,16 @@ sint8 PMU_initFailSafeWatchdog(void)
     u32_failsafeWatchdogCnt = 0;
     /* The fail-safe watchdog status bit must be cleared to release the safe shut-down */
     PMU_clrWDFailSts();
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_ERROR;
   }
 
   return s8_returnCode;
 }
 
-
 /** \brief Stop the fail-safe watchdog
  */
-void PMU_stopFailSafeWatchdog(void)
-{
+void PMU_stopFailSafeWatchdog(void) {
   /* Disable the SysTick Timer */
   CPU->SYSTICK_CS.bit.ENABLE = 0u;
 }
@@ -147,16 +138,14 @@ void PMU_stopFailSafeWatchdog(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 PMU_serviceFailSafeWatchdog(void)
-{
+sint8 PMU_serviceFailSafeWatchdog(void) {
   sint8 s8_returnCode;
   //lint --e(9034)
   static bool b_firstNOW = false;
   s8_returnCode = ERR_LOG_SUCCESS;
 
   /* Check if the counter is within the effective open window (safe trigger point) or if a SOW service has been done before */
-  if ((u32_failsafeWatchdogCnt > PMU_SAFE_TRIGGER) || b_SOWactive)
-  {
+  if((u32_failsafeWatchdogCnt > PMU_SAFE_TRIGGER) || b_SOWactive) {
     /* Service watchdog by toggling bit PMU->WD_TRIG.bit.TRIG */
     PMU->WD_TRIG.bit.TRIG ^= 1u;
     /* Reset the fail-safe watchdog counter */
@@ -166,17 +155,14 @@ sint8 PMU_serviceFailSafeWatchdog(void)
     b_SOWactive = false;
 
     /* For the first normal window, the initialization of the fail-safe watchdog has to be completed */
-    if (!b_firstNOW)
-    {
+    if(!b_firstNOW) {
       /* Clear SSD_STS and FO_STS bits */
       PMU->FS_SSD_CLR.reg = (uint32)(PMU_FS_SSD_CLR_SSD_STS_CLR_Msk | PMU_FS_SSD_CLR_FO_STS_CLR_Msk);
       /* The first normal open window has happened */
       //lint --e(9034)
       b_firstNOW = true;
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_NO_TRIGGER;
   }
 
@@ -185,12 +171,9 @@ sint8 PMU_serviceFailSafeWatchdog(void)
 
 /** \brief Clear the fail-safe watchdog fail status
  */
-void PMU_clrFailSafeWatchdogFailSts(void)
-{
-  while (PMU->FS_STS.bit.WD_FAIL_STS == 1u)
-  {
-    if (PMU_serviceFailSafeWatchdog() == ERR_LOG_SUCCESS)
-    {
+void PMU_clrFailSafeWatchdogFailSts(void) {
+  while(PMU->FS_STS.bit.WD_FAIL_STS == 1u) {
+    if(PMU_serviceFailSafeWatchdog() == ERR_LOG_SUCCESS) {
       PMU->FS_STS_CLR.bit.WD_FAIL_STS_CLR = 1u;
     }
   }
@@ -200,19 +183,15 @@ void PMU_clrFailSafeWatchdogFailSts(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 PMU_serviceFailSafeWatchdogSOW(void)
-{
+sint8 PMU_serviceFailSafeWatchdogSOW(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_SUCCESS;
 
-  if (PMU->WD_CTRL.bit.SOW != 0u)
-  {
+  if(PMU->WD_CTRL.bit.SOW != 0u) {
     PMU->WD_TRIG_SOW.bit.TRIG ^= 1u;
     //lint --e(9034)
     b_SOWactive = true;
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_SOW_DISABLED;
   }
 
@@ -226,33 +205,26 @@ sint8 PMU_serviceFailSafeWatchdogSOW(void)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void PMU_setVDDPUndervoltageWarnIntNodePtr(void)
-{
+void PMU_setVDDPUndervoltageWarnIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void PMU_setVDDPOvervoltageIntNodePtr(void)
-{
+void PMU_setVDDPOvervoltageIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void PMU_setVDDCUndervoltageWarnIntNodePtr(void)
-{
+void PMU_setVDDCUndervoltageWarnIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void PMU_setVDDCOvervoltageIntNodePtr(void)
-{
+void PMU_setVDDCOvervoltageIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void PMU_setVDDEXTUndervoltageIntNodePtr(void)
-{
+void PMU_setVDDEXTUndervoltageIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void PMU_setVDDEXTOvertemperatureIntNodePtr(void)
-{
+void PMU_setVDDEXTOvertemperatureIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
-

@@ -40,8 +40,7 @@ sint8 e_xtalSts;
 
 /** \brief Initialize the SCU module
  */
-void SCU_init(void)
-{
+void SCU_init(void) {
   /* Enable CLKOUT if configured */
   SCU->CLKSEL.reg |= ((uint32)SCU_CLKSEL & SCU_CLKSEL_CLKOUTEN_Msk);
 }
@@ -59,13 +58,10 @@ void SCU_init(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 SCU_initClk(void)
-{
+sint8 SCU_initClk(void) {
   sint8 s8_returnCode;
   uint8 u8_nmiEnTemp;
-#if (((SCU_XTALCON & SCU_XTALCON_XPD_Msk) == 0u) || \
-    ((SCU_PLL0_EN == 1u)) || \
-    ((SCU_PLL1_EN == 1u)))
+#if(((SCU_XTALCON & SCU_XTALCON_XPD_Msk) == 0u) || ((SCU_PLL0_EN == 1u)) || ((SCU_PLL1_EN == 1u)))
   uint32 u32_currentTime_ms;
   uint32 u32_endTime_ms;
 #endif
@@ -77,12 +73,11 @@ sint8 SCU_initClk(void)
   s8_returnCode = ERR_LOG_SUCCESS;
   /* Initialize Clock Sources */
   /* XTAL (only if needed) */
-#if ((SCU_XTALCON & SCU_XTALCON_XPD_Msk) == 0u)
+#if((SCU_XTALCON & SCU_XTALCON_XPD_Msk) == 0u)
   e_xtalSts = ERR_LOG_SUCCESS;
   u8_nmiEnTemp = 0;
 
-  if (SCU->NMICON.bit.NMIXTALEN == 1u)
-  {
+  if(SCU->NMICON.bit.NMIXTALEN == 1u) {
     SCU->NMICON.bit.NMIXTALEN = 0;
     u8_nmiEnTemp = 1u;
   }
@@ -93,16 +88,13 @@ sint8 SCU_initClk(void)
   SCU->XTALCON.reg = SCU_XTALCON;
   u32_endTime_ms = INT_getGlobTimestamp() + SCU_XTAL_START_TIME_MS;
 
-  do
-  {
+  do {
     /* wait for XTAL ok */
     u32_currentTime_ms = INT_getGlobTimestamp();
-  }
-  while ((SCU_GetXTALFailSts() == 1u) && (u32_currentTime_ms < u32_endTime_ms));
+  } while((SCU_GetXTALFailSts() == 1u) && (u32_currentTime_ms < u32_endTime_ms));
 
   /* Check timeout */
-  if (u32_currentTime_ms >= u32_endTime_ms)
-  {
+  if(u32_currentTime_ms >= u32_endTime_ms) {
     s8_returnCode = ERR_LOG_CODE_TIMEOUT;
     e_xtalSts = SCU_checkXTALDiagnosis();
   }
@@ -113,19 +105,17 @@ sint8 SCU_initClk(void)
   SCU->NMISRC.reg = SCU_NMISRC_NMIXTALCLR_Msk;
 
   /* Enable XTAL NMI if needed */
-  if (u8_nmiEnTemp == 1u)
-  {
+  if(u8_nmiEnTemp == 1u) {
     SCU->NMICON.bit.NMIXTALEN = 1;
   }
 
 #endif
   /* PLL0 (only if needed) */
-#if (SCU_PLL0_EN == 1u)
+#if(SCU_PLL0_EN == 1u)
   /* Disable PLLx NMI */
   u8_nmiEnTemp = 0u;
 
-  if (SCU->NMICON.bit.NMIPLL0EN == 1u)
-  {
+  if(SCU->NMICON.bit.NMIPLL0EN == 1u) {
     SCU->NMICON.bit.NMIPLL0EN = 0;
     u8_nmiEnTemp = 1u;
   }
@@ -138,16 +128,13 @@ sint8 SCU_initClk(void)
   PLL->CON0.bit.PLLEN = 1;
   u32_endTime_ms = INT_getGlobTimestamp() + SCU_PLL0_START_TIME_MS;
 
-  do
-  {
+  do {
     /* wait for PLLx being locked */
     u32_currentTime_ms = INT_getGlobTimestamp();
-  }
-  while ((SCU_GetPLL0LockSts() == 0u) && (u32_currentTime_ms < u32_endTime_ms));
+  } while((SCU_GetPLL0LockSts() == 0u) && (u32_currentTime_ms < u32_endTime_ms));
 
   /* Check timeout */
-  if (u32_currentTime_ms >= u32_endTime_ms)
-  {
+  if(u32_currentTime_ms >= u32_endTime_ms) {
     s8_returnCode = ERR_LOG_CODE_TIMEOUT;
   }
 
@@ -157,19 +144,17 @@ sint8 SCU_initClk(void)
   SCU->NMISRC.reg = SCU_NMISRC_NMIPLL0CLR_Msk;
 
   /* Enable PLLx NMI if needed */
-  if (u8_nmiEnTemp == 1u)
-  {
+  if(u8_nmiEnTemp == 1u) {
     SCU->NMICON.bit.NMIPLL0EN = 1;
   }
 
 #endif
   /* PLL1 (only if needed) */
-#if (SCU_PLL1_EN == 1u)
+#if(SCU_PLL1_EN == 1u)
   /* Disable PLLx NMI */
   u8_nmiEnTemp = 0u;
 
-  if (SCU->NMICON.bit.NMIPLL1EN == 1u)
-  {
+  if(SCU->NMICON.bit.NMIPLL1EN == 1u) {
     SCU->NMICON.bit.NMIPLL1EN = 0;
     u8_nmiEnTemp = 1u;
   }
@@ -182,16 +167,13 @@ sint8 SCU_initClk(void)
   PLL->CON1.bit.PLLEN = 1;
   u32_endTime_ms = INT_getGlobTimestamp() + SCU_PLL1_START_TIME_MS;
 
-  do
-  {
+  do {
     /* wait for PLLx being locked */
     u32_currentTime_ms = INT_getGlobTimestamp();
-  }
-  while ((SCU_GetPLL1LockSts() == 0u) && (u32_currentTime_ms < u32_endTime_ms));
+  } while((SCU_GetPLL1LockSts() == 0u) && (u32_currentTime_ms < u32_endTime_ms));
 
   /* Check timeout */
-  if (u32_currentTime_ms >= u32_endTime_ms)
-  {
+  if(u32_currentTime_ms >= u32_endTime_ms) {
     s8_returnCode = ERR_LOG_CODE_TIMEOUT;
   }
 
@@ -201,8 +183,7 @@ sint8 SCU_initClk(void)
   SCU->NMISRC.reg = SCU_NMISRC_NMIPLL1CLR_Msk;
 
   /* Enable PLLx NMI if needed */
-  if (u8_nmiEnTemp == 1u)
-  {
+  if(u8_nmiEnTemp == 1u) {
     SCU->NMICON.bit.NMIPLL1EN = 1;
   }
 
@@ -221,8 +202,7 @@ sint8 SCU_initClk(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 SCU_checkXTALDiagnosis(void)
-{
+sint8 SCU_checkXTALDiagnosis(void) {
   sint8 s8_returnCode;
   uint32 u32_gpioP2Pud;
   uint32 u32_gpioP2Indis;
@@ -235,16 +215,14 @@ sint8 SCU_checkXTALDiagnosis(void)
   GPIO->P2_PUD.bit.PUDSEL0 = 1u;
   SCU_delay_us(5);
 
-  if (GPIO->P2_IN.bit.PI0 == 0u)
-  {
+  if(GPIO->P2_IN.bit.PI0 == 0u) {
     s8_returnCode = ERR_LOG_ERROR;
   }
 
   GPIO->P2_PUD.bit.PUDSEL0 = 0u;
   SCU_delay_us(5);
 
-  if (GPIO->P2_IN.bit.PI0 == 1u)
-  {
+  if(GPIO->P2_IN.bit.PI0 == 1u) {
     s8_returnCode = ERR_LOG_ERROR;
   }
 
@@ -255,16 +233,14 @@ sint8 SCU_checkXTALDiagnosis(void)
   GPIO->P2_PUD.bit.PUDSEL1 = 1u;
   SCU_delay_us(5);
 
-  if (GPIO->P2_IN.bit.PI1 == 0u)
-  {
+  if(GPIO->P2_IN.bit.PI1 == 0u) {
     s8_returnCode = ERR_LOG_ERROR;
   }
 
   GPIO->P2_PUD.bit.PUDSEL1 = 0u;
   SCU_delay_us(5);
 
-  if (GPIO->P2_IN.bit.PI1 == 1u)
-  {
+  if(GPIO->P2_IN.bit.PI1 == 1u) {
     s8_returnCode = ERR_LOG_ERROR;
   }
 
@@ -295,8 +271,7 @@ sint8 SCU_checkXTALDiagnosis(void)
  * }
  * ~~~~~~~~~~~~~~~
  */
-void SCU_delay_us(uint32 u32_time_us)
-{
+void SCU_delay_us(uint32 u32_time_us) {
   uint32 u32_systickTargetVal;
   uint32 u32_systickVal;
   uint32 u32_delayCnt;
@@ -306,21 +281,18 @@ void SCU_delay_us(uint32 u32_time_us)
   u32_systickRelVal = SCU_getSysTickRelVal();
 
   /* Adapt systick value into range SYSTICK_DELAY_THRESHOLD...reload value-SYSTICK_DELAY_THRESHOLD to avoid getting stuck in a while, wait in case needed */
-  do
-  {
+  do {
     u32_systickVal = SCU_getSysTickCntVal();
-  }
-  while ((u32_systickVal < SYSTICK_DELAY_THRESHOLD) || (u32_systickVal > (u32_systickRelVal - SYSTICK_DELAY_THRESHOLD)));
+  } while((u32_systickVal < SYSTICK_DELAY_THRESHOLD) || (u32_systickVal > (u32_systickRelVal - SYSTICK_DELAY_THRESHOLD)));
 
-  while (u32_time_us >= (uint32)1000)
-  {
+  while(u32_time_us >= (uint32)1000) {
     /* Wait for underflow */
-    while (SCU_getSysTickCntVal() < u32_systickVal)
-    {}
+    while(SCU_getSysTickCntVal() < u32_systickVal) {
+    }
 
     /* Wait target underflowed */
-    while (SCU_getSysTickCntVal() > u32_systickVal)
-    {}
+    while(SCU_getSysTickCntVal() > u32_systickVal) {
+    }
 
     u32_time_us -= (uint32)1000;
   }
@@ -329,28 +301,23 @@ void SCU_delay_us(uint32 u32_time_us)
   /* Adapt systick value into range SYSTICK_DELAY_THRESHOLD...reload value-SYSTICK_DELAY_THRESHOLD to avoid getting stuck in a while, wait in case needed */
   u32_systickVal = SCU_getSysTickCntVal();
 
-  if (u32_systickVal >= u32_delayCnt)
-  {
+  if(u32_systickVal >= u32_delayCnt) {
     u32_systickTargetVal = u32_systickVal - u32_delayCnt;
 
     /* Wait underflow with 1 countdown detection */
-    do
-    {
+    do {
       u32_systickCur = SCU_getSysTickCntVal();
-    }
-    while ((u32_systickCur > u32_systickTargetVal) && (u32_systickCur < u32_systickVal));
-  }
-  else
-  {
+    } while((u32_systickCur > u32_systickTargetVal) && (u32_systickCur < u32_systickVal));
+  } else {
     u32_systickTargetVal = SCU_getSysTickRelVal() - (u32_delayCnt - u32_systickVal);
 
     /* Wait for underflow */
-    while (SCU_getSysTickCntVal() < u32_systickVal)
-    {}
+    while(SCU_getSysTickCntVal() < u32_systickVal) {
+    }
 
     /* Wait target underflowed */
-    while (SCU_getSysTickCntVal() > u32_systickTargetVal)
-    {}
+    while(SCU_getSysTickCntVal() > u32_systickTargetVal) {
+    }
   }
 
   return;
@@ -360,8 +327,7 @@ void SCU_delay_us(uint32 u32_time_us)
  *
  * \param u32_value SysTick Reload Value
  */
-void SCU_initSysTick(uint32 u32_value)
-{
+void SCU_initSysTick(uint32 u32_value) {
   /* Program the SysTick reload value */
   CPU->SYSTICK_RL.reg = u32_value;
   /* Reset the SysTick current value */
@@ -378,20 +344,17 @@ void SCU_initSysTick(uint32 u32_value)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 SCU_enSafeSwitchOffSeq(void)
-{
+sint8 SCU_enSafeSwitchOffSeq(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_SUCCESS;
   /* Initialize the Fail-Safe Watchdog */
   s8_returnCode = PMU_initFailSafeWatchdog();
 
-  if (s8_returnCode == ERR_LOG_SUCCESS)
-  {
+  if(s8_returnCode == ERR_LOG_SUCCESS) {
     /* Initialize the CSA/CSC module */
     s8_returnCode = CSACSC_init();
 
-    if (s8_returnCode == ERR_LOG_SUCCESS)
-    {
+    if(s8_returnCode == ERR_LOG_SUCCESS) {
       /* Initialize the Bridge Driver module */
       s8_returnCode = BDRV_init();
     }
@@ -402,8 +365,7 @@ sint8 SCU_enSafeSwitchOffSeq(void)
 
 /** \brief Enter the Deep Sleep mode
  */
-void SCU_enterDeepSleepMode(void)
-{
+void SCU_enterDeepSleepMode(void) {
   /* Free up the pipeline */
   CMSIS_NOP();
   CMSIS_NOP();
@@ -420,8 +382,7 @@ void SCU_enterDeepSleepMode(void)
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 SCU_enterStopMode(void)
-{
+sint8 SCU_enterStopMode(void) {
   sint8 s8_returnCode;
   uint32 u32_p0Dir;
   uint32 u32_p1Dir;
@@ -486,8 +447,7 @@ sint8 SCU_enterStopMode(void)
 /** \brief Enter the Sleep mode
  * \note Before entering sleep mode, you can store data in the GPUDATAx [x=0..2] registers.
  */
-void SCU_enterSleepMode(void)
-{
+void SCU_enterSleepMode(void) {
   /* Clear all wake-up status flags */
   PMU->WAKE_STS_CLR.reg = (uint32)0x1FF73F5u;
   /* Select HP_CLK as system clock */
@@ -506,5 +466,3 @@ void SCU_enterSleepMode(void)
   /* Enter CPU Deep Sleep */
   CMSIS_WFE();
 }
-
-

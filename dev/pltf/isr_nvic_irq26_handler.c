@@ -13,20 +13,19 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "tle989x.h"
 #include "isr.h"
 #include "isr_defines.h"
-
+#include "tle989x.h"
 
 /* Check if NVIC node 26 is enabled */
-#if ((CPU_NVIC_ISER & CPU_NVIC_ISER_IRQEN26_Msk) == (1u << CPU_NVIC_ISER_IRQEN26_Pos))
+#if((CPU_NVIC_ISER & CPU_NVIC_ISER_IRQEN26_Msk) == (1u << CPU_NVIC_ISER_IRQEN26_Pos))
 
 /*******************************************************************************
 **                        Global Variable Definitions                         **
 *******************************************************************************/
 
-#if (NVIC_IRQ26_HANDLER_INT_CHECK == 1)
-  uint8 u8_interrupt_cnt_irq26 = 0;
+#if(NVIC_IRQ26_HANDLER_INT_CHECK == 1)
+uint8 u8_interrupt_cnt_irq26 = 0;
 #endif
 
 /*******************************************************************************
@@ -37,9 +36,8 @@
 **                         Global Function Definitions                        **
 *******************************************************************************/
 
-void NVIC_IRQ26_Handler(void)
-{
-#if (NVIC_IRQ26_HANDLER_INT_CHECK == 1)
+void NVIC_IRQ26_Handler(void) {
+#if(NVIC_IRQ26_HANDLER_INT_CHECK == 1)
   u8_interrupt_cnt_irq26 = 0;
 #endif
   // Functionality to be defined by user

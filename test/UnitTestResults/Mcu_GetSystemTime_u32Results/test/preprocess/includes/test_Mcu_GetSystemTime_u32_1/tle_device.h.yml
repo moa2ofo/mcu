@@ -1,0 +1,20 @@
+---
+- utExecutionAndResults/utUnderTest/src/tle_variants.h
+- utExecutionAndResults/utUnderTest/src/types.h
+- utExecutionAndResults/utUnderTest/src/error_codes.h
+- utExecutionAndResults/utUnderTest/src/RTE_Components.h
+- utExecutionAndResults/utUnderTest/src/bootrom.h
+- utExecutionAndResults/utUnderTest/src/gpio.h
+- utExecutionAndResults/utUnderTest/src/gpio_defines.h
+- utExecutionAndResults/utUnderTest/src/tle989x.h
+- utExecutionAndResults/utUnderTest/src/core_cm3.h
+- utExecutionAndResults/utUnderTest/src/cmsis_version.h
+- utExecutionAndResults/utUnderTest/src/cmsis_compiler.h
+- utExecutionAndResults/utUnderTest/src/cmsis_gcc.h
+- utExecutionAndResults/utUnderTest/src/system_tle989x.h
+- utExecutionAndResults/utUnderTest/src/cmsis_misra.h
+- utExecutionAndResults/utUnderTest/src/isr.h
+- utExecutionAndResults/utUnderTest/src/isr_defines.h
+- utExecutionAndResults/utUnderTest/src/pmu.h
+- utExecutionAndResults/utUnderTest/src/pmu_defines.h
+- utExecutionAndResults/utUnderTest/src/scu_defines.h

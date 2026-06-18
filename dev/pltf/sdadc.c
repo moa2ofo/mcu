@@ -39,11 +39,10 @@
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 SDADC_init(void)
-{
+sint8 SDADC_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_CODE_MODULE_DISABLED_IN_CW;
-#if (SDADC_GLOBCONF_EN == 1u)
+#if(SDADC_GLOBCONF_EN == 1u)
   s8_returnCode = ERR_LOG_SUCCESS;
   SDADC->CFG0.reg = (uint32)SDADC_CFG0;
   SDADC->CFG1.reg = (uint32)SDADC_CFG1;
@@ -60,32 +59,26 @@ sint8 SDADC_init(void)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void SDADC_setCh0ResIntNodePtr(void)
-{
+void SDADC_setCh0ResIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SDADC_setCh0CmpUpIntNodePtr(void)
-{
+void SDADC_setCh0CmpUpIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SDADC_setCh0CmpLoIntNodePtr(void)
-{
+void SDADC_setCh0CmpLoIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SDADC_setCh1ResIntNodePtr(void)
-{
+void SDADC_setCh1ResIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SDADC_setCh1CmpUpIntNodePtr(void)
-{
+void SDADC_setCh1CmpUpIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void SDADC_setCh1CmpLoIntNodePtr(void)
-{
+void SDADC_setCh1CmpLoIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }

@@ -94,10 +94,10 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
+#include "ccu7_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
-#include "ccu7_defines.h"
+#include "types.h"
 
 /*******************************************************************************
 **                          Global Type Declarations                          **
@@ -108,16 +108,15 @@
  *         Used in function CCU7_setHallSync.
  *  \note You can use this type via 'tCCU7_HallSync' or 'enum CCU7_HallSync'
  */
-typedef enum CCU7_HallSync
-{
-  CCU7_HallSync_CCPOS0x_Any_Edge     = 0u, /**< Hall Synchronization Event: Any edge at one of the inputs CCPOSx */
-  CCU7_HallSync_T13_CM               = 1u, /**< Hall Synchronization Event: T13 compare-match */
-  CCU7_HallSync_T13_PM               = 2u, /**< Hall Synchronization Event: T13 period-match */
+typedef enum CCU7_HallSync {
+  CCU7_HallSync_CCPOS0x_Any_Edge = 0u,     /**< Hall Synchronization Event: Any edge at one of the inputs CCPOSx */
+  CCU7_HallSync_T13_CM = 1u,               /**< Hall Synchronization Event: T13 compare-match */
+  CCU7_HallSync_T13_PM = 2u,               /**< Hall Synchronization Event: T13 period-match */
   CCU7_HallSync_HW_Hall_Sampling_Off = 3u, /**< Hall Synchronization Event: Hall */
-  CCU7_HallSync_T12_PM               = 4u, /**< Hall Synchronization Event: T12 period-match */
-  CCU7_HallSync_T12_OM               = 5u, /**< Hall Synchronization Event: T12 one-match */
-  CCU7_HallSync_T12_CM_Ch0_up        = 6u, /**< Hall Synchronization Event: T12 compare-match UP */
-  CCU7_HallSync_T12_CM_Ch0_down      = 7u  /**< Hall Synchronization Event: T12 compare-match DOWN */
+  CCU7_HallSync_T12_PM = 4u,               /**< Hall Synchronization Event: T12 period-match */
+  CCU7_HallSync_T12_OM = 5u,               /**< Hall Synchronization Event: T12 one-match */
+  CCU7_HallSync_T12_CM_Ch0_up = 6u,        /**< Hall Synchronization Event: T12 compare-match UP */
+  CCU7_HallSync_T12_CM_Ch0_down = 7u       /**< Hall Synchronization Event: T12 compare-match DOWN */
 } tCCU7_HallSync;
 
 /** \enum CCU7_MultiChMode_SWSEL
@@ -125,14 +124,13 @@ typedef enum CCU7_HallSync
  *         Used in function CCU7_setMultiChModeShadowTransferTrig.
  *  \note You can use this type via 'tCCU7_MultiChMode_SWSEL' or 'enum CCU7_MultiChMode_SWSEL'
  */
-typedef enum CCU7_MultiChMode_SWSEL
-{
-  CCU7_MultiChMode_SWSEL_No_Action    = 0u, /**< The trigger request sources for Switching Selection: No request */
+typedef enum CCU7_MultiChMode_SWSEL {
+  CCU7_MultiChMode_SWSEL_No_Action = 0u,    /**< The trigger request sources for Switching Selection: No request */
   CCU7_MultiChMode_SWSEL_Correct_Hall = 1u, /**< The trigger request sources for Switching Selection: Correct pattern */
-  CCU7_MultiChMode_SWSEL_T13_PM       = 2u, /**< The trigger request sources for Switching Selection: T13 period-match */
-  CCU7_MultiChMode_SWSEL_T12_OM       = 3u, /**< The trigger request sources for Switching Selection: T12 one-match */
-  CCU7_MultiChMode_SWSEL_T12_Ch1_CM   = 4u, /**< The trigger request sources for Switching Selection: T12 channel 1 compare-match */
-  CCU7_MultiChMode_SWSEL_T12_PM       = 5u  /**< The trigger request sources for Switching Selection: T12 period-match */
+  CCU7_MultiChMode_SWSEL_T13_PM = 2u,       /**< The trigger request sources for Switching Selection: T13 period-match */
+  CCU7_MultiChMode_SWSEL_T12_OM = 3u,       /**< The trigger request sources for Switching Selection: T12 one-match */
+  CCU7_MultiChMode_SWSEL_T12_Ch1_CM = 4u,   /**< The trigger request sources for Switching Selection: T12 channel 1 compare-match */
+  CCU7_MultiChMode_SWSEL_T12_PM = 5u        /**< The trigger request sources for Switching Selection: T12 period-match */
 } tCCU7_MultiChMode_SWSEL;
 
 /** \enum CCU7_MultiChMode_SWSYN
@@ -140,11 +138,10 @@ typedef enum CCU7_MultiChMode_SWSEL
  *         Used in function CCU7_setMultiChModeShadowTransferSync.
  *  \note You can use this type via 'tCCU7_MultiChMode_SWSYN' or 'enum CCU7_MultiChMode_SWSYN'
  */
-typedef enum CCU7_MultiChMode_SWSYN
-{
-  CCU7_MultiChMode_SWSYN_Direct       = 0u, /**< The trigger request sources for Switching Synchronization: Direct */
-  CCU7_MultiChMode_SWSYN_T13_ZM       = 1u, /**< The trigger request sources for Switching Synchronization: T13 zero-match */
-  CCU7_MultiChMode_SWSYN_T12_ZM       = 2u  /**< The trigger request sources for Switching Synchronization: T12 zero-match */
+typedef enum CCU7_MultiChMode_SWSYN {
+  CCU7_MultiChMode_SWSYN_Direct = 0u, /**< The trigger request sources for Switching Synchronization: Direct */
+  CCU7_MultiChMode_SWSYN_T13_ZM = 1u, /**< The trigger request sources for Switching Synchronization: T13 zero-match */
+  CCU7_MultiChMode_SWSYN_T12_ZM = 2u  /**< The trigger request sources for Switching Synchronization: T12 zero-match */
 } tCCU7_MultiChMode_SWSYN;
 
 /*******************************************************************************
@@ -167,59 +164,59 @@ sint8 CCU7_init(void);
 sint8 CCU7_enModule(void);
 sint8 CCU7_disModule(void);
 INLINE uint16 CCU7_getT12CntVal(void);
-INLINE void   CCU7_setT12PerVal(uint16 u16_value);
+INLINE void CCU7_setT12PerVal(uint16 u16_value);
 INLINE uint16 CCU7_getT12PerVal(void);
-INLINE sint8  CCU7_setT12Freq_Hz(uint32 u32_freq_hz);
+INLINE sint8 CCU7_setT12Freq_Hz(uint32 u32_freq_hz);
 INLINE uint32 CCU7_getT12Freq_Hz(void);
-INLINE void   CCU7_setCh0DeadTimeRise_ticks(uint8 u8_value);
-INLINE uint8  CCU7_getCh0DeadTimeRise_ticks(void);
-INLINE void   CCU7_setCh0DeadTimeFall_ticks(uint8 u8_value);
-INLINE uint8  CCU7_getCh0DeadTimeFall_ticks(void);
-INLINE void   CCU7_setCh1DeadTimeRise_ticks(uint8 u8_value);
-INLINE uint8  CCU7_getCh1DeadTimeRise_ticks(void);
-INLINE void   CCU7_setCh1DeadTimeFall_ticks(uint8 u8_value);
-INLINE uint8  CCU7_getCh1DeadTimeFall_ticks(void);
-INLINE void   CCU7_setCh2DeadTimeRise_ticks(uint8 u8_value);
-INLINE uint8  CCU7_getCh2DeadTimeRise_ticks(void);
-INLINE void   CCU7_setCh2DeadTimeFall_ticks(uint8 u8_value);
-INLINE uint8  CCU7_getCh2DeadTimeFall_ticks(void);
-INLINE sint8  CCU7_setDeadTime_ns(uint8 u8_channel, uint32 u32_deadTimeRise_ns, uint32 u32_deadTimeFall_ns) ;
-INLINE sint8  CCU7_getDeadTime_ns(uint8 u8_channel, uint32 *u32p_DeadTimeRise_ns, uint32 *u32p_DeadTimeFall_ns) ;
+INLINE void CCU7_setCh0DeadTimeRise_ticks(uint8 u8_value);
+INLINE uint8 CCU7_getCh0DeadTimeRise_ticks(void);
+INLINE void CCU7_setCh0DeadTimeFall_ticks(uint8 u8_value);
+INLINE uint8 CCU7_getCh0DeadTimeFall_ticks(void);
+INLINE void CCU7_setCh1DeadTimeRise_ticks(uint8 u8_value);
+INLINE uint8 CCU7_getCh1DeadTimeRise_ticks(void);
+INLINE void CCU7_setCh1DeadTimeFall_ticks(uint8 u8_value);
+INLINE uint8 CCU7_getCh1DeadTimeFall_ticks(void);
+INLINE void CCU7_setCh2DeadTimeRise_ticks(uint8 u8_value);
+INLINE uint8 CCU7_getCh2DeadTimeRise_ticks(void);
+INLINE void CCU7_setCh2DeadTimeFall_ticks(uint8 u8_value);
+INLINE uint8 CCU7_getCh2DeadTimeFall_ticks(void);
+INLINE sint8 CCU7_setDeadTime_ns(uint8 u8_channel, uint32 u32_deadTimeRise_ns, uint32 u32_deadTimeFall_ns);
+INLINE sint8 CCU7_getDeadTime_ns(uint8 u8_channel, uint32 *u32p_DeadTimeRise_ns, uint32 *u32p_DeadTimeFall_ns);
 INLINE uint16 CCU7_getCC70AVal(void);
 INLINE uint16 CCU7_getCC71AVal(void);
 INLINE uint16 CCU7_getCC72AVal(void);
-INLINE void   CCU7_setCC70AValShadow(uint16 u16_value);
-INLINE void   CCU7_setCC71AValShadow(uint16 u16_value);
-INLINE void   CCU7_setCC72AValShadow(uint16 u16_value);
+INLINE void CCU7_setCC70AValShadow(uint16 u16_value);
+INLINE void CCU7_setCC71AValShadow(uint16 u16_value);
+INLINE void CCU7_setCC72AValShadow(uint16 u16_value);
 INLINE uint16 CCU7_getC70BVal(void);
 INLINE uint16 CCU7_getC71BVal(void);
 INLINE uint16 CCU7_getC72BVal(void);
-INLINE void   CCU7_setC70BValShadow(uint16 u16_value);
-INLINE void   CCU7_setC71BValShadow(uint16 u16_value);
-INLINE void   CCU7_setC72BValShadow(uint16 u16_value);
+INLINE void CCU7_setC70BValShadow(uint16 u16_value);
+INLINE void CCU7_setC71BValShadow(uint16 u16_value);
+INLINE void CCU7_setC72BValShadow(uint16 u16_value);
 INLINE uint16 CCU7_getT13CntVal(void);
 INLINE uint16 CCU7_getT14CntVal(void);
 INLINE uint16 CCU7_getT15CntVal(void);
 INLINE uint16 CCU7_getT16CntVal(void);
-INLINE void   CCU7_setT13PerVal(uint16 u16_value);
+INLINE void CCU7_setT13PerVal(uint16 u16_value);
 INLINE uint16 CCU7_getT13PerVal(void);
-INLINE void   CCU7_setT14PerVal(uint16 u16_value);
+INLINE void CCU7_setT14PerVal(uint16 u16_value);
 INLINE uint16 CCU7_getT14PerVal(void);
-INLINE void   CCU7_setT15PerVal(uint16 u16_value);
+INLINE void CCU7_setT15PerVal(uint16 u16_value);
 INLINE uint16 CCU7_getT15PerVal(void);
-INLINE void   CCU7_setT16PerVal(uint16 u16_value);
+INLINE void CCU7_setT16PerVal(uint16 u16_value);
 INLINE uint16 CCU7_getT16PerVal(void);
 INLINE uint16 CCU7_getC73Val(void);
 INLINE uint16 CCU7_getC74Val(void);
 INLINE uint16 CCU7_getC75Val(void);
 INLINE uint16 CCU7_getC76Val(void);
-INLINE void   CCU7_setC73ValShadow(uint16 u16_value);
-INLINE void   CCU7_setC74ValShadow(uint16 u16_value);
-INLINE void   CCU7_setC75ValShadow(uint16 u16_value);
-INLINE void   CCU7_setC76ValShadow(uint16 u16_value);
-INLINE uint8  CCU7_getHallPatternSampled(void);
+INLINE void CCU7_setC73ValShadow(uint16 u16_value);
+INLINE void CCU7_setC74ValShadow(uint16 u16_value);
+INLINE void CCU7_setC75ValShadow(uint16 u16_value);
+INLINE void CCU7_setC76ValShadow(uint16 u16_value);
+INLINE uint8 CCU7_getHallPatternSampled(void);
 INLINE uint16 CCU7_getCmpSts(void);
-INLINE void   CCU7_setHallSync(tCCU7_HallSync e_value);
+INLINE void CCU7_setHallSync(tCCU7_HallSync e_value);
 INLINE void CCU7_enT12SingleShot(void);
 INLINE void CCU7_disT12SingleShot(void);
 INLINE void CCU7_enT13SingleShot(void);
@@ -446,7 +443,6 @@ void CCU7_setT15IntNodePtr(void) __attribute__((deprecated("Do not change this a
  */
 void CCU7_setT16IntNodePtr(void) __attribute__((deprecated("Do not change this at runtime, use the ConfigWizard to configure this feature!")));
 
-
 /*******************************************************************************
 **                     Global Inline Function Definitions                     **
 *******************************************************************************/
@@ -454,8 +450,7 @@ void CCU7_setT16IntNodePtr(void) __attribute__((deprecated("Do not change this a
  *
  * \return uint16 T12 Counter Value
  */
-INLINE uint16 CCU7_getT12CntVal(void)
-{
+INLINE uint16 CCU7_getT12CntVal(void) {
   return (uint16)CCU7->T12.bit.T12CV;
 }
 
@@ -463,8 +458,7 @@ INLINE uint16 CCU7_getT12CntVal(void)
  *
  *  \param u16_value T12 Period Value
  */
-INLINE void CCU7_setT12PerVal(uint16 u16_value)
-{
+INLINE void CCU7_setT12PerVal(uint16 u16_value) {
   CCU7->T12PR.bit.T12PV = u16_value;
 }
 
@@ -472,8 +466,7 @@ INLINE void CCU7_setT12PerVal(uint16 u16_value)
  *
  * \return uint16 T12 Period Value
  */
-INLINE uint16 CCU7_getT12PerVal(void)
-{
+INLINE uint16 CCU7_getT12PerVal(void) {
   return (uint16)CCU7->T12PR.bit.T12PV;
 }
 
@@ -487,27 +480,22 @@ INLINE uint16 CCU7_getT12PerVal(void)
  * \param u32_freq_hz Frequency in Hz
  * \return sint8 0: success, <0: error codes
  */
-INLINE sint8 CCU7_setT12Freq_Hz(uint32 u32_freq_hz)
-{
+INLINE sint8 CCU7_setT12Freq_Hz(uint32 u32_freq_hz) {
   sint8 s8_returnCode;
   uint32 u32_period_tick;
   s8_returnCode = ERR_LOG_SUCCESS;
   u32_period_tick = (uint32)(CCU7_T12_CLK_HZ / u32_freq_hz);
 
-  if (CCU7->TCTR0.bit.CTM == 1)
-  {
+  if(CCU7->TCTR0.bit.CTM == 1) {
     /* Center aligned mode --> /2 */
     u32_period_tick = u32_period_tick / 2u;
   }
 
   u32_period_tick = u32_period_tick - 1u;
 
-  if (u32_period_tick <= 0xFFFFu)
-  {
+  if(u32_period_tick <= 0xFFFFu) {
     CCU7_setT12PerVal((uint16)u32_period_tick);
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -520,13 +508,11 @@ INLINE sint8 CCU7_setT12Freq_Hz(uint32 u32_freq_hz)
  *
  * \return u32_period_Hz Frequency in Hz
  */
-INLINE uint32 CCU7_getT12Freq_Hz(void)
-{
+INLINE uint32 CCU7_getT12Freq_Hz(void) {
   uint32 u32_period_Hz;
   uint32 u32_period_tick = (uint32)((uint32)CCU7_getT12PerVal() + 1u);
 
-  if (CCU7->TCTR0.bit.CTM == 1u)
-  {
+  if(CCU7->TCTR0.bit.CTM == 1u) {
     /* Center aligned mode --> *2 */
     u32_period_tick = u32_period_tick * 2u;
   }
@@ -539,8 +525,7 @@ INLINE uint32 CCU7_getT12Freq_Hz(void)
  *
  *  \param u8_value Dead-Time for Channel 0 rise in ticks
  */
-INLINE void CCU7_setCh0DeadTimeRise_ticks(uint8 u8_value)
-{
+INLINE void CCU7_setCh0DeadTimeRise_ticks(uint8 u8_value) {
   CCU7->T12DT0_VAL.bit.DTM_RISE = u8_value;
 }
 
@@ -548,8 +533,7 @@ INLINE void CCU7_setCh0DeadTimeRise_ticks(uint8 u8_value)
  *
  * \return uint8 Dead-Time for Channel 0 rise in ticks
  */
-INLINE uint8 CCU7_getCh0DeadTimeRise_ticks(void)
-{
+INLINE uint8 CCU7_getCh0DeadTimeRise_ticks(void) {
   return (uint8)CCU7->T12DT0_VAL.bit.DTM_RISE;
 }
 
@@ -557,8 +541,7 @@ INLINE uint8 CCU7_getCh0DeadTimeRise_ticks(void)
  *
  *  \param u8_value Dead-Time for Channel 0 fall in ticks
  */
-INLINE void CCU7_setCh0DeadTimeFall_ticks(uint8 u8_value)
-{
+INLINE void CCU7_setCh0DeadTimeFall_ticks(uint8 u8_value) {
   CCU7->T12DT0_VAL.bit.DTM_FALL = u8_value;
 }
 
@@ -566,8 +549,7 @@ INLINE void CCU7_setCh0DeadTimeFall_ticks(uint8 u8_value)
  *
  * \return uint8 Dead-Time for Channel 0 fall in ticks
  */
-INLINE uint8 CCU7_getCh0DeadTimeFall_ticks(void)
-{
+INLINE uint8 CCU7_getCh0DeadTimeFall_ticks(void) {
   return (uint8)CCU7->T12DT0_VAL.bit.DTM_FALL;
 }
 
@@ -575,8 +557,7 @@ INLINE uint8 CCU7_getCh0DeadTimeFall_ticks(void)
  *
  *  \param u8_value Dead-Time for Channel 1 rise in ticks
  */
-INLINE void CCU7_setCh1DeadTimeRise_ticks(uint8 u8_value)
-{
+INLINE void CCU7_setCh1DeadTimeRise_ticks(uint8 u8_value) {
   CCU7->T12DT1_VAL.bit.DTM_RISE = u8_value;
 }
 
@@ -584,8 +565,7 @@ INLINE void CCU7_setCh1DeadTimeRise_ticks(uint8 u8_value)
  *
  * \return uint8 Dead-Time for Channel 1 rise in ticks
  */
-INLINE uint8 CCU7_getCh1DeadTimeRise_ticks(void)
-{
+INLINE uint8 CCU7_getCh1DeadTimeRise_ticks(void) {
   return (uint8)CCU7->T12DT1_VAL.bit.DTM_RISE;
 }
 
@@ -593,8 +573,7 @@ INLINE uint8 CCU7_getCh1DeadTimeRise_ticks(void)
  *
  *  \param u8_value Dead-Time for Channel 1 fall in ticks
  */
-INLINE void CCU7_setCh1DeadTimeFall_ticks(uint8 u8_value)
-{
+INLINE void CCU7_setCh1DeadTimeFall_ticks(uint8 u8_value) {
   CCU7->T12DT1_VAL.bit.DTM_FALL = u8_value;
 }
 
@@ -602,8 +581,7 @@ INLINE void CCU7_setCh1DeadTimeFall_ticks(uint8 u8_value)
  *
  * \return uint8 Dead-Time for Channel 1 fall in ticks
  */
-INLINE uint8 CCU7_getCh1DeadTimeFall_ticks(void)
-{
+INLINE uint8 CCU7_getCh1DeadTimeFall_ticks(void) {
   return (uint8)CCU7->T12DT1_VAL.bit.DTM_FALL;
 }
 
@@ -611,8 +589,7 @@ INLINE uint8 CCU7_getCh1DeadTimeFall_ticks(void)
  *
  *  \param u8_value Dead-Time for Channel 2 rise in ticks
  */
-INLINE void CCU7_setCh2DeadTimeRise_ticks(uint8 u8_value)
-{
+INLINE void CCU7_setCh2DeadTimeRise_ticks(uint8 u8_value) {
   CCU7->T12DT2_VAL.bit.DTM_RISE = u8_value;
 }
 
@@ -620,8 +597,7 @@ INLINE void CCU7_setCh2DeadTimeRise_ticks(uint8 u8_value)
  *
  * \return uint8 Dead-Time for Channel 2 rise in ticks
  */
-INLINE uint8 CCU7_getCh2DeadTimeRise_ticks(void)
-{
+INLINE uint8 CCU7_getCh2DeadTimeRise_ticks(void) {
   return (uint8)CCU7->T12DT2_VAL.bit.DTM_RISE;
 }
 
@@ -629,8 +605,7 @@ INLINE uint8 CCU7_getCh2DeadTimeRise_ticks(void)
  *
  *  \param u8_value Dead-Time for Channel 2 fall in ticks
  */
-INLINE void CCU7_setCh2DeadTimeFall_ticks(uint8 u8_value)
-{
+INLINE void CCU7_setCh2DeadTimeFall_ticks(uint8 u8_value) {
   CCU7->T12DT2_VAL.bit.DTM_FALL = u8_value;
 }
 
@@ -638,8 +613,7 @@ INLINE void CCU7_setCh2DeadTimeFall_ticks(uint8 u8_value)
  *
  * \return uint8 Dead-Time for Channel 2 fall in ticks
  */
-INLINE uint8 CCU7_getCh2DeadTimeFall_ticks(void)
-{
+INLINE uint8 CCU7_getCh2DeadTimeFall_ticks(void) {
   return (uint8)CCU7->T12DT2_VAL.bit.DTM_FALL;
 }
 
@@ -659,8 +633,7 @@ INLINE uint8 CCU7_getCh2DeadTimeFall_ticks(void)
  * \param u32_deadTimeFall_ns Dead time Fall value in nanoseconds
  * \return sint8 0: success, <0: error codes
  */
-INLINE sint8 CCU7_setDeadTime_ns(uint8 u8_channel, uint32 u32_deadTimeRise_ns, uint32 u32_deadTimeFall_ns)
-{
+INLINE sint8 CCU7_setDeadTime_ns(uint8 u8_channel, uint32 u32_deadTimeRise_ns, uint32 u32_deadTimeFall_ns) {
   sint8 s8_returnCode;
   /* Local variables for dead time ticks */
   uint32 deadTimeRise_ticks;
@@ -670,40 +643,32 @@ INLINE sint8 CCU7_setDeadTime_ns(uint8 u8_channel, uint32 u32_deadTimeRise_ns, u
   deadTimeRise_ticks = (uint32)((u32_deadTimeRise_ns * CCU7_DT_CLK_MHz) / 1000);
   deadTimeFall_ticks = (uint32)((u32_deadTimeFall_ns * CCU7_DT_CLK_MHz) / 1000);
 
-  if ((deadTimeRise_ticks <= 255u) && (deadTimeFall_ticks <= 255u))
-  {
-    switch (u8_channel)
-    {
-      case 0:
-      {
-        CCU7_setCh0DeadTimeRise_ticks((uint8)deadTimeRise_ticks);
-        CCU7_setCh0DeadTimeFall_ticks((uint8)deadTimeFall_ticks);
-        break;
-      }
-
-      case 1:
-      {
-        CCU7_setCh1DeadTimeRise_ticks((uint8)deadTimeRise_ticks);
-        CCU7_setCh1DeadTimeFall_ticks((uint8)deadTimeFall_ticks);
-        break;
-      }
-
-      case 2:
-      {
-        CCU7_setCh2DeadTimeRise_ticks((uint8)deadTimeRise_ticks);
-        CCU7_setCh2DeadTimeFall_ticks((uint8)deadTimeFall_ticks);
-        break;
-      }
-
-      default:
-      {
-        s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
-        break;
-      }
+  if((deadTimeRise_ticks <= 255u) && (deadTimeFall_ticks <= 255u)) {
+    switch(u8_channel) {
+    case 0: {
+      CCU7_setCh0DeadTimeRise_ticks((uint8)deadTimeRise_ticks);
+      CCU7_setCh0DeadTimeFall_ticks((uint8)deadTimeFall_ticks);
+      break;
     }
-  }
-  else
-  {
+
+    case 1: {
+      CCU7_setCh1DeadTimeRise_ticks((uint8)deadTimeRise_ticks);
+      CCU7_setCh1DeadTimeFall_ticks((uint8)deadTimeFall_ticks);
+      break;
+    }
+
+    case 2: {
+      CCU7_setCh2DeadTimeRise_ticks((uint8)deadTimeRise_ticks);
+      CCU7_setCh2DeadTimeFall_ticks((uint8)deadTimeFall_ticks);
+      break;
+    }
+
+    default: {
+      s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
+      break;
+    }
+    }
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -722,53 +687,43 @@ INLINE sint8 CCU7_setDeadTime_ns(uint8 u8_channel, uint32 u32_deadTimeRise_ns, u
  * \param u32p_DeadTimeFall_ns Dead time Fall value in nanoseconds
  * \return sint8 0: success, <0: error codes
  */
-INLINE sint8 CCU7_getDeadTime_ns(uint8 u8_channel, uint32 *u32p_DeadTimeRise_ns, uint32 *u32p_DeadTimeFall_ns)
-{
+INLINE sint8 CCU7_getDeadTime_ns(uint8 u8_channel, uint32 *u32p_DeadTimeRise_ns, uint32 *u32p_DeadTimeFall_ns) {
   sint8 s8_returnCode;
   /* Local variables for dead time ticks */
   uint32 deadTimeRise_ticks = 0;
   uint32 deadTimeFall_ticks = 0;
   s8_returnCode = ERR_LOG_SUCCESS;
 
-  if ((PtrRangeCheck(u32p_DeadTimeRise_ns) == true) && (PtrRangeCheck(u32p_DeadTimeFall_ns) == true))
-  {
-    switch (u8_channel)
-    {
-      case 0:
-      {
-        deadTimeRise_ticks = CCU7_getCh0DeadTimeRise_ticks();
-        deadTimeFall_ticks = CCU7_getCh0DeadTimeFall_ticks();
-        break;
-      }
-
-      case 1:
-      {
-        deadTimeRise_ticks = CCU7_getCh1DeadTimeRise_ticks();
-        deadTimeFall_ticks = CCU7_getCh1DeadTimeFall_ticks();
-        break;
-      }
-
-      case 2:
-      {
-        deadTimeRise_ticks = CCU7_getCh2DeadTimeRise_ticks();
-        deadTimeFall_ticks = CCU7_getCh2DeadTimeFall_ticks();
-        break;
-      }
-
-      default:
-      {
-        s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
-      }
+  if((PtrRangeCheck(u32p_DeadTimeRise_ns) == true) && (PtrRangeCheck(u32p_DeadTimeFall_ns) == true)) {
+    switch(u8_channel) {
+    case 0: {
+      deadTimeRise_ticks = CCU7_getCh0DeadTimeRise_ticks();
+      deadTimeFall_ticks = CCU7_getCh0DeadTimeFall_ticks();
+      break;
     }
 
-    if (s8_returnCode == ERR_LOG_SUCCESS)
-    {
+    case 1: {
+      deadTimeRise_ticks = CCU7_getCh1DeadTimeRise_ticks();
+      deadTimeFall_ticks = CCU7_getCh1DeadTimeFall_ticks();
+      break;
+    }
+
+    case 2: {
+      deadTimeRise_ticks = CCU7_getCh2DeadTimeRise_ticks();
+      deadTimeFall_ticks = CCU7_getCh2DeadTimeFall_ticks();
+      break;
+    }
+
+    default: {
+      s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
+    }
+    }
+
+    if(s8_returnCode == ERR_LOG_SUCCESS) {
       *u32p_DeadTimeRise_ns = (uint32)((deadTimeRise_ticks * 1000) / CCU7_DT_CLK_MHz);
       *u32p_DeadTimeFall_ns = (uint32)((deadTimeFall_ticks * 1000) / CCU7_DT_CLK_MHz);
     }
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -779,8 +734,7 @@ INLINE sint8 CCU7_getDeadTime_ns(uint8 u8_channel, uint32 *u32p_DeadTimeRise_ns,
  *
  * \return uint16 CC70A Capture/Compare Value
  */
-INLINE uint16 CCU7_getCC70AVal(void)
-{
+INLINE uint16 CCU7_getCC70AVal(void) {
   return (uint16)CCU7->CC70R.bit.CCV;
 }
 
@@ -788,8 +742,7 @@ INLINE uint16 CCU7_getCC70AVal(void)
  *
  * \return uint16 CC71A Capture/Compare Value
  */
-INLINE uint16 CCU7_getCC71AVal(void)
-{
+INLINE uint16 CCU7_getCC71AVal(void) {
   return (uint16)CCU7->CC71R.bit.CCV;
 }
 
@@ -797,8 +750,7 @@ INLINE uint16 CCU7_getCC71AVal(void)
  *
  * \return uint16 CC72A Capture/Compare Value
  */
-INLINE uint16 CCU7_getCC72AVal(void)
-{
+INLINE uint16 CCU7_getCC72AVal(void) {
   return (uint16)CCU7->CC72R.bit.CCV;
 }
 
@@ -806,8 +758,7 @@ INLINE uint16 CCU7_getCC72AVal(void)
  *
  *  \param u16_value Shadow Register for CC70A Capture/Compare Value
  */
-INLINE void CCU7_setCC70AValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setCC70AValShadow(uint16 u16_value) {
   CCU7->CC70SR.bit.CCS = u16_value;
 }
 
@@ -815,8 +766,7 @@ INLINE void CCU7_setCC70AValShadow(uint16 u16_value)
  *
  *  \param u16_value Shadow Register for CC71A Capture/Compare Value
  */
-INLINE void CCU7_setCC71AValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setCC71AValShadow(uint16 u16_value) {
   CCU7->CC71SR.bit.CCS = u16_value;
 }
 
@@ -824,8 +774,7 @@ INLINE void CCU7_setCC71AValShadow(uint16 u16_value)
  *
  *  \param u16_value Shadow Register for CC72A Capture/Compare Value
  */
-INLINE void CCU7_setCC72AValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setCC72AValShadow(uint16 u16_value) {
   CCU7->CC72SR.bit.CCS = u16_value;
 }
 
@@ -833,8 +782,7 @@ INLINE void CCU7_setCC72AValShadow(uint16 u16_value)
  *
  * \return uint16 C70B Compare Value
  */
-INLINE uint16 CCU7_getC70BVal(void)
-{
+INLINE uint16 CCU7_getC70BVal(void) {
   return (uint16)CCU7->CC70BR.bit.CV;
 }
 
@@ -842,8 +790,7 @@ INLINE uint16 CCU7_getC70BVal(void)
  *
  * \return uint16 C71B Compare Value
  */
-INLINE uint16 CCU7_getC71BVal(void)
-{
+INLINE uint16 CCU7_getC71BVal(void) {
   return (uint16)CCU7->CC71BR.bit.CV;
 }
 
@@ -851,8 +798,7 @@ INLINE uint16 CCU7_getC71BVal(void)
  *
  * \return uint16 C72B Compare Value
  */
-INLINE uint16 CCU7_getC72BVal(void)
-{
+INLINE uint16 CCU7_getC72BVal(void) {
   return (uint16)CCU7->CC72BR.bit.CV;
 }
 
@@ -860,8 +806,7 @@ INLINE uint16 CCU7_getC72BVal(void)
  *
  *  \param u16_value Shadow Register for C70B Compare Value
  */
-INLINE void CCU7_setC70BValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setC70BValShadow(uint16 u16_value) {
   CCU7->CC70BSR.bit.CS = u16_value;
 }
 
@@ -869,8 +814,7 @@ INLINE void CCU7_setC70BValShadow(uint16 u16_value)
  *
  *  \param u16_value Shadow Register for C71B Compare Value
  */
-INLINE void CCU7_setC71BValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setC71BValShadow(uint16 u16_value) {
   CCU7->CC71BSR.bit.CS = u16_value;
 }
 
@@ -878,8 +822,7 @@ INLINE void CCU7_setC71BValShadow(uint16 u16_value)
  *
  *  \param u16_value Shadow Register for C72B Compare Value
  */
-INLINE void CCU7_setC72BValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setC72BValShadow(uint16 u16_value) {
   CCU7->CC72BSR.bit.CS = u16_value;
 }
 
@@ -887,8 +830,7 @@ INLINE void CCU7_setC72BValShadow(uint16 u16_value)
  *
  * \return uint16 T13 Counter Value
  */
-INLINE uint16 CCU7_getT13CntVal(void)
-{
+INLINE uint16 CCU7_getT13CntVal(void) {
   return (uint16)CCU7->T13R.bit.T1xCV;
 }
 
@@ -896,8 +838,7 @@ INLINE uint16 CCU7_getT13CntVal(void)
  *
  * \return uint16 T14 Counter Value
  */
-INLINE uint16 CCU7_getT14CntVal(void)
-{
+INLINE uint16 CCU7_getT14CntVal(void) {
   return (uint16)CCU7->T14R.bit.T1xCV;
 }
 
@@ -905,8 +846,7 @@ INLINE uint16 CCU7_getT14CntVal(void)
  *
  * \return uint16 T15 Counter Value
  */
-INLINE uint16 CCU7_getT15CntVal(void)
-{
+INLINE uint16 CCU7_getT15CntVal(void) {
   return (uint16)CCU7->T15R.bit.T1xCV;
 }
 
@@ -914,8 +854,7 @@ INLINE uint16 CCU7_getT15CntVal(void)
  *
  * \return uint16 T16 Counter Value
  */
-INLINE uint16 CCU7_getT16CntVal(void)
-{
+INLINE uint16 CCU7_getT16CntVal(void) {
   return (uint16)CCU7->T16R.bit.T1xCV;
 }
 
@@ -923,8 +862,7 @@ INLINE uint16 CCU7_getT16CntVal(void)
  *
  *  \param u16_value T13 Period Value
  */
-INLINE void CCU7_setT13PerVal(uint16 u16_value)
-{
+INLINE void CCU7_setT13PerVal(uint16 u16_value) {
   CCU7->T13PR.bit.T1xPV = u16_value;
 }
 
@@ -932,8 +870,7 @@ INLINE void CCU7_setT13PerVal(uint16 u16_value)
  *
  * \return uint16 T13 Period Value
  */
-INLINE uint16 CCU7_getT13PerVal(void)
-{
+INLINE uint16 CCU7_getT13PerVal(void) {
   return (uint16)CCU7->T13PR.bit.T1xPV;
 }
 
@@ -941,8 +878,7 @@ INLINE uint16 CCU7_getT13PerVal(void)
  *
  *  \param u16_value T14 Period Value
  */
-INLINE void CCU7_setT14PerVal(uint16 u16_value)
-{
+INLINE void CCU7_setT14PerVal(uint16 u16_value) {
   CCU7->T14PR.bit.T1xPV = u16_value;
 }
 
@@ -950,8 +886,7 @@ INLINE void CCU7_setT14PerVal(uint16 u16_value)
  *
  * \return uint16 T14 Period Value
  */
-INLINE uint16 CCU7_getT14PerVal(void)
-{
+INLINE uint16 CCU7_getT14PerVal(void) {
   return (uint16)CCU7->T14PR.bit.T1xPV;
 }
 
@@ -959,8 +894,7 @@ INLINE uint16 CCU7_getT14PerVal(void)
  *
  *  \param u16_value T15 Period Value
  */
-INLINE void CCU7_setT15PerVal(uint16 u16_value)
-{
+INLINE void CCU7_setT15PerVal(uint16 u16_value) {
   CCU7->T15PR.bit.T1xPV = u16_value;
 }
 
@@ -968,8 +902,7 @@ INLINE void CCU7_setT15PerVal(uint16 u16_value)
  *
  * \return uint16 T15 Period Value
  */
-INLINE uint16 CCU7_getT15PerVal(void)
-{
+INLINE uint16 CCU7_getT15PerVal(void) {
   return (uint16)CCU7->T15PR.bit.T1xPV;
 }
 
@@ -977,8 +910,7 @@ INLINE uint16 CCU7_getT15PerVal(void)
  *
  *  \param u16_value T16 Period Value
  */
-INLINE void CCU7_setT16PerVal(uint16 u16_value)
-{
+INLINE void CCU7_setT16PerVal(uint16 u16_value) {
   CCU7->T16PR.bit.T1xPV = u16_value;
 }
 
@@ -986,8 +918,7 @@ INLINE void CCU7_setT16PerVal(uint16 u16_value)
  *
  * \return uint16 T16 Period Value
  */
-INLINE uint16 CCU7_getT16PerVal(void)
-{
+INLINE uint16 CCU7_getT16PerVal(void) {
   return (uint16)CCU7->T16PR.bit.T1xPV;
 }
 
@@ -995,8 +926,7 @@ INLINE uint16 CCU7_getT16PerVal(void)
  *
  * \return uint16 C73 Compare Value
  */
-INLINE uint16 CCU7_getC73Val(void)
-{
+INLINE uint16 CCU7_getC73Val(void) {
   return (uint16)CCU7->C73R.bit.CCV;
 }
 
@@ -1004,8 +934,7 @@ INLINE uint16 CCU7_getC73Val(void)
  *
  * \return uint16 C74 Compare Value
  */
-INLINE uint16 CCU7_getC74Val(void)
-{
+INLINE uint16 CCU7_getC74Val(void) {
   return (uint16)CCU7->C74R.bit.CCV;
 }
 
@@ -1013,8 +942,7 @@ INLINE uint16 CCU7_getC74Val(void)
  *
  * \return uint16 C75 Compare Value
  */
-INLINE uint16 CCU7_getC75Val(void)
-{
+INLINE uint16 CCU7_getC75Val(void) {
   return (uint16)CCU7->C75R.bit.CCV;
 }
 
@@ -1022,8 +950,7 @@ INLINE uint16 CCU7_getC75Val(void)
  *
  * \return uint16 C76 Compare Value
  */
-INLINE uint16 CCU7_getC76Val(void)
-{
+INLINE uint16 CCU7_getC76Val(void) {
   return (uint16)CCU7->C76R.bit.CCV;
 }
 
@@ -1031,8 +958,7 @@ INLINE uint16 CCU7_getC76Val(void)
  *
  *  \param u16_value Shadow Register for C73 Compare Value
  */
-INLINE void CCU7_setC73ValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setC73ValShadow(uint16 u16_value) {
   CCU7->C73SR.bit.CCS = u16_value;
 }
 
@@ -1040,8 +966,7 @@ INLINE void CCU7_setC73ValShadow(uint16 u16_value)
  *
  *  \param u16_value Shadow Register for C74 Compare Value
  */
-INLINE void CCU7_setC74ValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setC74ValShadow(uint16 u16_value) {
   CCU7->C74SR.bit.CCS = u16_value;
 }
 
@@ -1049,8 +974,7 @@ INLINE void CCU7_setC74ValShadow(uint16 u16_value)
  *
  *  \param u16_value Shadow Register for C75 Compare Value
  */
-INLINE void CCU7_setC75ValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setC75ValShadow(uint16 u16_value) {
   CCU7->C75SR.bit.CCS = u16_value;
 }
 
@@ -1058,8 +982,7 @@ INLINE void CCU7_setC75ValShadow(uint16 u16_value)
  *
  *  \param u16_value Shadow Register for C76 Compare Value
  */
-INLINE void CCU7_setC76ValShadow(uint16 u16_value)
-{
+INLINE void CCU7_setC76ValShadow(uint16 u16_value) {
   CCU7->C76SR.bit.CCS = u16_value;
 }
 
@@ -1070,8 +993,7 @@ INLINE void CCU7_setC76ValShadow(uint16 u16_value)
  *          Bit 1: CCU7->CMPSTAT.bit.CCPOS1
  *          Bit 2: CCU7->CMPSTAT.bit.CCPOS2
  */
-INLINE uint8 CCU7_getHallPatternSampled(void)
-{
+INLINE uint8 CCU7_getHallPatternSampled(void) {
   return (uint8)((CCU7->CMPSTAT.reg & (CCU7_CMPSTAT_CCPOS0_Msk | CCU7_CMPSTAT_CCPOS1_Msk | CCU7_CMPSTAT_CCPOS2_Msk)) >> CCU7_CMPSTAT_CCPOS0_Pos);
 }
 
@@ -1089,8 +1011,7 @@ INLINE uint8 CCU7_getHallPatternSampled(void)
  *          Bit10: CCU7.CMPSTAT_2.bit.CC72AST
  *          Bit11: CCU7.CMPSTAT.bit.CC73ST
  */
-INLINE uint16 CCU7_getCmpSts(void)
-{
+INLINE uint16 CCU7_getCmpSts(void) {
   /* CCU7->CMPSTAT_2 contains C70B, C71B, C72B, C74ST, C75ST, C76ST, CC70ST, CC71ST, and CC72ST */
   /* Shift CCU7->CMPSTAT.bit.CC73ST to bit position 11 (unused in CCU7->CMPSTAT_2) */
   return (uint16)((uint16)CCU7->CMPSTAT_2.reg | ((uint16)CCU7->CMPSTAT.bit.CC73ST << 11u));
@@ -1100,148 +1021,127 @@ INLINE uint16 CCU7_getCmpSts(void)
  *
  *  \param e_value Hall Synchronization
  */
-INLINE void CCU7_setHallSync(tCCU7_HallSync e_value)
-{
+INLINE void CCU7_setHallSync(tCCU7_HallSync e_value) {
   CCU7->T12MSEL.bit.HSYNC = (uint8)e_value;
 }
 
 /** \brief Enable T12 Single Shot Control
  */
-INLINE void CCU7_enT12SingleShot(void)
-{
+INLINE void CCU7_enT12SingleShot(void) {
   CCU7->TCTR2.bit.T12SSC = 1u;
 }
 
 /** \brief Disable T12 Single Shot Control
  */
-INLINE void CCU7_disT12SingleShot(void)
-{
+INLINE void CCU7_disT12SingleShot(void) {
   CCU7->TCTR2.bit.T12SSC = 0u;
 }
 
 /** \brief Enable T13 Single Shot Control
  */
-INLINE void CCU7_enT13SingleShot(void)
-{
+INLINE void CCU7_enT13SingleShot(void) {
   CCU7->TCTR2.bit.T13SSC = 1u;
 }
 
 /** \brief Disable T13 Single Shot Control
  */
-INLINE void CCU7_disT13SingleShot(void)
-{
+INLINE void CCU7_disT13SingleShot(void) {
   CCU7->TCTR2.bit.T13SSC = 0u;
 }
 
 /** \brief Enable T14 Single Shot Control
  */
-INLINE void CCU7_enT14SingleShot(void)
-{
+INLINE void CCU7_enT14SingleShot(void) {
   CCU7->TCTR24.bit.T1xSSC = 1u;
 }
 
 /** \brief Disable T14 Single Shot Control
  */
-INLINE void CCU7_disT14SingleShot(void)
-{
+INLINE void CCU7_disT14SingleShot(void) {
   CCU7->TCTR24.bit.T1xSSC = 0u;
 }
 
 /** \brief Enable T15 Single Shot Control
  */
-INLINE void CCU7_enT15SingleShot(void)
-{
+INLINE void CCU7_enT15SingleShot(void) {
   CCU7->TCTR25.bit.T1xSSC = 1u;
 }
 
 /** \brief Disable T15 Single Shot Control
  */
-INLINE void CCU7_disT15SingleShot(void)
-{
+INLINE void CCU7_disT15SingleShot(void) {
   CCU7->TCTR25.bit.T1xSSC = 0u;
 }
 
 /** \brief Enable T16 Single Shot Control
  */
-INLINE void CCU7_enT16SingleShot(void)
-{
+INLINE void CCU7_enT16SingleShot(void) {
   CCU7->TCTR26.bit.T1xSSC = 1u;
 }
 
 /** \brief Disable T16 Single Shot Control
  */
-INLINE void CCU7_disT16SingleShot(void)
-{
+INLINE void CCU7_disT16SingleShot(void) {
   CCU7->TCTR26.bit.T1xSSC = 0u;
 }
 
 /** \brief Stop T12
  */
-INLINE void CCU7_stopT12(void)
-{
+INLINE void CCU7_stopT12(void) {
   CCU7->TCTR4.bit.T12RR = 1u;
 }
 
 /** \brief Start T12
  */
-INLINE void CCU7_startT12(void)
-{
+INLINE void CCU7_startT12(void) {
   CCU7->TCTR4.bit.T12RS = 1u;
 }
 
 /** \brief Stop T13
  */
-INLINE void CCU7_stopT13(void)
-{
+INLINE void CCU7_stopT13(void) {
   CCU7->TCTR4.bit.T13RR = 1u;
 }
 
 /** \brief Start T13
  */
-INLINE void CCU7_startT13(void)
-{
+INLINE void CCU7_startT13(void) {
   CCU7->TCTR4.bit.T13RS = 1u;
 }
 
 /** \brief Stop T14
  */
-INLINE void CCU7_stopT14(void)
-{
+INLINE void CCU7_stopT14(void) {
   CCU7->TCTR44.bit.T1xRR = 1u;
 }
 
 /** \brief Start T14
  */
-INLINE void CCU7_startT14(void)
-{
+INLINE void CCU7_startT14(void) {
   CCU7->TCTR44.bit.T1xRS = 1u;
 }
 
 /** \brief Stop T15
  */
-INLINE void CCU7_stopT15(void)
-{
+INLINE void CCU7_stopT15(void) {
   CCU7->TCTR45.bit.T1xRR = 1u;
 }
 
 /** \brief Start T15
  */
-INLINE void CCU7_startT15(void)
-{
+INLINE void CCU7_startT15(void) {
   CCU7->TCTR45.bit.T1xRS = 1u;
 }
 
 /** \brief Stop T16
  */
-INLINE void CCU7_stopT16(void)
-{
+INLINE void CCU7_stopT16(void) {
   CCU7->TCTR46.bit.T1xRR = 1u;
 }
 
 /** \brief Start T16
  */
-INLINE void CCU7_startT16(void)
-{
+INLINE void CCU7_startT16(void) {
   CCU7->TCTR46.bit.T1xRS = 1u;
 }
 
@@ -1249,22 +1149,19 @@ INLINE void CCU7_startT16(void)
  *
  *  \param u8_value T12 Modulation
  */
-INLINE void CCU7_setT12Modulation(uint8 u8_value)
-{
+INLINE void CCU7_setT12Modulation(uint8 u8_value) {
   CCU7->MODCTR.reg = (CCU7->MODCTR.reg & (~CCU7_MODCTR_T12MODEN_Msk)) | ((uint32)u8_value << CCU7_MODCTR_T12MODEN_Pos);
 }
 
 /** \brief Enable Multi-Channel Mode
  */
-INLINE void CCU7_enMultiChMode(void)
-{
+INLINE void CCU7_enMultiChMode(void) {
   CCU7->MODCTR.bit.MCMEN = 1u;
 }
 
 /** \brief Disable Multi-Channel Mode
  */
-INLINE void CCU7_disMultiChMode(void)
-{
+INLINE void CCU7_disMultiChMode(void) {
   CCU7->MODCTR.bit.MCMEN = 0u;
 }
 
@@ -1272,22 +1169,19 @@ INLINE void CCU7_disMultiChMode(void)
  *
  *  \param u8_value T13 Modulation
  */
-INLINE void CCU7_setT13Modulation(uint8 u8_value)
-{
+INLINE void CCU7_setT13Modulation(uint8 u8_value) {
   CCU7->MODCTR.reg = (CCU7->MODCTR.reg & (~CCU7_MODCTR_T13MODEN_Msk)) | ((uint32)u8_value << CCU7_MODCTR_T13MODEN_Pos);
 }
 
 /** \brief Enable Trap Control for all signals (CC70/1/2, COUT70/1/2)
  */
-INLINE void CCU7_enTrap(void)
-{
+INLINE void CCU7_enTrap(void) {
   CCU7->TRPCTR.bit.TRPEN = (uint8)0x3F;
 }
 
 /** \brief Disable Trap Control
  */
-INLINE void CCU7_disTrap(void)
-{
+INLINE void CCU7_disTrap(void) {
   CCU7->TRPCTR.bit.TRPEN = 0u;
 }
 
@@ -1297,12 +1191,10 @@ INLINE void CCU7_disTrap(void)
  *
  * \return uint8 Trap Control
  */
-INLINE uint8 CCU7_getTrapConfig(void)
-{
+INLINE uint8 CCU7_getTrapConfig(void) {
   uint8 u8_trpen = 0u;
 
-  if ((uint8)CCU7->TRPCTR.bit.TRPEN == 0x3Fu)
-  {
+  if((uint8)CCU7->TRPCTR.bit.TRPEN == 0x3Fu) {
     /* all bits set */
     u8_trpen = 1u;
   }
@@ -1312,29 +1204,25 @@ INLINE uint8 CCU7_getTrapConfig(void)
 
 /** \brief Enable Trap Pin
  */
-INLINE void CCU7_enTrapPin(void)
-{
+INLINE void CCU7_enTrapPin(void) {
   CCU7->TRPCTR.bit.TRPPEN = 1u;
 }
 
 /** \brief Disable Trap Pin
  */
-INLINE void CCU7_disTrapPin(void)
-{
+INLINE void CCU7_disTrapPin(void) {
   CCU7->TRPCTR.bit.TRPPEN = 0u;
 }
 
 /** \brief Set trap mode to Automatic (Automatic Mode: Bit TRPF is cleared by HW if the trap input condition is no longer valid.)
  */
-INLINE void CCU7_setTrapModeAutomatic(void)
-{
+INLINE void CCU7_setTrapModeAutomatic(void) {
   CCU7->TRPCTR.bit.TRPM2 = 0u;
 }
 
 /** \brief Set trap mode to Manual (Manual Mode: Bit TRPF stays 1 after the trap input condition is no longer valid. It has to be cleared by SW by writing ISR.RTRPF = 1.)
  */
-INLINE void CCU7_setTrapModeManual(void)
-{
+INLINE void CCU7_setTrapModeManual(void) {
   CCU7->TRPCTR.bit.TRPM2 = 1u;
 }
 
@@ -1342,15 +1230,13 @@ INLINE void CCU7_setTrapModeManual(void)
  *
  *  \param u8_value Multi-Channel PWM Pattern Shadow
  */
-INLINE void CCU7_setMultiChModePWMPatternShadow(uint8 u8_value)
-{
+INLINE void CCU7_setMultiChModePWMPatternShadow(uint8 u8_value) {
   CCU7->MCMOUTS.bit.MCMPS = u8_value;
 }
 
 /** \brief Set Shadow Transfer Request for Multi-Channel Mode
  */
-INLINE void CCU7_setMultiChModeShadowTransferReq(void)
-{
+INLINE void CCU7_setMultiChModeShadowTransferReq(void) {
   CCU7->MCMOUTS.bit.STRMCM = 1u;
 }
 
@@ -1358,8 +1244,7 @@ INLINE void CCU7_setMultiChModeShadowTransferReq(void)
  *
  *  \param u8_value Expected Hall Pattern Shadow
  */
-INLINE void CCU7_setHallPatternExpectedShadow(uint8 u8_value)
-{
+INLINE void CCU7_setHallPatternExpectedShadow(uint8 u8_value) {
   CCU7->MCMOUTS.bit.EXPHS = u8_value;
 }
 
@@ -1367,15 +1252,13 @@ INLINE void CCU7_setHallPatternExpectedShadow(uint8 u8_value)
  *
  *  \param u8_value Current Hall Pattern Shadow
  */
-INLINE void CCU7_setHallPatternCurrentShadow(uint8 u8_value)
-{
+INLINE void CCU7_setHallPatternCurrentShadow(uint8 u8_value) {
   CCU7->MCMOUTS.bit.CURHS = u8_value;
 }
 
 /** \brief Set Shadow Transfer Request for the Hall Pattern
  */
-INLINE void CCU7_setHallShadowTransferReq(void)
-{
+INLINE void CCU7_setHallShadowTransferReq(void) {
   CCU7->MCMOUTS.bit.STRHP = 1u;
 }
 
@@ -1383,8 +1266,7 @@ INLINE void CCU7_setHallShadowTransferReq(void)
  *
  * \return uint8 Multi-Channel PWM Pattern
  */
-INLINE uint8 CCU7_getMultiChModePWMPattern(void)
-{
+INLINE uint8 CCU7_getMultiChModePWMPattern(void) {
   return (uint8)CCU7->MCMOUT.bit.MCMP;
 }
 
@@ -1392,8 +1274,7 @@ INLINE uint8 CCU7_getMultiChModePWMPattern(void)
  *
  *  \param e_value Switching Selection
  */
-INLINE void CCU7_setMultiChModeShadowTransferTrig(tCCU7_MultiChMode_SWSEL e_value)
-{
+INLINE void CCU7_setMultiChModeShadowTransferTrig(tCCU7_MultiChMode_SWSEL e_value) {
   CCU7->MCMCTR.bit.SWSEL = (uint8)e_value;
 }
 
@@ -1401,15 +1282,13 @@ INLINE void CCU7_setMultiChModeShadowTransferTrig(tCCU7_MultiChMode_SWSEL e_valu
  *
  *  \param e_value Switching Synchronization
  */
-INLINE void CCU7_setMultiChModeShadowTransferSync(tCCU7_MultiChMode_SWSYN e_value)
-{
+INLINE void CCU7_setMultiChModeShadowTransferSync(tCCU7_MultiChMode_SWSYN e_value) {
   CCU7->MCMCTR.bit.SWSYN = (uint8)e_value;
 }
 
 /** \brief Clear Lost Bit Event Flag
  */
-INLINE void CCU7_clrLostBitEventSts(void)
-{
+INLINE void CCU7_clrLostBitEventSts(void) {
   CCU7->IMON.bit.LBE = 1u;
 }
 
@@ -1417,22 +1296,19 @@ INLINE void CCU7_clrLostBitEventSts(void)
  *
  * \return uint8 Lost Bit Event Flag
  */
-INLINE uint8 CCU7_getLostBitEventSts(void)
-{
+INLINE uint8 CCU7_getLostBitEventSts(void) {
   return (uint8)CCU7->IMON.bit.LBE;
 }
 
 /** \brief Enable Interrupt for Lost Bit Event - LBEEN
  */
-INLINE void CCU7_enLostBitEventInt(void)
-{
+INLINE void CCU7_enLostBitEventInt(void) {
   CCU7->LI.bit.LBEEN = 1u;
 }
 
 /** \brief Disable Interrupt for Lost Bit Event - LBEEN
  */
-INLINE void CCU7_disLostBitEventInt(void)
-{
+INLINE void CCU7_disLostBitEventInt(void) {
   CCU7->LI.bit.LBEEN = 0u;
 }
 
@@ -1440,8 +1316,7 @@ INLINE void CCU7_disLostBitEventInt(void)
  *
  * \return uint8 Capture, Compare-Match Rising Edge Flag for CC70A
  */
-INLINE uint8 CCU7_getCC70ACmpMatchRiseIntSts(void)
-{
+INLINE uint8 CCU7_getCC70ACmpMatchRiseIntSts(void) {
   return (uint8)CCU7->IS.bit.ICC70R;
 }
 
@@ -1449,8 +1324,7 @@ INLINE uint8 CCU7_getCC70ACmpMatchRiseIntSts(void)
  *
  * \return uint8 Capture, Compare-Match Falling Edge Flag for CC70A
  */
-INLINE uint8 CCU7_getCC70ACmpMatchFallIntSts(void)
-{
+INLINE uint8 CCU7_getCC70ACmpMatchFallIntSts(void) {
   return (uint8)CCU7->IS.bit.ICC70F;
 }
 
@@ -1458,8 +1332,7 @@ INLINE uint8 CCU7_getCC70ACmpMatchFallIntSts(void)
  *
  * \return uint8 Capture, Compare-Match Rising Edge Flag for CC71A
  */
-INLINE uint8 CCU7_getCC71ACmpMatchRiseIntSts(void)
-{
+INLINE uint8 CCU7_getCC71ACmpMatchRiseIntSts(void) {
   return (uint8)CCU7->IS.bit.ICC71R;
 }
 
@@ -1467,8 +1340,7 @@ INLINE uint8 CCU7_getCC71ACmpMatchRiseIntSts(void)
  *
  * \return uint8 Capture, Compare-Match Falling Edge Flag for CC71A
  */
-INLINE uint8 CCU7_getCC71ACmpMatchFallIntSts(void)
-{
+INLINE uint8 CCU7_getCC71ACmpMatchFallIntSts(void) {
   return (uint8)CCU7->IS.bit.ICC71F;
 }
 
@@ -1476,8 +1348,7 @@ INLINE uint8 CCU7_getCC71ACmpMatchFallIntSts(void)
  *
  * \return uint8 Capture, Compare-Match Rising Edge Flag for CC72A
  */
-INLINE uint8 CCU7_getCC72ACmpMatchRiseIntSts(void)
-{
+INLINE uint8 CCU7_getCC72ACmpMatchRiseIntSts(void) {
   return (uint8)CCU7->IS.bit.ICC72R;
 }
 
@@ -1485,8 +1356,7 @@ INLINE uint8 CCU7_getCC72ACmpMatchRiseIntSts(void)
  *
  * \return uint8 Capture, Compare-Match Falling Edge Flag for CC72A
  */
-INLINE uint8 CCU7_getCC72ACmpMatchFallIntSts(void)
-{
+INLINE uint8 CCU7_getCC72ACmpMatchFallIntSts(void) {
   return (uint8)CCU7->IS.bit.ICC72F;
 }
 
@@ -1494,8 +1364,7 @@ INLINE uint8 CCU7_getCC72ACmpMatchFallIntSts(void)
  *
  * \return uint8 T12 One-Match Flag
  */
-INLINE uint8 CCU7_getT12OneMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT12OneMatchIntSts(void) {
   return (uint8)CCU7->IS.bit.T12OM;
 }
 
@@ -1503,8 +1372,7 @@ INLINE uint8 CCU7_getT12OneMatchIntSts(void)
  *
  * \return uint8 T12 Period-Match Flag
  */
-INLINE uint8 CCU7_getT12PerMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT12PerMatchIntSts(void) {
   return (uint8)CCU7->IS.bit.T12PM;
 }
 
@@ -1512,8 +1380,7 @@ INLINE uint8 CCU7_getT12PerMatchIntSts(void)
  *
  * \return uint8 T13 Compare-Match Flag
  */
-INLINE uint8 CCU7_getT13CmpMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT13CmpMatchIntSts(void) {
   return (uint8)CCU7->IS.bit.T13CM;
 }
 
@@ -1521,8 +1388,7 @@ INLINE uint8 CCU7_getT13CmpMatchIntSts(void)
  *
  * \return uint8 T13 Period-Match Flag
  */
-INLINE uint8 CCU7_getT13PerMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT13PerMatchIntSts(void) {
   return (uint8)CCU7->IS.bit.T13PM;
 }
 
@@ -1530,8 +1396,7 @@ INLINE uint8 CCU7_getT13PerMatchIntSts(void)
  *
  * \return uint8 Trap Flag
  */
-INLINE uint8 CCU7_getTrapCond(void)
-{
+INLINE uint8 CCU7_getTrapCond(void) {
   return (uint8)CCU7->IS.bit.TRPF;
 }
 
@@ -1539,8 +1404,7 @@ INLINE uint8 CCU7_getTrapCond(void)
  *
  * \return uint8 Trap State
  */
-INLINE uint8 CCU7_getTrapIntSts(void)
-{
+INLINE uint8 CCU7_getTrapIntSts(void) {
   return (uint8)CCU7->IS.bit.TRPS;
 }
 
@@ -1548,8 +1412,7 @@ INLINE uint8 CCU7_getTrapIntSts(void)
  *
  * \return uint8 Correct Hall Event Flag
  */
-INLINE uint8 CCU7_getHallEventCorrectIntSts(void)
-{
+INLINE uint8 CCU7_getHallEventCorrectIntSts(void) {
   return (uint8)CCU7->IS.bit.CHE;
 }
 
@@ -1557,8 +1420,7 @@ INLINE uint8 CCU7_getHallEventCorrectIntSts(void)
  *
  * \return uint8 Wrong Hall Event Flag
  */
-INLINE uint8 CCU7_getHallEventWrongIntSts(void)
-{
+INLINE uint8 CCU7_getHallEventWrongIntSts(void) {
   return (uint8)CCU7->IS.bit.WHE;
 }
 
@@ -1566,8 +1428,7 @@ INLINE uint8 CCU7_getHallEventWrongIntSts(void)
  *
  * \return uint8 Hall Idle State Flag
  */
-INLINE uint8 CCU7_getHallIdleIntSts(void)
-{
+INLINE uint8 CCU7_getHallIdleIntSts(void) {
   return (uint8)CCU7->IS.bit.IDLE;
 }
 
@@ -1575,323 +1436,277 @@ INLINE uint8 CCU7_getHallIdleIntSts(void)
  *
  * \return uint8 Multi-Channel Mode Shadow Transfer RequestFlag
  */
-INLINE uint8 CCU7_getMultiChModeShadowTransferReqIntSts(void)
-{
+INLINE uint8 CCU7_getMultiChModeShadowTransferReqIntSts(void) {
   return (uint8)CCU7->IS.bit.STR;
 }
 
 /** \brief Clear Capture, Compare-Match Rising Edge Flag for CC70A
  */
-INLINE void CCU7_clrCC70ACmpMatchRiseIntSts(void)
-{
+INLINE void CCU7_clrCC70ACmpMatchRiseIntSts(void) {
   CCU7->ISR.bit.RCC70R = 1u;
 }
 
 /** \brief Clear Capture, Compare-Match Falling Edge Flag for CC70A
  */
-INLINE void CCU7_clrCC70ACmpMatchFallIntSts(void)
-{
+INLINE void CCU7_clrCC70ACmpMatchFallIntSts(void) {
   CCU7->ISR.bit.RCC70F = 1u;
 }
 
 /** \brief Clear Capture, Compare-Match Rising Edge Flag for CC71A
  */
-INLINE void CCU7_clrCC71ACmpMatchRiseIntSts(void)
-{
+INLINE void CCU7_clrCC71ACmpMatchRiseIntSts(void) {
   CCU7->ISR.bit.RCC71R = 1u;
 }
 
 /** \brief Clear Capture, Compare-Match Falling Edge Flag for CC71A
  */
-INLINE void CCU7_clrCC71ACmpMatchFallIntSts(void)
-{
+INLINE void CCU7_clrCC71ACmpMatchFallIntSts(void) {
   CCU7->ISR.bit.RCC71F = 1u;
 }
 
 /** \brief Clear Capture, Compare-Match Rising Edge Flag for CC72A
  */
-INLINE void CCU7_clrCC72ACmpMatchRiseIntSts(void)
-{
+INLINE void CCU7_clrCC72ACmpMatchRiseIntSts(void) {
   CCU7->ISR.bit.RCC72R = 1u;
 }
 
 /** \brief Clear Capture, Compare-Match Falling Edge Flag for CC72A
  */
-INLINE void CCU7_clrCC72ACmpMatchFallIntSts(void)
-{
+INLINE void CCU7_clrCC72ACmpMatchFallIntSts(void) {
   CCU7->ISR.bit.RCC72F = 1u;
 }
 
 /** \brief Clear T12 One-Match Flag
  */
-INLINE void CCU7_clrT12OneMatchIntSts(void)
-{
+INLINE void CCU7_clrT12OneMatchIntSts(void) {
   CCU7->ISR.bit.RT12OM = 1u;
 }
 
 /** \brief Clear T12 Period-Match Flag
  */
-INLINE void CCU7_clrT12PerMatchIntSts(void)
-{
+INLINE void CCU7_clrT12PerMatchIntSts(void) {
   CCU7->ISR.bit.RT12PM = 1u;
 }
 
 /** \brief Clear T13 Compare-Match Flag
  */
-INLINE void CCU7_clrT13CmpMatchIntSts(void)
-{
+INLINE void CCU7_clrT13CmpMatchIntSts(void) {
   CCU7->ISR.bit.RT13CM = 1u;
 }
 
 /** \brief Clear T13 Period-Match Flag
  */
-INLINE void CCU7_clrT13PerMatchIntSts(void)
-{
+INLINE void CCU7_clrT13PerMatchIntSts(void) {
   CCU7->ISR.bit.RT13PM = 1u;
 }
 
 /** \brief Clear Trap Flag
  */
-INLINE void CCU7_clrTrapIntSts(void)
-{
+INLINE void CCU7_clrTrapIntSts(void) {
   CCU7->ISR.bit.RTRPF = 1u;
 }
 
 /** \brief Clear Correct Hall Event Flag
  */
-INLINE void CCU7_clrHallEventCorrectIntSts(void)
-{
+INLINE void CCU7_clrHallEventCorrectIntSts(void) {
   CCU7->ISR.bit.RCHE = 1u;
 }
 
 /** \brief Clear Wrong Hall Event Flag
  */
-INLINE void CCU7_clrHallEventWrongIntSts(void)
-{
+INLINE void CCU7_clrHallEventWrongIntSts(void) {
   CCU7->ISR.bit.RWHE = 1u;
 }
 
 /** \brief Clear Hall Idle Flag
  */
-INLINE void CCU7_clrHallIdleIntSts(void)
-{
+INLINE void CCU7_clrHallIdleIntSts(void) {
   CCU7->ISR.bit.RIDLE = 1u;
 }
 
 /** \brief Clear Multi-Channel Mode STR Flag
  */
-INLINE void CCU7_clrMultiChModeShadowTransferReqIntSts(void)
-{
+INLINE void CCU7_clrMultiChModeShadowTransferReqIntSts(void) {
   CCU7->ISR.bit.RSTR = 1u;
 }
 
 /** \brief Enable Capture, Compare-Match Rising Edge Interrupt for CC70A
  */
-INLINE void CCU7_enCC70ACmpMatchRiseInt(void)
-{
+INLINE void CCU7_enCC70ACmpMatchRiseInt(void) {
   CCU7->IEN.bit.ENCC70R = 1u;
 }
 
 /** \brief Disable Capture, Compare-Match Rising Edge Interrupt for CC70A
  */
-INLINE void CCU7_disCC70ACmpMatchRiseInt(void)
-{
+INLINE void CCU7_disCC70ACmpMatchRiseInt(void) {
   CCU7->IEN.bit.ENCC70R = 0u;
 }
 
 /** \brief Enable Capture, Compare-Match Falling Edge Interrupt for CC70A
  */
-INLINE void CCU7_enCC70ACmpMatchFallInt(void)
-{
+INLINE void CCU7_enCC70ACmpMatchFallInt(void) {
   CCU7->IEN.bit.ENCC70F = 1u;
 }
 
 /** \brief Disable Capture, Compare-Match Falling Edge Interrupt for CC70A
  */
-INLINE void CCU7_disCC70ACmpMatchFallInt(void)
-{
+INLINE void CCU7_disCC70ACmpMatchFallInt(void) {
   CCU7->IEN.bit.ENCC70F = 0u;
 }
 
 /** \brief Enable Capture, Compare-Match Rising Edge Interrupt for CC71A
  */
-INLINE void CCU7_enCC71ACmpMatchRiseInt(void)
-{
+INLINE void CCU7_enCC71ACmpMatchRiseInt(void) {
   CCU7->IEN.bit.ENCC71R = 1u;
 }
 
 /** \brief Disable Capture, Compare-Match Rising Edge Interrupt for CC71A
  */
-INLINE void CCU7_disCC71ACmpMatchRiseInt(void)
-{
+INLINE void CCU7_disCC71ACmpMatchRiseInt(void) {
   CCU7->IEN.bit.ENCC71R = 0u;
 }
 
 /** \brief Enable Capture, Compare-Match Falling Edge Interrupt for CC71A
  */
-INLINE void CCU7_enCC71ACmpMatchFallInt(void)
-{
+INLINE void CCU7_enCC71ACmpMatchFallInt(void) {
   CCU7->IEN.bit.ENCC71F = 1u;
 }
 
 /** \brief Disable Capture, Compare-Match Falling Edge Interrupt for CC71A
  */
-INLINE void CCU7_disCC71ACmpMatchFallInt(void)
-{
+INLINE void CCU7_disCC71ACmpMatchFallInt(void) {
   CCU7->IEN.bit.ENCC71F = 0u;
 }
 
 /** \brief Enable Capture, Compare-Match Rising Edge Interrupt for CC72A
  */
-INLINE void CCU7_enCC72ACmpMatchRiseInt(void)
-{
+INLINE void CCU7_enCC72ACmpMatchRiseInt(void) {
   CCU7->IEN.bit.ENCC72R = 1u;
 }
 
 /** \brief Disable Capture, Compare-Match Rising Edge Interrupt for CC72A
  */
-INLINE void CCU7_disCC72ACmpMatchRiseInt(void)
-{
+INLINE void CCU7_disCC72ACmpMatchRiseInt(void) {
   CCU7->IEN.bit.ENCC72R = 0u;
 }
 
 /** \brief Enable Capture, Compare-Match Falling Edge Interrupt for CC72A
  */
-INLINE void CCU7_enCC72ACmpMatchFallInt(void)
-{
+INLINE void CCU7_enCC72ACmpMatchFallInt(void) {
   CCU7->IEN.bit.ENCC72F = 1u;
 }
 
 /** \brief Disable Capture, Compare-Match Falling Edge Interrupt for CC72A
  */
-INLINE void CCU7_disCC72ACmpMatchFallInt(void)
-{
+INLINE void CCU7_disCC72ACmpMatchFallInt(void) {
   CCU7->IEN.bit.ENCC72F = 0u;
 }
 
 /** \brief Enable Interrupt for T12 One-Match
  */
-INLINE void CCU7_enT12OneMatchInt(void)
-{
+INLINE void CCU7_enT12OneMatchInt(void) {
   CCU7->IEN.bit.ENT12OM = 1u;
 }
 
 /** \brief Disable Interrupt for T12 One-Match
  */
-INLINE void CCU7_disT12OneMatchInt(void)
-{
+INLINE void CCU7_disT12OneMatchInt(void) {
   CCU7->IEN.bit.ENT12OM = 0u;
 }
 
 /** \brief Enable Interrupt for T12 Period-Match
  */
-INLINE void CCU7_enT12PerMatchInt(void)
-{
+INLINE void CCU7_enT12PerMatchInt(void) {
   CCU7->IEN.bit.ENT12PM = 1u;
 }
 
 /** \brief Disable Interrupt for T12 Period-Match
  */
-INLINE void CCU7_disT12PerMatchInt(void)
-{
+INLINE void CCU7_disT12PerMatchInt(void) {
   CCU7->IEN.bit.ENT12PM = 0u;
 }
 
 /** \brief Enable Interrupt for T13 Compare-Match
  */
-INLINE void CCU7_enT13CmpMatchInt(void)
-{
+INLINE void CCU7_enT13CmpMatchInt(void) {
   CCU7->IEN.bit.ENT13CM = 1u;
 }
 
 /** \brief Disable Interrupt for T13 Compare-Match
  */
-INLINE void CCU7_disT13CmpMatchInt(void)
-{
+INLINE void CCU7_disT13CmpMatchInt(void) {
   CCU7->IEN.bit.ENT13CM = 0u;
 }
 
 /** \brief Enable Interrupt for T13 Period-Match
  */
-INLINE void CCU7_enT13PerMatchInt(void)
-{
+INLINE void CCU7_enT13PerMatchInt(void) {
   CCU7->IEN.bit.ENT13PM = 1u;
 }
 
 /** \brief Disable Interrupt for T13 Period-Match
  */
-INLINE void CCU7_disT13PerMatchInt(void)
-{
+INLINE void CCU7_disT13PerMatchInt(void) {
   CCU7->IEN.bit.ENT13PM = 0u;
 }
 
 /** \brief Enable Interrupt for Trap Flag (Trap condition fulfilled)
  */
-INLINE void CCU7_enTrapCondInt(void)
-{
+INLINE void CCU7_enTrapCondInt(void) {
   CCU7->IEN.bit.ENTRPF = 1u;
 }
 
 /** \brief Disable Interrupt for Trap Flag (Trap condition fulfilled)
  */
-INLINE void CCU7_disTrapCondInt(void)
-{
+INLINE void CCU7_disTrapCondInt(void) {
   CCU7->IEN.bit.ENTRPF = 0u;
 }
 
 /** \brief Enable Interrupt for Correct Hall Event
  */
-INLINE void CCU7_enHallEventCorrectInt(void)
-{
+INLINE void CCU7_enHallEventCorrectInt(void) {
   CCU7->IEN.bit.ENCHE = 1u;
 }
 
 /** \brief Disable Interrupt for Correct Hall Event
  */
-INLINE void CCU7_disHallEventCorrectInt(void)
-{
+INLINE void CCU7_disHallEventCorrectInt(void) {
   CCU7->IEN.bit.ENCHE = 0u;
 }
 
 /** \brief Enable Interrupt for Wrong Hall Event
  */
-INLINE void CCU7_enHallEventWrongInt(void)
-{
+INLINE void CCU7_enHallEventWrongInt(void) {
   CCU7->IEN.bit.ENWHE = 1u;
 }
 
 /** \brief Disable Interrupt for Wrong Hall Event
  */
-INLINE void CCU7_disHallEventWrongInt(void)
-{
+INLINE void CCU7_disHallEventWrongInt(void) {
   CCU7->IEN.bit.ENWHE = 0u;
 }
 
 /** \brief Enable Hall Idle Interrupt
  */
-INLINE void CCU7_enHallIdleInt(void)
-{
+INLINE void CCU7_enHallIdleInt(void) {
   CCU7->IEN.bit.ENIDLE = 1u;
 }
 
 /** \brief Disable Hall Idle Interrupt
  */
-INLINE void CCU7_disHallIdleInt(void)
-{
+INLINE void CCU7_disHallIdleInt(void) {
   CCU7->IEN.bit.ENIDLE = 0u;
 }
 
 /** \brief Enable Multi-Channel Mode Shadow Transfer Interrupt
  */
-INLINE void CCU7_enMultiChModeShadowTransferReqInt(void)
-{
+INLINE void CCU7_enMultiChModeShadowTransferReqInt(void) {
   CCU7->IEN.bit.ENSTR = 1u;
 }
 
 /** \brief Disable Multi-Channel Mode Shadow Transfer Interrupt
  */
-INLINE void CCU7_disMultiChModeShadowTransferReqInt(void)
-{
+INLINE void CCU7_disMultiChModeShadowTransferReqInt(void) {
   CCU7->IEN.bit.ENSTR = 0u;
 }
 
@@ -1899,8 +1714,7 @@ INLINE void CCU7_disMultiChModeShadowTransferReqInt(void)
  *
  * \return uint8 Compare-Match Rising Edge Flag for C70B
  */
-INLINE uint8 CCU7_getC70BCmpMatchRiseIntSts(void)
-{
+INLINE uint8 CCU7_getC70BCmpMatchRiseIntSts(void) {
   return (uint8)CCU7->IS_2.bit.ICC70BR;
 }
 
@@ -1908,8 +1722,7 @@ INLINE uint8 CCU7_getC70BCmpMatchRiseIntSts(void)
  *
  * \return uint8 Compare-Match Falling Edge Flag for C70B
  */
-INLINE uint8 CCU7_getC70BCmpMatchFallIntSts(void)
-{
+INLINE uint8 CCU7_getC70BCmpMatchFallIntSts(void) {
   return (uint8)CCU7->IS_2.bit.ICC70BF;
 }
 
@@ -1917,8 +1730,7 @@ INLINE uint8 CCU7_getC70BCmpMatchFallIntSts(void)
  *
  * \return uint8 Compare-Match Rising Edge Flag for C71B
  */
-INLINE uint8 CCU7_getC71BCmpMatchRiseIntSts(void)
-{
+INLINE uint8 CCU7_getC71BCmpMatchRiseIntSts(void) {
   return (uint8)CCU7->IS_2.bit.ICC71BR;
 }
 
@@ -1926,8 +1738,7 @@ INLINE uint8 CCU7_getC71BCmpMatchRiseIntSts(void)
  *
  * \return uint8 Compare-Match Falling Edge Flag for C71B
  */
-INLINE uint8 CCU7_getC71BCmpMatchFallIntSts(void)
-{
+INLINE uint8 CCU7_getC71BCmpMatchFallIntSts(void) {
   return (uint8)CCU7->IS_2.bit.ICC71BF;
 }
 
@@ -1935,8 +1746,7 @@ INLINE uint8 CCU7_getC71BCmpMatchFallIntSts(void)
  *
  * \return uint8 Compare-Match Rising Edge Flag for C72B
  */
-INLINE uint8 CCU7_getC72BCmpMatchRiseIntSts(void)
-{
+INLINE uint8 CCU7_getC72BCmpMatchRiseIntSts(void) {
   return (uint8)CCU7->IS_2.bit.ICC72BR;
 }
 
@@ -1944,8 +1754,7 @@ INLINE uint8 CCU7_getC72BCmpMatchRiseIntSts(void)
  *
  * \return uint8 Compare-Match Falling Edge Flag for C72B
  */
-INLINE uint8 CCU7_getC72BCmpMatchFallIntSts(void)
-{
+INLINE uint8 CCU7_getC72BCmpMatchFallIntSts(void) {
   return (uint8)CCU7->IS_2.bit.ICC72BF;
 }
 
@@ -1953,8 +1762,7 @@ INLINE uint8 CCU7_getC72BCmpMatchFallIntSts(void)
  *
  * \return uint8 T14 Compare-Match Flag
  */
-INLINE uint8 CCU7_getT14CmpMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT14CmpMatchIntSts(void) {
   return (uint8)CCU7->IS_2.bit.T14CM;
 }
 
@@ -1962,8 +1770,7 @@ INLINE uint8 CCU7_getT14CmpMatchIntSts(void)
  *
  * \return uint8 T14 Period-Match Flag
  */
-INLINE uint8 CCU7_getT14PerMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT14PerMatchIntSts(void) {
   return (uint8)CCU7->IS_2.bit.T14PM;
 }
 
@@ -1971,8 +1778,7 @@ INLINE uint8 CCU7_getT14PerMatchIntSts(void)
  *
  * \return uint8 T15 Compare-Match Flag
  */
-INLINE uint8 CCU7_getT15CmpMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT15CmpMatchIntSts(void) {
   return (uint8)CCU7->IS_2.bit.T15CM;
 }
 
@@ -1980,8 +1786,7 @@ INLINE uint8 CCU7_getT15CmpMatchIntSts(void)
  *
  * \return uint8 T15 Period-Match Flag
  */
-INLINE uint8 CCU7_getT15PerMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT15PerMatchIntSts(void) {
   return (uint8)CCU7->IS_2.bit.T15PM;
 }
 
@@ -1989,8 +1794,7 @@ INLINE uint8 CCU7_getT15PerMatchIntSts(void)
  *
  * \return uint8 T16 Compare-Match Flag
  */
-INLINE uint8 CCU7_getT16CmpMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT16CmpMatchIntSts(void) {
   return (uint8)CCU7->IS_2.bit.T16CM;
 }
 
@@ -1998,299 +1802,256 @@ INLINE uint8 CCU7_getT16CmpMatchIntSts(void)
  *
  * \return uint8 T16 Period-Match Flag
  */
-INLINE uint8 CCU7_getT16PerMatchIntSts(void)
-{
+INLINE uint8 CCU7_getT16PerMatchIntSts(void) {
   return (uint8)CCU7->IS_2.bit.T16PM;
 }
 
 /** \brief Clear Compare-Match Rising Edge Flag for C70B
  */
-INLINE void CCU7_clrC70BCmpMatchRiseIntSts(void)
-{
+INLINE void CCU7_clrC70BCmpMatchRiseIntSts(void) {
   CCU7->ISR_2.bit.RCC70BR = 1u;
 }
 
 /** \brief Clear Compare-Match Falling Edge Flag for C70B
  */
-INLINE void CCU7_clrC70BCmpMatchFallIntSts(void)
-{
+INLINE void CCU7_clrC70BCmpMatchFallIntSts(void) {
   CCU7->ISR_2.bit.RCC70BF = 1u;
 }
 
 /** \brief Clear Compare-Match Rising Edge Flag for C71B
  */
-INLINE void CCU7_clrC71BCmpMatchRiseIntSts(void)
-{
+INLINE void CCU7_clrC71BCmpMatchRiseIntSts(void) {
   CCU7->ISR_2.bit.RCC71BR = 1u;
 }
 
 /** \brief Clear Compare-Match Falling Edge Flag for C71B
  */
-INLINE void CCU7_clrC71BCmpMatchFallIntSts(void)
-{
+INLINE void CCU7_clrC71BCmpMatchFallIntSts(void) {
   CCU7->ISR_2.bit.RCC71BF = 1u;
 }
 
 /** \brief Clear Compare-Match Rising Edge Flag for C72B
  */
-INLINE void CCU7_clrC72BCmpMatchRiseIntSts(void)
-{
+INLINE void CCU7_clrC72BCmpMatchRiseIntSts(void) {
   CCU7->ISR_2.bit.RCC72BR = 1u;
 }
 
 /** \brief Clear Compare-Match Falling Edge Flag for C72B
  */
-INLINE void CCU7_clrC72BCmpMatchFallIntSts(void)
-{
+INLINE void CCU7_clrC72BCmpMatchFallIntSts(void) {
   CCU7->ISR_2.bit.RCC72BF = 1u;
 }
 
 /** \brief Clear T14 Compare-Match Flag
  */
-INLINE void CCU7_clrT14CmpMatchIntSts(void)
-{
+INLINE void CCU7_clrT14CmpMatchIntSts(void) {
   CCU7->ISR_2.bit.RT14CM = 1u;
 }
 
 /** \brief Clear T14 Period-Match Flag
  */
-INLINE void CCU7_clrT14PerMatchIntSts(void)
-{
+INLINE void CCU7_clrT14PerMatchIntSts(void) {
   CCU7->ISR_2.bit.RT14PM = 1u;
 }
 
 /** \brief Clear T15 Compare-Match Flag
  */
-INLINE void CCU7_clrT15CmpMatchIntSts(void)
-{
+INLINE void CCU7_clrT15CmpMatchIntSts(void) {
   CCU7->ISR_2.bit.RT15CM = 1u;
 }
 
 /** \brief Clear T15 Period-Match Flag
  */
-INLINE void CCU7_clrT15PerMatchIntSts(void)
-{
+INLINE void CCU7_clrT15PerMatchIntSts(void) {
   CCU7->ISR_2.bit.RT15PM = 1u;
 }
 
 /** \brief Clear T16 Compare-Match Flag
  */
-INLINE void CCU7_clrT16CmpMatchIntSts(void)
-{
+INLINE void CCU7_clrT16CmpMatchIntSts(void) {
   CCU7->ISR_2.bit.RT16CM = 1u;
 }
 
 /** \brief Clear T16 Period-Match Flag
  */
-INLINE void CCU7_clrT16PerMatchIntSts(void)
-{
+INLINE void CCU7_clrT16PerMatchIntSts(void) {
   CCU7->ISR_2.bit.RT16PM = 1u;
 }
 
 /** \brief Enable Compare-Match Rising Edge Interrupt for C70B
  */
-INLINE void CCU7_enC70BCmpMatchRiseInt(void)
-{
+INLINE void CCU7_enC70BCmpMatchRiseInt(void) {
   CCU7->IEN_2.bit.ENCC70BR = 1u;
 }
 
 /** \brief Disable Compare-Match Rising Edge Interrupt for C70B
  */
-INLINE void CCU7_disC70BCmpMatchRiseInt(void)
-{
+INLINE void CCU7_disC70BCmpMatchRiseInt(void) {
   CCU7->IEN_2.bit.ENCC70BR = 0u;
 }
 
 /** \brief Enable Compare-Match Falling Edge Interrupt for C70B
  */
-INLINE void CCU7_enC70BCmpMatchFallInt(void)
-{
+INLINE void CCU7_enC70BCmpMatchFallInt(void) {
   CCU7->IEN_2.bit.ENCC70BF = 1u;
 }
 
 /** \brief Disable Compare-Match Falling Edge Interrupt for C70B
  */
-INLINE void CCU7_disC70BCmpMatchFallInt(void)
-{
+INLINE void CCU7_disC70BCmpMatchFallInt(void) {
   CCU7->IEN_2.bit.ENCC70BF = 0u;
 }
 
 /** \brief Enable Compare-Match Rising Edge Interrupt for C71B
  */
-INLINE void CCU7_enC71BCmpMatchRiseInt(void)
-{
+INLINE void CCU7_enC71BCmpMatchRiseInt(void) {
   CCU7->IEN_2.bit.ENCC71BR = 1u;
 }
 
 /** \brief Disable Compare-Match Rising Edge Interrupt for C71B
  */
-INLINE void CCU7_disC71BCmpMatchRiseInt(void)
-{
+INLINE void CCU7_disC71BCmpMatchRiseInt(void) {
   CCU7->IEN_2.bit.ENCC71BR = 0u;
 }
 
 /** \brief Enable Compare-Match Falling Edge Interrupt for C71B
  */
-INLINE void CCU7_enC71BCmpMatchFallInt(void)
-{
+INLINE void CCU7_enC71BCmpMatchFallInt(void) {
   CCU7->IEN_2.bit.ENCC71BF = 1u;
 }
 
 /** \brief Disable Compare-Match Falling Edge Interrupt for C71B
  */
-INLINE void CCU7_disC71BCmpMatchFallInt(void)
-{
+INLINE void CCU7_disC71BCmpMatchFallInt(void) {
   CCU7->IEN_2.bit.ENCC71BF = 0u;
 }
 
 /** \brief Enable Compare-Match Rising Edge Interrupt for C72B
  */
-INLINE void CCU7_enC72BCmpMatchRiseInt(void)
-{
+INLINE void CCU7_enC72BCmpMatchRiseInt(void) {
   CCU7->IEN_2.bit.ENCC72BR = 1u;
 }
 
 /** \brief Disable Compare-Match Rising Edge Interrupt for C72B
  */
-INLINE void CCU7_disC72BCmpMatchRiseInt(void)
-{
+INLINE void CCU7_disC72BCmpMatchRiseInt(void) {
   CCU7->IEN_2.bit.ENCC72BR = 0u;
 }
 
 /** \brief Enable Compare-Match Falling Edge Interrupt for C72B
  */
-INLINE void CCU7_enC72BCmpMatchFallInt(void)
-{
+INLINE void CCU7_enC72BCmpMatchFallInt(void) {
   CCU7->IEN_2.bit.ENCC72BF = 1u;
 }
 
 /** \brief Disable Compare-Match Falling Edge Interrupt for C72B
  */
-INLINE void CCU7_disC72BCmpMatchFallInt(void)
-{
+INLINE void CCU7_disC72BCmpMatchFallInt(void) {
   CCU7->IEN_2.bit.ENCC72BF = 0u;
 }
 
 /** \brief Enable Interrupt for T14 Compare-Match
  */
-INLINE void CCU7_enT14CmpMatchInt(void)
-{
+INLINE void CCU7_enT14CmpMatchInt(void) {
   CCU7->IEN_2.bit.ENT14CM = 1u;
 }
 
 /** \brief Disable Interrupt for T14 Compare-Match
  */
-INLINE void CCU7_disT14CmpMatchInt(void)
-{
+INLINE void CCU7_disT14CmpMatchInt(void) {
   CCU7->IEN_2.bit.ENT14CM = 0u;
 }
 
 /** \brief Enable Interrupt for T14 Period-Match
  */
-INLINE void CCU7_enT14PerMatchInt(void)
-{
+INLINE void CCU7_enT14PerMatchInt(void) {
   CCU7->IEN_2.bit.ENT14PM = 1u;
 }
 
 /** \brief Disable Interrupt for T14 Period-Match
  */
-INLINE void CCU7_disT14PerMatchInt(void)
-{
+INLINE void CCU7_disT14PerMatchInt(void) {
   CCU7->IEN_2.bit.ENT14PM = 0u;
 }
 
 /** \brief Enable Interrupt for T15 Compare-Match
  */
-INLINE void CCU7_enT15CmpMatchInt(void)
-{
+INLINE void CCU7_enT15CmpMatchInt(void) {
   CCU7->IEN_2.bit.ENT15CM = 1u;
 }
 
 /** \brief Disable Interrupt for T15 Compare-Match
  */
-INLINE void CCU7_disT15CmpMatchInt(void)
-{
+INLINE void CCU7_disT15CmpMatchInt(void) {
   CCU7->IEN_2.bit.ENT15CM = 0u;
 }
 
 /** \brief Enable Interrupt for T15 Period-Match
  */
-INLINE void CCU7_enT15PerMatchInt(void)
-{
+INLINE void CCU7_enT15PerMatchInt(void) {
   CCU7->IEN_2.bit.ENT15PM = 1u;
 }
 
 /** \brief Disable Interrupt for T15 Period-Match
  */
-INLINE void CCU7_disT15PerMatchInt(void)
-{
+INLINE void CCU7_disT15PerMatchInt(void) {
   CCU7->IEN_2.bit.ENT15PM = 0u;
 }
 
 /** \brief Enable Interrupt for T16 Compare-Match
  */
-INLINE void CCU7_enT16CmpMatchInt(void)
-{
+INLINE void CCU7_enT16CmpMatchInt(void) {
   CCU7->IEN_2.bit.ENT16CM = 1u;
 }
 
 /** \brief Disable Interrupt for T16 Compare-Match
  */
-INLINE void CCU7_disT16CmpMatchInt(void)
-{
+INLINE void CCU7_disT16CmpMatchInt(void) {
   CCU7->IEN_2.bit.ENT16CM = 0u;
 }
 
 /** \brief Enable Interrupt for T16 Period-Match
  */
-INLINE void CCU7_enT16PerMatchInt(void)
-{
+INLINE void CCU7_enT16PerMatchInt(void) {
   CCU7->IEN_2.bit.ENT16PM = 1u;
 }
 
 /** \brief Disable Interrupt for T16 Period-Match
  */
-INLINE void CCU7_disT16PerMatchInt(void)
-{
+INLINE void CCU7_disT16PerMatchInt(void) {
   CCU7->IEN_2.bit.ENT16PM = 0u;
 }
 
 /** \brief Set T12 Shadow Transfer Request
  */
-INLINE void CCU7_setT12ShadowTransferReq(void)
-{
+INLINE void CCU7_setT12ShadowTransferReq(void) {
   CCU7->TCTR3.bit.T12STR = 1u;
 }
 
 /** \brief Set T13 Shadow Transfer Request
  */
-INLINE void CCU7_setT13ShadowTransferReq(void)
-{
+INLINE void CCU7_setT13ShadowTransferReq(void) {
   CCU7->TCTR3.bit.T13STR = 1u;
 }
 
 /** \brief Set T14 Shadow Transfer Request
  */
-INLINE void CCU7_setT14ShadowTransferReq(void)
-{
+INLINE void CCU7_setT14ShadowTransferReq(void) {
   CCU7->TCTR3.bit.T14STR = 1u;
 }
 
 /** \brief Set T15 Shadow Transfer Request
  */
-INLINE void CCU7_setT15ShadowTransferReq(void)
-{
+INLINE void CCU7_setT15ShadowTransferReq(void) {
   CCU7->TCTR3.bit.T15STR = 1u;
 }
 
 /** \brief Set T16 Shadow Transfer Request
  */
-INLINE void CCU7_setT16ShadowTransferReq(void)
-{
+INLINE void CCU7_setT16ShadowTransferReq(void) {
   CCU7->TCTR3.bit.T16STR = 1u;
 }
 
 /** @}*/
 
 #endif /* _CCU7_H */
-

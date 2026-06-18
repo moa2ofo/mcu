@@ -1,0 +1,8 @@
+#ifndef TEST_SDADC_SETCH1CMPUPINTNODEPTR_HELP_H
+#define TEST_SDADC_SETCH1CMPUPINTNODEPTR_HELP_H
+
+#include "SDADC_setCh1CmpUpIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_SDADC_SETCH1CMPUPINTNODEPTR_HELP_H */

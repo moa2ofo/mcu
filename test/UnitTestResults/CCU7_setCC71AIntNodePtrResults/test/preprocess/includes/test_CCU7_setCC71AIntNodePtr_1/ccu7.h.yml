@@ -1,0 +1,13 @@
+---
+- utExecutionAndResults/utUnderTest/src/types.h
+- utExecutionAndResults/utUnderTest/src/error_codes.h
+- utExecutionAndResults/utUnderTest/src/RTE_Components.h
+- utExecutionAndResults/utUnderTest/src/tle989x.h
+- utExecutionAndResults/utUnderTest/src/core_cm3.h
+- utExecutionAndResults/utUnderTest/src/cmsis_version.h
+- utExecutionAndResults/utUnderTest/src/cmsis_compiler.h
+- utExecutionAndResults/utUnderTest/src/cmsis_gcc.h
+- utExecutionAndResults/utUnderTest/src/system_tle989x.h
+- utExecutionAndResults/utUnderTest/src/cmsis_misra.h
+- utExecutionAndResults/utUnderTest/src/tle_variants.h
+- utExecutionAndResults/utUnderTest/src/ccu7_defines.h

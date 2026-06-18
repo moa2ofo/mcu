@@ -70,10 +70,10 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
+#include "sdadc_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
-#include "sdadc_defines.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -171,91 +171,78 @@ void SDADC_setCh1CmpUpIntNodePtr(void) __attribute__((deprecated("Do not change 
  */
 void SDADC_setCh1CmpLoIntNodePtr(void) __attribute__((deprecated("Do not change this at runtime, use the ConfigWizard to configure this feature!")));
 
-
 /*******************************************************************************
 **                     Global Inline Function Definitions                     **
 *******************************************************************************/
 /** \brief Enable Channel 0 Result Interrupt
  */
-INLINE void SDADC_enCh0ResInt(void)
-{
+INLINE void SDADC_enCh0ResInt(void) {
   SDADC->IEN.bit.RES0_EN = 1u;
 }
 
 /** \brief Disable Channel 0 Result Interrupt
  */
-INLINE void SDADC_disCh0ResInt(void)
-{
+INLINE void SDADC_disCh0ResInt(void) {
   SDADC->IEN.bit.RES0_EN = 0u;
 }
 
 /** \brief Enable Channel 0 Upper Compare Level Interrupt
  */
-INLINE void SDADC_enCh0CmpUpInt(void)
-{
+INLINE void SDADC_enCh0CmpUpInt(void) {
   SDADC->IEN.bit.CMP0_UP_EN = 1u;
 }
 
 /** \brief Disable Channel 0 Upper Compare Level Interrupt
  */
-INLINE void SDADC_disCh0CmpUpInt(void)
-{
+INLINE void SDADC_disCh0CmpUpInt(void) {
   SDADC->IEN.bit.CMP0_UP_EN = 0u;
 }
 
 /** \brief Enable Channel 0 Lower Compare Level Interrupt
  */
-INLINE void SDADC_enCh0CmpLoInt(void)
-{
+INLINE void SDADC_enCh0CmpLoInt(void) {
   SDADC->IEN.bit.CMP0_LO_EN = 1u;
 }
 
 /** \brief Disable Channel 0 Lower Compare Level Interrupt
  */
-INLINE void SDADC_disCh0CmpLoInt(void)
-{
+INLINE void SDADC_disCh0CmpLoInt(void) {
   SDADC->IEN.bit.CMP0_LO_EN = 0u;
 }
 
 /** \brief Enable Channel 1 Result Interrupt
  */
-INLINE void SDADC_enCh1ResInt(void)
-{
+INLINE void SDADC_enCh1ResInt(void) {
   SDADC->IEN.bit.RES1_EN = 1u;
 }
 
 /** \brief Disable Channel 1 Result Interrupt
  */
-INLINE void SDADC_disCh1ResInt(void)
-{
+INLINE void SDADC_disCh1ResInt(void) {
   SDADC->IEN.bit.RES1_EN = 0u;
 }
 
 /** \brief Enable Channel 1 Upper Compare Level Interrupt
  */
-INLINE void SDADC_enCh1CmpUpInt(void)
-{
+INLINE void SDADC_enCh1CmpUpInt(void) {
   SDADC->IEN.bit.CMP1_UP_EN = 1u;
 }
 
 /** \brief Disable Channel 1 Upper Compare Level Interrupt
  */
-INLINE void SDADC_disCh1CmpUpInt(void)
-{
+INLINE void SDADC_disCh1CmpUpInt(void) {
   SDADC->IEN.bit.CMP1_UP_EN = 0u;
 }
 
 /** \brief Enable Channel 1 Lower Compare Level Interrupt
  */
-INLINE void SDADC_enCh1CmpLoInt(void)
-{
+INLINE void SDADC_enCh1CmpLoInt(void) {
   SDADC->IEN.bit.CMP1_LO_EN = 1u;
 }
 
 /** \brief Disable Channel 1 Lower Compare Level Interrupt
  */
-INLINE void SDADC_disCh1CmpLoInt(void)
-{
+INLINE void SDADC_disCh1CmpLoInt(void) {
   SDADC->IEN.bit.CMP1_LO_EN = 0u;
 }
 
@@ -263,8 +250,7 @@ INLINE void SDADC_disCh1CmpLoInt(void)
  *
  * \return uint8 Channel 0 Result Interrupt Status
  */
-INLINE uint8 SDADC_getCh0ResIntSts(void)
-{
+INLINE uint8 SDADC_getCh0ResIntSts(void) {
   return (uint8)SDADC->IS.bit.RES0_IS;
 }
 
@@ -272,8 +258,7 @@ INLINE uint8 SDADC_getCh0ResIntSts(void)
  *
  * \return uint8 Channel 0 Upper Compare Level Interrupt Status
  */
-INLINE uint8 SDADC_getCh0CmpUpIntSts(void)
-{
+INLINE uint8 SDADC_getCh0CmpUpIntSts(void) {
   return (uint8)SDADC->IS.bit.CMP0_UP_IS;
 }
 
@@ -281,8 +266,7 @@ INLINE uint8 SDADC_getCh0CmpUpIntSts(void)
  *
  * \return uint8 Channel 0 Lower Compare Level Interrupt Status
  */
-INLINE uint8 SDADC_getCh0CmpLoIntSts(void)
-{
+INLINE uint8 SDADC_getCh0CmpLoIntSts(void) {
   return (uint8)SDADC->IS.bit.CMP0_LO_IS;
 }
 
@@ -290,8 +274,7 @@ INLINE uint8 SDADC_getCh0CmpLoIntSts(void)
  *
  * \return uint8 Channel 1 Result Interrupt Status
  */
-INLINE uint8 SDADC_getCh1ResIntSts(void)
-{
+INLINE uint8 SDADC_getCh1ResIntSts(void) {
   return (uint8)SDADC->IS.bit.RES1_IS;
 }
 
@@ -299,8 +282,7 @@ INLINE uint8 SDADC_getCh1ResIntSts(void)
  *
  * \return uint8 Channel 1 Upper Compare Level Interrupt Status
  */
-INLINE uint8 SDADC_getCh1CmpUpIntSts(void)
-{
+INLINE uint8 SDADC_getCh1CmpUpIntSts(void) {
   return (uint8)SDADC->IS.bit.CMP1_UP_IS;
 }
 
@@ -308,64 +290,55 @@ INLINE uint8 SDADC_getCh1CmpUpIntSts(void)
  *
  * \return uint8 Channel 1 Lower Compare Level Interrupt Status
  */
-INLINE uint8 SDADC_getCh1CmpLoIntSts(void)
-{
+INLINE uint8 SDADC_getCh1CmpLoIntSts(void) {
   return (uint8)SDADC->IS.bit.CMP1_LO_IS;
 }
 
 /** \brief Clear Channel 0 Result Interrupt Status SDADC.ISR.RES0_ISC
  */
-INLINE void SDADC_clrCh0ResIntSts(void)
-{
+INLINE void SDADC_clrCh0ResIntSts(void) {
   SDADC->ISR.bit.RES0_ISC = 1u;
 }
 
 /** \brief Clear Channel 0 Upper Compare Level Interrupt Status SDADC.ISR.CMP0_UP_ISC
  */
-INLINE void SDADC_clrCh0CmpUpIntSts(void)
-{
+INLINE void SDADC_clrCh0CmpUpIntSts(void) {
   SDADC->ISR.bit.CMP0_UP_ISC = 1u;
 }
 
 /** \brief Clear Channel 0 Lower Compare Level Interrupt Status SDADC.ISR.CMP0_LO_ISC
  */
-INLINE void SDADC_clrCh0CmpLoIntSts(void)
-{
+INLINE void SDADC_clrCh0CmpLoIntSts(void) {
   SDADC->ISR.bit.CMP0_LO_ISC = 1u;
 }
 
 /** \brief Clear Channel 1 Result Interrupt Status SDADC.ISR.RES1_ISC
  */
-INLINE void SDADC_clrCh1ResIntSts(void)
-{
+INLINE void SDADC_clrCh1ResIntSts(void) {
   SDADC->ISR.bit.RES1_ISC = 1u;
 }
 
 /** \brief Clear Channel 1 Upper Compare Level Interrupt Status SDADC.ISR.CMP1_UP_ISC
  */
-INLINE void SDADC_clrCh1CmpUpIntSts(void)
-{
+INLINE void SDADC_clrCh1CmpUpIntSts(void) {
   SDADC->ISR.bit.CMP1_UP_ISC = 1u;
 }
 
 /** \brief Clear Channel 1 Lower Compare Level Interrupt Status SDADC.ISR.CMP1_LO_ISC
  */
-INLINE void SDADC_clrCh1CmpLoIntSts(void)
-{
+INLINE void SDADC_clrCh1CmpLoIntSts(void) {
   SDADC->ISR.bit.CMP1_LO_ISC = 1u;
 }
 
 /** \brief Enable Suspend Mode SDADC.SUSCTR.EN
  */
-INLINE void SDADC_enSuspendMode(void)
-{
+INLINE void SDADC_enSuspendMode(void) {
   SDADC->SUSCTR.bit.EN = 1u;
 }
 
 /** \brief Disable Suspend Mode SDADC.SUSCTR.EN
  */
-INLINE void SDADC_disSuspendMode(void)
-{
+INLINE void SDADC_disSuspendMode(void) {
   SDADC->SUSCTR.bit.EN = 0u;
 }
 
@@ -373,8 +346,7 @@ INLINE void SDADC_disSuspendMode(void)
  *
  * \return uint8 Suspend Mode Status
  */
-INLINE uint8 SDADC_getSuspendModeSts(void)
-{
+INLINE uint8 SDADC_getSuspendModeSts(void) {
   return (uint8)SDADC->SUSSTAT.bit.STAT;
 }
 
@@ -382,8 +354,7 @@ INLINE uint8 SDADC_getSuspendModeSts(void)
  *
  * \return sint16 Channel 0 Result
  */
-INLINE sint16 SDADC_getCh0Result(void)
-{
+INLINE sint16 SDADC_getCh0Result(void) {
   return (sint16)SDADC->RES0.bit.RESULT;
 }
 
@@ -391,8 +362,7 @@ INLINE sint16 SDADC_getCh0Result(void)
  *
  * \return uint16 Channel 0 Timestamp
  */
-INLINE uint16 SDADC_getCh0Timestamp(void)
-{
+INLINE uint16 SDADC_getCh0Timestamp(void) {
   return (uint16)SDADC->RES0.bit.TIMVAL;
 }
 
@@ -400,8 +370,7 @@ INLINE uint16 SDADC_getCh0Timestamp(void)
  *
  * \return uint16 Channel 0 Captured Timestamp
  */
-INLINE uint16 SDADC_getCh0CaptTimestamp(void)
-{
+INLINE uint16 SDADC_getCh0CaptTimestamp(void) {
   return (uint16)SDADC->CTIM0.bit.TIMVAL;
 }
 
@@ -409,8 +378,7 @@ INLINE uint16 SDADC_getCh0CaptTimestamp(void)
  *
  * \return uint8 Channel 0 Result Valid Counter
  */
-INLINE uint8 SDADC_getCh0ResValidCnt(void)
-{
+INLINE uint8 SDADC_getCh0ResValidCnt(void) {
   return (uint8)SDADC->RES0.bit.VALCNT;
 }
 
@@ -418,8 +386,7 @@ INLINE uint8 SDADC_getCh0ResValidCnt(void)
  *
  * \return uint8 Channel 0 Valid Result Status
  */
-INLINE uint8 SDADC_getCh0ValidResSts(void)
-{
+INLINE uint8 SDADC_getCh0ValidResSts(void) {
   return (uint8)SDADC->RES0.bit.RESVALID;
 }
 
@@ -427,8 +394,7 @@ INLINE uint8 SDADC_getCh0ValidResSts(void)
  *
  * \return sint16 Channel 1 Result
  */
-INLINE sint16 SDADC_getCh1Result(void)
-{
+INLINE sint16 SDADC_getCh1Result(void) {
   return (sint16)SDADC->RES1.bit.RESULT;
 }
 
@@ -436,8 +402,7 @@ INLINE sint16 SDADC_getCh1Result(void)
  *
  * \return uint16 Channel 1 Timestamp
  */
-INLINE uint16 SDADC_getCh1Timestamp(void)
-{
+INLINE uint16 SDADC_getCh1Timestamp(void) {
   return (uint16)SDADC->RES1.bit.TIMVAL;
 }
 
@@ -445,8 +410,7 @@ INLINE uint16 SDADC_getCh1Timestamp(void)
  *
  * \return uint16 Channel 1 Captured Timestamp
  */
-INLINE uint16 SDADC_getCh1CaptTimestamp(void)
-{
+INLINE uint16 SDADC_getCh1CaptTimestamp(void) {
   return (uint16)SDADC->CTIM1.bit.TIMVAL;
 }
 
@@ -454,8 +418,7 @@ INLINE uint16 SDADC_getCh1CaptTimestamp(void)
  *
  * \return uint8 Channel 1 Result Valid Counter
  */
-INLINE uint8 SDADC_getCh1ResValidCnt(void)
-{
+INLINE uint8 SDADC_getCh1ResValidCnt(void) {
   return (uint8)SDADC->RES1.bit.VALCNT;
 }
 
@@ -463,8 +426,7 @@ INLINE uint8 SDADC_getCh1ResValidCnt(void)
  *
  * \return uint8 Channel 1 Valid Result Status
  */
-INLINE uint8 SDADC_getCh1ValidResSts(void)
-{
+INLINE uint8 SDADC_getCh1ValidResSts(void) {
   return (uint8)SDADC->RES1.bit.RESVALID;
 }
 
@@ -472,8 +434,7 @@ INLINE uint8 SDADC_getCh1ValidResSts(void)
  *
  * \return uint8 Channel 0 Upper Compare Level Status
  */
-INLINE uint8 SDADC_getCh0CmpUpSts(void)
-{
+INLINE uint8 SDADC_getCh0CmpUpSts(void) {
   return (uint8)SDADC->STS.bit.CMP0_UP_STS;
 }
 
@@ -481,8 +442,7 @@ INLINE uint8 SDADC_getCh0CmpUpSts(void)
  *
  * \return uint8 Channel 0 Lower Compare Level Status
  */
-INLINE uint8 SDADC_getCh0CmpLoSts(void)
-{
+INLINE uint8 SDADC_getCh0CmpLoSts(void) {
   return (uint8)SDADC->STS.bit.CMP0_LO_STS;
 }
 
@@ -490,8 +450,7 @@ INLINE uint8 SDADC_getCh0CmpLoSts(void)
  *
  * \return uint8 Channel 0 Wait For Read Status
  */
-INLINE uint8 SDADC_getCh0WFRSts(void)
-{
+INLINE uint8 SDADC_getCh0WFRSts(void) {
   return (uint8)SDADC->STS.bit.WFR0_STS;
 }
 
@@ -499,8 +458,7 @@ INLINE uint8 SDADC_getCh0WFRSts(void)
  *
  * \return uint8 Channel 1 Upper Compare Level Status
  */
-INLINE uint8 SDADC_getCh1CmpUpSts(void)
-{
+INLINE uint8 SDADC_getCh1CmpUpSts(void) {
   return (uint8)SDADC->STS.bit.CMP1_UP_STS;
 }
 
@@ -508,8 +466,7 @@ INLINE uint8 SDADC_getCh1CmpUpSts(void)
  *
  * \return uint8 Channel 1 Lower Compare Level Status
  */
-INLINE uint8 SDADC_getCh1CmpLoSts(void)
-{
+INLINE uint8 SDADC_getCh1CmpLoSts(void) {
   return (uint8)SDADC->STS.bit.CMP1_LO_STS;
 }
 
@@ -517,50 +474,43 @@ INLINE uint8 SDADC_getCh1CmpLoSts(void)
  *
  * \return uint8 Channel 1 Wait For Read Status
  */
-INLINE uint8 SDADC_getCh1WFRSts(void)
-{
+INLINE uint8 SDADC_getCh1WFRSts(void) {
   return (uint8)SDADC->STS.bit.WFR1_STS;
 }
 
 /** \brief Clear Channel 0 Upper Compare Level Status SDADC.STSR.CMP0_UP_SC
  */
-INLINE void SDADC_clrCh0CmpUpSts(void)
-{
+INLINE void SDADC_clrCh0CmpUpSts(void) {
   SDADC->STSR.bit.CMP0_UP_SC = 1u;
 }
 
 /** \brief Clear Channel 0 Lower Compare Level Status SDADC.STSR.CMP0_LO_SC
  */
-INLINE void SDADC_clrCh0CmpLoSts(void)
-{
+INLINE void SDADC_clrCh0CmpLoSts(void) {
   SDADC->STSR.bit.CMP0_LO_SC = 1u;
 }
 
 /** \brief Clear Channel 0 Wait For Read Status SDADC.STSR.WFR0_SC
  */
-INLINE void SDADC_clrCh0WFRSts(void)
-{
+INLINE void SDADC_clrCh0WFRSts(void) {
   SDADC->STSR.bit.WFR0_SC = 1u;
 }
 
 /** \brief Clear Channel 1 Upper Compare Level Status SDADC.STSR.CMP1_UP_SC
  */
-INLINE void SDADC_clrCh1CmpUpSts(void)
-{
+INLINE void SDADC_clrCh1CmpUpSts(void) {
   SDADC->STSR.bit.CMP1_UP_SC = 1u;
 }
 
 /** \brief Clear Channel 1 Lower Compare Level Status SDADC.STSR.CMP1_LO_SC
  */
-INLINE void SDADC_clrCh1CmpLoSts(void)
-{
+INLINE void SDADC_clrCh1CmpLoSts(void) {
   SDADC->STSR.bit.CMP1_LO_SC = 1u;
 }
 
 /** \brief Clear Channel 1 Wait For Read Status SDADC.STSR.WFR1_SC
  */
-INLINE void SDADC_clrCh1WFRSts(void)
-{
+INLINE void SDADC_clrCh1WFRSts(void) {
   SDADC->STSR.bit.WFR1_SC = 1u;
 }
 

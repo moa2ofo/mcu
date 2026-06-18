@@ -101,10 +101,10 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
+#include "adc2_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
-#include "adc2_defines.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -225,89 +225,79 @@
 *******************************************************************************/
 
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wpadded"
 #endif
 
-typedef union ADC2_CHCFGx
-{
-  uint32_t reg;                   /*!< Channel Configuration Register                          */
+typedef union ADC2_CHCFGx {
+  uint32_t reg; /*!< Channel Configuration Register                          */
 
-  struct
-  {
-    uint32_t            : 8;
-    uint32_t CHREP      : 4;      /*!< [11..8] Channel Repetition                              */
-    uint32_t            : 4;
-    uint32_t FILSEL     : 3;      /*!< [18..16] Filter Selection                               */
-    uint32_t CMPSEL     : 3;      /*!< [21..19] Compare Selection                              */
-    uint32_t CLASSEL    : 2;      /*!< [23..22] Conversion Class Selection                     */
+  struct {
+    uint32_t : 8;
+    uint32_t CHREP : 4; /*!< [11..8] Channel Repetition                              */
+    uint32_t : 4;
+    uint32_t FILSEL : 3;  /*!< [18..16] Filter Selection                               */
+    uint32_t CMPSEL : 3;  /*!< [21..19] Compare Selection                              */
+    uint32_t CLASSEL : 2; /*!< [23..22] Conversion Class Selection                     */
   } bit;
 } tADC2_CHCFGx;
 
-typedef union ADC2_SQCFGx
-{
-  uint32_t reg;                   /*!< Sequence Configuration Register                         */
+typedef union ADC2_SQCFGx {
+  uint32_t reg; /*!< Sequence Configuration Register                         */
 
-  struct
-  {
-    uint32_t SLOTS      : 3;      /*!< [2..0] Number of used Slots in Sequence                 */
-    uint32_t            : 1;
-    uint32_t SQREP      : 2;      /*!< [5..4] Sequence repetition                              */
-    uint32_t            : 2;
-    uint32_t TRGSEL     : 2;      /*!< [9..8] Trigger Select                                   */
-    uint32_t            : 4;
-    uint32_t TRGSW      : 1;      /*!< [14..14] Software Trigger Bit                           */
+  struct {
+    uint32_t SLOTS : 3; /*!< [2..0] Number of used Slots in Sequence                 */
+    uint32_t : 1;
+    uint32_t SQREP : 2; /*!< [5..4] Sequence repetition                              */
+    uint32_t : 2;
+    uint32_t TRGSEL : 2; /*!< [9..8] Trigger Select                                   */
+    uint32_t : 4;
+    uint32_t TRGSW : 1; /*!< [14..14] Software Trigger Bit                           */
   } bit;
 } tADC2_SQCFGx;
 
-typedef union ADC2_CONVCFGx
-{
-  uint32_t reg;                   /*!< Channel Configuration Register                          */
+typedef union ADC2_CONVCFGx {
+  uint32_t reg; /*!< Channel Configuration Register                          */
 
-  struct
-  {
-    uint32_t            : 1;
-    uint32_t STC        : 4;      /*!< [7..4] Sample Time config                               */
+  struct {
+    uint32_t : 1;
+    uint32_t STC : 4; /*!< [7..4] Sample Time config                               */
   } bit;
 } tADC2_CONVCFGx;
 
-typedef union ADC2_CMPCFGx
-{
-  uint32_t reg;                   /*!< Compare Channel x Control Register                      */
+typedef union ADC2_CMPCFGx {
+  uint32_t reg; /*!< Compare Channel x Control Register                      */
 
-  struct
-  {
-    uint32_t LOWER      : 8;      /*!< [7..0] Lower Compare Value                              */
-    uint32_t INP_SEL    : 1;      /*!< [8..8] Input selection for the comparator unit          */
-    uint32_t            : 3;
-    uint32_t HYST_LO    : 2;      /*!< [13..12] Hysteresis set for lower compare threshold     */
-    uint32_t            : 2;
-    uint32_t UPPER      : 8;      /*!< [23..16] Upper Compare Value                            */
-    uint32_t BLANK_TIME : 3;      /*!< [26..24] Blank Time configuration                       */
-    uint32_t RST_BLANK_TIME : 1;  /*!< [27..27] Restart Blank time                             */
-    uint32_t HYST_UP    : 2;      /*!< [29..28] Hysteresis setting for upper compare threshold */
-    uint32_t MODE       : 2;      /*!< [31..30] Compare Mode                                   */
+  struct {
+    uint32_t LOWER : 8;   /*!< [7..0] Lower Compare Value                              */
+    uint32_t INP_SEL : 1; /*!< [8..8] Input selection for the comparator unit          */
+    uint32_t : 3;
+    uint32_t HYST_LO : 2; /*!< [13..12] Hysteresis set for lower compare threshold     */
+    uint32_t : 2;
+    uint32_t UPPER : 8;          /*!< [23..16] Upper Compare Value                            */
+    uint32_t BLANK_TIME : 3;     /*!< [26..24] Blank Time configuration                       */
+    uint32_t RST_BLANK_TIME : 1; /*!< [27..27] Restart Blank time                             */
+    uint32_t HYST_UP : 2;        /*!< [29..28] Hysteresis setting for upper compare threshold */
+    uint32_t MODE : 2;           /*!< [31..30] Compare Mode                                   */
   } bit;
 } tADC2_CMPCFGx;
 
-typedef union ADC2_SQSLOTx
-{
-  uint32_t reg;                   /*!< SQ Channel Slot Register                                */
+typedef union ADC2_SQSLOTx {
+  uint32_t reg; /*!< SQ Channel Slot Register                                */
 
-  struct
-  {
-    uint32_t CHSEL0     : 4;      /*!< [3..0] Channel Select                                   */
-    uint32_t            : 4;
-    uint32_t CHSEL1     : 4;      /*!< [11..8] Channel Select                                  */
-    uint32_t            : 4;
-    uint32_t CHSEL2     : 4;      /*!< [19..16] Channel Select                                 */
-    uint32_t            : 4;
-    uint32_t CHSEL3     : 4;      /*!< [27..24] Channel Select                                 */
+  struct {
+    uint32_t CHSEL0 : 4; /*!< [3..0] Channel Select                                   */
+    uint32_t : 4;
+    uint32_t CHSEL1 : 4; /*!< [11..8] Channel Select                                  */
+    uint32_t : 4;
+    uint32_t CHSEL2 : 4; /*!< [19..16] Channel Select                                 */
+    uint32_t : 4;
+    uint32_t CHSEL3 : 4; /*!< [27..24] Channel Select                                 */
   } bit;
 } tADC2_SQSLOTx;
 
 #if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 #endif
 
 /*******************************************************************************
@@ -776,29 +766,25 @@ void ADC2_setSeq3IntNodePtr(void) __attribute__((deprecated("Do not change this 
 
 /** \brief Enable ADC2 Module
  */
-INLINE void ADC2_enPower(void)
-{
+INLINE void ADC2_enPower(void) {
   ADC2->GLOBCONF.bit.EN = 1u;
 }
 
 /** \brief Disable ADC2 Module
  */
-INLINE void ADC2_disPower(void)
-{
+INLINE void ADC2_disPower(void) {
   ADC2->GLOBCONF.bit.EN = 0u;
 }
 
 /** \brief Enable ADC2 Suspend
  */
-INLINE void ADC2_enSuspend(void)
-{
+INLINE void ADC2_enSuspend(void) {
   ADC2->SUSCTR.bit.SUSEN = 1u;
 }
 
 /** \brief Disable ADC2 Suspend
  */
-INLINE void ADC2_disSuspend(void)
-{
+INLINE void ADC2_disSuspend(void) {
   ADC2->SUSCTR.bit.SUSEN = 0u;
 }
 
@@ -806,8 +792,7 @@ INLINE void ADC2_disSuspend(void)
  *
  * \param u8_susMode Suspend mode
  */
-INLINE void ADC2_setSuspendMode(uint8 u8_susMode)
-{
+INLINE void ADC2_setSuspendMode(uint8 u8_susMode) {
   ADC2->SUSCTR.bit.SUSMOD = u8_susMode;
 }
 
@@ -815,8 +800,7 @@ INLINE void ADC2_setSuspendMode(uint8 u8_susMode)
  *
  * \return uint8 Suspend Mode
  */
-INLINE uint8 ADC2_getSuspendMode(void)
-{
+INLINE uint8 ADC2_getSuspendMode(void) {
   return (uint8)ADC2->SUSCTR.bit.SUSMOD;
 }
 
@@ -824,8 +808,7 @@ INLINE uint8 ADC2_getSuspendMode(void)
  *
  * \return uint8 Suspend Mode Status
  */
-INLINE uint8 ADC2_getSuspendSts(void)
-{
+INLINE uint8 ADC2_getSuspendSts(void) {
   return (uint8)ADC2->SUSSTAT.bit.STAT;
 }
 
@@ -833,8 +816,7 @@ INLINE uint8 ADC2_getSuspendSts(void)
  *
  * \param e_value Sequence 0 configuration
  */
-INLINE void ADC2_setSeq0Config(tADC2_SQCFGx e_value)
-{
+INLINE void ADC2_setSeq0Config(tADC2_SQCFGx e_value) {
   ADC2->SQCFG0.reg = (uint32)e_value.reg;
 }
 
@@ -842,8 +824,7 @@ INLINE void ADC2_setSeq0Config(tADC2_SQCFGx e_value)
  *
  * \param e_value Sequence 1 configuration
  */
-INLINE void ADC2_setSeq1Config(tADC2_SQCFGx e_value)
-{
+INLINE void ADC2_setSeq1Config(tADC2_SQCFGx e_value) {
   ADC2->SQCFG1.reg = (uint32)e_value.reg;
 }
 
@@ -851,8 +832,7 @@ INLINE void ADC2_setSeq1Config(tADC2_SQCFGx e_value)
  *
  * \param e_value Channel 13 or 14 for Sequence 1 Slot 0
  */
-INLINE void ADC2_setSeq1Slot0(uint8 e_value)
-{
+INLINE void ADC2_setSeq1Slot0(uint8 e_value) {
   ADC2->SQSLOT1.bit.CHSEL0 = e_value;
 }
 
@@ -860,8 +840,7 @@ INLINE void ADC2_setSeq1Slot0(uint8 e_value)
  *
  * \param e_value Sequence 2 configuration
  */
-INLINE void ADC2_setSeq2Config(tADC2_SQCFGx e_value)
-{
+INLINE void ADC2_setSeq2Config(tADC2_SQCFGx e_value) {
   ADC2->SQCFG2.reg = (uint32)e_value.reg;
 }
 
@@ -869,8 +848,7 @@ INLINE void ADC2_setSeq2Config(tADC2_SQCFGx e_value)
  *
  * \param e_value Sequence 3 configuration
  */
-INLINE void ADC2_setSeq3Config(tADC2_SQCFGx e_value)
-{
+INLINE void ADC2_setSeq3Config(tADC2_SQCFGx e_value) {
   ADC2->SQCFG3.reg = (uint32)e_value.reg;
 }
 
@@ -878,8 +856,7 @@ INLINE void ADC2_setSeq3Config(tADC2_SQCFGx e_value)
  *
  * \return uint8 Sequence 0 Interrupt Status
  */
-INLINE uint8 ADC2_getSeq0IntSts(void)
-{
+INLINE uint8 ADC2_getSeq0IntSts(void) {
   return (uint8)ADC2->SQSTAT.bit.SQ0;
 }
 
@@ -887,8 +864,7 @@ INLINE uint8 ADC2_getSeq0IntSts(void)
  *
  * \return uint8 Sequence 1 Interrupt Status
  */
-INLINE uint8 ADC2_getSeq1IntSts(void)
-{
+INLINE uint8 ADC2_getSeq1IntSts(void) {
   return (uint8)ADC2->SQSTAT.bit.SQ1;
 }
 
@@ -896,8 +872,7 @@ INLINE uint8 ADC2_getSeq1IntSts(void)
  *
  * \return uint8 Sequence 2 Interrupt Status
  */
-INLINE uint8 ADC2_getSeq2IntSts(void)
-{
+INLINE uint8 ADC2_getSeq2IntSts(void) {
   return (uint8)ADC2->SQSTAT.bit.SQ2;
 }
 
@@ -905,8 +880,7 @@ INLINE uint8 ADC2_getSeq2IntSts(void)
  *
  * \return uint8 Sequence 3 Interrupt Status
  */
-INLINE uint8 ADC2_getSeq3IntSts(void)
-{
+INLINE uint8 ADC2_getSeq3IntSts(void) {
   return (uint8)ADC2->SQSTAT.bit.SQ3;
 }
 
@@ -914,36 +888,31 @@ INLINE uint8 ADC2_getSeq3IntSts(void)
  *
  * \return uint8 Actual Sequence processed
  */
-INLINE uint8 ADC2_getCurrSeq(void)
-{
+INLINE uint8 ADC2_getCurrSeq(void) {
   return (uint8)ADC2->SQSTAT.bit.SQNUM;
 }
 
 /** \brief Clear Sequence 0 Interrupt Status
  */
-INLINE void ADC2_clrSeq0IntSts(void)
-{
+INLINE void ADC2_clrSeq0IntSts(void) {
   ADC2->SQSTATCLR.bit.SQ0CLR = 1u;
 }
 
 /** \brief Clear Sequence 1 Interrupt Status
  */
-INLINE void ADC2_clrSeq1IntSts(void)
-{
+INLINE void ADC2_clrSeq1IntSts(void) {
   ADC2->SQSTATCLR.bit.SQ1CLR = 1u;
 }
 
 /** \brief Clear Sequence 2 Interrupt Status
  */
-INLINE void ADC2_clrSeq2IntSts(void)
-{
+INLINE void ADC2_clrSeq2IntSts(void) {
   ADC2->SQSTATCLR.bit.SQ2CLR = 1u;
 }
 
 /** \brief Clear Sequence 3 Interrupt Status
  */
-INLINE void ADC2_clrSeq3IntSts(void)
-{
+INLINE void ADC2_clrSeq3IntSts(void) {
   ADC2->SQSTATCLR.bit.SQ3CLR = 1u;
 }
 
@@ -951,8 +920,7 @@ INLINE void ADC2_clrSeq3IntSts(void)
  *
  * \param e_value Channel 0 configuration
  */
-INLINE void ADC2_setCh0Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh0Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG0.reg = (uint32)e_value.reg;
 }
 
@@ -960,8 +928,7 @@ INLINE void ADC2_setCh0Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 1 configuration
  */
-INLINE void ADC2_setCh1Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh1Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG1.reg = (uint32)e_value.reg;
 }
 
@@ -969,8 +936,7 @@ INLINE void ADC2_setCh1Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 2 configuration
  */
-INLINE void ADC2_setCh2Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh2Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG2.reg = (uint32)e_value.reg;
 }
 
@@ -978,8 +944,7 @@ INLINE void ADC2_setCh2Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 3 configuration
  */
-INLINE void ADC2_setCh3Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh3Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG3.reg = (uint32)e_value.reg;
 }
 
@@ -987,8 +952,7 @@ INLINE void ADC2_setCh3Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 4 configuration
  */
-INLINE void ADC2_setCh4Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh4Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG4.reg = (uint32)e_value.reg;
 }
 
@@ -996,8 +960,7 @@ INLINE void ADC2_setCh4Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 5 configuration
  */
-INLINE void ADC2_setCh5Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh5Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG5.reg = (uint32)e_value.reg;
 }
 
@@ -1005,8 +968,7 @@ INLINE void ADC2_setCh5Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 6 configuration
  */
-INLINE void ADC2_setCh6Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh6Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG6.reg = (uint32)e_value.reg;
 }
 
@@ -1014,8 +976,7 @@ INLINE void ADC2_setCh6Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 7 configuration
  */
-INLINE void ADC2_setCh7Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh7Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG7.reg = (uint32)e_value.reg;
 }
 
@@ -1023,8 +984,7 @@ INLINE void ADC2_setCh7Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 8 configuration
  */
-INLINE void ADC2_setCh8Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh8Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG8.reg = (uint32)e_value.reg;
 }
 
@@ -1032,8 +992,7 @@ INLINE void ADC2_setCh8Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 9 configuration
  */
-INLINE void ADC2_setCh9Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh9Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG9.reg = (uint32)e_value.reg;
 }
 
@@ -1041,8 +1000,7 @@ INLINE void ADC2_setCh9Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 10 configuration
  */
-INLINE void ADC2_setCh10Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh10Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG10.reg = (uint32)e_value.reg;
 }
 
@@ -1050,8 +1008,7 @@ INLINE void ADC2_setCh10Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 11 configuration
  */
-INLINE void ADC2_setCh11Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh11Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG11.reg = (uint32)e_value.reg;
 }
 
@@ -1059,8 +1016,7 @@ INLINE void ADC2_setCh11Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 12 configuration
  */
-INLINE void ADC2_setCh12Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh12Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG12.reg = (uint32)e_value.reg;
 }
 
@@ -1068,8 +1024,7 @@ INLINE void ADC2_setCh12Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 13 configuration
  */
-INLINE void ADC2_setCh13Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh13Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG13.reg = (uint32)e_value.reg;
 }
 
@@ -1077,8 +1032,7 @@ INLINE void ADC2_setCh13Config(tADC2_CHCFGx e_value)
  *
  * \param e_value Channel 14 configuration
  */
-INLINE void ADC2_setCh14Config(tADC2_CHCFGx e_value)
-{
+INLINE void ADC2_setCh14Config(tADC2_CHCFGx e_value) {
   ADC2->CHCFG14.reg = (uint32)e_value.reg;
 }
 
@@ -1086,8 +1040,7 @@ INLINE void ADC2_setCh14Config(tADC2_CHCFGx e_value)
  *
  * \return uint8 Channel 0 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh0EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh0EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH0;
 }
 
@@ -1095,8 +1048,7 @@ INLINE uint8 ADC2_getCh0EndOfConvSts(void)
  *
  * \return uint8 Channel 1 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh1EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh1EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH1;
 }
 
@@ -1104,8 +1056,7 @@ INLINE uint8 ADC2_getCh1EndOfConvSts(void)
  *
  * \return uint8 Channel 2 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh2EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh2EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH2;
 }
 
@@ -1113,8 +1064,7 @@ INLINE uint8 ADC2_getCh2EndOfConvSts(void)
  *
  * \return uint8 Channel 3 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh3EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh3EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH3;
 }
 
@@ -1122,8 +1072,7 @@ INLINE uint8 ADC2_getCh3EndOfConvSts(void)
  *
  * \return uint8 Channel 4 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh4EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh4EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH4;
 }
 
@@ -1131,8 +1080,7 @@ INLINE uint8 ADC2_getCh4EndOfConvSts(void)
  *
  * \return uint8 Channel 5 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh5EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh5EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH5;
 }
 
@@ -1140,8 +1088,7 @@ INLINE uint8 ADC2_getCh5EndOfConvSts(void)
  *
  * \return uint8 Channel 6 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh6EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh6EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH6;
 }
 
@@ -1149,8 +1096,7 @@ INLINE uint8 ADC2_getCh6EndOfConvSts(void)
  *
  * \return uint8 Channel 7 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh7EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh7EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH7;
 }
 
@@ -1158,8 +1104,7 @@ INLINE uint8 ADC2_getCh7EndOfConvSts(void)
  *
  * \return uint8 Channel 8 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh8EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh8EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH8;
 }
 
@@ -1167,8 +1112,7 @@ INLINE uint8 ADC2_getCh8EndOfConvSts(void)
  *
  * \return uint8 Channel 9 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh9EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh9EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH9;
 }
 
@@ -1176,8 +1120,7 @@ INLINE uint8 ADC2_getCh9EndOfConvSts(void)
  *
  * \return uint8 Channel 10 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh10EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh10EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH10;
 }
 
@@ -1185,8 +1128,7 @@ INLINE uint8 ADC2_getCh10EndOfConvSts(void)
  *
  * \return uint8 Channel 11 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh11EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh11EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH11;
 }
 
@@ -1194,8 +1136,7 @@ INLINE uint8 ADC2_getCh11EndOfConvSts(void)
  *
  * \return uint8 Channel 12 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh12EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh12EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH12;
 }
 
@@ -1203,8 +1144,7 @@ INLINE uint8 ADC2_getCh12EndOfConvSts(void)
  *
  * \return uint8 Channel 13 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh13EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh13EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH13;
 }
 
@@ -1212,8 +1152,7 @@ INLINE uint8 ADC2_getCh13EndOfConvSts(void)
  *
  * \return uint8 Channel 14 End Of Conversion Status
  */
-INLINE uint8 ADC2_getCh14EndOfConvSts(void)
-{
+INLINE uint8 ADC2_getCh14EndOfConvSts(void) {
   return (uint8)ADC2->CHSTAT.bit.CH14;
 }
 
@@ -1221,113 +1160,97 @@ INLINE uint8 ADC2_getCh14EndOfConvSts(void)
  *
  * \return uint8 Current channel under conversion
  */
-INLINE uint8 ADC2_getCurrChannel(void)
-{
+INLINE uint8 ADC2_getCurrChannel(void) {
   return (uint8)ADC2->CHSTAT.bit.CHNUM;
 }
 
 /** \brief Clear Channel 0 End Of Conversion Status
  */
-INLINE void ADC2_clrCh0EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh0EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH0CLR = 1u;
 }
 
 /** \brief Clear Channel 1 End Of Conversion Status
  */
-INLINE void ADC2_clrCh1EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh1EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH1CLR = 1u;
 }
 
 /** \brief Clear Channel 2 End Of Conversion Status
  */
-INLINE void ADC2_clrCh2EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh2EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH2CLR = 1u;
 }
 
 /** \brief Clear Channel 3 End Of Conversion Status
  */
-INLINE void ADC2_clrCh3EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh3EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH3CLR = 1u;
 }
 
 /** \brief Clear Channel 4 End Of Conversion Status
  */
-INLINE void ADC2_clrCh4EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh4EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH4CLR = 1u;
 }
 
 /** \brief Clear Channel 5 End Of Conversion Status
  */
-INLINE void ADC2_clrCh5EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh5EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH5CLR = 1u;
 }
 
 /** \brief Clear Channel 6 End Of Conversion Status
  */
-INLINE void ADC2_clrCh6EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh6EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH6CLR = 1u;
 }
 
 /** \brief Clear Channel 7 End Of Conversion Status
  */
-INLINE void ADC2_clrCh7EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh7EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH7CLR = 1u;
 }
 
 /** \brief Clear Channel 8 End Of Conversion Status
  */
-INLINE void ADC2_clrCh8EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh8EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH8CLR = 1u;
 }
 
 /** \brief Clear Channel 9 End Of Conversion Status
  */
-INLINE void ADC2_clrCh9EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh9EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH9CLR = 1u;
 }
 
 /** \brief Clear Channel 10 End Of Conversion Status
  */
-INLINE void ADC2_clrCh10EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh10EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH10CLR = 1u;
 }
 
 /** \brief Clear Channel 11 End Of Conversion Status
  */
-INLINE void ADC2_clrCh11EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh11EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH11CLR = 1u;
 }
 
 /** \brief Clear Channel 12 End Of Conversion Status
  */
-INLINE void ADC2_clrCh12EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh12EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH12CLR = 1u;
 }
 
 /** \brief Clear Channel 13 End Of Conversion Status
  */
-INLINE void ADC2_clrCh13EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh13EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH13CLR = 1u;
 }
 
 /** \brief Clear Channel 14 End Of Conversion Status
  */
-INLINE void ADC2_clrCh14EndOfConvSts(void)
-{
+INLINE void ADC2_clrCh14EndOfConvSts(void) {
   ADC2->CHSTATCLR.bit.CH14CLR = 1u;
 }
 
@@ -1335,8 +1258,7 @@ INLINE void ADC2_clrCh14EndOfConvSts(void)
  *
  * \param e_value Conversion Class 0
  */
-INLINE void ADC2_setConvClass0Config(tADC2_CONVCFGx e_value)
-{
+INLINE void ADC2_setConvClass0Config(tADC2_CONVCFGx e_value) {
   ADC2->CONVCFG0.reg = (uint32)e_value.reg;
 }
 
@@ -1344,8 +1266,7 @@ INLINE void ADC2_setConvClass0Config(tADC2_CONVCFGx e_value)
  *
  * \param e_value Conversion Class 1
  */
-INLINE void ADC2_setConvClass1Config(tADC2_CONVCFGx e_value)
-{
+INLINE void ADC2_setConvClass1Config(tADC2_CONVCFGx e_value) {
   ADC2->CONVCFG1.reg = (uint32)e_value.reg;
 }
 
@@ -1353,8 +1274,7 @@ INLINE void ADC2_setConvClass1Config(tADC2_CONVCFGx e_value)
  *
  * \param e_value Conversion Class 2
  */
-INLINE void ADC2_setConvClass2Config(tADC2_CONVCFGx e_value)
-{
+INLINE void ADC2_setConvClass2Config(tADC2_CONVCFGx e_value) {
   ADC2->CONVCFG2.reg = (uint32)e_value.reg;
 }
 
@@ -1362,8 +1282,7 @@ INLINE void ADC2_setConvClass2Config(tADC2_CONVCFGx e_value)
  *
  * \param e_value Conversion Class 3
  */
-INLINE void ADC2_setConvClass3Config(tADC2_CONVCFGx e_value)
-{
+INLINE void ADC2_setConvClass3Config(tADC2_CONVCFGx e_value) {
   ADC2->CONVCFG3.reg = (uint32)e_value.reg;
 }
 
@@ -1371,8 +1290,7 @@ INLINE void ADC2_setConvClass3Config(tADC2_CONVCFGx e_value)
  *
  * \return uint16 Result Value Filter 0
  */
-INLINE uint16 ADC2_getFilt0Res(void)
-{
+INLINE uint16 ADC2_getFilt0Res(void) {
   return (uint16)ADC2->FIL0.bit.FILRESULT;
 }
 
@@ -1380,8 +1298,7 @@ INLINE uint16 ADC2_getFilt0Res(void)
  *
  * \return uint16 Result Value Filter 1
  */
-INLINE uint16 ADC2_getFilt1Res(void)
-{
+INLINE uint16 ADC2_getFilt1Res(void) {
   return (uint16)ADC2->FIL1.bit.FILRESULT;
 }
 
@@ -1389,8 +1306,7 @@ INLINE uint16 ADC2_getFilt1Res(void)
  *
  * \return uint16 Result Value Filter 2
  */
-INLINE uint16 ADC2_getFilt2Res(void)
-{
+INLINE uint16 ADC2_getFilt2Res(void) {
   return (uint16)ADC2->FIL2.bit.FILRESULT;
 }
 
@@ -1398,8 +1314,7 @@ INLINE uint16 ADC2_getFilt2Res(void)
  *
  * \return uint16 Result Value Filter 3
  */
-INLINE uint16 ADC2_getFilt3Res(void)
-{
+INLINE uint16 ADC2_getFilt3Res(void) {
   return (uint16)ADC2->FIL3.bit.FILRESULT;
 }
 
@@ -1407,8 +1322,7 @@ INLINE uint16 ADC2_getFilt3Res(void)
  *
  * \return uint16 Result Value Filter 4
  */
-INLINE uint16 ADC2_getFilt4Res(void)
-{
+INLINE uint16 ADC2_getFilt4Res(void) {
   return (uint16)ADC2->FIL4.bit.FILRESULT;
 }
 
@@ -1416,8 +1330,7 @@ INLINE uint16 ADC2_getFilt4Res(void)
  *
  * \return uint16 Result Value Filter 5
  */
-INLINE uint16 ADC2_getFilt5Res(void)
-{
+INLINE uint16 ADC2_getFilt5Res(void) {
   return (uint16)ADC2->FIL5.bit.FILRESULT;
 }
 
@@ -1425,8 +1338,7 @@ INLINE uint16 ADC2_getFilt5Res(void)
  *
  * \return uint16 Result Value Filter 6
  */
-INLINE uint16 ADC2_getFilt6Res(void)
-{
+INLINE uint16 ADC2_getFilt6Res(void) {
   return (uint16)ADC2->FIL6.bit.FILRESULT;
 }
 
@@ -1434,8 +1346,7 @@ INLINE uint16 ADC2_getFilt6Res(void)
  *
  * \return uint16 Result Value Filter 7
  */
-INLINE uint16 ADC2_getFilt7Res(void)
-{
+INLINE uint16 ADC2_getFilt7Res(void) {
   return (uint16)ADC2->FIL7.bit.FILRESULT;
 }
 
@@ -1443,8 +1354,7 @@ INLINE uint16 ADC2_getFilt7Res(void)
  *
  * \return uint8 Filter 0 Event Status
  */
-INLINE uint8 ADC2_getFilt0Sts(void)
-{
+INLINE uint8 ADC2_getFilt0Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL0;
 }
 
@@ -1452,8 +1362,7 @@ INLINE uint8 ADC2_getFilt0Sts(void)
  *
  * \return uint8 Filter 1 Event Status
  */
-INLINE uint8 ADC2_getFilt1Sts(void)
-{
+INLINE uint8 ADC2_getFilt1Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL1;
 }
 
@@ -1461,8 +1370,7 @@ INLINE uint8 ADC2_getFilt1Sts(void)
  *
  * \return uint8 Filter 2 Event Status
  */
-INLINE uint8 ADC2_getFilt2Sts(void)
-{
+INLINE uint8 ADC2_getFilt2Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL2;
 }
 
@@ -1470,8 +1378,7 @@ INLINE uint8 ADC2_getFilt2Sts(void)
  *
  * \return uint8 Filter 3 Event Status
  */
-INLINE uint8 ADC2_getFilt3Sts(void)
-{
+INLINE uint8 ADC2_getFilt3Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL3;
 }
 
@@ -1479,8 +1386,7 @@ INLINE uint8 ADC2_getFilt3Sts(void)
  *
  * \return uint8 Filter 4 Event Status
  */
-INLINE uint8 ADC2_getFilt4Sts(void)
-{
+INLINE uint8 ADC2_getFilt4Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL4;
 }
 
@@ -1488,8 +1394,7 @@ INLINE uint8 ADC2_getFilt4Sts(void)
  *
  * \return uint8 Filter 5 Event Status
  */
-INLINE uint8 ADC2_getFilt5Sts(void)
-{
+INLINE uint8 ADC2_getFilt5Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL5;
 }
 
@@ -1497,8 +1402,7 @@ INLINE uint8 ADC2_getFilt5Sts(void)
  *
  * \return uint8 Filter 6 Event Status
  */
-INLINE uint8 ADC2_getFilt6Sts(void)
-{
+INLINE uint8 ADC2_getFilt6Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL6;
 }
 
@@ -1506,64 +1410,55 @@ INLINE uint8 ADC2_getFilt6Sts(void)
  *
  * \return uint8 Filter 7 Event Status
  */
-INLINE uint8 ADC2_getFilt7Sts(void)
-{
+INLINE uint8 ADC2_getFilt7Sts(void) {
   return (uint8)ADC2->FILSTAT.bit.FIL7;
 }
 
 /** \brief Clear Filter 0 Event Status
  */
-INLINE void ADC2_clrFilt0Sts(void)
-{
+INLINE void ADC2_clrFilt0Sts(void) {
   ADC2->FILSTATCLR.bit.FIL0CLR = 1u;
 }
 
 /** \brief Clear Filter 1 Event Status
  */
-INLINE void ADC2_clrFilt1Sts(void)
-{
+INLINE void ADC2_clrFilt1Sts(void) {
   ADC2->FILSTATCLR.bit.FIL1CLR = 1u;
 }
 
 /** \brief Clear Filter 2 Event Status
  */
-INLINE void ADC2_clrFilt2Sts(void)
-{
+INLINE void ADC2_clrFilt2Sts(void) {
   ADC2->FILSTATCLR.bit.FIL2CLR = 1u;
 }
 
 /** \brief Clear Filter 3 Event Status
  */
-INLINE void ADC2_clrFilt3Sts(void)
-{
+INLINE void ADC2_clrFilt3Sts(void) {
   ADC2->FILSTATCLR.bit.FIL3CLR = 1u;
 }
 
 /** \brief Clear Filter 4 Event Status
  */
-INLINE void ADC2_clrFilt4Sts(void)
-{
+INLINE void ADC2_clrFilt4Sts(void) {
   ADC2->FILSTATCLR.bit.FIL4CLR = 1u;
 }
 
 /** \brief Clear Filter 5 Event Status
  */
-INLINE void ADC2_clrFilt5Sts(void)
-{
+INLINE void ADC2_clrFilt5Sts(void) {
   ADC2->FILSTATCLR.bit.FIL5CLR = 1u;
 }
 
 /** \brief Clear Filter 6 Event Status
  */
-INLINE void ADC2_clrFilt6Sts(void)
-{
+INLINE void ADC2_clrFilt6Sts(void) {
   ADC2->FILSTATCLR.bit.FIL6CLR = 1u;
 }
 
 /** \brief Clear Filter 7 Event Status
  */
-INLINE void ADC2_clrFilt7Sts(void)
-{
+INLINE void ADC2_clrFilt7Sts(void) {
   ADC2->FILSTATCLR.bit.FIL7CLR = 1u;
 }
 
@@ -1571,8 +1466,7 @@ INLINE void ADC2_clrFilt7Sts(void)
  *
  * \return uint16 Channel 0 Result Value
  */
-INLINE uint16 ADC2_getCh0Result(void)
-{
+INLINE uint16 ADC2_getCh0Result(void) {
   return (uint16)ADC2->RES0.bit.RESULT;
 }
 
@@ -1580,8 +1474,7 @@ INLINE uint16 ADC2_getCh0Result(void)
  *
  * \return uint8 Channel 0 Result Valid Status
  */
-INLINE uint8 ADC2_getCh0ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh0ResultValidSts(void) {
   return (uint8)ADC2->RES0.bit.VALID;
 }
 
@@ -1589,8 +1482,7 @@ INLINE uint8 ADC2_getCh0ResultValidSts(void)
  *
  * \return uint16 Channel 1 Result Value
  */
-INLINE uint16 ADC2_getCh1Result(void)
-{
+INLINE uint16 ADC2_getCh1Result(void) {
   return (uint16)ADC2->RES1.bit.RESULT;
 }
 
@@ -1598,8 +1490,7 @@ INLINE uint16 ADC2_getCh1Result(void)
  *
  * \return uint8 Channel 1 Result Valid Status
  */
-INLINE uint8 ADC2_getCh1ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh1ResultValidSts(void) {
   return (uint8)ADC2->RES1.bit.VALID;
 }
 
@@ -1607,8 +1498,7 @@ INLINE uint8 ADC2_getCh1ResultValidSts(void)
  *
  * \return uint16 Channel 2 Result Value
  */
-INLINE uint16 ADC2_getCh2Result(void)
-{
+INLINE uint16 ADC2_getCh2Result(void) {
   return (uint16)ADC2->RES2.bit.RESULT;
 }
 
@@ -1616,8 +1506,7 @@ INLINE uint16 ADC2_getCh2Result(void)
  *
  * \return uint8 Channel 2 Result Valid Status
  */
-INLINE uint8 ADC2_getCh2ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh2ResultValidSts(void) {
   return (uint8)ADC2->RES2.bit.VALID;
 }
 
@@ -1625,8 +1514,7 @@ INLINE uint8 ADC2_getCh2ResultValidSts(void)
  *
  * \return uint16 Channel 3 Result Value
  */
-INLINE uint16 ADC2_getCh3Result(void)
-{
+INLINE uint16 ADC2_getCh3Result(void) {
   return (uint16)ADC2->RES3.bit.RESULT;
 }
 
@@ -1634,8 +1522,7 @@ INLINE uint16 ADC2_getCh3Result(void)
  *
  * \return uint8 Channel 3 Result Valid Status
  */
-INLINE uint8 ADC2_getCh3ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh3ResultValidSts(void) {
   return (uint8)ADC2->RES3.bit.VALID;
 }
 
@@ -1643,8 +1530,7 @@ INLINE uint8 ADC2_getCh3ResultValidSts(void)
  *
  * \return uint16 Channel 4 Result Value
  */
-INLINE uint16 ADC2_getCh4Result(void)
-{
+INLINE uint16 ADC2_getCh4Result(void) {
   return (uint16)ADC2->RES4.bit.RESULT;
 }
 
@@ -1652,8 +1538,7 @@ INLINE uint16 ADC2_getCh4Result(void)
  *
  * \return uint8 Channel 4 Result Valid Status
  */
-INLINE uint8 ADC2_getCh4ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh4ResultValidSts(void) {
   return (uint8)ADC2->RES4.bit.VALID;
 }
 
@@ -1661,8 +1546,7 @@ INLINE uint8 ADC2_getCh4ResultValidSts(void)
  *
  * \return uint16 Channel 5 Result Value
  */
-INLINE uint16 ADC2_getCh5Result(void)
-{
+INLINE uint16 ADC2_getCh5Result(void) {
   return (uint16)ADC2->RES5.bit.RESULT;
 }
 
@@ -1670,8 +1554,7 @@ INLINE uint16 ADC2_getCh5Result(void)
  *
  * \return uint8 Channel 5 Result Valid Status
  */
-INLINE uint8 ADC2_getCh5ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh5ResultValidSts(void) {
   return (uint8)ADC2->RES5.bit.VALID;
 }
 
@@ -1679,8 +1562,7 @@ INLINE uint8 ADC2_getCh5ResultValidSts(void)
  *
  * \return uint16 Channel 6 Result Value
  */
-INLINE uint16 ADC2_getCh6Result(void)
-{
+INLINE uint16 ADC2_getCh6Result(void) {
   return (uint16)ADC2->RES6.bit.RESULT;
 }
 
@@ -1688,8 +1570,7 @@ INLINE uint16 ADC2_getCh6Result(void)
  *
  * \return uint8 Channel 6 Result Valid Status
  */
-INLINE uint8 ADC2_getCh6ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh6ResultValidSts(void) {
   return (uint8)ADC2->RES6.bit.VALID;
 }
 
@@ -1697,8 +1578,7 @@ INLINE uint8 ADC2_getCh6ResultValidSts(void)
  *
  * \return uint16 Channel 7 Result Value
  */
-INLINE uint16 ADC2_getCh7Result(void)
-{
+INLINE uint16 ADC2_getCh7Result(void) {
   return (uint16)ADC2->RES7.bit.RESULT;
 }
 
@@ -1706,8 +1586,7 @@ INLINE uint16 ADC2_getCh7Result(void)
  *
  * \return uint8 Channel 7 Result Valid Status
  */
-INLINE uint8 ADC2_getCh7ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh7ResultValidSts(void) {
   return (uint8)ADC2->RES7.bit.VALID;
 }
 
@@ -1715,8 +1594,7 @@ INLINE uint8 ADC2_getCh7ResultValidSts(void)
  *
  * \return uint16 Channel 8 Result Value
  */
-INLINE uint16 ADC2_getCh8Result(void)
-{
+INLINE uint16 ADC2_getCh8Result(void) {
   return (uint16)ADC2->RES8.bit.RESULT;
 }
 
@@ -1724,8 +1602,7 @@ INLINE uint16 ADC2_getCh8Result(void)
  *
  * \return uint8 Channel 8 Result Valid Status
  */
-INLINE uint8 ADC2_getCh8ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh8ResultValidSts(void) {
   return (uint8)ADC2->RES8.bit.VALID;
 }
 
@@ -1733,8 +1610,7 @@ INLINE uint8 ADC2_getCh8ResultValidSts(void)
  *
  * \return uint16 Channel 9 Result Value
  */
-INLINE uint16 ADC2_getCh9Result(void)
-{
+INLINE uint16 ADC2_getCh9Result(void) {
   return (uint16)ADC2->RES9.bit.RESULT;
 }
 
@@ -1742,8 +1618,7 @@ INLINE uint16 ADC2_getCh9Result(void)
  *
  * \return uint8 Channel 9 Result Valid Status
  */
-INLINE uint8 ADC2_getCh9ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh9ResultValidSts(void) {
   return (uint8)ADC2->RES9.bit.VALID;
 }
 
@@ -1751,8 +1626,7 @@ INLINE uint8 ADC2_getCh9ResultValidSts(void)
  *
  * \return uint16 Channel 10 Result Value
  */
-INLINE uint16 ADC2_getCh10Result(void)
-{
+INLINE uint16 ADC2_getCh10Result(void) {
   return (uint16)ADC2->RES10.bit.RESULT;
 }
 
@@ -1760,8 +1634,7 @@ INLINE uint16 ADC2_getCh10Result(void)
  *
  * \return uint8 Channel 10 Result Valid Status
  */
-INLINE uint8 ADC2_getCh10ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh10ResultValidSts(void) {
   return (uint8)ADC2->RES10.bit.VALID;
 }
 
@@ -1769,8 +1642,7 @@ INLINE uint8 ADC2_getCh10ResultValidSts(void)
  *
  * \return uint16 Channel 11 Result Value
  */
-INLINE uint16 ADC2_getCh11Result(void)
-{
+INLINE uint16 ADC2_getCh11Result(void) {
   return (uint16)ADC2->RES11.bit.RESULT;
 }
 
@@ -1778,8 +1650,7 @@ INLINE uint16 ADC2_getCh11Result(void)
  *
  * \return uint8 Channel 11 Result Valid Status
  */
-INLINE uint8 ADC2_getCh11ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh11ResultValidSts(void) {
   return (uint8)ADC2->RES11.bit.VALID;
 }
 
@@ -1787,8 +1658,7 @@ INLINE uint8 ADC2_getCh11ResultValidSts(void)
  *
  * \return uint16 Channel 12 Result Value
  */
-INLINE uint16 ADC2_getCh12Result(void)
-{
+INLINE uint16 ADC2_getCh12Result(void) {
   return (uint16)ADC2->RES12.bit.RESULT;
 }
 
@@ -1796,8 +1666,7 @@ INLINE uint16 ADC2_getCh12Result(void)
  *
  * \return uint8 Channel 12 Result Valid Status
  */
-INLINE uint8 ADC2_getCh12ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh12ResultValidSts(void) {
   return (uint8)ADC2->RES12.bit.VALID;
 }
 
@@ -1805,8 +1674,7 @@ INLINE uint8 ADC2_getCh12ResultValidSts(void)
  *
  * \return uint16 Channel 13 Result Value
  */
-INLINE uint16 ADC2_getCh13Result(void)
-{
+INLINE uint16 ADC2_getCh13Result(void) {
   return (uint16)ADC2->RES13.bit.RESULT;
 }
 
@@ -1814,8 +1682,7 @@ INLINE uint16 ADC2_getCh13Result(void)
  *
  * \return uint8 Channel 13 Result Valid Status
  */
-INLINE uint8 ADC2_getCh13ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh13ResultValidSts(void) {
   return (uint8)ADC2->RES13.bit.VALID;
 }
 
@@ -1823,8 +1690,7 @@ INLINE uint8 ADC2_getCh13ResultValidSts(void)
  *
  * \return uint16 Channel 14 Result Value
  */
-INLINE uint16 ADC2_getCh14Result(void)
-{
+INLINE uint16 ADC2_getCh14Result(void) {
   return (uint16)ADC2->RES14.bit.RESULT;
 }
 
@@ -1832,8 +1698,7 @@ INLINE uint16 ADC2_getCh14Result(void)
  *
  * \return uint8 Channel 14 Result Valid Status
  */
-INLINE uint8 ADC2_getCh14ResultValidSts(void)
-{
+INLINE uint8 ADC2_getCh14ResultValidSts(void) {
   return (uint8)ADC2->RES14.bit.VALID;
 }
 
@@ -1841,8 +1706,7 @@ INLINE uint8 ADC2_getCh14ResultValidSts(void)
  *
  * \param e_value Compare Channel 0 configuration
  */
-INLINE void ADC2_setCmp0Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp0Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG0.reg = (uint32)e_value.reg;
 }
 
@@ -1850,8 +1714,7 @@ INLINE void ADC2_setCmp0Config(tADC2_CMPCFGx e_value)
  *
  * \param e_value Compare Channel 1 configuration
  */
-INLINE void ADC2_setCmp1Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp1Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG1.reg = (uint32)e_value.reg;
 }
 
@@ -1859,8 +1722,7 @@ INLINE void ADC2_setCmp1Config(tADC2_CMPCFGx e_value)
  *
  * \param e_value Compare Channel 2 configuration
  */
-INLINE void ADC2_setCmp2Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp2Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG2.reg = (uint32)e_value.reg;
 }
 
@@ -1868,8 +1730,7 @@ INLINE void ADC2_setCmp2Config(tADC2_CMPCFGx e_value)
  *
  * \param e_value Compare Channel 3 configuration
  */
-INLINE void ADC2_setCmp3Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp3Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG3.reg = (uint32)e_value.reg;
 }
 
@@ -1877,8 +1738,7 @@ INLINE void ADC2_setCmp3Config(tADC2_CMPCFGx e_value)
  *
  * \param e_value Compare Channel 4 configuration
  */
-INLINE void ADC2_setCmp4Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp4Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG4.reg = (uint32)e_value.reg;
 }
 
@@ -1886,8 +1746,7 @@ INLINE void ADC2_setCmp4Config(tADC2_CMPCFGx e_value)
  *
  * \param e_value Compare Channel 5 configuration
  */
-INLINE void ADC2_setCmp5Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp5Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG5.reg = (uint32)e_value.reg;
 }
 
@@ -1895,8 +1754,7 @@ INLINE void ADC2_setCmp5Config(tADC2_CMPCFGx e_value)
  *
  * \param e_value Compare Channel 6 configuration
  */
-INLINE void ADC2_setCmp6Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp6Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG6.reg = (uint32)e_value.reg;
 }
 
@@ -1904,8 +1762,7 @@ INLINE void ADC2_setCmp6Config(tADC2_CMPCFGx e_value)
  *
  * \param e_value Compare Channel 7 configuration
  */
-INLINE void ADC2_setCmp7Config(tADC2_CMPCFGx e_value)
-{
+INLINE void ADC2_setCmp7Config(tADC2_CMPCFGx e_value) {
   ADC2->CMPCFG7.reg = (uint32)e_value.reg;
 }
 
@@ -1913,8 +1770,7 @@ INLINE void ADC2_setCmp7Config(tADC2_CMPCFGx e_value)
  *
  * \return uint8 Compare 0 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp0UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp0UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP0_IS;
 }
 
@@ -1922,8 +1778,7 @@ INLINE uint8 ADC2_getCmp0UpIntSts(void)
  *
  * \return uint8 Compare 1 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp1UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp1UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP1_IS;
 }
 
@@ -1931,8 +1786,7 @@ INLINE uint8 ADC2_getCmp1UpIntSts(void)
  *
  * \return uint8 Compare 2 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp2UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp2UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP2_IS;
 }
 
@@ -1940,8 +1794,7 @@ INLINE uint8 ADC2_getCmp2UpIntSts(void)
  *
  * \return uint8 Compare 3 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp3UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp3UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP3_IS;
 }
 
@@ -1949,8 +1802,7 @@ INLINE uint8 ADC2_getCmp3UpIntSts(void)
  *
  * \return uint8 Compare 4 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp4UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp4UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP4_IS;
 }
 
@@ -1958,8 +1810,7 @@ INLINE uint8 ADC2_getCmp4UpIntSts(void)
  *
  * \return uint8 Compare 5 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp5UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp5UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP5_IS;
 }
 
@@ -1967,8 +1818,7 @@ INLINE uint8 ADC2_getCmp5UpIntSts(void)
  *
  * \return uint8 Compare 6 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp6UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp6UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP6_IS;
 }
 
@@ -1976,8 +1826,7 @@ INLINE uint8 ADC2_getCmp6UpIntSts(void)
  *
  * \return uint8 Compare 7 Upper Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp7UpIntSts(void)
-{
+INLINE uint8 ADC2_getCmp7UpIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP7_IS;
 }
 
@@ -1985,8 +1834,7 @@ INLINE uint8 ADC2_getCmp7UpIntSts(void)
  *
  * \return uint8 Compare 0 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp0UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp0UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP0_STS;
 }
 
@@ -1994,8 +1842,7 @@ INLINE uint8 ADC2_getCmp0UpThSts(void)
  *
  * \return uint8 Compare 1 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp1UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp1UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP1_STS;
 }
 
@@ -2003,8 +1850,7 @@ INLINE uint8 ADC2_getCmp1UpThSts(void)
  *
  * \return uint8 Compare 2 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp2UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp2UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP2_STS;
 }
 
@@ -2012,8 +1858,7 @@ INLINE uint8 ADC2_getCmp2UpThSts(void)
  *
  * \return uint8 Compare 3 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp3UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp3UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP3_STS;
 }
 
@@ -2021,8 +1866,7 @@ INLINE uint8 ADC2_getCmp3UpThSts(void)
  *
  * \return uint8 Compare 4 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp4UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp4UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP4_STS;
 }
 
@@ -2030,8 +1874,7 @@ INLINE uint8 ADC2_getCmp4UpThSts(void)
  *
  * \return uint8 Compare 5 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp5UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp5UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP5_STS;
 }
 
@@ -2039,8 +1882,7 @@ INLINE uint8 ADC2_getCmp5UpThSts(void)
  *
  * \return uint8 Compare 6 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp6UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp6UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP6_STS;
 }
 
@@ -2048,8 +1890,7 @@ INLINE uint8 ADC2_getCmp6UpThSts(void)
  *
  * \return uint8 Compare 7 Upper Threshold Status
  */
-INLINE uint8 ADC2_getCmp7UpThSts(void)
-{
+INLINE uint8 ADC2_getCmp7UpThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_UP7_STS;
 }
 
@@ -2057,8 +1898,7 @@ INLINE uint8 ADC2_getCmp7UpThSts(void)
  *
  * \return uint8 Compare 0 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp0LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp0LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO0_IS;
 }
 
@@ -2066,8 +1906,7 @@ INLINE uint8 ADC2_getCmp0LoIntSts(void)
  *
  * \return uint8 Compare 1 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp1LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp1LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO1_IS;
 }
 
@@ -2075,8 +1914,7 @@ INLINE uint8 ADC2_getCmp1LoIntSts(void)
  *
  * \return uint8 Compare 2 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp2LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp2LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO2_IS;
 }
 
@@ -2084,8 +1922,7 @@ INLINE uint8 ADC2_getCmp2LoIntSts(void)
  *
  * \return uint8 Compare 3 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp3LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp3LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO3_IS;
 }
 
@@ -2093,8 +1930,7 @@ INLINE uint8 ADC2_getCmp3LoIntSts(void)
  *
  * \return uint8 Compare 4 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp4LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp4LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO4_IS;
 }
 
@@ -2102,8 +1938,7 @@ INLINE uint8 ADC2_getCmp4LoIntSts(void)
  *
  * \return uint8 Compare 5 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp5LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp5LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO5_IS;
 }
 
@@ -2111,8 +1946,7 @@ INLINE uint8 ADC2_getCmp5LoIntSts(void)
  *
  * \return uint8 Compare 6 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp6LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp6LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO6_IS;
 }
 
@@ -2120,8 +1954,7 @@ INLINE uint8 ADC2_getCmp6LoIntSts(void)
  *
  * \return uint8 Compare 7 Lower Threshold Interrupt Status
  */
-INLINE uint8 ADC2_getCmp7LoIntSts(void)
-{
+INLINE uint8 ADC2_getCmp7LoIntSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO7_IS;
 }
 
@@ -2129,8 +1962,7 @@ INLINE uint8 ADC2_getCmp7LoIntSts(void)
  *
  * \return uint8 Compare 0 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp0LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp0LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO0_STS;
 }
 
@@ -2138,8 +1970,7 @@ INLINE uint8 ADC2_getCmp0LoThSts(void)
  *
  * \return uint8 Compare 1 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp1LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp1LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO1_STS;
 }
 
@@ -2147,8 +1978,7 @@ INLINE uint8 ADC2_getCmp1LoThSts(void)
  *
  * \return uint8 Compare 2 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp2LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp2LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO2_STS;
 }
 
@@ -2156,8 +1986,7 @@ INLINE uint8 ADC2_getCmp2LoThSts(void)
  *
  * \return uint8 Compare 3 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp3LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp3LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO3_STS;
 }
 
@@ -2165,8 +1994,7 @@ INLINE uint8 ADC2_getCmp3LoThSts(void)
  *
  * \return uint8 Compare 4 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp4LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp4LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO4_STS;
 }
 
@@ -2174,8 +2002,7 @@ INLINE uint8 ADC2_getCmp4LoThSts(void)
  *
  * \return uint8 Compare 5 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp5LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp5LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO5_STS;
 }
 
@@ -2183,8 +2010,7 @@ INLINE uint8 ADC2_getCmp5LoThSts(void)
  *
  * \return uint8 Compare 6 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp6LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp6LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO6_STS;
 }
 
@@ -2192,722 +2018,619 @@ INLINE uint8 ADC2_getCmp6LoThSts(void)
  *
  * \return uint8 Compare 7 Lower Threshold Status
  */
-INLINE uint8 ADC2_getCmp7LoThSts(void)
-{
+INLINE uint8 ADC2_getCmp7LoThSts(void) {
   return (uint8)ADC2->CMPSTAT.bit.CMP_LO7_STS;
 }
 
 /** \brief Clear Compare 0 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp0UpIntSts(void)
-{
+INLINE void ADC2_clrCmp0UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP0_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp1UpIntSts(void)
-{
+INLINE void ADC2_clrCmp1UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP1_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp2UpIntSts(void)
-{
+INLINE void ADC2_clrCmp2UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP2_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp3UpIntSts(void)
-{
+INLINE void ADC2_clrCmp3UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP3_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 4 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp4UpIntSts(void)
-{
+INLINE void ADC2_clrCmp4UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP4_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 5 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp5UpIntSts(void)
-{
+INLINE void ADC2_clrCmp5UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP5_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 6 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp6UpIntSts(void)
-{
+INLINE void ADC2_clrCmp6UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP6_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 7 Upper Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp7UpIntSts(void)
-{
+INLINE void ADC2_clrCmp7UpIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP7_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 0 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp0UpThSts(void)
-{
+INLINE void ADC2_clrCmp0UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP0_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp1UpThSts(void)
-{
+INLINE void ADC2_clrCmp1UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP1_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp2UpThSts(void)
-{
+INLINE void ADC2_clrCmp2UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP2_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp3UpThSts(void)
-{
+INLINE void ADC2_clrCmp3UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP3_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 4 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp4UpThSts(void)
-{
+INLINE void ADC2_clrCmp4UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP4_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 5 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp5UpThSts(void)
-{
+INLINE void ADC2_clrCmp5UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP5_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 6 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp6UpThSts(void)
-{
+INLINE void ADC2_clrCmp6UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP6_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 7 Upper Threshold Status
  */
-INLINE void ADC2_clrCmp7UpThSts(void)
-{
+INLINE void ADC2_clrCmp7UpThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_UP7_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 0 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp0LoIntSts(void)
-{
+INLINE void ADC2_clrCmp0LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO0_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp1LoIntSts(void)
-{
+INLINE void ADC2_clrCmp1LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO1_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp2LoIntSts(void)
-{
+INLINE void ADC2_clrCmp2LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO2_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp3LoIntSts(void)
-{
+INLINE void ADC2_clrCmp3LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO3_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 4 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp4LoIntSts(void)
-{
+INLINE void ADC2_clrCmp4LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO4_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 5 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp5LoIntSts(void)
-{
+INLINE void ADC2_clrCmp5LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO5_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 6 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp6LoIntSts(void)
-{
+INLINE void ADC2_clrCmp6LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO6_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 7 Lower Threshold Interrupt Status
  */
-INLINE void ADC2_clrCmp7LoIntSts(void)
-{
+INLINE void ADC2_clrCmp7LoIntSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO7_ISCLR = 1u;
 }
 
 /** \brief Clear Compare 0 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp0LoThSts(void)
-{
+INLINE void ADC2_clrCmp0LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO0_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 1 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp1LoThSts(void)
-{
+INLINE void ADC2_clrCmp1LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO1_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 2 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp2LoThSts(void)
-{
+INLINE void ADC2_clrCmp2LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO2_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 3 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp3LoThSts(void)
-{
+INLINE void ADC2_clrCmp3LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO3_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 4 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp4LoThSts(void)
-{
+INLINE void ADC2_clrCmp4LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO4_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 5 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp5LoThSts(void)
-{
+INLINE void ADC2_clrCmp5LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO5_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 6 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp6LoThSts(void)
-{
+INLINE void ADC2_clrCmp6LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO6_STSCLR = 1u;
 }
 
 /** \brief Clear Compare 7 Lower Threshold Status
  */
-INLINE void ADC2_clrCmp7LoThSts(void)
-{
+INLINE void ADC2_clrCmp7LoThSts(void) {
   ADC2->CMPSTATCLR.bit.CMP_LO7_STSCLR = 1u;
 }
 
 /** \brief Enable Compare 0 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp0UpInt(void)
-{
+INLINE void ADC2_enCmp0UpInt(void) {
   ADC2->IEN1.bit.IEN_UP0 = 1u;
 }
 
 /** \brief Disable Compare 0 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp0UpInt(void)
-{
+INLINE void ADC2_disCmp0UpInt(void) {
   ADC2->IEN1.bit.IEN_UP0 = 0u;
 }
 
 /** \brief Enable Compare 1 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp1UpInt(void)
-{
+INLINE void ADC2_enCmp1UpInt(void) {
   ADC2->IEN1.bit.IEN_UP1 = 1u;
 }
 
 /** \brief Disable Compare 1 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp1UpInt(void)
-{
+INLINE void ADC2_disCmp1UpInt(void) {
   ADC2->IEN1.bit.IEN_UP1 = 0u;
 }
 
 /** \brief Enable Compare 2 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp2UpInt(void)
-{
+INLINE void ADC2_enCmp2UpInt(void) {
   ADC2->IEN1.bit.IEN_UP2 = 1u;
 }
 
 /** \brief Disable Compare 2 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp2UpInt(void)
-{
+INLINE void ADC2_disCmp2UpInt(void) {
   ADC2->IEN1.bit.IEN_UP2 = 0u;
 }
 
 /** \brief Enable Compare 3 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp3UpInt(void)
-{
+INLINE void ADC2_enCmp3UpInt(void) {
   ADC2->IEN1.bit.IEN_UP3 = 1u;
 }
 
 /** \brief Disable Compare 3 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp3UpInt(void)
-{
+INLINE void ADC2_disCmp3UpInt(void) {
   ADC2->IEN1.bit.IEN_UP3 = 0u;
 }
 
 /** \brief Enable Compare 4 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp4UpInt(void)
-{
+INLINE void ADC2_enCmp4UpInt(void) {
   ADC2->IEN1.bit.IEN_UP4 = 1u;
 }
 
 /** \brief Disable Compare 4 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp4UpInt(void)
-{
+INLINE void ADC2_disCmp4UpInt(void) {
   ADC2->IEN1.bit.IEN_UP4 = 0u;
 }
 
 /** \brief Enable Compare 5 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp5UpInt(void)
-{
+INLINE void ADC2_enCmp5UpInt(void) {
   ADC2->IEN1.bit.IEN_UP5 = 1u;
 }
 
 /** \brief Disable Compare 5 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp5UpInt(void)
-{
+INLINE void ADC2_disCmp5UpInt(void) {
   ADC2->IEN1.bit.IEN_UP5 = 0u;
 }
 
 /** \brief Enable Compare 6 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp6UpInt(void)
-{
+INLINE void ADC2_enCmp6UpInt(void) {
   ADC2->IEN1.bit.IEN_UP6 = 1u;
 }
 
 /** \brief Disable Compare 6 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp6UpInt(void)
-{
+INLINE void ADC2_disCmp6UpInt(void) {
   ADC2->IEN1.bit.IEN_UP6 = 0u;
 }
 
 /** \brief Enable Compare 7 Upper Threshold Interrupt
  */
-INLINE void ADC2_enCmp7UpInt(void)
-{
+INLINE void ADC2_enCmp7UpInt(void) {
   ADC2->IEN1.bit.IEN_UP7 = 1u;
 }
 
 /** \brief Disable Compare 7 Upper Threshold Interrupt
  */
-INLINE void ADC2_disCmp7UpInt(void)
-{
+INLINE void ADC2_disCmp7UpInt(void) {
   ADC2->IEN1.bit.IEN_UP7 = 0u;
 }
 
 /** \brief Enable Compare 0 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp0LoInt(void)
-{
+INLINE void ADC2_enCmp0LoInt(void) {
   ADC2->IEN1.bit.IEN_LO0 = 1u;
 }
 
 /** \brief Disable Compare 0 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp0LoInt(void)
-{
+INLINE void ADC2_disCmp0LoInt(void) {
   ADC2->IEN1.bit.IEN_LO0 = 0u;
 }
 
 /** \brief Enable Compare 1 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp1LoInt(void)
-{
+INLINE void ADC2_enCmp1LoInt(void) {
   ADC2->IEN1.bit.IEN_LO1 = 1u;
 }
 
 /** \brief Disable Compare 1 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp1LoInt(void)
-{
+INLINE void ADC2_disCmp1LoInt(void) {
   ADC2->IEN1.bit.IEN_LO1 = 0u;
 }
 
 /** \brief Enable Compare 2 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp2LoInt(void)
-{
+INLINE void ADC2_enCmp2LoInt(void) {
   ADC2->IEN1.bit.IEN_LO2 = 1u;
 }
 
 /** \brief Disable Compare 2 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp2LoInt(void)
-{
+INLINE void ADC2_disCmp2LoInt(void) {
   ADC2->IEN1.bit.IEN_LO2 = 0u;
 }
 
 /** \brief Enable Compare 3 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp3LoInt(void)
-{
+INLINE void ADC2_enCmp3LoInt(void) {
   ADC2->IEN1.bit.IEN_LO3 = 1u;
 }
 
 /** \brief Disable Compare 3 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp3LoInt(void)
-{
+INLINE void ADC2_disCmp3LoInt(void) {
   ADC2->IEN1.bit.IEN_LO3 = 0u;
 }
 
 /** \brief Enable Compare 4 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp4LoInt(void)
-{
+INLINE void ADC2_enCmp4LoInt(void) {
   ADC2->IEN1.bit.IEN_LO4 = 1u;
 }
 
 /** \brief Disable Compare 4 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp4LoInt(void)
-{
+INLINE void ADC2_disCmp4LoInt(void) {
   ADC2->IEN1.bit.IEN_LO4 = 0u;
 }
 
 /** \brief Enable Compare 5 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp5LoInt(void)
-{
+INLINE void ADC2_enCmp5LoInt(void) {
   ADC2->IEN1.bit.IEN_LO5 = 1u;
 }
 
 /** \brief Disable Compare 5 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp5LoInt(void)
-{
+INLINE void ADC2_disCmp5LoInt(void) {
   ADC2->IEN1.bit.IEN_LO5 = 0u;
 }
 
 /** \brief Enable Compare 6 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp6LoInt(void)
-{
+INLINE void ADC2_enCmp6LoInt(void) {
   ADC2->IEN1.bit.IEN_LO6 = 1u;
 }
 
 /** \brief Disable Compare 6 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp6LoInt(void)
-{
+INLINE void ADC2_disCmp6LoInt(void) {
   ADC2->IEN1.bit.IEN_LO6 = 0u;
 }
 
 /** \brief Enable Compare 7 Lower Threshold Interrupt
  */
-INLINE void ADC2_enCmp7LoInt(void)
-{
+INLINE void ADC2_enCmp7LoInt(void) {
   ADC2->IEN1.bit.IEN_LO7 = 1u;
 }
 
 /** \brief Disable Compare 7 Lower Threshold Interrupt
  */
-INLINE void ADC2_disCmp7LoInt(void)
-{
+INLINE void ADC2_disCmp7LoInt(void) {
   ADC2->IEN1.bit.IEN_LO7 = 0u;
 }
 
 /** \brief Enable Sequence 0 Interrupt
  */
-INLINE void ADC2_enSeq0Int(void)
-{
+INLINE void ADC2_enSeq0Int(void) {
   ADC2->IEN1.bit.IEN_SQ0 = 1u;
 }
 
 /** \brief Disable Sequence 0 Interrupt
  */
-INLINE void ADC2_disSeq0Int(void)
-{
+INLINE void ADC2_disSeq0Int(void) {
   ADC2->IEN1.bit.IEN_SQ0 = 0u;
 }
 
 /** \brief Enable Sequence 1 Interrupt
  */
-INLINE void ADC2_enSeq1Int(void)
-{
+INLINE void ADC2_enSeq1Int(void) {
   ADC2->IEN1.bit.IEN_SQ1 = 1u;
 }
 
 /** \brief Disable Sequence 1 Interrupt
  */
-INLINE void ADC2_disSeq1Int(void)
-{
+INLINE void ADC2_disSeq1Int(void) {
   ADC2->IEN1.bit.IEN_SQ1 = 0u;
 }
 
 /** \brief Enable Sequence 2 Interrupt
  */
-INLINE void ADC2_enSeq2Int(void)
-{
+INLINE void ADC2_enSeq2Int(void) {
   ADC2->IEN1.bit.IEN_SQ2 = 1u;
 }
 
 /** \brief Disable Sequence 2 Interrupt
  */
-INLINE void ADC2_disSeq2Int(void)
-{
+INLINE void ADC2_disSeq2Int(void) {
   ADC2->IEN1.bit.IEN_SQ2 = 0u;
 }
 
 /** \brief Enable Sequence 3 Interrupt
  */
-INLINE void ADC2_enSeq3Int(void)
-{
+INLINE void ADC2_enSeq3Int(void) {
   ADC2->IEN1.bit.IEN_SQ3 = 1u;
 }
 
 /** \brief Disable Sequence 3 Interrupt
  */
-INLINE void ADC2_disSeq3Int(void)
-{
+INLINE void ADC2_disSeq3Int(void) {
   ADC2->IEN1.bit.IEN_SQ3 = 0u;
 }
 
 /** \brief Enable Channel 0 Interrupt
  */
-INLINE void ADC2_enCh0Int(void)
-{
+INLINE void ADC2_enCh0Int(void) {
   ADC2->IEN0.bit.IEN_CH0 = 1u;
 }
 
 /** \brief Disable Channel 0 Interrupt
  */
-INLINE void ADC2_disCh0Int(void)
-{
+INLINE void ADC2_disCh0Int(void) {
   ADC2->IEN0.bit.IEN_CH0 = 0u;
 }
 
 /** \brief Enable Channel 1 Interrupt
  */
-INLINE void ADC2_enCh1Int(void)
-{
+INLINE void ADC2_enCh1Int(void) {
   ADC2->IEN0.bit.IEN_CH1 = 1u;
 }
 
 /** \brief Disable Channel 1 Interrupt
  */
-INLINE void ADC2_disCh1Int(void)
-{
+INLINE void ADC2_disCh1Int(void) {
   ADC2->IEN0.bit.IEN_CH1 = 0u;
 }
 
 /** \brief Enable Channel 2 Interrupt
  */
-INLINE void ADC2_enCh2Int(void)
-{
+INLINE void ADC2_enCh2Int(void) {
   ADC2->IEN0.bit.IEN_CH2 = 1u;
 }
 
 /** \brief Disable Channel 2 Interrupt
  */
-INLINE void ADC2_disCh2Int(void)
-{
+INLINE void ADC2_disCh2Int(void) {
   ADC2->IEN0.bit.IEN_CH2 = 0u;
 }
 
 /** \brief Enable Channel 3 Interrupt
  */
-INLINE void ADC2_enCh3Int(void)
-{
+INLINE void ADC2_enCh3Int(void) {
   ADC2->IEN0.bit.IEN_CH3 = 1u;
 }
 
 /** \brief Disable Channel 3 Interrupt
  */
-INLINE void ADC2_disCh3Int(void)
-{
+INLINE void ADC2_disCh3Int(void) {
   ADC2->IEN0.bit.IEN_CH3 = 0u;
 }
 
 /** \brief Enable Channel 4 Interrupt
  */
-INLINE void ADC2_enCh4Int(void)
-{
+INLINE void ADC2_enCh4Int(void) {
   ADC2->IEN0.bit.IEN_CH4 = 1u;
 }
 
 /** \brief Disable Channel 4 Interrupt
  */
-INLINE void ADC2_disCh4Int(void)
-{
+INLINE void ADC2_disCh4Int(void) {
   ADC2->IEN0.bit.IEN_CH4 = 0u;
 }
 
 /** \brief Enable Channel 5 Interrupt
  */
-INLINE void ADC2_enCh5Int(void)
-{
+INLINE void ADC2_enCh5Int(void) {
   ADC2->IEN0.bit.IEN_CH5 = 1u;
 }
 
 /** \brief Disable Channel 5 Interrupt
  */
-INLINE void ADC2_disCh5Int(void)
-{
+INLINE void ADC2_disCh5Int(void) {
   ADC2->IEN0.bit.IEN_CH5 = 0u;
 }
 
 /** \brief Enable Channel 6 Interrupt
  */
-INLINE void ADC2_enCh6Int(void)
-{
+INLINE void ADC2_enCh6Int(void) {
   ADC2->IEN0.bit.IEN_CH6 = 1u;
 }
 
 /** \brief Disable Channel 6 Interrupt
  */
-INLINE void ADC2_disCh6Int(void)
-{
+INLINE void ADC2_disCh6Int(void) {
   ADC2->IEN0.bit.IEN_CH6 = 0u;
 }
 
 /** \brief Enable Channel 7 Interrupt
  */
-INLINE void ADC2_enCh7Int(void)
-{
+INLINE void ADC2_enCh7Int(void) {
   ADC2->IEN0.bit.IEN_CH7 = 1u;
 }
 
 /** \brief Disable Channel 7 Interrupt
  */
-INLINE void ADC2_disCh7Int(void)
-{
+INLINE void ADC2_disCh7Int(void) {
   ADC2->IEN0.bit.IEN_CH7 = 0u;
 }
 
 /** \brief Enable Channel 8 Interrupt
  */
-INLINE void ADC2_enCh8Int(void)
-{
+INLINE void ADC2_enCh8Int(void) {
   ADC2->IEN0.bit.IEN_CH8 = 1u;
 }
 
 /** \brief Disable Channel 8 Interrupt
  */
-INLINE void ADC2_disCh8Int(void)
-{
+INLINE void ADC2_disCh8Int(void) {
   ADC2->IEN0.bit.IEN_CH8 = 0u;
 }
 
 /** \brief Enable Channel 9 Interrupt
  */
-INLINE void ADC2_enCh9Int(void)
-{
+INLINE void ADC2_enCh9Int(void) {
   ADC2->IEN0.bit.IEN_CH9 = 1u;
 }
 
 /** \brief Disable Channel 9 Interrupt
  */
-INLINE void ADC2_disCh9Int(void)
-{
+INLINE void ADC2_disCh9Int(void) {
   ADC2->IEN0.bit.IEN_CH9 = 0u;
 }
 
 /** \brief Enable Channel 10 Interrupt
  */
-INLINE void ADC2_enCh10Int(void)
-{
+INLINE void ADC2_enCh10Int(void) {
   ADC2->IEN0.bit.IEN_CH10 = 1u;
 }
 
 /** \brief Disable Channel 10 Interrupt
  */
-INLINE void ADC2_disCh10Int(void)
-{
+INLINE void ADC2_disCh10Int(void) {
   ADC2->IEN0.bit.IEN_CH10 = 0u;
 }
 
 /** \brief Enable Channel 11 Interrupt
  */
-INLINE void ADC2_enCh11Int(void)
-{
+INLINE void ADC2_enCh11Int(void) {
   ADC2->IEN0.bit.IEN_CH11 = 1u;
 }
 
 /** \brief Disable Channel 11 Interrupt
  */
-INLINE void ADC2_disCh11Int(void)
-{
+INLINE void ADC2_disCh11Int(void) {
   ADC2->IEN0.bit.IEN_CH11 = 0u;
 }
 
 /** \brief Enable Channel 12 Interrupt
  */
-INLINE void ADC2_enCh12Int(void)
-{
+INLINE void ADC2_enCh12Int(void) {
   ADC2->IEN0.bit.IEN_CH12 = 1u;
 }
 
 /** \brief Disable Channel 12 Interrupt
  */
-INLINE void ADC2_disCh12Int(void)
-{
+INLINE void ADC2_disCh12Int(void) {
   ADC2->IEN0.bit.IEN_CH12 = 0u;
 }
 
 /** \brief Enable Channel 13 Interrupt
  */
-INLINE void ADC2_enCh13Int(void)
-{
+INLINE void ADC2_enCh13Int(void) {
   ADC2->IEN0.bit.IEN_CH13 = 1u;
 }
 
 /** \brief Disable Channel 13 Interrupt
  */
-INLINE void ADC2_disCh13Int(void)
-{
+INLINE void ADC2_disCh13Int(void) {
   ADC2->IEN0.bit.IEN_CH13 = 0u;
 }
 
 /** \brief Enable Channel 14 Interrupt
  */
-INLINE void ADC2_enCh14Int(void)
-{
+INLINE void ADC2_enCh14Int(void) {
   ADC2->IEN0.bit.IEN_CH14 = 1u;
 }
 
 /** \brief Disable Channel 14 Interrupt
  */
-INLINE void ADC2_disCh14Int(void)
-{
+INLINE void ADC2_disCh14Int(void) {
   ADC2->IEN0.bit.IEN_CH14 = 0u;
 }
 

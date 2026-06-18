@@ -1,0 +1,8 @@
+#ifndef TEST_CSACSC_SETPARAMERRORINTNODEPTR_HELP_H
+#define TEST_CSACSC_SETPARAMERRORINTNODEPTR_HELP_H
+
+#include "CSACSC_setParamErrorIntNodePtr.h"
+#include <stddef.h>
+#include <string.h>
+
+#endif /* TEST_CSACSC_SETPARAMERRORINTNODEPTR_HELP_H */

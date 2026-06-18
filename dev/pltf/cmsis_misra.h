@@ -51,8 +51,8 @@
 /*******************************************************************************
 **                                  Includes                                  **
 *******************************************************************************/
-#include "types.h"
 #include "core_cm3.h"
+#include "types.h"
 
 /*******************************************************************************
 **                           Unit Test Declarations                           **
@@ -97,48 +97,41 @@ INLINE void CMSIS_WFE(void);
  */
 INLINE void CMSIS_SEV(void);
 
-
 /*******************************************************************************
 **                     Global Inline Function Definitions                     **
 *******************************************************************************/
 
-INLINE sint32 CMSIS_Irq_Dis(void)
-{
+INLINE sint32 CMSIS_Irq_Dis(void) {
   /* violation: Symbol '__disable_irq' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
   /* violation: call to function '__disable_irq()' not made in the presence of a prototype [MISRA Rule 71] */
   __disable_irq();
   return 0;
 }
 
-INLINE void CMSIS_Irq_En(void)
-{
+INLINE void CMSIS_Irq_En(void) {
   /* violation: Symbol '__enable_irq' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
   /* violation: call to function '__enable_irq()' not made in the presence of a prototype [MISRA Rule 71] */
   __enable_irq();
 }
 
-INLINE void CMSIS_NOP(void)
-{
+INLINE void CMSIS_NOP(void) {
   /* violation: Symbol '__nop' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
   /* violation: call to function '__nop()' not made in the presence of a prototype [MISRA Rule 71] */
   __NOP();
 }
 
-INLINE void CMSIS_WFE(void)
-{
+INLINE void CMSIS_WFE(void) {
   /* violation: Symbol '__wfe' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
   /* violation: call to function '__wfe()' not made in the presence of a prototype [MISRA Rule 71] */
   __WFE();
 }
 
-INLINE void CMSIS_SEV(void)
-{
+INLINE void CMSIS_SEV(void) {
   /* violation: Symbol '__sev' undeclared, assumed to return int [MISRA Rule 20], [MISRA Rule 71]*/
   /* violation: call to function '__sev()' not made in the presence of a prototype [MISRA Rule 71] */
   __SEV();
 }
 
 #endif
-
 
 #endif /*_CMSIS_MISRA_H*/

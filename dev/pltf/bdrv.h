@@ -113,10 +113,10 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
+#include "bdrv_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
-#include "bdrv_defines.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -130,24 +130,22 @@
  *  \brief This enum lists the bridge driver channel configuration
  *  \note You can use this type via 'tBDRV_chCfg' or 'enum BDRV_chCfg'
  */
-typedef enum BDRV_chCfg
-{
-  BDRV_chCfg_off   = 0u,            /** <@brief Channel disabled */
-  BDRV_chCfg_en    = 1u,            /** <@brief Channel enabled */
-  BDRV_chCfg_pwm   = 2u,            /** <@brief Channel enabled with PWM (CCU7 connection) */
-  BDRV_chCfg_on    = 3u,            /** <@brief Channel enabled and static on */
-  BDRV_chCfg_hsDcs = 4u             /** <@brief Channel enabled with diagnosis current source (only for HSx)  */
+typedef enum BDRV_chCfg {
+  BDRV_chCfg_off = 0u,  /** <@brief Channel disabled */
+  BDRV_chCfg_en = 1u,   /** <@brief Channel enabled */
+  BDRV_chCfg_pwm = 2u,  /** <@brief Channel enabled with PWM (CCU7 connection) */
+  BDRV_chCfg_on = 3u,   /** <@brief Channel enabled and static on */
+  BDRV_chCfg_hsDcs = 4u /** <@brief Channel enabled with diagnosis current source (only for HSx)  */
 } tBDRV_chCfg;
 
 /** \enum BDRV_hb
  *  \brief This enum lists the half-bridges
  *  \note You can use this type via 'tBDRV_hb' or 'enum BDRV_hb'
  */
-typedef enum BDRV_hb
-{
+typedef enum BDRV_hb {
   BDRV_hb_1 = 1u,
   BDRV_hb_2 = 2u,
-#if (UC_SERIES == 989)
+#if(UC_SERIES == 989)
   BDRV_hb_3 = 3u
 #endif
 } tBDRV_hb;
@@ -156,23 +154,16 @@ typedef enum BDRV_hb
  *  \brief This enum lists the states for off-state detection
  *  \note You can use this type via 'tBDRV_offStateDiag' or 'enum BDRV_offStateDiag'
  */
-typedef enum BDRV_offStateDiag
-{
-  BDRV_offStateDiag_ok = 0u,
-  BDRV_offStateDiag_short2gnd = 1u,
-  BDRV_offStateDiag_short2bat = 2u,
-  BDRV_offStateDiag_openload = 3u
-} tBDRV_offStateDiag;
+typedef enum BDRV_offStateDiag { BDRV_offStateDiag_ok = 0u, BDRV_offStateDiag_short2gnd = 1u, BDRV_offStateDiag_short2bat = 2u, BDRV_offStateDiag_openload = 3u } tBDRV_offStateDiag;
 
 /** \struct tBDRV_offState
  *  \brief This struct lists the off-state diagnosis status for every phase
  */
-typedef struct BDRV_offState
-{
+typedef struct BDRV_offState {
   bool b_globFailSts;
   tBDRV_offStateDiag e_offStateDiagPhase1;
   tBDRV_offStateDiag e_offStateDiagPhase2;
-#if (UC_SERIES == 989)
+#if(UC_SERIES == 989)
   tBDRV_offStateDiag e_offStateDiagPhase3;
 #endif
 } tBDRV_offState;
@@ -181,35 +172,34 @@ typedef struct BDRV_offState
  *  \brief This enum lists the gate currents
  *  \note You can use this type via 'tBDRV_currentCfg' or 'enum BDRV_currentCfg'
  */
-typedef enum BDRV_currentCfg
-{
-  BDRV_currentCfg_5mA   = 0u,
-  BDRV_currentCfg_6mA   = 1u,
-  BDRV_currentCfg_7mA   = 2u,
-  BDRV_currentCfg_9mA   = 3u,
-  BDRV_currentCfg_11mA  = 4u,
-  BDRV_currentCfg_13mA  = 5u,
-  BDRV_currentCfg_15mA  = 6u,
-  BDRV_currentCfg_18mA  = 7u,
-  BDRV_currentCfg_21mA  = 8u,
-  BDRV_currentCfg_24mA  = 9u,
-  BDRV_currentCfg_27mA  = 10u,
-  BDRV_currentCfg_31mA  = 11u,
-  BDRV_currentCfg_34mA  = 12u,
-  BDRV_currentCfg_38mA  = 13u,
-  BDRV_currentCfg_42mA  = 14u,
-  BDRV_currentCfg_46mA  = 15u,
-  BDRV_currentCfg_50mA  = 16u,
-  BDRV_currentCfg_54mA  = 17u,
-  BDRV_currentCfg_58mA  = 18u,
-  BDRV_currentCfg_63mA  = 19u,
-  BDRV_currentCfg_67mA  = 20u,
-  BDRV_currentCfg_72mA  = 21u,
-  BDRV_currentCfg_77mA  = 22u,
-  BDRV_currentCfg_82mA  = 23u,
-  BDRV_currentCfg_87mA  = 24u,
-  BDRV_currentCfg_92mA  = 25u,
-  BDRV_currentCfg_97mA  = 26u,
+typedef enum BDRV_currentCfg {
+  BDRV_currentCfg_5mA = 0u,
+  BDRV_currentCfg_6mA = 1u,
+  BDRV_currentCfg_7mA = 2u,
+  BDRV_currentCfg_9mA = 3u,
+  BDRV_currentCfg_11mA = 4u,
+  BDRV_currentCfg_13mA = 5u,
+  BDRV_currentCfg_15mA = 6u,
+  BDRV_currentCfg_18mA = 7u,
+  BDRV_currentCfg_21mA = 8u,
+  BDRV_currentCfg_24mA = 9u,
+  BDRV_currentCfg_27mA = 10u,
+  BDRV_currentCfg_31mA = 11u,
+  BDRV_currentCfg_34mA = 12u,
+  BDRV_currentCfg_38mA = 13u,
+  BDRV_currentCfg_42mA = 14u,
+  BDRV_currentCfg_46mA = 15u,
+  BDRV_currentCfg_50mA = 16u,
+  BDRV_currentCfg_54mA = 17u,
+  BDRV_currentCfg_58mA = 18u,
+  BDRV_currentCfg_63mA = 19u,
+  BDRV_currentCfg_67mA = 20u,
+  BDRV_currentCfg_72mA = 21u,
+  BDRV_currentCfg_77mA = 22u,
+  BDRV_currentCfg_82mA = 23u,
+  BDRV_currentCfg_87mA = 24u,
+  BDRV_currentCfg_92mA = 25u,
+  BDRV_currentCfg_97mA = 26u,
   BDRV_currentCfg_103mA = 27u,
   BDRV_currentCfg_108mA = 28u,
   BDRV_currentCfg_114mA = 29u,
@@ -252,55 +242,52 @@ typedef enum BDRV_currentCfg
 /*=============================== CONSTANT MODE ==============================*/
 
 /* Remove warnings for padding structures */
-#if defined (__CC_ARM)
-  #pragma push
-  #pragma anon_unions
-#elif defined (__ICCARM__)
-  #pragma language=extended
+#if defined(__CC_ARM)
+#pragma push
+#pragma anon_unions
+#elif defined(__ICCARM__)
+#pragma language = extended
 #elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wpadded"
-#elif defined (__GNUC__)
-  /* anonymous unions are enabled by default */
-#elif defined (__TMS470__)
-  /* anonymous unions are enabled by default */
-#elif defined (__TASKING__)
-  #pragma warning 586
-#elif defined (__CSMC__)
-  /* anonymous unions are enabled by default */
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wpadded"
+#elif defined(__GNUC__)
+/* anonymous unions are enabled by default */
+#elif defined(__TMS470__)
+/* anonymous unions are enabled by default */
+#elif defined(__TASKING__)
+#pragma warning 586
+#elif defined(__CSMC__)
+/* anonymous unions are enabled by default */
 #else
-  #warning Not supported compiler type
+#warning Not supported compiler type
 #endif
 
 /** \struct tBDRV_constCfg
  *  \brief This struct lists the configuration in constant mode for one half-bridge
  */
-typedef struct
-{
-  tBDRV_currentCfg e_constCurrentAct;           /** <@brief Constant current of the active driver */
-  uint16 u16_constTimeAct_ns;                   /** <@brief Constant time of the active driver */
-  tBDRV_currentCfg e_constCurrentFW;            /** <@brief Constant current of the free-wheeling driver */
-  uint16 u16_constTimeFW_ns;                    /** <@brief Constant time of the free-wheeling driver */
+typedef struct {
+  tBDRV_currentCfg e_constCurrentAct; /** <@brief Constant current of the active driver */
+  uint16 u16_constTimeAct_ns;         /** <@brief Constant time of the active driver */
+  tBDRV_currentCfg e_constCurrentFW;  /** <@brief Constant current of the free-wheeling driver */
+  uint16 u16_constTimeFW_ns;          /** <@brief Constant time of the free-wheeling driver */
 } tBDRV_constCfg;
-
 
 /*============================== SEQUENCER MODE ==============================*/
 
 /** \struct tBDRV_seqCfg
  *  \brief This struct lists the configuration in sequencer mode for one half-bridge
  */
-typedef struct
-{
-  tBDRV_currentCfg e_seqPhase1CurrentAct;       /** <@brief Sequencer current, phase 1 of the active driver */
-  tBDRV_currentCfg e_seqPhase2CurrentAct;       /** <@brief Sequencer current, phase 2 of the active driver */
-  tBDRV_currentCfg e_seqPhase3CurrentAct;       /** <@brief Sequencer current, phase 3 of the active driver */
-  tBDRV_currentCfg e_seqPhase4CurrentAct;       /** <@brief Sequencer current, phase 4 of the active driver */
-  uint16 u16_seqPhase1TimeAct_ns;               /** <@brief Sequencer time, phase 1 of the active driver */
-  uint16 u16_seqPhase2TimeAct_ns;               /** <@brief Sequencer time, phase 2 of the active driver */
-  uint16 u16_seqPhase3TimeAct_ns;               /** <@brief Sequencer time, phase 3 of the active driver */
-  uint16 u16_seqPhase4TimeAct_ns;               /** <@brief Sequencer time, phase 4 of the active driver */
-  tBDRV_currentCfg e_constCurrentFW;            /** <@brief Constant current of the free-wheeling driver */
-  uint16 u16_constTimeFW_ns;                    /** <@brief Constant time of the free-wheeling driver */
+typedef struct {
+  tBDRV_currentCfg e_seqPhase1CurrentAct; /** <@brief Sequencer current, phase 1 of the active driver */
+  tBDRV_currentCfg e_seqPhase2CurrentAct; /** <@brief Sequencer current, phase 2 of the active driver */
+  tBDRV_currentCfg e_seqPhase3CurrentAct; /** <@brief Sequencer current, phase 3 of the active driver */
+  tBDRV_currentCfg e_seqPhase4CurrentAct; /** <@brief Sequencer current, phase 4 of the active driver */
+  uint16 u16_seqPhase1TimeAct_ns;         /** <@brief Sequencer time, phase 1 of the active driver */
+  uint16 u16_seqPhase2TimeAct_ns;         /** <@brief Sequencer time, phase 2 of the active driver */
+  uint16 u16_seqPhase3TimeAct_ns;         /** <@brief Sequencer time, phase 3 of the active driver */
+  uint16 u16_seqPhase4TimeAct_ns;         /** <@brief Sequencer time, phase 4 of the active driver */
+  tBDRV_currentCfg e_constCurrentFW;      /** <@brief Constant current of the free-wheeling driver */
+  uint16 u16_constTimeFW_ns;              /** <@brief Constant time of the free-wheeling driver */
 } tBDRV_seqCfg;
 
 /*============================ ADAPTIVE SEQUENCER ============================*/
@@ -308,28 +295,27 @@ typedef struct
 /** \struct tBDRV_aseqCfg
  *  \brief This struct lists the configuration for adaptive sequencer for one half-bridge
  */
-typedef struct
-{
+typedef struct {
   tBDRV_currentCfg e_aseqMinCurrent;
   uint16 u16_aseqMinTime_ns;
   tBDRV_currentCfg e_aseqMaxCurrent;
   uint16 u16_aseqMaxTime_ns;
 } tBDRV_aseqCfg;
 
-#if defined (__CC_ARM)
-  #pragma pop
-#elif defined (__ICCARM__)
-  /* leave anonymous unions enabled */
+#if defined(__CC_ARM)
+#pragma pop
+#elif defined(__ICCARM__)
+/* leave anonymous unions enabled */
 #elif defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
-  #pragma clang diagnostic pop
-#elif defined (__GNUC__)
-  /* anonymous unions are enabled by default */
-#elif defined (__TMS470__)
-  /* anonymous unions are enabled by default */
-#elif defined (__TASKING__)
-  #pragma warning restore
-#elif defined (__CSMC__)
-  /* anonymous unions are enabled by default */
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+/* anonymous unions are enabled by default */
+#elif defined(__TMS470__)
+/* anonymous unions are enabled by default */
+#elif defined(__TASKING__)
+#pragma warning restore
+#elif defined(__CSMC__)
+/* anonymous unions are enabled by default */
 #endif
 
 /*******************************************************************************
@@ -340,10 +326,10 @@ typedef struct
 
 sint8 BDRV_init(void);
 sint8 BDRV_initCP(void);
-#if (UC_SERIES == 988)
-  sint8 BDRV_setBridge(tBDRV_chCfg e_ls1Cfg, tBDRV_chCfg e_hs1Cfg, tBDRV_chCfg e_ls2Cfg, tBDRV_chCfg e_hs2Cfg);
-#elif (UC_SERIES == 989)
-  sint8 BDRV_setBridge(tBDRV_chCfg e_ls1Cfg, tBDRV_chCfg e_hs1Cfg, tBDRV_chCfg e_ls2Cfg, tBDRV_chCfg e_hs2Cfg, tBDRV_chCfg e_ls3Cfg, tBDRV_chCfg e_hs3Cfg);
+#if(UC_SERIES == 988)
+sint8 BDRV_setBridge(tBDRV_chCfg e_ls1Cfg, tBDRV_chCfg e_hs1Cfg, tBDRV_chCfg e_ls2Cfg, tBDRV_chCfg e_hs2Cfg);
+#elif(UC_SERIES == 989)
+sint8 BDRV_setBridge(tBDRV_chCfg e_ls1Cfg, tBDRV_chCfg e_hs1Cfg, tBDRV_chCfg e_ls2Cfg, tBDRV_chCfg e_hs2Cfg, tBDRV_chCfg e_ls3Cfg, tBDRV_chCfg e_hs3Cfg);
 #endif
 sint8 BDRV_setLSChrgConstMode(tBDRV_hb e_hb, tBDRV_constCfg s_constChrgCfg);
 sint8 BDRV_setHSChrgConstMode(tBDRV_hb e_hb, tBDRV_constCfg s_constChrgCfg);
@@ -734,281 +720,241 @@ void BDRV_setPh3ZCRiseIntNodePtr(void) __attribute__((deprecated("Do not change 
 
 /** \brief Enable External LS1 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_enExternalLS1MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_enExternalLS1MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.LS1_OC_IEN = 1u;
 }
 
 /** \brief Enable External HS1 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_enExternalHS1MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_enExternalHS1MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.HS1_OC_IEN = 1u;
 }
 
 /** \brief Enable External LS2 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_enExternalLS2MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_enExternalLS2MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.LS2_OC_IEN = 1u;
 }
 
 /** \brief Enable External HS2 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_enExternalHS2MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_enExternalHS2MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.HS2_OC_IEN = 1u;
 }
 
 /** \brief Enable External LS3 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_enExternalLS3MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_enExternalLS3MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.LS3_OC_IEN = 1u;
 }
 
 /** \brief Enable External HS3 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_enExternalHS3MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_enExternalHS3MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.HS3_OC_IEN = 1u;
 }
 
 /** \brief Enable LS1 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_enLS1DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_enLS1DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.LS1_DS_IEN = 1u;
 }
 
 /** \brief Enable HS1 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_enHS1DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_enHS1DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.HS1_DS_IEN = 1u;
 }
 
 /** \brief Enable LS2 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_enLS2DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_enLS2DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.LS2_DS_IEN = 1u;
 }
 
 /** \brief Enable HS2 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_enHS2DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_enHS2DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.HS2_DS_IEN = 1u;
 }
 
 /** \brief Enable LS3 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_enLS3DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_enLS3DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.LS3_DS_IEN = 1u;
 }
 
 /** \brief Enable HS3 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_enHS3DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_enHS3DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.HS3_DS_IEN = 1u;
 }
 
 /** \brief Enable HB1 Adaptive Sequencer Interrupt
  */
-INLINE void BDRV_enHB1AdaptSeqInt(void)
-{
+INLINE void BDRV_enHB1AdaptSeqInt(void) {
   BDRV->IRQEN.bit.HB1_ASEQ_IEN = 1u;
 }
 
 /** \brief Enable HB1 Adaptive Sequencer Interrupt
  */
-INLINE void BDRV_enHB2AdaptSeqInt(void)
-{
+INLINE void BDRV_enHB2AdaptSeqInt(void) {
   BDRV->IRQEN.bit.HB2_ASEQ_IEN = 1u;
 }
 
 /** \brief Enable HB1 Adaptive Sequencer Interrupt
  */
-INLINE void BDRV_enHB3AdaptSeqInt(void)
-{
+INLINE void BDRV_enHB3AdaptSeqInt(void) {
   BDRV->IRQEN.bit.HB3_ASEQ_IEN = 1u;
 }
 
 /** \brief Enable HB1 Active Driver Detection Interrupt
  */
-INLINE void BDRV_enHB1ActDrvDetectInt(void)
-{
+INLINE void BDRV_enHB1ActDrvDetectInt(void) {
   BDRV->IRQEN.bit.HB1_ACTDRV_IEN = 1u;
 }
 
 /** \brief Enable HB2 Active Driver Detection Interrupt
  */
-INLINE void BDRV_enHB2ActDrvDetectInt(void)
-{
+INLINE void BDRV_enHB2ActDrvDetectInt(void) {
   BDRV->IRQEN.bit.HB2_ACTDRV_IEN = 1u;
 }
 
 /** \brief Enable HB3 Active Driver Detection Interrupt
  */
-INLINE void BDRV_enHB3ActDrvDetectInt(void)
-{
+INLINE void BDRV_enHB3ActDrvDetectInt(void) {
   BDRV->IRQEN.bit.HB3_ACTDRV_IEN = 1u;
 }
 
 /** \brief Enable Driver Sequence Error Interrupt
  */
-INLINE void BDRV_enDrvSeqErrInt(void)
-{
+INLINE void BDRV_enDrvSeqErrInt(void) {
   BDRV->IRQEN.bit.SEQ_ERR_IEN = 1u;
 }
 
 /** \brief Enable Charge Pump Undervoltage Comparator Interrupt
  */
-INLINE void BDRV_enCPUndervoltageCompInt(void)
-{
+INLINE void BDRV_enCPUndervoltageCompInt(void) {
   BDRV->IRQEN.bit.VCP_LOTH2_IEN = 1u;
 }
 
 /** \brief Disable External LS1 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_disExternalLS1MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_disExternalLS1MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.LS1_OC_IEN = 0u;
 }
 
 /** \brief Disable External HS1 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_disExternalHS1MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_disExternalHS1MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.HS1_OC_IEN = 0u;
 }
 
 /** \brief Disable External LS2 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_disExternalLS2MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_disExternalLS2MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.LS2_OC_IEN = 0u;
 }
 
 /** \brief Disable External HS2 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_disExternalHS2MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_disExternalHS2MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.HS2_OC_IEN = 0u;
 }
 
 /** \brief Disable External LS3 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_disExternalLS3MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_disExternalLS3MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.LS3_OC_IEN = 0u;
 }
 
 /** \brief Disable External HS3 MOSFET Overcurrent Interrupt
  */
-INLINE void BDRV_disExternalHS3MosfetOvercurrentInt(void)
-{
+INLINE void BDRV_disExternalHS3MosfetOvercurrentInt(void) {
   BDRV->IRQEN.bit.HS3_OC_IEN = 0u;
 }
 
 /** \brief Disable LS1 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_disLS1DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_disLS1DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.LS1_DS_IEN = 0u;
 }
 
 /** \brief Disable HS1 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_disHS1DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_disHS1DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.HS1_DS_IEN = 0u;
 }
 
 /** \brief Disable LS2 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_disLS2DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_disLS2DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.LS2_DS_IEN = 0u;
 }
 
 /** \brief Disable HS2 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_disHS2DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_disHS2DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.HS2_DS_IEN = 0u;
 }
 
 /** \brief Disable LS3 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_disLS3DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_disLS3DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.LS3_DS_IEN = 0u;
 }
 
 /** \brief Disable HS3 Drain Source Monitoring Interrupt
  */
-INLINE void BDRV_disHS3DrainSrcMonitoringInt(void)
-{
+INLINE void BDRV_disHS3DrainSrcMonitoringInt(void) {
   BDRV->IRQEN.bit.HS3_DS_IEN = 0u;
 }
 
 /** \brief Disable HB1 Adaptive Sequencer Interrupt
  */
-INLINE void BDRV_disHB1AdaptSeqInt(void)
-{
+INLINE void BDRV_disHB1AdaptSeqInt(void) {
   BDRV->IRQEN.bit.HB1_ASEQ_IEN = 0u;
 }
 
 /** \brief Disable HB1 Adaptive Sequencer Interrupt
  */
-INLINE void BDRV_disHB2AdaptSeqInt(void)
-{
+INLINE void BDRV_disHB2AdaptSeqInt(void) {
   BDRV->IRQEN.bit.HB2_ASEQ_IEN = 0u;
 }
 
 /** \brief Disable HB1 Adaptive Sequencer Interrupt
  */
-INLINE void BDRV_disHB3AdaptSeqInt(void)
-{
+INLINE void BDRV_disHB3AdaptSeqInt(void) {
   BDRV->IRQEN.bit.HB3_ASEQ_IEN = 0u;
 }
 
 /** \brief Disable HB1 Active Driver Detection Interrupt
  */
-INLINE void BDRV_disHB1ActDrvDetectInt(void)
-{
+INLINE void BDRV_disHB1ActDrvDetectInt(void) {
   BDRV->IRQEN.bit.HB1_ACTDRV_IEN = 0u;
 }
 
 /** \brief Disable HB2 Active Driver Detection Interrupt
  */
-INLINE void BDRV_disHB2ActDrvDetectInt(void)
-{
+INLINE void BDRV_disHB2ActDrvDetectInt(void) {
   BDRV->IRQEN.bit.HB2_ACTDRV_IEN = 0u;
 }
 
 /** \brief Disable HB3 Active Driver Detection Interrupt
  */
-INLINE void BDRV_disHB3ActDrvDetectInt(void)
-{
+INLINE void BDRV_disHB3ActDrvDetectInt(void) {
   BDRV->IRQEN.bit.HB3_ACTDRV_IEN = 0u;
 }
 
 /** \brief Disable Driver Sequence Error Interrupt
  */
-INLINE void BDRV_disDrvSeqErrInt(void)
-{
+INLINE void BDRV_disDrvSeqErrInt(void) {
   BDRV->IRQEN.bit.SEQ_ERR_IEN = 0u;
 }
 
 /** \brief Disable Charge Pump Undervoltage Comparator Interrupt
  */
-INLINE void BDRV_disCPUndervoltageCompInt(void)
-{
+INLINE void BDRV_disCPUndervoltageCompInt(void) {
   BDRV->IRQEN.bit.VCP_LOTH2_IEN = 0u;
 }
 
@@ -1016,8 +962,7 @@ INLINE void BDRV_disCPUndervoltageCompInt(void)
  *
  * \return uint8 External LS1 MOSFET Overcurrent Status
  */
-INLINE uint8 BDRV_getExternalLS1MosfetOvercurrentSts(void)
-{
+INLINE uint8 BDRV_getExternalLS1MosfetOvercurrentSts(void) {
   return (uint8)BDRV->STS.bit.LS1_OC_STS;
 }
 
@@ -1025,8 +970,7 @@ INLINE uint8 BDRV_getExternalLS1MosfetOvercurrentSts(void)
  *
  * \return uint8 External HS1 MOSFET Overcurrent Status
  */
-INLINE uint8 BDRV_getExternalHS1MosfetOvercurrentSts(void)
-{
+INLINE uint8 BDRV_getExternalHS1MosfetOvercurrentSts(void) {
   return (uint8)BDRV->STS.bit.HS1_OC_STS;
 }
 
@@ -1034,8 +978,7 @@ INLINE uint8 BDRV_getExternalHS1MosfetOvercurrentSts(void)
  *
  * \return uint8 External LS2 MOSFET Overcurrent Status
  */
-INLINE uint8 BDRV_getExternalLS2MosfetOvercurrentSts(void)
-{
+INLINE uint8 BDRV_getExternalLS2MosfetOvercurrentSts(void) {
   return (uint8)BDRV->STS.bit.LS2_OC_STS;
 }
 
@@ -1043,8 +986,7 @@ INLINE uint8 BDRV_getExternalLS2MosfetOvercurrentSts(void)
  *
  * \return uint8 External HS2 MOSFET Overcurrent Status
  */
-INLINE uint8 BDRV_getExternalHS2MosfetOvercurrentSts(void)
-{
+INLINE uint8 BDRV_getExternalHS2MosfetOvercurrentSts(void) {
   return (uint8)BDRV->STS.bit.HS2_OC_STS;
 }
 
@@ -1052,8 +994,7 @@ INLINE uint8 BDRV_getExternalHS2MosfetOvercurrentSts(void)
  *
  * \return uint8 External LS3 MOSFET Overcurrent Status
  */
-INLINE uint8 BDRV_getExternalLS3MosfetOvercurrentSts(void)
-{
+INLINE uint8 BDRV_getExternalLS3MosfetOvercurrentSts(void) {
   return (uint8)BDRV->STS.bit.LS3_OC_STS;
 }
 
@@ -1061,8 +1002,7 @@ INLINE uint8 BDRV_getExternalLS3MosfetOvercurrentSts(void)
  *
  * \return uint8 External HS3 MOSFET Overcurrent Status
  */
-INLINE uint8 BDRV_getExternalHS3MosfetOvercurrentSts(void)
-{
+INLINE uint8 BDRV_getExternalHS3MosfetOvercurrentSts(void) {
   return (uint8)BDRV->STS.bit.HS3_OC_STS;
 }
 
@@ -1070,8 +1010,7 @@ INLINE uint8 BDRV_getExternalHS3MosfetOvercurrentSts(void)
  *
  * \return uint8 LS1 Off-State Drain Source Monitoring Status
  */
-INLINE uint8 BDRV_getLS1DrainSrcMonitoringSts(void)
-{
+INLINE uint8 BDRV_getLS1DrainSrcMonitoringSts(void) {
   return (uint8)BDRV->STS.bit.LS1_DS_STS;
 }
 
@@ -1079,8 +1018,7 @@ INLINE uint8 BDRV_getLS1DrainSrcMonitoringSts(void)
  *
  * \return uint8 HS1 Off-State Drain Source Monitoring Status
  */
-INLINE uint8 BDRV_getHS1DrainSrcMonitoringSts(void)
-{
+INLINE uint8 BDRV_getHS1DrainSrcMonitoringSts(void) {
   return (uint8)BDRV->STS.bit.HS1_DS_STS;
 }
 
@@ -1088,8 +1026,7 @@ INLINE uint8 BDRV_getHS1DrainSrcMonitoringSts(void)
  *
  * \return uint8 LS2 Off-State Drain Source Monitoring Status
  */
-INLINE uint8 BDRV_getLS2DrainSrcMonitoringSts(void)
-{
+INLINE uint8 BDRV_getLS2DrainSrcMonitoringSts(void) {
   return (uint8)BDRV->STS.bit.LS2_DS_STS;
 }
 
@@ -1097,8 +1034,7 @@ INLINE uint8 BDRV_getLS2DrainSrcMonitoringSts(void)
  *
  * \return uint8 HS2 Off-State Drain Source Monitoring Status
  */
-INLINE uint8 BDRV_getHS2DrainSrcMonitoringSts(void)
-{
+INLINE uint8 BDRV_getHS2DrainSrcMonitoringSts(void) {
   return (uint8)BDRV->STS.bit.HS2_DS_STS;
 }
 
@@ -1106,8 +1042,7 @@ INLINE uint8 BDRV_getHS2DrainSrcMonitoringSts(void)
  *
  * \return uint8 LS3 Off-State Drain Source Monitoring Status
  */
-INLINE uint8 BDRV_getLS3DrainSrcMonitoringSts(void)
-{
+INLINE uint8 BDRV_getLS3DrainSrcMonitoringSts(void) {
   return (uint8)BDRV->STS.bit.LS3_DS_STS;
 }
 
@@ -1115,8 +1050,7 @@ INLINE uint8 BDRV_getLS3DrainSrcMonitoringSts(void)
  *
  * \return uint8 HS3 Off-State Drain Source Monitoring Status
  */
-INLINE uint8 BDRV_getHS3DrainSrcMonitoringSts(void)
-{
+INLINE uint8 BDRV_getHS3DrainSrcMonitoringSts(void) {
   return (uint8)BDRV->STS.bit.HS3_DS_STS;
 }
 
@@ -1124,8 +1058,7 @@ INLINE uint8 BDRV_getHS3DrainSrcMonitoringSts(void)
  *
  * \return uint8 SH1 Undervoltage Comparator Status
  */
-INLINE uint8 BDRV_getSH1UndervoltageCompSts(void)
-{
+INLINE uint8 BDRV_getSH1UndervoltageCompSts(void) {
   return (uint8)BDRV->STS.bit.SH1_LOW_STS;
 }
 
@@ -1133,8 +1066,7 @@ INLINE uint8 BDRV_getSH1UndervoltageCompSts(void)
  *
  * \return uint8 SH1 Overvoltage Comparator Status
  */
-INLINE uint8 BDRV_getSH1OvervoltageCompSts(void)
-{
+INLINE uint8 BDRV_getSH1OvervoltageCompSts(void) {
   return (uint8)BDRV->STS.bit.SH1_HIGH_STS;
 }
 
@@ -1142,8 +1074,7 @@ INLINE uint8 BDRV_getSH1OvervoltageCompSts(void)
  *
  * \return uint8 SH2 Undervoltage Comparator Status
  */
-INLINE uint8 BDRV_getSH2UndervoltageCompSts(void)
-{
+INLINE uint8 BDRV_getSH2UndervoltageCompSts(void) {
   return (uint8)BDRV->STS.bit.SH2_LOW_STS;
 }
 
@@ -1151,8 +1082,7 @@ INLINE uint8 BDRV_getSH2UndervoltageCompSts(void)
  *
  * \return uint8 SH2 Overvoltage Comparator Status
  */
-INLINE uint8 BDRV_getSH2OvervoltageCompSts(void)
-{
+INLINE uint8 BDRV_getSH2OvervoltageCompSts(void) {
   return (uint8)BDRV->STS.bit.SH2_HIGH_STS;
 }
 
@@ -1160,8 +1090,7 @@ INLINE uint8 BDRV_getSH2OvervoltageCompSts(void)
  *
  * \return uint8 SH3 Undervoltage Comparator Status
  */
-INLINE uint8 BDRV_getSH3UndervoltageCompSts(void)
-{
+INLINE uint8 BDRV_getSH3UndervoltageCompSts(void) {
   return (uint8)BDRV->STS.bit.SH3_LOW_STS;
 }
 
@@ -1169,8 +1098,7 @@ INLINE uint8 BDRV_getSH3UndervoltageCompSts(void)
  *
  * \return uint8 SH3 Overvoltage Comparator Status
  */
-INLINE uint8 BDRV_getSH3OvervoltageCompSts(void)
-{
+INLINE uint8 BDRV_getSH3OvervoltageCompSts(void) {
   return (uint8)BDRV->STS.bit.SH3_HIGH_STS;
 }
 
@@ -1178,8 +1106,7 @@ INLINE uint8 BDRV_getSH3OvervoltageCompSts(void)
  *
  * \return uint8 Charge Pump Over Temperature Status
  */
-INLINE uint8 BDRV_getCPOverTempSts(void)
-{
+INLINE uint8 BDRV_getCPOverTempSts(void) {
   return (uint8)BDRV->STS.bit.CP_OTSD_STS;
 }
 
@@ -1187,8 +1114,7 @@ INLINE uint8 BDRV_getCPOverTempSts(void)
  *
  * \return uint8 Vcp Undervoltage Status
  */
-INLINE uint8 BDRV_getVcpUndervoltageSts(void)
-{
+INLINE uint8 BDRV_getVcpUndervoltageSts(void) {
   return (uint8)BDRV->STS.bit.VCP_LOTH1_STS;
 }
 
@@ -1196,8 +1122,7 @@ INLINE uint8 BDRV_getVcpUndervoltageSts(void)
  *
  * \return uint8 Vcp Overvoltage Status
  */
-INLINE uint8 BDRV_getVcpOvervoltageSts(void)
-{
+INLINE uint8 BDRV_getVcpOvervoltageSts(void) {
   return (uint8)BDRV->STS.bit.VCP_UPTH_STS;
 }
 
@@ -1205,8 +1130,7 @@ INLINE uint8 BDRV_getVcpOvervoltageSts(void)
  *
  * \return uint8 Vsd Undervoltage Status
  */
-INLINE uint8 BDRV_getVsdUndervoltageSts(void)
-{
+INLINE uint8 BDRV_getVsdUndervoltageSts(void) {
   return (uint8)BDRV->STS.bit.VSD_LOTH_STS;
 }
 
@@ -1214,8 +1138,7 @@ INLINE uint8 BDRV_getVsdUndervoltageSts(void)
  *
  * \return uint8 Vsd Overvoltage Status
  */
-INLINE uint8 BDRV_getVsdOvervoltageSts(void)
-{
+INLINE uint8 BDRV_getVsdOvervoltageSts(void) {
   return (uint8)BDRV->STS.bit.VSD_UPTH_STS;
 }
 
@@ -1223,8 +1146,7 @@ INLINE uint8 BDRV_getVsdOvervoltageSts(void)
  *
  * \return uint8 Vcp Undervoltage Analog Comparator Status
  */
-INLINE uint8 BDRV_getVcpUndervoltageAnalogCompSts(void)
-{
+INLINE uint8 BDRV_getVcpUndervoltageAnalogCompSts(void) {
   return (uint8)BDRV->STS.bit.VCP_LOTH2_STS;
 }
 
@@ -1232,99 +1154,85 @@ INLINE uint8 BDRV_getVcpUndervoltageAnalogCompSts(void)
  *
  * \return uint8 Vsd Overvoltage Comparator Status
  */
-INLINE uint8 BDRV_getVsdOvervoltageCompSts(void)
-{
+INLINE uint8 BDRV_getVsdOvervoltageCompSts(void) {
   return (uint8)BDRV->STS.bit.VSD_OV_STS;
 }
 
 /** \brief Clear External LS1 MOSFET Overcurrent Status BDRV.STSCLR.LS1_OC_SC
  */
-INLINE void BDRV_clrExternalLS1MosfetOvercurrentSts(void)
-{
+INLINE void BDRV_clrExternalLS1MosfetOvercurrentSts(void) {
   BDRV->STSCLR.bit.LS1_OC_SC = 1u;
 }
 
 /** \brief Clear External HS1 MOSFET Overcurrent Status BDRV.STSCLR.HS1_OC_SC
  */
-INLINE void BDRV_clrExternalHS1MosfetOvercurrentSts(void)
-{
+INLINE void BDRV_clrExternalHS1MosfetOvercurrentSts(void) {
   BDRV->STSCLR.bit.HS1_OC_SC = 1u;
 }
 
 /** \brief Clear External LS2 MOSFET Overcurrent Status BDRV.STSCLR.LS2_OC_SC
  */
-INLINE void BDRV_clrExternalLS2MosfetOvercurrentSts(void)
-{
+INLINE void BDRV_clrExternalLS2MosfetOvercurrentSts(void) {
   BDRV->STSCLR.bit.LS2_OC_SC = 1u;
 }
 
 /** \brief Clear External HS2 MOSFET Overcurrent Status BDRV.STSCLR.HS2_OC_SC
  */
-INLINE void BDRV_clrExternalHS2MosfetOvercurrentSts(void)
-{
+INLINE void BDRV_clrExternalHS2MosfetOvercurrentSts(void) {
   BDRV->STSCLR.bit.HS2_OC_SC = 1u;
 }
 
 /** \brief Clear External LS3 MOSFET Overcurrent Status BDRV.STSCLR.LS3_OC_SC
  */
-INLINE void BDRV_clrExternalLS3MosfetOvercurrentSts(void)
-{
+INLINE void BDRV_clrExternalLS3MosfetOvercurrentSts(void) {
   BDRV->STSCLR.bit.LS3_OC_SC = 1u;
 }
 
 /** \brief Clear External HS3 MOSFET Overcurrent Status BDRV.STSCLR.HS3_OC_SC
  */
-INLINE void BDRV_clrExternalHS3MosfetOvercurrentSts(void)
-{
+INLINE void BDRV_clrExternalHS3MosfetOvercurrentSts(void) {
   BDRV->STSCLR.bit.HS3_OC_SC = 1u;
 }
 
 /** \brief Clear LS1 Off-State Drain Source Monitoring Status BDRV.STSCLR.LS1_DS_SC
  */
-INLINE void BDRV_clrLS1DrainSrcMonitoringSts(void)
-{
+INLINE void BDRV_clrLS1DrainSrcMonitoringSts(void) {
   BDRV->STSCLR.bit.LS1_DS_SC = 1u;
 }
 
 /** \brief Clear HS1 Off-State Drain Source Monitoring Status BDRV.STSCLR.HS1_DS_SC
  */
-INLINE void BDRV_clrHS1DrainSrcMonitoringSts(void)
-{
+INLINE void BDRV_clrHS1DrainSrcMonitoringSts(void) {
   BDRV->STSCLR.bit.HS1_DS_SC = 1u;
 }
 
 /** \brief Clear LS2 Off-State Drain Source Monitoring Status BDRV.STSCLR.LS2_DS_SC
  */
-INLINE void BDRV_clrLS2DrainSrcMonitoringSts(void)
-{
+INLINE void BDRV_clrLS2DrainSrcMonitoringSts(void) {
   BDRV->STSCLR.bit.LS2_DS_SC = 1u;
 }
 
 /** \brief Clear HS2 Off-State Drain Source Monitoring Status BDRV.STSCLR.HS2_DS_SC
  */
-INLINE void BDRV_clrHS2DrainSrcMonitoringSts(void)
-{
+INLINE void BDRV_clrHS2DrainSrcMonitoringSts(void) {
   BDRV->STSCLR.bit.HS2_DS_SC = 1u;
 }
 
 /** \brief Clear LS3 Off-State Drain Source Monitoring Status BDRV.STSCLR.LS3_DS_SC
  */
-INLINE void BDRV_clrLS3DrainSrcMonitoringSts(void)
-{
+INLINE void BDRV_clrLS3DrainSrcMonitoringSts(void) {
   BDRV->STSCLR.bit.LS3_DS_SC = 1u;
 }
 
 /** \brief Clear HS3 Off-State Drain Source Monitoring Status BDRV.STSCLR.HS3_DS_SC
  */
-INLINE void BDRV_clrHS3DrainSrcMonitoringSts(void)
-{
+INLINE void BDRV_clrHS3DrainSrcMonitoringSts(void) {
   BDRV->STSCLR.bit.HS3_DS_SC = 1u;
 }
 
 /** \brief Clear Charge Pump Undervoltage Comparator Status BDRV.STSCLR.VCP_LOTH2_SC
  */
-INLINE void BDRV_clrCPUndervoltageCompSts(void)
-{
+INLINE void BDRV_clrCPUndervoltageCompSts(void) {
   BDRV->STSCLR.bit.VCP_LOTH2_SC = 1u;
 }
 
@@ -1332,8 +1240,7 @@ INLINE void BDRV_clrCPUndervoltageCompSts(void)
  *
  * \return uint8 External LS1 MOSFET Overcurrent Interrupt Status
  */
-INLINE uint8 BDRV_getExternalLS1MosfetOvercurrentIntSts(void)
-{
+INLINE uint8 BDRV_getExternalLS1MosfetOvercurrentIntSts(void) {
   return (uint8)BDRV->IRQS.bit.LS1_OC_IS;
 }
 
@@ -1341,8 +1248,7 @@ INLINE uint8 BDRV_getExternalLS1MosfetOvercurrentIntSts(void)
  *
  * \return uint8 External HS1 MOSFET Overcurrent Interrupt Status
  */
-INLINE uint8 BDRV_getExternalHS1MosfetOvercurrentIntSts(void)
-{
+INLINE uint8 BDRV_getExternalHS1MosfetOvercurrentIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HS1_OC_IS;
 }
 
@@ -1350,8 +1256,7 @@ INLINE uint8 BDRV_getExternalHS1MosfetOvercurrentIntSts(void)
  *
  * \return uint8 External LS2 MOSFET Overcurrent Interrupt Status
  */
-INLINE uint8 BDRV_getExternalLS2MosfetOvercurrentIntSts(void)
-{
+INLINE uint8 BDRV_getExternalLS2MosfetOvercurrentIntSts(void) {
   return (uint8)BDRV->IRQS.bit.LS2_OC_IS;
 }
 
@@ -1359,8 +1264,7 @@ INLINE uint8 BDRV_getExternalLS2MosfetOvercurrentIntSts(void)
  *
  * \return uint8 External HS2 MOSFET Overcurrent Interrupt Status
  */
-INLINE uint8 BDRV_getExternalHS2MosfetOvercurrentIntSts(void)
-{
+INLINE uint8 BDRV_getExternalHS2MosfetOvercurrentIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HS2_OC_IS;
 }
 
@@ -1368,8 +1272,7 @@ INLINE uint8 BDRV_getExternalHS2MosfetOvercurrentIntSts(void)
  *
  * \return uint8 External LS3 MOSFET Overcurrent Interrupt Status
  */
-INLINE uint8 BDRV_getExternalLS3MosfetOvercurrentIntSts(void)
-{
+INLINE uint8 BDRV_getExternalLS3MosfetOvercurrentIntSts(void) {
   return (uint8)BDRV->IRQS.bit.LS3_OC_IS;
 }
 
@@ -1377,8 +1280,7 @@ INLINE uint8 BDRV_getExternalLS3MosfetOvercurrentIntSts(void)
  *
  * \return uint8 External HS3 MOSFET Overcurrent Interrupt Status
  */
-INLINE uint8 BDRV_getExternalHS3MosfetOvercurrentIntSts(void)
-{
+INLINE uint8 BDRV_getExternalHS3MosfetOvercurrentIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HS3_OC_IS;
 }
 
@@ -1386,8 +1288,7 @@ INLINE uint8 BDRV_getExternalHS3MosfetOvercurrentIntSts(void)
  *
  * \return uint8 LS1 Off-State Drain Source Monitoring Interrupt Status
  */
-INLINE uint8 BDRV_getLS1DrainSrcMonitoringIntSts(void)
-{
+INLINE uint8 BDRV_getLS1DrainSrcMonitoringIntSts(void) {
   return (uint8)BDRV->IRQS.bit.LS1_DS_IS;
 }
 
@@ -1395,8 +1296,7 @@ INLINE uint8 BDRV_getLS1DrainSrcMonitoringIntSts(void)
  *
  * \return uint8 HS1 Off-State Drain Source Monitoring Interrupt Status
  */
-INLINE uint8 BDRV_getHS1DrainSrcMonitoringIntSts(void)
-{
+INLINE uint8 BDRV_getHS1DrainSrcMonitoringIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HS1_DS_IS;
 }
 
@@ -1404,8 +1304,7 @@ INLINE uint8 BDRV_getHS1DrainSrcMonitoringIntSts(void)
  *
  * \return uint8 LS2 Off-State Drain Source Monitoring Interrupt Status
  */
-INLINE uint8 BDRV_getLS2DrainSrcMonitoringIntSts(void)
-{
+INLINE uint8 BDRV_getLS2DrainSrcMonitoringIntSts(void) {
   return (uint8)BDRV->IRQS.bit.LS2_DS_IS;
 }
 
@@ -1413,8 +1312,7 @@ INLINE uint8 BDRV_getLS2DrainSrcMonitoringIntSts(void)
  *
  * \return uint8 HS2 Off-State Drain Source Monitoring Interrupt Status
  */
-INLINE uint8 BDRV_getHS2DrainSrcMonitoringIntSts(void)
-{
+INLINE uint8 BDRV_getHS2DrainSrcMonitoringIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HS2_DS_IS;
 }
 
@@ -1422,8 +1320,7 @@ INLINE uint8 BDRV_getHS2DrainSrcMonitoringIntSts(void)
  *
  * \return uint8 LS3 Off-State Drain Source Monitoring Interrupt Status
  */
-INLINE uint8 BDRV_getLS3DrainSrcMonitoringIntSts(void)
-{
+INLINE uint8 BDRV_getLS3DrainSrcMonitoringIntSts(void) {
   return (uint8)BDRV->IRQS.bit.LS3_DS_IS;
 }
 
@@ -1431,8 +1328,7 @@ INLINE uint8 BDRV_getLS3DrainSrcMonitoringIntSts(void)
  *
  * \return uint8 HS3 Off-State Drain Source Monitoring Interrupt Status
  */
-INLINE uint8 BDRV_getHS3DrainSrcMonitoringIntSts(void)
-{
+INLINE uint8 BDRV_getHS3DrainSrcMonitoringIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HS3_DS_IS;
 }
 
@@ -1440,8 +1336,7 @@ INLINE uint8 BDRV_getHS3DrainSrcMonitoringIntSts(void)
  *
  * \return uint8 HB1 Adaptive Sequencer Interrupt Status
  */
-INLINE uint8 BDRV_getHB1AdaptSeqIntSts(void)
-{
+INLINE uint8 BDRV_getHB1AdaptSeqIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HB1_ASEQ_IS;
 }
 
@@ -1449,8 +1344,7 @@ INLINE uint8 BDRV_getHB1AdaptSeqIntSts(void)
  *
  * \return uint8 HB2 Adaptive Sequencer Interrupt Status
  */
-INLINE uint8 BDRV_getHB2AdaptSeqIntSts(void)
-{
+INLINE uint8 BDRV_getHB2AdaptSeqIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HB2_ASEQ_IS;
 }
 
@@ -1458,8 +1352,7 @@ INLINE uint8 BDRV_getHB2AdaptSeqIntSts(void)
  *
  * \return uint8 HB3 Adaptive Sequencer Interrupt Status
  */
-INLINE uint8 BDRV_getHB3AdaptSeqIntSts(void)
-{
+INLINE uint8 BDRV_getHB3AdaptSeqIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HB3_ASEQ_IS;
 }
 
@@ -1467,8 +1360,7 @@ INLINE uint8 BDRV_getHB3AdaptSeqIntSts(void)
  *
  * \return uint8 HB1 Active Driver Detection Interrupt Status
  */
-INLINE uint8 BDRV_getHB1ActDrvDetectIntSts(void)
-{
+INLINE uint8 BDRV_getHB1ActDrvDetectIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HB1_ACTDRV_IS;
 }
 
@@ -1476,8 +1368,7 @@ INLINE uint8 BDRV_getHB1ActDrvDetectIntSts(void)
  *
  * \return uint8 HB2 Active Driver Detection Interrupt Status
  */
-INLINE uint8 BDRV_getHB2ActDrvDetectIntSts(void)
-{
+INLINE uint8 BDRV_getHB2ActDrvDetectIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HB2_ACTDRV_IS;
 }
 
@@ -1485,8 +1376,7 @@ INLINE uint8 BDRV_getHB2ActDrvDetectIntSts(void)
  *
  * \return uint8 HB3 Active Driver Detection Interrupt Status
  */
-INLINE uint8 BDRV_getHB3ActDrvDetectIntSts(void)
-{
+INLINE uint8 BDRV_getHB3ActDrvDetectIntSts(void) {
   return (uint8)BDRV->IRQS.bit.HB3_ACTDRV_IS;
 }
 
@@ -1494,8 +1384,7 @@ INLINE uint8 BDRV_getHB3ActDrvDetectIntSts(void)
  *
  * \return uint8 Driver Sequence Error Interrupt Status
  */
-INLINE uint8 BDRV_getDrvSeqErrIntSts(void)
-{
+INLINE uint8 BDRV_getDrvSeqErrIntSts(void) {
   return (uint8)BDRV->IRQS.bit.SEQ_ERR_IS;
 }
 
@@ -1503,148 +1392,127 @@ INLINE uint8 BDRV_getDrvSeqErrIntSts(void)
  *
  * \return uint8 Charge Pump Undervoltage Comparator Interrupt Status
  */
-INLINE uint8 BDRV_getCPUndervoltageCompIntSts(void)
-{
+INLINE uint8 BDRV_getCPUndervoltageCompIntSts(void) {
   return (uint8)BDRV->IRQS.bit.VCP_LOTH2_IS;
 }
 
 /** \brief Clear External LS1 MOSFET Overcurrent Interrupt Status BDRV.IRQCLR.LS1_OC_ISC
  */
-INLINE void BDRV_clrExternalLS1MosfetOvercurrentIntSts(void)
-{
+INLINE void BDRV_clrExternalLS1MosfetOvercurrentIntSts(void) {
   BDRV->IRQCLR.bit.LS1_OC_ISC = 1u;
 }
 
 /** \brief Clear External HS1 MOSFET Overcurrent Interrupt Status BDRV.IRQCLR.HS1_OC_ISC
  */
-INLINE void BDRV_clrExternalHS1MosfetOvercurrentIntSts(void)
-{
+INLINE void BDRV_clrExternalHS1MosfetOvercurrentIntSts(void) {
   BDRV->IRQCLR.bit.HS1_OC_ISC = 1u;
 }
 
 /** \brief Clear External LS2 MOSFET Overcurrent Interrupt Status BDRV.IRQCLR.LS2_OC_ISC
  */
-INLINE void BDRV_clrExternalLS2MosfetOvercurrentIntSts(void)
-{
+INLINE void BDRV_clrExternalLS2MosfetOvercurrentIntSts(void) {
   BDRV->IRQCLR.bit.LS2_OC_ISC = 1u;
 }
 
 /** \brief Clear External HS2 MOSFET Overcurrent Interrupt Status BDRV.IRQCLR.HS2_OC_ISC
  */
-INLINE void BDRV_clrExternalHS2MosfetOvercurrentIntSts(void)
-{
+INLINE void BDRV_clrExternalHS2MosfetOvercurrentIntSts(void) {
   BDRV->IRQCLR.bit.HS2_OC_ISC = 1u;
 }
 
 /** \brief Clear External LS3 MOSFET Overcurrent Interrupt Status BDRV.IRQCLR.LS3_OC_ISC
  */
-INLINE void BDRV_clrExternalLS3MosfetOvercurrentIntSts(void)
-{
+INLINE void BDRV_clrExternalLS3MosfetOvercurrentIntSts(void) {
   BDRV->IRQCLR.bit.LS3_OC_ISC = 1u;
 }
 
 /** \brief Clear External HS3 MOSFET Overcurrent Interrupt Status BDRV.IRQCLR.HS3_OC_ISC
  */
-INLINE void BDRV_clrExternalHS3MosfetOvercurrentIntSts(void)
-{
+INLINE void BDRV_clrExternalHS3MosfetOvercurrentIntSts(void) {
   BDRV->IRQCLR.bit.HS3_OC_ISC = 1u;
 }
 
 /** \brief Clear LS1 Off-State Drain Source Monitoring Interrupt Status BDRV.IRQCLR.LS1_DS_ISC
  */
-INLINE void BDRV_clrLS1DrainSrcMonitoringIntSts(void)
-{
+INLINE void BDRV_clrLS1DrainSrcMonitoringIntSts(void) {
   BDRV->IRQCLR.bit.LS1_DS_ISC = 1u;
 }
 
 /** \brief Clear HS1 Off-State Drain Source Monitoring Interrupt Status BDRV.IRQCLR.HS1_DS_ISC
  */
-INLINE void BDRV_clrHS1DrainSrcMonitoringIntSts(void)
-{
+INLINE void BDRV_clrHS1DrainSrcMonitoringIntSts(void) {
   BDRV->IRQCLR.bit.HS1_DS_ISC = 1u;
 }
 
 /** \brief Clear LS2 Off-State Drain Source Monitoring Interrupt Status BDRV.IRQCLR.LS2_DS_ISC
  */
-INLINE void BDRV_clrLS2DrainSrcMonitoringIntSts(void)
-{
+INLINE void BDRV_clrLS2DrainSrcMonitoringIntSts(void) {
   BDRV->IRQCLR.bit.LS2_DS_ISC = 1u;
 }
 
 /** \brief Clear HS2 Off-State Drain Source Monitoring Interrupt Status BDRV.IRQCLR.HS2_DS_ISC
  */
-INLINE void BDRV_clrHS2DrainSrcMonitoringIntSts(void)
-{
+INLINE void BDRV_clrHS2DrainSrcMonitoringIntSts(void) {
   BDRV->IRQCLR.bit.HS2_DS_ISC = 1u;
 }
 
 /** \brief Clear LS3 Off-State Drain Source Monitoring Interrupt Status BDRV.IRQCLR.LS3_DS_ISC
  */
-INLINE void BDRV_clrLS3DrainSrcMonitoringIntSts(void)
-{
+INLINE void BDRV_clrLS3DrainSrcMonitoringIntSts(void) {
   BDRV->IRQCLR.bit.LS3_DS_ISC = 1u;
 }
 
 /** \brief Clear HS3 Off-State Drain Source Monitoring Interrupt Status BDRV.IRQCLR.HS3_DS_ISC
  */
-INLINE void BDRV_clrHS3DrainSrcMonitoringIntSts(void)
-{
+INLINE void BDRV_clrHS3DrainSrcMonitoringIntSts(void) {
   BDRV->IRQCLR.bit.HS3_DS_ISC = 1u;
 }
 
 /** \brief Clear HB1 Adaptive Sequencer Interrupt Status BDRV.IRQCLR.HB1_ASEQ_ISC
  */
-INLINE void BDRV_clrHB1AdaptSeqIntSts(void)
-{
+INLINE void BDRV_clrHB1AdaptSeqIntSts(void) {
   BDRV->IRQCLR.bit.HB1_ASEQ_ISC = 1u;
 }
 
 /** \brief Clear HB2 Adaptive Sequencer Interrupt Status BDRV.IRQCLR.HB2_ASEQ_ISC
  */
-INLINE void BDRV_clrHB2AdaptSeqIntSts(void)
-{
+INLINE void BDRV_clrHB2AdaptSeqIntSts(void) {
   BDRV->IRQCLR.bit.HB2_ASEQ_ISC = 1u;
 }
 
 /** \brief Clear HB3 Adaptive Sequencer Interrupt Status BDRV.IRQCLR.HB3_ASEQ_ISC
  */
-INLINE void BDRV_clrHB3AdaptSeqIntSts(void)
-{
+INLINE void BDRV_clrHB3AdaptSeqIntSts(void) {
   BDRV->IRQCLR.bit.HB3_ASEQ_ISC = 1u;
 }
 
 /** \brief Clear HB1 Active Driver Detection Interrupt Status BDRV.IRQCLR.HB1_ACTDRV_ISC
  */
-INLINE void BDRV_clrHB1ActDrvDetectIntSts(void)
-{
+INLINE void BDRV_clrHB1ActDrvDetectIntSts(void) {
   BDRV->IRQCLR.bit.HB1_ACTDRV_ISC = 1u;
 }
 
 /** \brief Clear HB2 Active Driver Detection Interrupt Status BDRV.IRQCLR.HB2_ACTDRV_ISC
  */
-INLINE void BDRV_clrHB2ActDrvDetectIntSts(void)
-{
+INLINE void BDRV_clrHB2ActDrvDetectIntSts(void) {
   BDRV->IRQCLR.bit.HB2_ACTDRV_ISC = 1u;
 }
 
 /** \brief Clear HB3 Active Driver Detection Interrupt Status BDRV.IRQCLR.HB3_ACTDRV_ISC
  */
-INLINE void BDRV_clrHB3ActDrvDetectIntSts(void)
-{
+INLINE void BDRV_clrHB3ActDrvDetectIntSts(void) {
   BDRV->IRQCLR.bit.HB3_ACTDRV_ISC = 1u;
 }
 
 /** \brief Clear Driver Sequence Error Interrupt Status BDRV.IRQCLR.SEQ_ERR_ISC
  */
-INLINE void BDRV_clrDrvSeqErrIntSts(void)
-{
+INLINE void BDRV_clrDrvSeqErrIntSts(void) {
   BDRV->IRQCLR.bit.SEQ_ERR_ISC = 1u;
 }
 
 /** \brief Clear Charge Pump Undervoltage Comparator Interrupt Status BDRV.IRQCLR.VCP_LOTH2_ISC
  */
-INLINE void BDRV_clrCPUndervoltageCompIntSts(void)
-{
+INLINE void BDRV_clrCPUndervoltageCompIntSts(void) {
   BDRV->IRQCLR.bit.VCP_LOTH2_ISC = 1u;
 }
 
@@ -1652,8 +1520,7 @@ INLINE void BDRV_clrCPUndervoltageCompIntSts(void)
  *
  * \return uint8 HB1 Max T12ON Value Reached
  */
-INLINE uint8 BDRV_getHB1MaxT12ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MaxT12ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB1T12ONMAX;
 }
 
@@ -1661,8 +1528,7 @@ INLINE uint8 BDRV_getHB1MaxT12ONReachedSts(void)
  *
  * \return uint8 HB1 Max I1ON Value Reached
  */
-INLINE uint8 BDRV_getHB1MaxI1ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MaxI1ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB1I1ONMAX;
 }
 
@@ -1670,8 +1536,7 @@ INLINE uint8 BDRV_getHB1MaxI1ONReachedSts(void)
  *
  * \return uint8 HB1 Min T12ON Value Reached
  */
-INLINE uint8 BDRV_getHB1MinT12ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MinT12ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB1T12ONMIN;
 }
 
@@ -1679,8 +1544,7 @@ INLINE uint8 BDRV_getHB1MinT12ONReachedSts(void)
  *
  * \return uint8 HB1 Min I1ON Value Reached
  */
-INLINE uint8 BDRV_getHB1MinI1ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MinI1ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB1I1ONMIN;
 }
 
@@ -1688,8 +1552,7 @@ INLINE uint8 BDRV_getHB1MinI1ONReachedSts(void)
  *
  * \return uint8 HB1 Adaptive Sequencer Switch-On Measurement Failure
  */
-INLINE uint8 BDRV_getHB1AdaptSeqChrgMeasFailSts(void)
-{
+INLINE uint8 BDRV_getHB1AdaptSeqChrgMeasFailSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB1ONMF;
 }
 
@@ -1697,8 +1560,7 @@ INLINE uint8 BDRV_getHB1AdaptSeqChrgMeasFailSts(void)
  *
  * \return uint8 HB1 Failed Gate Driver During Switch-On
  */
-INLINE uint8 BDRV_getHB1ChrgFailDrvSts(void)
-{
+INLINE uint8 BDRV_getHB1ChrgFailDrvSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB1ONFAILDRV;
 }
 
@@ -1706,8 +1568,7 @@ INLINE uint8 BDRV_getHB1ChrgFailDrvSts(void)
  *
  * \return uint8 HB2 Max T12ON Value Reached
  */
-INLINE uint8 BDRV_getHB2MaxT12ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MaxT12ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB2T12ONMAX;
 }
 
@@ -1715,8 +1576,7 @@ INLINE uint8 BDRV_getHB2MaxT12ONReachedSts(void)
  *
  * \return uint8 HB2 Max I1ON Value Reached
  */
-INLINE uint8 BDRV_getHB2MaxI1ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MaxI1ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB2I1ONMAX;
 }
 
@@ -1724,8 +1584,7 @@ INLINE uint8 BDRV_getHB2MaxI1ONReachedSts(void)
  *
  * \return uint8 HB2 Min T12ON Value Reached
  */
-INLINE uint8 BDRV_getHB2MinT12ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MinT12ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB2T12ONMIN;
 }
 
@@ -1733,8 +1592,7 @@ INLINE uint8 BDRV_getHB2MinT12ONReachedSts(void)
  *
  * \return uint8 HB2 Min I1ON Value Reached
  */
-INLINE uint8 BDRV_getHB2MinI1ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MinI1ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB2I1ONMIN;
 }
 
@@ -1742,8 +1600,7 @@ INLINE uint8 BDRV_getHB2MinI1ONReachedSts(void)
  *
  * \return uint8 HB2 Adaptive Sequencer Switch-On Measurement Failure
  */
-INLINE uint8 BDRV_getHB2AdaptSeqChrgMeasFailSts(void)
-{
+INLINE uint8 BDRV_getHB2AdaptSeqChrgMeasFailSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB2ONMF;
 }
 
@@ -1751,8 +1608,7 @@ INLINE uint8 BDRV_getHB2AdaptSeqChrgMeasFailSts(void)
  *
  * \return uint8 HB2 Failed Gate Driver During Switch-On
  */
-INLINE uint8 BDRV_getHB2ChrgFailDrvSts(void)
-{
+INLINE uint8 BDRV_getHB2ChrgFailDrvSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB2ONFAILDRV;
 }
 
@@ -1760,8 +1616,7 @@ INLINE uint8 BDRV_getHB2ChrgFailDrvSts(void)
  *
  * \return uint8 HB3 Max T12ON Value Reached
  */
-INLINE uint8 BDRV_getHB3MaxT12ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MaxT12ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB3T12ONMAX;
 }
 
@@ -1769,8 +1624,7 @@ INLINE uint8 BDRV_getHB3MaxT12ONReachedSts(void)
  *
  * \return uint8 HB3 Max I1ON Value Reached
  */
-INLINE uint8 BDRV_getHB3MaxI1ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MaxI1ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB3I1ONMAX;
 }
 
@@ -1778,8 +1632,7 @@ INLINE uint8 BDRV_getHB3MaxI1ONReachedSts(void)
  *
  * \return uint8 HB3 Min T12ON Value Reached
  */
-INLINE uint8 BDRV_getHB3MinT12ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MinT12ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB3T12ONMIN;
 }
 
@@ -1787,8 +1640,7 @@ INLINE uint8 BDRV_getHB3MinT12ONReachedSts(void)
  *
  * \return uint8 HB3 Min I1ON Value Reached
  */
-INLINE uint8 BDRV_getHB3MinI1ONReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MinI1ONReachedSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB3I1ONMIN;
 }
 
@@ -1796,8 +1648,7 @@ INLINE uint8 BDRV_getHB3MinI1ONReachedSts(void)
  *
  * \return uint8 HB3 Adaptive Sequencer Switch-On Measurement Failure
  */
-INLINE uint8 BDRV_getHB3AdaptSeqChrgMeasFailSts(void)
-{
+INLINE uint8 BDRV_getHB3AdaptSeqChrgMeasFailSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB3ONMF;
 }
 
@@ -1805,8 +1656,7 @@ INLINE uint8 BDRV_getHB3AdaptSeqChrgMeasFailSts(void)
  *
  * \return uint8 HB3 Failed Gate Driver During Switch-On
  */
-INLINE uint8 BDRV_getHB3ChrgFailDrvSts(void)
-{
+INLINE uint8 BDRV_getHB3ChrgFailDrvSts(void) {
   return (uint8)BDRV->ASEQONSTS.bit.HB3ONFAILDRV;
 }
 
@@ -1814,8 +1664,7 @@ INLINE uint8 BDRV_getHB3ChrgFailDrvSts(void)
  *
  * \return uint8 HB1 Max T1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB1MaxT1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MaxT1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB1T1OFFMAX;
 }
 
@@ -1823,8 +1672,7 @@ INLINE uint8 BDRV_getHB1MaxT1OFFReachedSts(void)
  *
  * \return uint8 HB1 Max I1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB1MaxI1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MaxI1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB1I1OFFMAX;
 }
 
@@ -1832,8 +1680,7 @@ INLINE uint8 BDRV_getHB1MaxI1OFFReachedSts(void)
  *
  * \return uint8 HB1 Min T1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB1MinT1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MinT1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB1T1OFFMIN;
 }
 
@@ -1841,8 +1688,7 @@ INLINE uint8 BDRV_getHB1MinT1OFFReachedSts(void)
  *
  * \return uint8 HB1 Min I1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB1MinI1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB1MinI1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB1I1OFFMIN;
 }
 
@@ -1850,8 +1696,7 @@ INLINE uint8 BDRV_getHB1MinI1OFFReachedSts(void)
  *
  * \return uint8 HB1 Adaptive Sequencer Switch-Off Measurement Failure
  */
-INLINE uint8 BDRV_getHB1AdaptSeqDischrgMeasFailSts(void)
-{
+INLINE uint8 BDRV_getHB1AdaptSeqDischrgMeasFailSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB1OFFMF;
 }
 
@@ -1859,8 +1704,7 @@ INLINE uint8 BDRV_getHB1AdaptSeqDischrgMeasFailSts(void)
  *
  * \return uint8 HB1 Failed Gate Driver During Switch-Off
  */
-INLINE uint8 BDRV_getHB1DischrgFailDrvSts(void)
-{
+INLINE uint8 BDRV_getHB1DischrgFailDrvSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB1OFFFAILDRV;
 }
 
@@ -1868,8 +1712,7 @@ INLINE uint8 BDRV_getHB1DischrgFailDrvSts(void)
  *
  * \return uint8 HB2 Max T1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB2MaxT1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MaxT1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB2T1OFFMAX;
 }
 
@@ -1877,8 +1720,7 @@ INLINE uint8 BDRV_getHB2MaxT1OFFReachedSts(void)
  *
  * \return uint8 HB2 Max I1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB2MaxI1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MaxI1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB2I1OFFMAX;
 }
 
@@ -1886,8 +1728,7 @@ INLINE uint8 BDRV_getHB2MaxI1OFFReachedSts(void)
  *
  * \return uint8 HB2 Min T1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB2MinT1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MinT1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB2T1OFFMIN;
 }
 
@@ -1895,8 +1736,7 @@ INLINE uint8 BDRV_getHB2MinT1OFFReachedSts(void)
  *
  * \return uint8 HB2 Min I1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB2MinI1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB2MinI1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB2I1OFFMIN;
 }
 
@@ -1904,8 +1744,7 @@ INLINE uint8 BDRV_getHB2MinI1OFFReachedSts(void)
  *
  * \return uint8 HB2 Adaptive Sequencer Switch-Off Measurement Failure
  */
-INLINE uint8 BDRV_getHB2AdaptSeqDischrgMeasFailSts(void)
-{
+INLINE uint8 BDRV_getHB2AdaptSeqDischrgMeasFailSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB2OFFMF;
 }
 
@@ -1913,8 +1752,7 @@ INLINE uint8 BDRV_getHB2AdaptSeqDischrgMeasFailSts(void)
  *
  * \return uint8 HB2 Failed Gate Driver During Switch-Off
  */
-INLINE uint8 BDRV_getHB2DischrgFailDrvSts(void)
-{
+INLINE uint8 BDRV_getHB2DischrgFailDrvSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB2OFFFAILDRV;
 }
 
@@ -1922,8 +1760,7 @@ INLINE uint8 BDRV_getHB2DischrgFailDrvSts(void)
  *
  * \return uint8 HB3 Max T1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB3MaxT1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MaxT1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB3T1OFFMAX;
 }
 
@@ -1931,8 +1768,7 @@ INLINE uint8 BDRV_getHB3MaxT1OFFReachedSts(void)
  *
  * \return uint8 HB3 Max I1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB3MaxI1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MaxI1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB3I1OFFMAX;
 }
 
@@ -1940,8 +1776,7 @@ INLINE uint8 BDRV_getHB3MaxI1OFFReachedSts(void)
  *
  * \return uint8 HB3 Min T1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB3MinT1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MinT1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB3T1OFFMIN;
 }
 
@@ -1949,8 +1784,7 @@ INLINE uint8 BDRV_getHB3MinT1OFFReachedSts(void)
  *
  * \return uint8 HB3 Min I1OFF Value Reached
  */
-INLINE uint8 BDRV_getHB3MinI1OFFReachedSts(void)
-{
+INLINE uint8 BDRV_getHB3MinI1OFFReachedSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB3I1OFFMIN;
 }
 
@@ -1958,8 +1792,7 @@ INLINE uint8 BDRV_getHB3MinI1OFFReachedSts(void)
  *
  * \return uint8 HB3 Adaptive Sequencer Switch-Off Measurement Failure
  */
-INLINE uint8 BDRV_getHB3AdaptSeqDischrgMeasFailSts(void)
-{
+INLINE uint8 BDRV_getHB3AdaptSeqDischrgMeasFailSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB3OFFMF;
 }
 
@@ -1967,8 +1800,7 @@ INLINE uint8 BDRV_getHB3AdaptSeqDischrgMeasFailSts(void)
  *
  * \return uint8 HB3 Failed Gate Driver During Switch-Off
  */
-INLINE uint8 BDRV_getHB3DischrgFailDrvSts(void)
-{
+INLINE uint8 BDRV_getHB3DischrgFailDrvSts(void) {
   return (uint8)BDRV->ASEQOFFSTS.bit.HB3OFFFAILDRV;
 }
 
@@ -1976,8 +1808,7 @@ INLINE uint8 BDRV_getHB3DischrgFailDrvSts(void)
  *
  * \return uint8 HB1 Switch-On Delay Time Value Until Vsh Change
  */
-INLINE uint8 BDRV_getHB1ChrgDlyTime(void)
-{
+INLINE uint8 BDRV_getHB1ChrgDlyTime(void) {
   return (uint8)BDRV->HB1ONVAL.bit.HB1_TONDLY;
 }
 
@@ -1985,8 +1816,7 @@ INLINE uint8 BDRV_getHB1ChrgDlyTime(void)
  *
  * \return uint8 HB1 Switch-On Phase 1 Current Value From Adaptive Sequencer
  */
-INLINE uint8 BDRV_getHB1ChrgPhase1Current(void)
-{
+INLINE uint8 BDRV_getHB1ChrgPhase1Current(void) {
   return (uint8)BDRV->HB1ONVAL.bit.HB1_I1ONVAL;
 }
 
@@ -1994,8 +1824,7 @@ INLINE uint8 BDRV_getHB1ChrgPhase1Current(void)
  *
  * \return uint8 HB1 Switch-On Voltage Slope Time Value
  */
-INLINE uint8 BDRV_getHB1ChrgSlopeTime(void)
-{
+INLINE uint8 BDRV_getHB1ChrgSlopeTime(void) {
   return (uint8)BDRV->HB1ONVAL.bit.HB1_TONDUR;
 }
 
@@ -2003,8 +1832,7 @@ INLINE uint8 BDRV_getHB1ChrgSlopeTime(void)
  *
  * \return uint8 HB1 Switch-On Voltage Slope Time Measurement Value
  */
-INLINE uint8 BDRV_getHB1ChrgSlopeTimeMeasErr(void)
-{
+INLINE uint8 BDRV_getHB1ChrgSlopeTimeMeasErr(void) {
   return (uint8)BDRV->HB1ONVAL.bit.HB1_TONDURMERR;
 }
 
@@ -2012,15 +1840,13 @@ INLINE uint8 BDRV_getHB1ChrgSlopeTimeMeasErr(void)
  *
  * \return uint8 HB1 Switch-On Active Driver
  */
-INLINE uint8 BDRV_getHB1ChrgActiveDrv(void)
-{
+INLINE uint8 BDRV_getHB1ChrgActiveDrv(void) {
   return (uint8)BDRV->HB1ONVAL.bit.HB1_ACTDRV_ON;
 }
 
 /** \brief Clear HB1 Switch-On Measurement Values Valid Flag BDRV.HB1ONVAL.HB1_ONVALVF_CLR
  */
-INLINE void BDRV_clrHB1ChrgTimeMeasValidSts(void)
-{
+INLINE void BDRV_clrHB1ChrgTimeMeasValidSts(void) {
   BDRV->HB1ONVAL.bit.HB1_ONVALVF_CLR = 1u;
 }
 
@@ -2028,8 +1854,7 @@ INLINE void BDRV_clrHB1ChrgTimeMeasValidSts(void)
  *
  * \return uint8 HB1 Switch-On Measurement Values Valid Flag
  */
-INLINE uint8 BDRV_getHB1ChrgTimeMeasValidSts(void)
-{
+INLINE uint8 BDRV_getHB1ChrgTimeMeasValidSts(void) {
   return (uint8)BDRV->HB1ONVAL.bit.HB1_ONVALVF;
 }
 
@@ -2037,8 +1862,7 @@ INLINE uint8 BDRV_getHB1ChrgTimeMeasValidSts(void)
  *
  * \return uint8 HB1 Switch-Off Delay Time Value Until Vsh Change
  */
-INLINE uint8 BDRV_getHB1DischrgDlyTime(void)
-{
+INLINE uint8 BDRV_getHB1DischrgDlyTime(void) {
   return (uint8)BDRV->HB1OFFVAL.bit.HB1_TOFFDLY;
 }
 
@@ -2046,8 +1870,7 @@ INLINE uint8 BDRV_getHB1DischrgDlyTime(void)
  *
  * \return uint8 HB1 Switch-Off Phase 1 Current Value From Adaptive Sequencer
  */
-INLINE uint8 BDRV_getHB1DischrgPhase1Current(void)
-{
+INLINE uint8 BDRV_getHB1DischrgPhase1Current(void) {
   return (uint8)BDRV->HB1OFFVAL.bit.HB1_I1OFFVAL;
 }
 
@@ -2055,8 +1878,7 @@ INLINE uint8 BDRV_getHB1DischrgPhase1Current(void)
  *
  * \return uint8 HB1 Switch-Off Voltage Slope Time Value
  */
-INLINE uint8 BDRV_getHB1DischrgSlopeTime(void)
-{
+INLINE uint8 BDRV_getHB1DischrgSlopeTime(void) {
   return (uint8)BDRV->HB1OFFVAL.bit.HB1_TOFFDUR;
 }
 
@@ -2064,8 +1886,7 @@ INLINE uint8 BDRV_getHB1DischrgSlopeTime(void)
  *
  * \return uint8 HB1 Switch-Off Voltage Slope Time Measurement Value
  */
-INLINE uint8 BDRV_getHB1DischrgSlopeTimeMeasErr(void)
-{
+INLINE uint8 BDRV_getHB1DischrgSlopeTimeMeasErr(void) {
   return (uint8)BDRV->HB1OFFVAL.bit.HB1_TOFFDURMERR;
 }
 
@@ -2073,15 +1894,13 @@ INLINE uint8 BDRV_getHB1DischrgSlopeTimeMeasErr(void)
  *
  * \return uint8 HB1 Switch-Off Active Driver
  */
-INLINE uint8 BDRV_getHB1DischrgActiveDrv(void)
-{
+INLINE uint8 BDRV_getHB1DischrgActiveDrv(void) {
   return (uint8)BDRV->HB1OFFVAL.bit.HB1_ACTDRV_OFF;
 }
 
 /** \brief Clear HB1 Switch-Off Measurement Values Valid Flag BDRV.HB1OFFVAL.HB1_OFFVALVF_CLR
  */
-INLINE void BDRV_clrHB1DischrgTimeMeasValidSts(void)
-{
+INLINE void BDRV_clrHB1DischrgTimeMeasValidSts(void) {
   BDRV->HB1OFFVAL.bit.HB1_OFFVALVF_CLR = 1u;
 }
 
@@ -2089,8 +1908,7 @@ INLINE void BDRV_clrHB1DischrgTimeMeasValidSts(void)
  *
  * \return uint8 HB1 Switch-Off Measurement Values Valid Flag
  */
-INLINE uint8 BDRV_getHB1DischrgTimeMeasValidSts(void)
-{
+INLINE uint8 BDRV_getHB1DischrgTimeMeasValidSts(void) {
   return (uint8)BDRV->HB1OFFVAL.bit.HB1_OFFVALVF;
 }
 
@@ -2098,8 +1916,7 @@ INLINE uint8 BDRV_getHB1DischrgTimeMeasValidSts(void)
  *
  * \return uint8 HB2 Switch-On Delay Time Value Until Vsh Change
  */
-INLINE uint8 BDRV_getHB2ChrgDlyTime(void)
-{
+INLINE uint8 BDRV_getHB2ChrgDlyTime(void) {
   return (uint8)BDRV->HB2ONVAL.bit.HB2_TONDLY;
 }
 
@@ -2107,8 +1924,7 @@ INLINE uint8 BDRV_getHB2ChrgDlyTime(void)
  *
  * \return uint8 HB2 Switch-On Phase 1 Current Value From Adaptive Sequencer
  */
-INLINE uint8 BDRV_getHB2ChrgPhase1Current(void)
-{
+INLINE uint8 BDRV_getHB2ChrgPhase1Current(void) {
   return (uint8)BDRV->HB2ONVAL.bit.HB2_I1ONVAL;
 }
 
@@ -2116,8 +1932,7 @@ INLINE uint8 BDRV_getHB2ChrgPhase1Current(void)
  *
  * \return uint8 HB2 Switch-On Voltage Slope Time Value
  */
-INLINE uint8 BDRV_getHB2ChrgSlopeTime(void)
-{
+INLINE uint8 BDRV_getHB2ChrgSlopeTime(void) {
   return (uint8)BDRV->HB2ONVAL.bit.HB2_TONDUR;
 }
 
@@ -2125,8 +1940,7 @@ INLINE uint8 BDRV_getHB2ChrgSlopeTime(void)
  *
  * \return uint8 HB2 Switch-On Voltage Slope Time Measurement Value
  */
-INLINE uint8 BDRV_getHB2ChrgSlopeTimeMeasErr(void)
-{
+INLINE uint8 BDRV_getHB2ChrgSlopeTimeMeasErr(void) {
   return (uint8)BDRV->HB2ONVAL.bit.HB2_TONDURMERR;
 }
 
@@ -2134,15 +1948,13 @@ INLINE uint8 BDRV_getHB2ChrgSlopeTimeMeasErr(void)
  *
  * \return uint8 HB2 Switch-On Active Driver
  */
-INLINE uint8 BDRV_getHB2ChrgActiveDrv(void)
-{
+INLINE uint8 BDRV_getHB2ChrgActiveDrv(void) {
   return (uint8)BDRV->HB2ONVAL.bit.HB2_ACTDRV_ON;
 }
 
 /** \brief Clear HB2 Switch-On Measurement Values Valid Flag BDRV.HB2ONVAL.HB2_ONVALVF_CLR
  */
-INLINE void BDRV_clrHB2ChrgTimeMeasValidSts(void)
-{
+INLINE void BDRV_clrHB2ChrgTimeMeasValidSts(void) {
   BDRV->HB2ONVAL.bit.HB2_ONVALVF_CLR = 1u;
 }
 
@@ -2150,8 +1962,7 @@ INLINE void BDRV_clrHB2ChrgTimeMeasValidSts(void)
  *
  * \return uint8 HB2 Switch-On Measurement Values Valid Flag
  */
-INLINE uint8 BDRV_getHB2ChrgTimeMeasValidSts(void)
-{
+INLINE uint8 BDRV_getHB2ChrgTimeMeasValidSts(void) {
   return (uint8)BDRV->HB2ONVAL.bit.HB2_ONVALVF;
 }
 
@@ -2159,8 +1970,7 @@ INLINE uint8 BDRV_getHB2ChrgTimeMeasValidSts(void)
  *
  * \return uint8 HB2 Switch-Off Delay Time Value Until Vsh Change
  */
-INLINE uint8 BDRV_getHB2DischrgDlyTime(void)
-{
+INLINE uint8 BDRV_getHB2DischrgDlyTime(void) {
   return (uint8)BDRV->HB2OFFVAL.bit.HB2_TOFFDLY;
 }
 
@@ -2168,8 +1978,7 @@ INLINE uint8 BDRV_getHB2DischrgDlyTime(void)
  *
  * \return uint8 HB2 Switch-Off Phase 1 Current Value From Adaptive Sequencer
  */
-INLINE uint8 BDRV_getHB2DischrgPhase1Current(void)
-{
+INLINE uint8 BDRV_getHB2DischrgPhase1Current(void) {
   return (uint8)BDRV->HB2OFFVAL.bit.HB2_I1OFFVAL;
 }
 
@@ -2177,8 +1986,7 @@ INLINE uint8 BDRV_getHB2DischrgPhase1Current(void)
  *
  * \return uint8 HB2 Switch-Off Voltage Slope Time Value
  */
-INLINE uint8 BDRV_getHB2DischrgSlopeTime(void)
-{
+INLINE uint8 BDRV_getHB2DischrgSlopeTime(void) {
   return (uint8)BDRV->HB2OFFVAL.bit.HB2_TOFFDUR;
 }
 
@@ -2186,8 +1994,7 @@ INLINE uint8 BDRV_getHB2DischrgSlopeTime(void)
  *
  * \return uint8 HB2 Switch-Off Voltage Slope Time Measurement Value
  */
-INLINE uint8 BDRV_getHB2DischrgSlopeTimeMeasErr(void)
-{
+INLINE uint8 BDRV_getHB2DischrgSlopeTimeMeasErr(void) {
   return (uint8)BDRV->HB2OFFVAL.bit.HB2_TOFFDURMERR;
 }
 
@@ -2195,15 +2002,13 @@ INLINE uint8 BDRV_getHB2DischrgSlopeTimeMeasErr(void)
  *
  * \return uint8 HB2 Switch-Off Active Driver
  */
-INLINE uint8 BDRV_getHB2DischrgActiveDrv(void)
-{
+INLINE uint8 BDRV_getHB2DischrgActiveDrv(void) {
   return (uint8)BDRV->HB2OFFVAL.bit.HB2_ACTDRV_OFF;
 }
 
 /** \brief Clear HB2 Switch-Off Measurement Values Valid Flag BDRV.HB2OFFVAL.HB2_OFFVALVF_CLR
  */
-INLINE void BDRV_clrHB2DischrgTimeMeasValidSts(void)
-{
+INLINE void BDRV_clrHB2DischrgTimeMeasValidSts(void) {
   BDRV->HB2OFFVAL.bit.HB2_OFFVALVF_CLR = 1u;
 }
 
@@ -2211,8 +2016,7 @@ INLINE void BDRV_clrHB2DischrgTimeMeasValidSts(void)
  *
  * \return uint8 HB2 Switch-Off Measurement Values Valid Flag
  */
-INLINE uint8 BDRV_getHB2DischrgTimeMeasValidSts(void)
-{
+INLINE uint8 BDRV_getHB2DischrgTimeMeasValidSts(void) {
   return (uint8)BDRV->HB2OFFVAL.bit.HB2_OFFVALVF;
 }
 
@@ -2220,8 +2024,7 @@ INLINE uint8 BDRV_getHB2DischrgTimeMeasValidSts(void)
  *
  * \return uint8 HB3 Switch-On Delay Time Value Until Vsh Change
  */
-INLINE uint8 BDRV_getHB3ChrgDlyTime(void)
-{
+INLINE uint8 BDRV_getHB3ChrgDlyTime(void) {
   return (uint8)BDRV->HB3ONVAL.bit.HB3_TONDLY;
 }
 
@@ -2229,8 +2032,7 @@ INLINE uint8 BDRV_getHB3ChrgDlyTime(void)
  *
  * \return uint8 HB3 Switch-On Phase 1 Current Value From Adaptive Sequencer
  */
-INLINE uint8 BDRV_getHB3ChrgPhase1Current(void)
-{
+INLINE uint8 BDRV_getHB3ChrgPhase1Current(void) {
   return (uint8)BDRV->HB3ONVAL.bit.HB3_I1ONVAL;
 }
 
@@ -2238,8 +2040,7 @@ INLINE uint8 BDRV_getHB3ChrgPhase1Current(void)
  *
  * \return uint8 HB3 Switch-On Voltage Slope Time Value
  */
-INLINE uint8 BDRV_getHB3ChrgSlopeTime(void)
-{
+INLINE uint8 BDRV_getHB3ChrgSlopeTime(void) {
   return (uint8)BDRV->HB3ONVAL.bit.HB3_TONDUR;
 }
 
@@ -2247,8 +2048,7 @@ INLINE uint8 BDRV_getHB3ChrgSlopeTime(void)
  *
  * \return uint8 HB3 Switch-On Voltage Slope Time Measurement Value
  */
-INLINE uint8 BDRV_getHB3ChrgSlopeTimeMeasErr(void)
-{
+INLINE uint8 BDRV_getHB3ChrgSlopeTimeMeasErr(void) {
   return (uint8)BDRV->HB3ONVAL.bit.HB3_TONDURMERR;
 }
 
@@ -2256,15 +2056,13 @@ INLINE uint8 BDRV_getHB3ChrgSlopeTimeMeasErr(void)
  *
  * \return uint8 HB3 Switch-On Active Driver
  */
-INLINE uint8 BDRV_getHB3ChrgActiveDrv(void)
-{
+INLINE uint8 BDRV_getHB3ChrgActiveDrv(void) {
   return (uint8)BDRV->HB3ONVAL.bit.HB3_ACTDRV_ON;
 }
 
 /** \brief Clear HB3 Switch-On Measurement Values Valid Flag BDRV.HB3ONVAL.HB3_ONVALVF_CLR
  */
-INLINE void BDRV_clrHB3ChrgTimeMeasValidSts(void)
-{
+INLINE void BDRV_clrHB3ChrgTimeMeasValidSts(void) {
   BDRV->HB3ONVAL.bit.HB3_ONVALVF_CLR = 1u;
 }
 
@@ -2272,8 +2070,7 @@ INLINE void BDRV_clrHB3ChrgTimeMeasValidSts(void)
  *
  * \return uint8 HB3 Switch-On Measurement Values Valid Flag
  */
-INLINE uint8 BDRV_getHB3ChrgTimeMeasValidSts(void)
-{
+INLINE uint8 BDRV_getHB3ChrgTimeMeasValidSts(void) {
   return (uint8)BDRV->HB3ONVAL.bit.HB3_ONVALVF;
 }
 
@@ -2281,8 +2078,7 @@ INLINE uint8 BDRV_getHB3ChrgTimeMeasValidSts(void)
  *
  * \return uint8 HB3 Switch-Off Delay Time Value Until Vsh Change
  */
-INLINE uint8 BDRV_getHB3DischrgDlyTime(void)
-{
+INLINE uint8 BDRV_getHB3DischrgDlyTime(void) {
   return (uint8)BDRV->HB3OFFVAL.bit.HB3_TOFFDLY;
 }
 
@@ -2290,8 +2086,7 @@ INLINE uint8 BDRV_getHB3DischrgDlyTime(void)
  *
  * \return uint8 HB3 Switch-Off Phase 1 Current Value From Adaptive Sequencer
  */
-INLINE uint8 BDRV_getHB3DischrgPhase1Current(void)
-{
+INLINE uint8 BDRV_getHB3DischrgPhase1Current(void) {
   return (uint8)BDRV->HB3OFFVAL.bit.HB3_I1OFFVAL;
 }
 
@@ -2299,8 +2094,7 @@ INLINE uint8 BDRV_getHB3DischrgPhase1Current(void)
  *
  * \return uint8 HB3 Switch-Off Voltage Slope Time Value
  */
-INLINE uint8 BDRV_getHB3DischrgSlopeTime(void)
-{
+INLINE uint8 BDRV_getHB3DischrgSlopeTime(void) {
   return (uint8)BDRV->HB3OFFVAL.bit.HB3_TOFFDUR;
 }
 
@@ -2308,8 +2102,7 @@ INLINE uint8 BDRV_getHB3DischrgSlopeTime(void)
  *
  * \return uint8 HB3 Switch-Off Voltage Slope Time Measurement Value
  */
-INLINE uint8 BDRV_getHB3DischrgSlopeTimeMeasErr(void)
-{
+INLINE uint8 BDRV_getHB3DischrgSlopeTimeMeasErr(void) {
   return (uint8)BDRV->HB3OFFVAL.bit.HB3_TOFFDURMERR;
 }
 
@@ -2317,15 +2110,13 @@ INLINE uint8 BDRV_getHB3DischrgSlopeTimeMeasErr(void)
  *
  * \return uint8 HB3 Switch-Off Active Driver
  */
-INLINE uint8 BDRV_getHB3DischrgActiveDrv(void)
-{
+INLINE uint8 BDRV_getHB3DischrgActiveDrv(void) {
   return (uint8)BDRV->HB3OFFVAL.bit.HB3_ACTDRV_OFF;
 }
 
 /** \brief Clear HB3 Switch-Off Measurement Values Valid Flag BDRV.HB3OFFVAL.HB3_OFFVALVF_CLR
  */
-INLINE void BDRV_clrHB3DischrgTimeMeasValidSts(void)
-{
+INLINE void BDRV_clrHB3DischrgTimeMeasValidSts(void) {
   BDRV->HB3OFFVAL.bit.HB3_OFFVALVF_CLR = 1u;
 }
 
@@ -2333,50 +2124,43 @@ INLINE void BDRV_clrHB3DischrgTimeMeasValidSts(void)
  *
  * \return uint8 HB3 Switch-Off Measurement Values Valid Flag
  */
-INLINE uint8 BDRV_getHB3DischrgTimeMeasValidSts(void)
-{
+INLINE uint8 BDRV_getHB3DischrgTimeMeasValidSts(void) {
   return (uint8)BDRV->HB3OFFVAL.bit.HB3_OFFVALVF;
 }
 
 /** \brief Enable driver discharge on charge pump high voltage (BDRV->PROT_CTRL.bit.DRVx_VCPUP_DIS)
  */
-INLINE void BDRV_enDrvxDischrgOnVcpOvervoltage(void)
-{
+INLINE void BDRV_enDrvxDischrgOnVcpOvervoltage(void) {
   BDRV->PROT_CTRL.bit.DRVx_VCPUP_DIS = 0u;
 }
 
 /** \brief Disable driver discharge on charge pump high voltage (BDRV->PROT_CTRL.bit.DRVx_VCPUP_DIS)
  */
-INLINE void BDRV_disDrvxDischrgOnVcpOvervoltage(void)
-{
+INLINE void BDRV_disDrvxDischrgOnVcpOvervoltage(void) {
   BDRV->PROT_CTRL.bit.DRVx_VCPUP_DIS = 1u;
 }
 
 /** \brief Enable driver discharge on VSD high voltage (BDRV->PROT_CTRL.bit.DRVx_VSDUP_DIS)
  */
-INLINE void BDRV_enDrvxDischrgOnVsdOvervoltage(void)
-{
+INLINE void BDRV_enDrvxDischrgOnVsdOvervoltage(void) {
   BDRV->PROT_CTRL.bit.DRVx_VSDUP_DIS = 0u;
 }
 
 /** \brief Disable driver discharge on VSD high voltage (BDRV->PROT_CTRL.bit.DRVx_VSDUP_DIS)
  */
-INLINE void BDRV_disDrvxDischrgOnVsdOvervoltage(void)
-{
+INLINE void BDRV_disDrvxDischrgOnVsdOvervoltage(void) {
   BDRV->PROT_CTRL.bit.DRVx_VSDUP_DIS = 1u;
 }
 
 /** \brief Enable driver discharge on charge pump low voltage (BDRV->PROT_CTRL.bit.DRVx_VCPLO_SDEN)
  */
-INLINE void BDRV_enDrvxDischrgOnVcpUndervoltage(void)
-{
+INLINE void BDRV_enDrvxDischrgOnVcpUndervoltage(void) {
   BDRV->PROT_CTRL.bit.DRVx_VCPLO_SDEN = 1u;
 }
 
 /** \brief Disable driver discharge on charge pump low voltage (BDRV->PROT_CTRL.bit.DRVx_VCPLO_SDEN)
  */
-INLINE void BDRV_disDrvxDischrgOnVcpUndervoltage(void)
-{
+INLINE void BDRV_disDrvxDischrgOnVcpUndervoltage(void) {
   BDRV->PROT_CTRL.bit.DRVx_VCPLO_SDEN = 0u;
 }
 
@@ -2384,85 +2168,73 @@ INLINE void BDRV_disDrvxDischrgOnVcpUndervoltage(void)
 
 /** \brief Enable Phase1 Zero Crossing Falling Interrupt
  */
-INLINE void BDRV_enPh1ZCFallInt(void)
-{
+INLINE void BDRV_enPh1ZCFallInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH1_ZCFALL_IEN = 1u;
 }
 
 /** \brief Enable Phase1 Zero Crossing Rising Interrupt
  */
-INLINE void BDRV_enPh1ZCRiseInt(void)
-{
+INLINE void BDRV_enPh1ZCRiseInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH1_ZCRISE_IEN = 1u;
 }
 
 /** \brief Enable Phase2 Zero Crossing Falling Interrupt
  */
-INLINE void BDRV_enPh2ZCFallInt(void)
-{
+INLINE void BDRV_enPh2ZCFallInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH2_ZCFALL_IEN = 1u;
 }
 
 /** \brief Enable Phase2 Zero Crossing Rising Interrupt
  */
-INLINE void BDRV_enPh2ZCRiseInt(void)
-{
+INLINE void BDRV_enPh2ZCRiseInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH2_ZCRISE_IEN = 1u;
 }
 
 /** \brief Enable Phase3 Zero Crossing Falling Interrupt
  */
-INLINE void BDRV_enPh3ZCFallInt(void)
-{
+INLINE void BDRV_enPh3ZCFallInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH3_ZCFALL_IEN = 1u;
 }
 
 /** \brief Enable Phase3 Zero Crossing Rising Interrupt
  */
-INLINE void BDRV_enPh3ZCRiseInt(void)
-{
+INLINE void BDRV_enPh3ZCRiseInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH3_ZCRISE_IEN = 1u;
 }
 
 /** \brief Disable Phase1 Zero Crossing Falling Interrupt
  */
-INLINE void BDRV_disPh1ZCFallInt(void)
-{
+INLINE void BDRV_disPh1ZCFallInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH1_ZCFALL_IEN = 0u;
 }
 
 /** \brief Disable Phase1 Zero Crossing Rising Interrupt
  */
-INLINE void BDRV_disPh1ZCRiseInt(void)
-{
+INLINE void BDRV_disPh1ZCRiseInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH1_ZCRISE_IEN = 0u;
 }
 
 /** \brief Disable Phase2 Zero Crossing Falling Interrupt
  */
-INLINE void BDRV_disPh2ZCFallInt(void)
-{
+INLINE void BDRV_disPh2ZCFallInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH2_ZCFALL_IEN = 0u;
 }
 
 /** \brief Disable Phase2 Zero Crossing Rising Interrupt
  */
-INLINE void BDRV_disPh2ZCRiseInt(void)
-{
+INLINE void BDRV_disPh2ZCRiseInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH2_ZCRISE_IEN = 0u;
 }
 
 /** \brief Disable Phase3 Zero Crossing Falling Interrupt
  */
-INLINE void BDRV_disPh3ZCFallInt(void)
-{
+INLINE void BDRV_disPh3ZCFallInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH3_ZCFALL_IEN = 0u;
 }
 
 /** \brief Disable Phase3 Zero Crossing Rising Interrupt
  */
-INLINE void BDRV_disPh3ZCRiseInt(void)
-{
+INLINE void BDRV_disPh3ZCRiseInt(void) {
   BDRV->BEMFC_IRQEN.bit.PH3_ZCRISE_IEN = 0u;
 }
 
@@ -2470,8 +2242,7 @@ INLINE void BDRV_disPh3ZCRiseInt(void)
  *
  * \return uint8 Phase1 Zero Crossing Comparator Status
  */
-INLINE uint8 BDRV_getPh1ZCCompSts(void)
-{
+INLINE uint8 BDRV_getPh1ZCCompSts(void) {
   return (uint8)BDRV->BEMFC_CTRL.bit.PH1_ZC_STS;
 }
 
@@ -2479,8 +2250,7 @@ INLINE uint8 BDRV_getPh1ZCCompSts(void)
  *
  * \return uint8 Phase2 Zero Crossing Comparator Status
  */
-INLINE uint8 BDRV_getPh2ZCCompSts(void)
-{
+INLINE uint8 BDRV_getPh2ZCCompSts(void) {
   return (uint8)BDRV->BEMFC_CTRL.bit.PH2_ZC_STS;
 }
 
@@ -2488,8 +2258,7 @@ INLINE uint8 BDRV_getPh2ZCCompSts(void)
  *
  * \return uint8 Phase3 Zero Crossing Comparator Status
  */
-INLINE uint8 BDRV_getPh3ZCCompSts(void)
-{
+INLINE uint8 BDRV_getPh3ZCCompSts(void) {
   return (uint8)BDRV->BEMFC_CTRL.bit.PH3_ZC_STS;
 }
 
@@ -2497,8 +2266,7 @@ INLINE uint8 BDRV_getPh3ZCCompSts(void)
  *
  * \return uint8 Phase1 Zero Crossing Falling Interrupt Status
  */
-INLINE uint8 BDRV_getPh1ZCFallIntSts(void)
-{
+INLINE uint8 BDRV_getPh1ZCFallIntSts(void) {
   return (uint8)BDRV->BEMFC_IRQS.bit.PH1_ZCFALL_IS;
 }
 
@@ -2506,8 +2274,7 @@ INLINE uint8 BDRV_getPh1ZCFallIntSts(void)
  *
  * \return uint8 Phase1 Zero Crossing Rising Interrupt Status
  */
-INLINE uint8 BDRV_getPh1ZCRiseIntSts(void)
-{
+INLINE uint8 BDRV_getPh1ZCRiseIntSts(void) {
   return (uint8)BDRV->BEMFC_IRQS.bit.PH1_ZCRISE_IS;
 }
 
@@ -2515,8 +2282,7 @@ INLINE uint8 BDRV_getPh1ZCRiseIntSts(void)
  *
  * \return uint8 Phase2 Zero Crossing Falling Interrupt Status
  */
-INLINE uint8 BDRV_getPh2ZCFallIntSts(void)
-{
+INLINE uint8 BDRV_getPh2ZCFallIntSts(void) {
   return (uint8)BDRV->BEMFC_IRQS.bit.PH2_ZCFALL_IS;
 }
 
@@ -2524,8 +2290,7 @@ INLINE uint8 BDRV_getPh2ZCFallIntSts(void)
  *
  * \return uint8 Phase2 Zero Crossing Rising Interrupt Status
  */
-INLINE uint8 BDRV_getPh2ZCRiseIntSts(void)
-{
+INLINE uint8 BDRV_getPh2ZCRiseIntSts(void) {
   return (uint8)BDRV->BEMFC_IRQS.bit.PH2_ZCRISE_IS;
 }
 
@@ -2533,8 +2298,7 @@ INLINE uint8 BDRV_getPh2ZCRiseIntSts(void)
  *
  * \return uint8 Phase3 Zero Crossing Falling Interrupt Status
  */
-INLINE uint8 BDRV_getPh3ZCFallIntSts(void)
-{
+INLINE uint8 BDRV_getPh3ZCFallIntSts(void) {
   return (uint8)BDRV->BEMFC_IRQS.bit.PH3_ZCFALL_IS;
 }
 
@@ -2542,50 +2306,43 @@ INLINE uint8 BDRV_getPh3ZCFallIntSts(void)
  *
  * \return uint8 Phase3 Zero Crossing Rising Interrupt Status
  */
-INLINE uint8 BDRV_getPh3ZCRiseIntSts(void)
-{
+INLINE uint8 BDRV_getPh3ZCRiseIntSts(void) {
   return (uint8)BDRV->BEMFC_IRQS.bit.PH3_ZCRISE_IS;
 }
 
 /** \brief Clear Phase1 Zero Crossing Falling Interrupt Status BDRV.BEMFC_IRQCLR.PH1_ZCFALL_ISC
  */
-INLINE void BDRV_clrPh1ZCFallIntSts(void)
-{
+INLINE void BDRV_clrPh1ZCFallIntSts(void) {
   BDRV->BEMFC_IRQCLR.bit.PH1_ZCFALL_ISC = 1u;
 }
 
 /** \brief Clear Phase1 Zero Crossing Rising Interrupt Status BDRV.BEMFC_IRQCLR.PH1_ZCRISE_ISC
  */
-INLINE void BDRV_clrPh1ZCRiseIntSts(void)
-{
+INLINE void BDRV_clrPh1ZCRiseIntSts(void) {
   BDRV->BEMFC_IRQCLR.bit.PH1_ZCRISE_ISC = 1u;
 }
 
 /** \brief Clear Phase2 Zero Crossing Falling Interrupt Status BDRV.BEMFC_IRQCLR.PH2_ZCFALL_ISC
  */
-INLINE void BDRV_clrPh2ZCFallIntSts(void)
-{
+INLINE void BDRV_clrPh2ZCFallIntSts(void) {
   BDRV->BEMFC_IRQCLR.bit.PH2_ZCFALL_ISC = 1u;
 }
 
 /** \brief Clear Phase2 Zero Crossing Rising Interrupt Status BDRV.BEMFC_IRQCLR.PH2_ZCRISE_ISC
  */
-INLINE void BDRV_clrPh2ZCRiseIntSts(void)
-{
+INLINE void BDRV_clrPh2ZCRiseIntSts(void) {
   BDRV->BEMFC_IRQCLR.bit.PH2_ZCRISE_ISC = 1u;
 }
 
 /** \brief Clear Phase3 Zero Crossing Falling Interrupt Status BDRV.BEMFC_IRQCLR.PH3_ZCFALL_ISC
  */
-INLINE void BDRV_clrPh3ZCFallIntSts(void)
-{
+INLINE void BDRV_clrPh3ZCFallIntSts(void) {
   BDRV->BEMFC_IRQCLR.bit.PH3_ZCFALL_ISC = 1u;
 }
 
 /** \brief Clear Phase3 Zero Crossing Rising Interrupt Status BDRV.BEMFC_IRQCLR.PH3_ZCRISE_ISC
  */
-INLINE void BDRV_clrPh3ZCRiseIntSts(void)
-{
+INLINE void BDRV_clrPh3ZCRiseIntSts(void) {
   BDRV->BEMFC_IRQCLR.bit.PH3_ZCRISE_ISC = 1u;
 }
 

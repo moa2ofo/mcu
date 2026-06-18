@@ -1,0 +1,7 @@
+#include "ADC1_setCmp1LoIntNodePtr_help.h"
+
+/* FUNCTION TO TEST */
+void ADC1_setCmp1LoIntNodePtr(void)
+{
+  /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
+}

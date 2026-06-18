@@ -14,8 +14,8 @@
 *******************************************************************************/
 
 #include "csacsc.h"
-#include "scu.h"
 #include "pmu.h"
+#include "scu.h"
 
 /*******************************************************************************
 **                          Private Macro Declarations                        **
@@ -45,30 +45,25 @@
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 CSACSC_init(void)
-{
+sint8 CSACSC_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_CODE_MODULE_DISABLED_IN_CW;
-#if ((CSACSC_CTRL1 & CSACSC_CTRL1_CSAC_EN_Msk) == CSACSC_CTRL1_CSAC_EN_Msk)
+#if((CSACSC_CTRL1 & CSACSC_CTRL1_CSAC_EN_Msk) == CSACSC_CTRL1_CSAC_EN_Msk)
   /* Program gain min., offset min. and threshold max., CSAC_EN remains reset */
   CSACSC->CTRL1.reg = (uint32)CSACSC_CTRL1 & (uint32)~CSACSC_CTRL1_CSAC_EN_Msk;
   /* Set CSAC_EN */
   CSACSC->CTRL1.reg = CSACSC_CTRL1;
 
-  while ((CSACSC_getBistSts() == 0u) && (PMU->FS_STS.bit.CSC_BIST_FAIL_STS == 0u))
-  {
+  while((CSACSC_getBistSts() == 0u) && (PMU->FS_STS.bit.CSC_BIST_FAIL_STS == 0u)) {
     /* Wait until CSA/CSC BIST is finished, duration: 28us nom. */
     s8_returnCode = PMU_serviceFailSafeWatchdog();
   }
 
-  if (CSACSC_getBistSts() == 1u)
-  {
+  if(CSACSC_getBistSts() == 1u) {
     /* CSA/CSC BIST passed, configure remaining parameters */
     CSACSC->CTRL2.reg = CSACSC_CTRL2;
     s8_returnCode = ERR_LOG_SUCCESS;
-  }
-  else
-  {
+  } else {
     /* In case the BIST test failed: PMU->FS_STS.bit.CSC_BIST_FAIL_STS = 1 */
     s8_returnCode = ERR_LOG_ERROR;
   }
@@ -88,8 +83,7 @@ sint8 CSACSC_init(void)
  * \param u16p_Val_mV pointer to the ADC1 result value
  * \return sint8 0: success, <0: error codes
  */
-sint8 CSACSC_startCalibration(uint16 *u16p_Val_mV)
-{
+sint8 CSACSC_startCalibration(uint16 *u16p_Val_mV) {
   uint32 u32_chCfg19Bak;
   uint32 u32_sqCfg3Bak;
   uint32 u32_sq3SlotBak;
@@ -99,8 +93,7 @@ sint8 CSACSC_startCalibration(uint16 *u16p_Val_mV)
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_SUCCESS;
 
-  if (PtrRangeCheck(u16p_Val_mV) == true)
-  {
+  if(PtrRangeCheck(u16p_Val_mV) == true) {
     /* Backup ADC1 channel19-/sequence3-/slot.seq3-configuration */
     u32_chCfg19Bak = ADC1->CHCFG19.reg;
     u32_sqCfg3Bak = ADC1->SQCFG3.reg;
@@ -133,10 +126,10 @@ sint8 CSACSC_startCalibration(uint16 *u16p_Val_mV)
     /* Start the sequencer 3 */
     s8_returnCode = ADC1_startSequence(ADC1_SEQ3);
 
-    if (s8_returnCode == ERR_LOG_SUCCESS)
-    {
+    if(s8_returnCode == ERR_LOG_SUCCESS) {
       /* Wait for end-of-conversion event for sequence 3 */
-      while (ADC1_getEndOfConvSts(ADC1_SEQ3, ADC1_SEQ_SLOT0) == 0) {}
+      while(ADC1_getEndOfConvSts(ADC1_SEQ3, ADC1_SEQ_SLOT0) == 0) {
+      }
 
       /* Get the result in millivolt for sequence 3 slot 0 */
       s8_returnCode = ADC1_getSeqResult_mV(u16p_Val_mV, ADC1_SEQ3, ADC1_SEQ_SLOT0);
@@ -149,9 +142,7 @@ sint8 CSACSC_startCalibration(uint16 *u16p_Val_mV)
     /* Shadow transfer trigger set to software */
     ADC1->SHDCTR.reg = (uint32)ADC1_SHADOWTRANS_EN;
     ADC1->SHDCTR.reg = (uint32)ADC1_SHADOWTRANS_BY_SW;
-  }
-  else
-  {
+  } else {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
 
@@ -166,12 +157,10 @@ sint8 CSACSC_startCalibration(uint16 *u16p_Val_mV)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void CSACSC_setOverCurrIntNodePtr(void)
-{
+void CSACSC_setOverCurrIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void CSACSC_setParamErrorIntNodePtr(void)
-{
+void CSACSC_setParamErrorIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }

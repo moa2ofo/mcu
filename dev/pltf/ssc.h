@@ -65,11 +65,11 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
+#include "scu_defines.h"
+#include "ssc_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
-#include "ssc_defines.h"
-#include "scu_defines.h"
+#include "types.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -220,8 +220,7 @@ void SSC1_setBaudrateErrIntNodePtr(void) __attribute__((deprecated("Do not chang
  *
  * \return uint64 Transmit Buffer value
  */
-INLINE uint64 SSC0_getTXvalue(void)
-{
+INLINE uint64 SSC0_getTXvalue(void) {
   uint64 u64_tb1;
   uint64 u64_tb0;
   u64_tb1 = (uint64)SSC0->TB1.reg << 32u;
@@ -233,8 +232,7 @@ INLINE uint64 SSC0_getTXvalue(void)
  *
  * \param u64_TXvalue Transmit Buffer value
  */
-INLINE void SSC0_setTXvalue(uint64 u64_TXvalue)
-{
+INLINE void SSC0_setTXvalue(uint64 u64_TXvalue) {
   SSC0->TB1.bit.TB_VALUE_UPPER = (uint32)(u64_TXvalue >> 32u);
   SSC0->TB0.bit.TB_VALUE_LOWER = (uint32)(u64_TXvalue & 0xFFFFFFFFu);
 }
@@ -243,8 +241,7 @@ INLINE void SSC0_setTXvalue(uint64 u64_TXvalue)
  *
  * \return uint64 Receive Buffer value
  */
-INLINE uint64 SSC0_getRXvalue(void)
-{
+INLINE uint64 SSC0_getRXvalue(void) {
   uint64 u64_rb1;
   uint64 u64_rb0;
   u64_rb1 = (uint64)SSC0->RB1.reg << 32u;
@@ -256,8 +253,7 @@ INLINE uint64 SSC0_getRXvalue(void)
  *
  * \return uint8 Bit Count
  */
-INLINE uint8 SSC0_getBitCnt(void)
-{
+INLINE uint8 SSC0_getBitCnt(void) {
   return (uint8)SSC0->STAT.bit.BC;
 }
 
@@ -265,92 +261,79 @@ INLINE uint8 SSC0_getBitCnt(void)
  *
  * \return uint8 Busy Status
  */
-INLINE uint8 SSC0_getBusySts(void)
-{
+INLINE uint8 SSC0_getBusySts(void) {
   return (uint8)SSC0->STAT.bit.BSY;
 }
 
 /** \brief Enable SSC0 Empty Transmit Buffer Interrupt
  */
-INLINE void SSC0_enEmptyTXBufferInt(void)
-{
+INLINE void SSC0_enEmptyTXBufferInt(void) {
   SSC0->IEN.bit.TIREN = 1u;
 }
 
 /** \brief Enable SSC0 Empty Receive Buffer Interrupt
  */
-INLINE void SSC0_enEmptyRXBufferInt(void)
-{
+INLINE void SSC0_enEmptyRXBufferInt(void) {
   SSC0->IEN.bit.RIREN = 1u;
 }
 
 /** \brief Enable SSC0 Transmit Error Interrupt
  */
-INLINE void SSC0_enTXErrInt(void)
-{
+INLINE void SSC0_enTXErrInt(void) {
   SSC0->IEN.bit.TEIREN = 1u;
 }
 
 /** \brief Enable SSC0 Receive Error Interrupt
  */
-INLINE void SSC0_enRXErrInt(void)
-{
+INLINE void SSC0_enRXErrInt(void) {
   SSC0->IEN.bit.REIREN = 1u;
 }
 
 /** \brief Enable SSC0 Phase Error Interrupt
  */
-INLINE void SSC0_enPhaseErrInt(void)
-{
+INLINE void SSC0_enPhaseErrInt(void) {
   SSC0->IEN.bit.PEIREN = 1u;
 }
 
 /** \brief Enable SSC0 Baudrate Error Interrupt
  */
-INLINE void SSC0_enBaudrateErrInt(void)
-{
+INLINE void SSC0_enBaudrateErrInt(void) {
   SSC0->IEN.bit.BEIREN = 1u;
 }
 
 /** \brief Disable SSC0 Empty Transmit Buffer Interrupt
  */
-INLINE void SSC0_disEmptyTXBufferInt(void)
-{
+INLINE void SSC0_disEmptyTXBufferInt(void) {
   SSC0->IEN.bit.TIREN = 0u;
 }
 
 /** \brief Disable SSC0 Empty Receive Buffer Interrupt
  */
-INLINE void SSC0_disEmptyRXBufferInt(void)
-{
+INLINE void SSC0_disEmptyRXBufferInt(void) {
   SSC0->IEN.bit.RIREN = 0u;
 }
 
 /** \brief Disable SSC0 Transmit Error Interrupt
  */
-INLINE void SSC0_disTXErrInt(void)
-{
+INLINE void SSC0_disTXErrInt(void) {
   SSC0->IEN.bit.TEIREN = 0u;
 }
 
 /** \brief Disable SSC0 Receive Error Interrupt
  */
-INLINE void SSC0_disRXErrInt(void)
-{
+INLINE void SSC0_disRXErrInt(void) {
   SSC0->IEN.bit.REIREN = 0u;
 }
 
 /** \brief Disable SSC0 Phase Error Interrupt
  */
-INLINE void SSC0_disPhaseErrInt(void)
-{
+INLINE void SSC0_disPhaseErrInt(void) {
   SSC0->IEN.bit.PEIREN = 0u;
 }
 
 /** \brief Disable SSC0 Baudrate Error Interrupt
  */
-INLINE void SSC0_disBaudrateErrInt(void)
-{
+INLINE void SSC0_disBaudrateErrInt(void) {
   SSC0->IEN.bit.BEIREN = 0u;
 }
 
@@ -358,8 +341,7 @@ INLINE void SSC0_disBaudrateErrInt(void)
  *
  * \return uint8 Empty Transmit Buffer Interrupt Status
  */
-INLINE uint8 SSC0_getEmptyTXBufferIntSts(void)
-{
+INLINE uint8 SSC0_getEmptyTXBufferIntSts(void) {
   return (uint8)SSC0->IS.bit.TIR;
 }
 
@@ -367,8 +349,7 @@ INLINE uint8 SSC0_getEmptyTXBufferIntSts(void)
  *
  * \return uint8 Empty Receive Buffer Interrupt Status
  */
-INLINE uint8 SSC0_getEmptyRXBufferIntSts(void)
-{
+INLINE uint8 SSC0_getEmptyRXBufferIntSts(void) {
   return (uint8)SSC0->IS.bit.RIR;
 }
 
@@ -376,8 +357,7 @@ INLINE uint8 SSC0_getEmptyRXBufferIntSts(void)
  *
  * \return uint8 Transmit Error Interrupt Status
  */
-INLINE uint8 SSC0_getTXErrIntSts(void)
-{
+INLINE uint8 SSC0_getTXErrIntSts(void) {
   return (uint8)SSC0->IS.bit.TEIR;
 }
 
@@ -385,8 +365,7 @@ INLINE uint8 SSC0_getTXErrIntSts(void)
  *
  * \return uint8 Receive Error Interrupt Status
  */
-INLINE uint8 SSC0_getRXErrIntSts(void)
-{
+INLINE uint8 SSC0_getRXErrIntSts(void) {
   return (uint8)SSC0->IS.bit.REIR;
 }
 
@@ -394,8 +373,7 @@ INLINE uint8 SSC0_getRXErrIntSts(void)
  *
  * \return uint8 Phase Error Interrupt Status
  */
-INLINE uint8 SSC0_getPhaseErrIntSts(void)
-{
+INLINE uint8 SSC0_getPhaseErrIntSts(void) {
   return (uint8)SSC0->IS.bit.PEIR;
 }
 
@@ -403,50 +381,43 @@ INLINE uint8 SSC0_getPhaseErrIntSts(void)
  *
  * \return uint8 Baudrate Error Interrupt Status
  */
-INLINE uint8 SSC0_getBaudrateErrIntSts(void)
-{
+INLINE uint8 SSC0_getBaudrateErrIntSts(void) {
   return (uint8)SSC0->IS.bit.BEIR;
 }
 
 /** \brief Clear SSC0 Empty Transmit Buffer Interrupt Status SSC0.ISC.TIRCLR
  */
-INLINE void SSC0_clrEmptyTXBufferIntSts(void)
-{
+INLINE void SSC0_clrEmptyTXBufferIntSts(void) {
   SSC0->ISC.bit.TIRCLR = 1u;
 }
 
 /** \brief Clear SSC0 Empty Receive Buffer Interrupt Status SSC0.ISC.RIRCLR
  */
-INLINE void SSC0_clrEmptyRXBufferIntSts(void)
-{
+INLINE void SSC0_clrEmptyRXBufferIntSts(void) {
   SSC0->ISC.bit.RIRCLR = 1u;
 }
 
 /** \brief Clear SSC0 Transmit Error Interrupt Status SSC0.ISC.TEIRCLR
  */
-INLINE void SSC0_clrTXErrIntSts(void)
-{
+INLINE void SSC0_clrTXErrIntSts(void) {
   SSC0->ISC.bit.TEIRCLR = 1u;
 }
 
 /** \brief Clear SSC0 Receive Error Interrupt Status SSC0.ISC.REIRCLR
  */
-INLINE void SSC0_clrRXErrIntSts(void)
-{
+INLINE void SSC0_clrRXErrIntSts(void) {
   SSC0->ISC.bit.REIRCLR = 1u;
 }
 
 /** \brief Clear SSC0 Phase Error Interrupt Status SSC0.ISC.PEIRCLR
  */
-INLINE void SSC0_clrPhaseErrIntSts(void)
-{
+INLINE void SSC0_clrPhaseErrIntSts(void) {
   SSC0->ISC.bit.PEIRCLR = 1u;
 }
 
 /** \brief Clear SSC0 Baudrate Error Interrupt Status SSC0.ISC.BEIRCLR
  */
-INLINE void SSC0_clrBaudrateErrIntSts(void)
-{
+INLINE void SSC0_clrBaudrateErrIntSts(void) {
   SSC0->ISC.bit.BEIRCLR = 1u;
 }
 
@@ -454,8 +425,7 @@ INLINE void SSC0_clrBaudrateErrIntSts(void)
  *
  * \return uint64 Transmit Buffer value
  */
-INLINE uint64 SSC1_getTXvalue(void)
-{
+INLINE uint64 SSC1_getTXvalue(void) {
   uint64 u64_tb1;
   uint64 u64_tb0;
   u64_tb1 = (uint64)SSC1->TB1.reg << 32u;
@@ -467,8 +437,7 @@ INLINE uint64 SSC1_getTXvalue(void)
  *
  * \param u64_TXvalue Transmit Buffer value
  */
-INLINE void SSC1_setTXvalue(uint64 u64_TXvalue)
-{
+INLINE void SSC1_setTXvalue(uint64 u64_TXvalue) {
   SSC1->TB1.bit.TB_VALUE_UPPER = (uint32)(u64_TXvalue >> 32u);
   SSC1->TB0.bit.TB_VALUE_LOWER = (uint32)(u64_TXvalue & 0xFFFFFFFFu);
 }
@@ -477,8 +446,7 @@ INLINE void SSC1_setTXvalue(uint64 u64_TXvalue)
  *
  * \return uint64 Receive Buffer value
  */
-INLINE uint64 SSC1_getRXvalue(void)
-{
+INLINE uint64 SSC1_getRXvalue(void) {
   uint64 u64_rb1;
   uint64 u64_rb0;
   u64_rb1 = (uint64)SSC1->RB1.reg << 32u;
@@ -490,8 +458,7 @@ INLINE uint64 SSC1_getRXvalue(void)
  *
  * \return uint8 Bit Count
  */
-INLINE uint8 SSC1_getBitCnt(void)
-{
+INLINE uint8 SSC1_getBitCnt(void) {
   return (uint8)SSC1->STAT.bit.BC;
 }
 
@@ -499,92 +466,79 @@ INLINE uint8 SSC1_getBitCnt(void)
  *
  * \return uint8 Busy Status
  */
-INLINE uint8 SSC1_getBusySts(void)
-{
+INLINE uint8 SSC1_getBusySts(void) {
   return (uint8)SSC1->STAT.bit.BSY;
 }
 
 /** \brief Enable SSC1 Empty Transmit Buffer Interrupt
  */
-INLINE void SSC1_enEmptyTXBufferInt(void)
-{
+INLINE void SSC1_enEmptyTXBufferInt(void) {
   SSC1->IEN.bit.TIREN = 1u;
 }
 
 /** \brief Enable SSC1 Empty Receive Buffer Interrupt
  */
-INLINE void SSC1_enEmptyRXBufferInt(void)
-{
+INLINE void SSC1_enEmptyRXBufferInt(void) {
   SSC1->IEN.bit.RIREN = 1u;
 }
 
 /** \brief Enable SSC1 Transmit Error Interrupt
  */
-INLINE void SSC1_enTXErrInt(void)
-{
+INLINE void SSC1_enTXErrInt(void) {
   SSC1->IEN.bit.TEIREN = 1u;
 }
 
 /** \brief Enable SSC1 Receive Error Interrupt
  */
-INLINE void SSC1_enRXErrInt(void)
-{
+INLINE void SSC1_enRXErrInt(void) {
   SSC1->IEN.bit.REIREN = 1u;
 }
 
 /** \brief Enable SSC1 Phase Error Interrupt
  */
-INLINE void SSC1_enPhaseErrInt(void)
-{
+INLINE void SSC1_enPhaseErrInt(void) {
   SSC1->IEN.bit.PEIREN = 1u;
 }
 
 /** \brief Enable SSC1 Baudrate Error Interrupt
  */
-INLINE void SSC1_enBaudrateErrInt(void)
-{
+INLINE void SSC1_enBaudrateErrInt(void) {
   SSC1->IEN.bit.BEIREN = 1u;
 }
 
 /** \brief Disable SSC1 Empty Transmit Buffer Interrupt
  */
-INLINE void SSC1_disEmptyTXBufferInt(void)
-{
+INLINE void SSC1_disEmptyTXBufferInt(void) {
   SSC1->IEN.bit.TIREN = 0u;
 }
 
 /** \brief Disable SSC1 Empty Receive Buffer Interrupt
  */
-INLINE void SSC1_disEmptyRXBufferInt(void)
-{
+INLINE void SSC1_disEmptyRXBufferInt(void) {
   SSC1->IEN.bit.RIREN = 0u;
 }
 
 /** \brief Disable SSC1 Transmit Error Interrupt
  */
-INLINE void SSC1_disTXErrInt(void)
-{
+INLINE void SSC1_disTXErrInt(void) {
   SSC1->IEN.bit.TEIREN = 0u;
 }
 
 /** \brief Disable SSC1 Receive Error Interrupt
  */
-INLINE void SSC1_disRXErrInt(void)
-{
+INLINE void SSC1_disRXErrInt(void) {
   SSC1->IEN.bit.REIREN = 0u;
 }
 
 /** \brief Disable SSC1 Phase Error Interrupt
  */
-INLINE void SSC1_disPhaseErrInt(void)
-{
+INLINE void SSC1_disPhaseErrInt(void) {
   SSC1->IEN.bit.PEIREN = 0u;
 }
 
 /** \brief Disable SSC1 Baudrate Error Interrupt
  */
-INLINE void SSC1_disBaudrateErrInt(void)
-{
+INLINE void SSC1_disBaudrateErrInt(void) {
   SSC1->IEN.bit.BEIREN = 0u;
 }
 
@@ -592,8 +546,7 @@ INLINE void SSC1_disBaudrateErrInt(void)
  *
  * \return uint8 Empty Transmit Buffer Interrupt Status
  */
-INLINE uint8 SSC1_getEmptyTXBufferIntSts(void)
-{
+INLINE uint8 SSC1_getEmptyTXBufferIntSts(void) {
   return (uint8)SSC1->IS.bit.TIR;
 }
 
@@ -601,8 +554,7 @@ INLINE uint8 SSC1_getEmptyTXBufferIntSts(void)
  *
  * \return uint8 Empty Receive Buffer Interrupt Status
  */
-INLINE uint8 SSC1_getEmptyRXBufferIntSts(void)
-{
+INLINE uint8 SSC1_getEmptyRXBufferIntSts(void) {
   return (uint8)SSC1->IS.bit.RIR;
 }
 
@@ -610,8 +562,7 @@ INLINE uint8 SSC1_getEmptyRXBufferIntSts(void)
  *
  * \return uint8 Transmit Error Interrupt Status
  */
-INLINE uint8 SSC1_getTXErrIntSts(void)
-{
+INLINE uint8 SSC1_getTXErrIntSts(void) {
   return (uint8)SSC1->IS.bit.TEIR;
 }
 
@@ -619,8 +570,7 @@ INLINE uint8 SSC1_getTXErrIntSts(void)
  *
  * \return uint8 Receive Error Interrupt Status
  */
-INLINE uint8 SSC1_getRXErrIntSts(void)
-{
+INLINE uint8 SSC1_getRXErrIntSts(void) {
   return (uint8)SSC1->IS.bit.REIR;
 }
 
@@ -628,8 +578,7 @@ INLINE uint8 SSC1_getRXErrIntSts(void)
  *
  * \return uint8 Phase Error Interrupt Status
  */
-INLINE uint8 SSC1_getPhaseErrIntSts(void)
-{
+INLINE uint8 SSC1_getPhaseErrIntSts(void) {
   return (uint8)SSC1->IS.bit.PEIR;
 }
 
@@ -637,50 +586,43 @@ INLINE uint8 SSC1_getPhaseErrIntSts(void)
  *
  * \return uint8 Baudrate Error Interrupt Status
  */
-INLINE uint8 SSC1_getBaudrateErrIntSts(void)
-{
+INLINE uint8 SSC1_getBaudrateErrIntSts(void) {
   return (uint8)SSC1->IS.bit.BEIR;
 }
 
 /** \brief Clear SSC1 Empty Transmit Buffer Interrupt Status SSC1.ISC.TIRCLR
  */
-INLINE void SSC1_clrEmptyTXBufferIntSts(void)
-{
+INLINE void SSC1_clrEmptyTXBufferIntSts(void) {
   SSC1->ISC.bit.TIRCLR = 1u;
 }
 
 /** \brief Clear SSC1 Empty Receive Buffer Interrupt Status SSC1.ISC.RIRCLR
  */
-INLINE void SSC1_clrEmptyRXBufferIntSts(void)
-{
+INLINE void SSC1_clrEmptyRXBufferIntSts(void) {
   SSC1->ISC.bit.RIRCLR = 1u;
 }
 
 /** \brief Clear SSC1 Transmit Error Interrupt Status SSC1.ISC.TEIRCLR
  */
-INLINE void SSC1_clrTXErrIntSts(void)
-{
+INLINE void SSC1_clrTXErrIntSts(void) {
   SSC1->ISC.bit.TEIRCLR = 1u;
 }
 
 /** \brief Clear SSC1 Receive Error Interrupt Status SSC1.ISC.REIRCLR
  */
-INLINE void SSC1_clrRXErrIntSts(void)
-{
+INLINE void SSC1_clrRXErrIntSts(void) {
   SSC1->ISC.bit.REIRCLR = 1u;
 }
 
 /** \brief Clear SSC1 Phase Error Interrupt Status SSC1.ISC.PEIRCLR
  */
-INLINE void SSC1_clrPhaseErrIntSts(void)
-{
+INLINE void SSC1_clrPhaseErrIntSts(void) {
   SSC1->ISC.bit.PEIRCLR = 1u;
 }
 
 /** \brief Clear SSC1 Baudrate Error Interrupt Status SSC1.ISC.BEIRCLR
  */
-INLINE void SSC1_clrBaudrateErrIntSts(void)
-{
+INLINE void SSC1_clrBaudrateErrIntSts(void) {
   SSC1->ISC.bit.BEIRCLR = 1u;
 }
 

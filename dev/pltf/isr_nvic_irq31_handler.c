@@ -13,20 +13,19 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "tle989x.h"
 #include "isr.h"
 #include "isr_defines.h"
-
+#include "tle989x.h"
 
 /* Check if NVIC node 31 is enabled */
-#if ((CPU_NVIC_ISER & CPU_NVIC_ISER_IRQEN31_Msk) == (1u << CPU_NVIC_ISER_IRQEN31_Pos))
+#if((CPU_NVIC_ISER & CPU_NVIC_ISER_IRQEN31_Msk) == (1u << CPU_NVIC_ISER_IRQEN31_Pos))
 
 /*******************************************************************************
 **                        Global Variable Definitions                         **
 *******************************************************************************/
 
-#if (NVIC_IRQ31_HANDLER_INT_CHECK == 1)
-  uint8 u8_interrupt_cnt_irq31 = 0;
+#if(NVIC_IRQ31_HANDLER_INT_CHECK == 1)
+uint8 u8_interrupt_cnt_irq31 = 0;
 #endif
 
 /*******************************************************************************
@@ -37,21 +36,18 @@
 **                         Global Function Definitions                        **
 *******************************************************************************/
 
-void NVIC_IRQ31_Handler(void)
-{
-#if (NVIC_IRQ31_HANDLER_INT_CHECK == 1)
+void NVIC_IRQ31_Handler(void) {
+#if(NVIC_IRQ31_HANDLER_INT_CHECK == 1)
   u8_interrupt_cnt_irq31 = 0;
 #endif
   /* External Int */
-#if (T21_EXF2_INT_EN == 1)
+#if(T21_EXF2_INT_EN == 1)
 
-  if (T21->CON1.bit.EXF2EN == 1u)
-  {
-    if (T21->CON.bit.EXF2 == 1u)
-    {
+  if(T21->CON1.bit.EXF2EN == 1u) {
+    if(T21->CON.bit.EXF2 == 1u) {
       T21_EXF2_CALLBACK();
       T21->ICLR.bit.EXF2CLR = 1u;
-#if (NVIC_IRQ31_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ31_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq31 += 1u;
 #endif
     }
@@ -59,15 +55,13 @@ void NVIC_IRQ31_Handler(void)
 
 #endif /* Interrupt enabled */
   /* Over-/Underflow Int */
-#if (T21_TF2_INT_EN == 1)
+#if(T21_TF2_INT_EN == 1)
 
-  if (T21->CON1.bit.TF2EN == 1u)
-  {
-    if (T21->CON.bit.TF2 == 1u)
-    {
+  if(T21->CON1.bit.TF2EN == 1u) {
+    if(T21->CON.bit.TF2 == 1u) {
       T21_TF2_CALLBACK();
       T21->ICLR.bit.TF2CLR = 1u;
-#if (NVIC_IRQ31_HANDLER_INT_CHECK == 1)
+#if(NVIC_IRQ31_HANDLER_INT_CHECK == 1)
       u8_interrupt_cnt_irq31 += 1u;
 #endif
     }

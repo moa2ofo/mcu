@@ -39,11 +39,10 @@
  *
  * \return sint8 0: success, <0: error codes
  */
-sint8 GPT12_init(void)
-{
+sint8 GPT12_init(void) {
   sint8 s8_returnCode;
   s8_returnCode = ERR_LOG_CODE_MODULE_DISABLED_IN_CW;
-#if ((SCU_PMCON & SCU_PMCON_GPT12_DIS_Msk) == 0u)
+#if((SCU_PMCON & SCU_PMCON_GPT12_DIS_Msk) == 0u)
   s8_returnCode = ERR_LOG_SUCCESS;
   GPT12->T2CON.reg = GPT12_T2CON;
   GPT12->T2.reg = GPT12_T2;
@@ -66,8 +65,7 @@ sint8 GPT12_init(void)
  * \param u32_timeInterval_us Duration of the core timer T3 in microseconds
  * \return sint8 0: success, <0: error codes
  */
-sint8 GPT12_setIntervalTimerT3(uint32 u32_timeInterval_us)
-{
+sint8 GPT12_setIntervalTimerT3(uint32 u32_timeInterval_us) {
   sint8 s8_returnCode;
   uint64 u64_timeInterval_ticks;
   /* Calculate T3 individual prescaler: as long as u64_timeInterval_ticks is larger than
@@ -78,15 +76,13 @@ sint8 GPT12_setIntervalTimerT3(uint32 u32_timeInterval_us)
   /* Calculate time interval in ticks */
   u64_timeInterval_ticks = (uint64)(((uint64)u32_timeInterval_us * (uint64)fGPT1_HZ) / (uint64)1000000U);
 
-  while (u64_timeInterval_ticks > (uint64)0xFFFFu)
-  {
+  while(u64_timeInterval_ticks > (uint64)0xFFFFu) {
     u8_T3ClkPrescaler++;
     u64_timeInterval_ticks >>= 1u;
   }
 
   /* The individual prescaler maximal value is 0b111 */
-  if (u8_T3ClkPrescaler <= 7u)
-  {
+  if(u8_T3ClkPrescaler <= 7u) {
     /* Set T3 mode as Timer mode */
     GPT12->T3CON.bit.T3M = 0u;
     /* Set the calculated T3 individual prescaler */
@@ -105,8 +101,7 @@ sint8 GPT12_setIntervalTimerT3(uint32 u32_timeInterval_us)
     GPT12->T3CON.bit.T3OTL = 1u;
     /* Set T2 to trigger reload every T3OTL toggle, for rising and falling edge */
     GPT12->T2CON.bit.T2I = 7u;
-  }
-  else /* Arguments out of range */
+  } else /* Arguments out of range */
   {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
@@ -119,8 +114,7 @@ sint8 GPT12_setIntervalTimerT3(uint32 u32_timeInterval_us)
  * \param u32_timeInterval_us Duration of the core timer T6 in microseconds
  * \return sint8 0: success, <0: error codes
  */
-sint8 GPT12_setIntervalTimerT6(uint32 u32_timeInterval_us)
-{
+sint8 GPT12_setIntervalTimerT6(uint32 u32_timeInterval_us) {
   sint8 s8_returnCode;
   uint64 u64_timeInterval_ticks;
   /* Calculate T6 individual prescaler: as long as u64_timeInterval_ticks is larger than
@@ -131,15 +125,13 @@ sint8 GPT12_setIntervalTimerT6(uint32 u32_timeInterval_us)
   /* Calculate time interval in ticks */
   u64_timeInterval_ticks = (uint64)(((uint64)u32_timeInterval_us * (uint64)fGPT2_HZ) / (uint64)1000000U);
 
-  while (u64_timeInterval_ticks > (uint64)0xFFFFu)
-  {
+  while(u64_timeInterval_ticks > (uint64)0xFFFFu) {
     u8_T6ClkPrescaler++;
     u64_timeInterval_ticks >>= 1u;
   }
 
   /* The individual prescaler maximal value is 0b111 */
-  if (u8_T6ClkPrescaler <= 7u)
-  {
+  if(u8_T6ClkPrescaler <= 7u) {
     /* Set T6 mode as Timer mode */
     GPT12->T6CON.bit.T6M = 0u;
     /* Set the calculated T6 individual prescaler */
@@ -156,8 +148,7 @@ sint8 GPT12_setIntervalTimerT6(uint32 u32_timeInterval_us)
     GPT12->T6CON.bit.T6OTL = 1u;
     /* Enable T6 reload by CAPREL */
     GPT12->T6CON.bit.T6SR = 1u;
-  }
-  else /* Arguments out of range */
+  } else /* Arguments out of range */
   {
     s8_returnCode = ERR_LOG_CODE_PARAM_OUT_OF_RANGE;
   }
@@ -169,33 +160,26 @@ sint8 GPT12_setIntervalTimerT6(uint32 u32_timeInterval_us)
 **                       Deprecated Function Definitions                      **
 *******************************************************************************/
 
-void GPT12_setT2IntNodePtr(void)
-{
+void GPT12_setT2IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void GPT12_setT3IntNodePtr(void)
-{
+void GPT12_setT3IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void GPT12_setT4IntNodePtr(void)
-{
+void GPT12_setT4IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void GPT12_setT5IntNodePtr(void)
-{
+void GPT12_setT5IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void GPT12_setT6IntNodePtr(void)
-{
+void GPT12_setT6IntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
 
-void GPT12_setCapRelIntNodePtr(void)
-{
+void GPT12_setCapRelIntNodePtr(void) {
   /* Do not change this at runtime, use the ConfigWizard to configure this feature! */
 }
-

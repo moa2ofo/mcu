@@ -87,12 +87,12 @@
 **                                  Includes                                  **
 *******************************************************************************/
 
-#include "types.h"
+#include "isr_defines.h"
+#include "scu_defines.h"
 #include "tle989x.h"
 #include "tle_variants.h"
+#include "types.h"
 #include "uart_defines.h"
-#include "scu_defines.h"
-#include "isr_defines.h"
 
 /*******************************************************************************
 **                        Global Constant Declarations                        **
@@ -116,9 +116,9 @@ uint32 UART0_getBaudrate(void);
 uint32 UART1_getBaudrate(void);
 sint8 UART0_setBaudrate(uint32 u32_baudrate);
 sint8 UART1_setBaudrate(uint32 u32_baudrate);
-#if ((UART0_STD_EN == 1) || (UART1_STD_EN == 1))
-  sint32 stdout_putchar(sint32 character);
-  sint32 stdin_getchar(void);
+#if((UART0_STD_EN == 1) || (UART1_STD_EN == 1))
+sint32 stdout_putchar(sint32 character);
+sint32 stdin_getchar(void);
 #endif
 INLINE uint16 UART0_getRXbuffer(void);
 INLINE void UART0_setTXbuffer(uint16 u16_value);
@@ -219,8 +219,7 @@ void UART1_setEOFIntSts(void) __attribute__((deprecated("Do not change this at r
  *
  * \return uint16 UART0 RX buffer
 */
-INLINE uint16 UART0_getRXbuffer(void)
-{
+INLINE uint16 UART0_getRXbuffer(void) {
   UART0_clrRXIntSts();
   return (uint16)(UART0->RXBUF.reg);
 }
@@ -229,8 +228,7 @@ INLINE uint16 UART0_getRXbuffer(void)
  *
  * \param u16_value UART0 TX buffer
 */
-INLINE void UART0_setTXbuffer(uint16 u16_value)
-{
+INLINE void UART0_setTXbuffer(uint16 u16_value) {
   UART0_clrTXIntSts();
   UART0->TXBUF.reg = u16_value;
 }
@@ -239,8 +237,7 @@ INLINE void UART0_setTXbuffer(uint16 u16_value)
  *
  * \return uint16 UART1 RX buffer
 */
-INLINE uint16 UART1_getRXbuffer(void)
-{
+INLINE uint16 UART1_getRXbuffer(void) {
   UART1_clrRXIntSts();
   return (uint16)(UART1->RXBUF.reg);
 }
@@ -249,8 +246,7 @@ INLINE uint16 UART1_getRXbuffer(void)
  *
  * \param u16_value UART1 TX buffer
 */
-INLINE void UART1_setTXbuffer(uint16 u16_value)
-{
+INLINE void UART1_setTXbuffer(uint16 u16_value) {
   UART1_clrTXIntSts();
   UART1->TXBUF.reg = u16_value;
 }
@@ -259,13 +255,11 @@ INLINE void UART1_setTXbuffer(uint16 u16_value)
  *
  * \return true, a byte was received OR false, a byte was not received
 */
-INLINE bool UART0_isByteReceived(void)
-{
+INLINE bool UART0_isByteReceived(void) {
   //lint --e{9034}
   bool result = false;
 
-  if (UART0_getRXIntSts() == 1u)
-  {
+  if(UART0_getRXIntSts() == 1u) {
     result = true;
   }
 
@@ -276,13 +270,11 @@ INLINE bool UART0_isByteReceived(void)
  *
  * \return true, a byte was transmitted OR false, a byte was not transmitted
 */
-INLINE bool UART0_isByteTransmitted(void)
-{
+INLINE bool UART0_isByteTransmitted(void) {
   //lint --e{9034}
   bool result = false;
 
-  if (UART0_getTXIntSts() == 1u)
-  {
+  if(UART0_getTXIntSts() == 1u) {
     result = true;
   }
 
@@ -293,13 +285,11 @@ INLINE bool UART0_isByteTransmitted(void)
  *
  * \return true, a byte was received OR false, a byte was not received
 */
-INLINE bool UART1_isByteReceived(void)
-{
+INLINE bool UART1_isByteReceived(void) {
   //lint --e{9034}
   bool result = false;
 
-  if (UART1_getRXIntSts() == 1u)
-  {
+  if(UART1_getRXIntSts() == 1u) {
     result = true;
   }
 
@@ -310,13 +300,11 @@ INLINE bool UART1_isByteReceived(void)
  *
  * \return true, a byte was transmitted OR false, a byte was not transmitted
 */
-INLINE bool UART1_isByteTransmitted(void)
-{
+INLINE bool UART1_isByteTransmitted(void) {
   //lint --e{9034}
   bool result = false;
 
-  if (UART1_getTXIntSts() == 1u)
-  {
+  if(UART1_getTXIntSts() == 1u) {
     result = true;
   }
 
@@ -325,155 +313,133 @@ INLINE bool UART1_isByteTransmitted(void)
 
 /** \brief Enable the baudrate generator, UART0.BCON.BR_R
  */
-INLINE void UART0_enBaudrateGen(void)
-{
+INLINE void UART0_enBaudrateGen(void) {
   UART0->BCON.bit.BR_R = 1u;
 }
 
 /** \brief Disable the baudrate generator, UART0.BCON.BR_R
  */
-INLINE void UART0_disBaudrateGen(void)
-{
+INLINE void UART0_disBaudrateGen(void) {
   UART0->BCON.bit.BR_R = 0u;
 }
 
 /** \brief Enable the baudrate generator, UART1.BCON.BR_R
  */
-INLINE void UART1_enBaudrateGen(void)
-{
+INLINE void UART1_enBaudrateGen(void) {
   UART1->BCON.bit.BR_R = 1u;
 }
 
 /** \brief Disable the baudrate generator, UART1.BCON.BR_R
  */
-INLINE void UART1_disBaudrateGen(void)
-{
+INLINE void UART1_disBaudrateGen(void) {
   UART1->BCON.bit.BR_R = 0u;
 }
 
 /** \brief Start the transmission, UART0.TSTART.TXSTART
  */
-INLINE void UART0_startTX(void)
-{
+INLINE void UART0_startTX(void) {
   UART0->TSTART.bit.TXSTART = 1u;
 }
 
 /** \brief Start the transmission, UART1.TSTART.TXSTART
  */
-INLINE void UART1_startTX(void)
-{
+INLINE void UART1_startTX(void) {
   UART1->TSTART.bit.TXSTART = 1u;
 }
 
 /** \brief Enable UART0 Transmit Interrupt
  */
-INLINE void UART0_enTXInt(void)
-{
+INLINE void UART0_enTXInt(void) {
   UART0->IEN.bit.TIEN = 1u;
 }
 
 /** \brief Enable UART0 Receive Interrupt
  */
-INLINE void UART0_enRXErrInt(void)
-{
+INLINE void UART0_enRXErrInt(void) {
   UART0->IEN.bit.RIEN = 1u;
 }
 
 /** \brief Enable UART0 Sync Error Interrupt
  */
-INLINE void UART0_enSyncErrInt(void)
-{
+INLINE void UART0_enSyncErrInt(void) {
   UART0->IEN.bit.ERRSYNEN = 1u;
 }
 
 /** \brief Enable UART0 End of Sync Interrupt
  */
-INLINE void UART0_enEOSInt(void)
-{
+INLINE void UART0_enEOSInt(void) {
   UART0->IEN.bit.EOFSYNEN = 1u;
 }
 
 /** \brief Disable UART0 Transmit Interrupt
  */
-INLINE void UART0_disTXInt(void)
-{
+INLINE void UART0_disTXInt(void) {
   UART0->IEN.bit.TIEN = 0u;
 }
 
 /** \brief Disable UART0 Receive Interrupt
  */
-INLINE void UART0_disRXErrInt(void)
-{
+INLINE void UART0_disRXErrInt(void) {
   UART0->IEN.bit.RIEN = 0u;
 }
 
 /** \brief Disable UART0 Sync Error Interrupt
  */
-INLINE void UART0_disSyncErrInt(void)
-{
+INLINE void UART0_disSyncErrInt(void) {
   UART0->IEN.bit.ERRSYNEN = 0u;
 }
 
 /** \brief Disable UART0 End of Sync Interrupt
  */
-INLINE void UART0_disEOSInt(void)
-{
+INLINE void UART0_disEOSInt(void) {
   UART0->IEN.bit.EOFSYNEN = 0u;
 }
 
 /** \brief Enable UART1 Transmit Interrupt
  */
-INLINE void UART1_enTXInt(void)
-{
+INLINE void UART1_enTXInt(void) {
   UART1->IEN.bit.TIEN = 1u;
 }
 
 /** \brief Enable UART1 Receive Interrupt
  */
-INLINE void UART1_enRXErrInt(void)
-{
+INLINE void UART1_enRXErrInt(void) {
   UART1->IEN.bit.RIEN = 1u;
 }
 
 /** \brief Enable UART1 Sync Error Interrupt
  */
-INLINE void UART1_enSyncErrInt(void)
-{
+INLINE void UART1_enSyncErrInt(void) {
   UART1->IEN.bit.ERRSYNEN = 1u;
 }
 
 /** \brief Enable UART1 End of Sync Interrupt
  */
-INLINE void UART1_enEOSInt(void)
-{
+INLINE void UART1_enEOSInt(void) {
   UART1->IEN.bit.EOFSYNEN = 1u;
 }
 
 /** \brief Disable UART1 Transmit Interrupt
  */
-INLINE void UART1_disTXInt(void)
-{
+INLINE void UART1_disTXInt(void) {
   UART1->IEN.bit.TIEN = 0u;
 }
 
 /** \brief Disable UART1 Receive Interrupt
  */
-INLINE void UART1_disRXErrInt(void)
-{
+INLINE void UART1_disRXErrInt(void) {
   UART1->IEN.bit.RIEN = 0u;
 }
 
 /** \brief Disable UART1 Sync Error Interrupt
  */
-INLINE void UART1_disSyncErrInt(void)
-{
+INLINE void UART1_disSyncErrInt(void) {
   UART1->IEN.bit.ERRSYNEN = 0u;
 }
 
 /** \brief Disable UART1 End of Sync Interrupt
  */
-INLINE void UART1_disEOSInt(void)
-{
+INLINE void UART1_disEOSInt(void) {
   UART1->IEN.bit.EOFSYNEN = 0u;
 }
 
@@ -481,8 +447,7 @@ INLINE void UART1_disEOSInt(void)
  *
  * \return uint8 Empty Transmit Buffer Interrupt Status, UART0.IS.TI
  */
-INLINE uint8 UART0_getTXIntSts(void)
-{
+INLINE uint8 UART0_getTXIntSts(void) {
   return (uint8)UART0->IS.bit.TI;
 }
 
@@ -490,8 +455,7 @@ INLINE uint8 UART0_getTXIntSts(void)
  *
  * \return uint8 Empty Receive Buffer Interrupt Status, UART0.IS.RI
  */
-INLINE uint8 UART0_getRXIntSts(void)
-{
+INLINE uint8 UART0_getRXIntSts(void) {
   return (uint8)UART0->IS.bit.RI;
 }
 
@@ -499,8 +463,7 @@ INLINE uint8 UART0_getRXIntSts(void)
  *
  * \return uint8 Sync Error Interrupt Status, UART0.IS.ERRSYN
  */
-INLINE uint8 UART0_getSyncErrIntSts(void)
-{
+INLINE uint8 UART0_getSyncErrIntSts(void) {
   return (uint8)UART0->IS.bit.ERRSYN;
 }
 
@@ -508,36 +471,31 @@ INLINE uint8 UART0_getSyncErrIntSts(void)
  *
  * \return uint8 End of Sync Interrupt Status, UART0.IS.EOFSYN
  */
-INLINE uint8 UART0_getEOFIntSts(void)
-{
+INLINE uint8 UART0_getEOFIntSts(void) {
   return (uint8)UART0->IS.bit.EOFSYN;
 }
 
 /** \brief Clear the UART0 Empty Transmit Buffer Interrupt Status, UART0.ISC.TICLR
  */
-INLINE void UART0_clrTXIntSts(void)
-{
+INLINE void UART0_clrTXIntSts(void) {
   UART0->ISC.bit.TICLR = 1u;
 }
 
 /** \brief Clear the UART0 Empty Receive Buffer Interrupt Status, UART0.ISC.RICLR
  */
-INLINE void UART0_clrRXIntSts(void)
-{
+INLINE void UART0_clrRXIntSts(void) {
   UART0->ISC.bit.RICLR = 1u;
 }
 
 /** \brief Clear the UART0 Sync Error Interrupt Status, UART0.ISC.ERRSYNCLR
  */
-INLINE void UART0_clrSyncErrIntSts(void)
-{
+INLINE void UART0_clrSyncErrIntSts(void) {
   UART0->ISC.bit.ERRSYNCLR = 1u;
 }
 
 /** \brief Clear the UART0 End of Sync Interrupt Status, UART0.ISC.EOFSYNCLR
  */
-INLINE void UART0_clrEOFIntSts(void)
-{
+INLINE void UART0_clrEOFIntSts(void) {
   UART0->ISC.bit.EOFSYNCLR = 1u;
 }
 
@@ -545,8 +503,7 @@ INLINE void UART0_clrEOFIntSts(void)
  *
  * \return uint8 Empty Transmit Buffer Interrupt Status, UART1.IS.TI
  */
-INLINE uint8 UART1_getTXIntSts(void)
-{
+INLINE uint8 UART1_getTXIntSts(void) {
   return (uint8)UART1->IS.bit.TI;
 }
 
@@ -554,8 +511,7 @@ INLINE uint8 UART1_getTXIntSts(void)
  *
  * \return uint8 Empty Receive Buffer Interrupt Status, UART1.IS.RI
  */
-INLINE uint8 UART1_getRXIntSts(void)
-{
+INLINE uint8 UART1_getRXIntSts(void) {
   return (uint8)UART1->IS.bit.RI;
 }
 
@@ -563,8 +519,7 @@ INLINE uint8 UART1_getRXIntSts(void)
  *
  * \return uint8 Sync Error Interrupt Status, UART1.IS.ERRSYN
  */
-INLINE uint8 UART1_getSyncErrIntSts(void)
-{
+INLINE uint8 UART1_getSyncErrIntSts(void) {
   return (uint8)UART1->IS.bit.ERRSYN;
 }
 
@@ -572,36 +527,31 @@ INLINE uint8 UART1_getSyncErrIntSts(void)
  *
  * \return uint8 End of Sync Interrupt Status, UART1.IS.EOFSYN
  */
-INLINE uint8 UART1_getEOFIntSts(void)
-{
+INLINE uint8 UART1_getEOFIntSts(void) {
   return (uint8)UART1->IS.bit.EOFSYN;
 }
 
 /** \brief Clear the UART1 Empty Transmit Buffer Interrupt Status, UART1.ISC.TICLR
  */
-INLINE void UART1_clrTXIntSts(void)
-{
+INLINE void UART1_clrTXIntSts(void) {
   UART1->ISC.bit.TICLR = 1u;
 }
 
 /** \brief Clear the UART1 Empty Receive Buffer Interrupt Status, UART1.ISC.RICLR
  */
-INLINE void UART1_clrRXIntSts(void)
-{
+INLINE void UART1_clrRXIntSts(void) {
   UART1->ISC.bit.RICLR = 1u;
 }
 
 /** \brief Clear the UART1 Sync Error Interrupt Status, UART1.ISC.ERRSYNCLR
  */
-INLINE void UART1_clrSyncErrIntSts(void)
-{
+INLINE void UART1_clrSyncErrIntSts(void) {
   UART1->ISC.bit.ERRSYNCLR = 1u;
 }
 
 /** \brief Clear the UART1 End of Sync Interrupt Status, UART1.ISC.EOFSYNCLR
  */
-INLINE void UART1_clrEOFIntSts(void)
-{
+INLINE void UART1_clrEOFIntSts(void) {
   UART1->ISC.bit.EOFSYNCLR = 1u;
 }
 

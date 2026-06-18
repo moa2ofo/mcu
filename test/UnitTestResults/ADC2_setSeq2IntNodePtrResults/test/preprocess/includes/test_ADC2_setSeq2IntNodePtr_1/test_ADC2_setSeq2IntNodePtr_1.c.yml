@@ -1,0 +1,16 @@
+---
+- utExecutionAndResults/utUnderTest/src/ADC2_setSeq2IntNodePtr.h
+- utExecutionAndResults/utUnderTest/build/vendor/unity/src/unity.h
+- mock_RTE_Components.h
+- mock_adc2_defines.h
+- mock_adc2.h
+- mock_cmsis_compiler.h
+- mock_cmsis_gcc.h
+- mock_cmsis_misra.h
+- mock_cmsis_version.h
+- mock_core_cm3.h
+- mock_error_codes.h
+- mock_system_tle989x.h
+- mock_tle989x.h
+- mock_tle_variants.h
+- mock_types.h
