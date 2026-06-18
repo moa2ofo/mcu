@@ -1,332 +1,332 @@
 [
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\Mcu.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\Mcu.c",
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\Mcu.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\Mcu.c",
   "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\Mcu.c",
   "output": "CMakeFiles\\new.dir\\pltf\\Mcu.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\adc1.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\adc1.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\adc1.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\adc1.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\adc1.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\adc1.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\adc1.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\adc1.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\adc2.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\adc2.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\adc2.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\adc2.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\adc2.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\adc2.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\adc2.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\adc2.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\bdrv.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\bdrv.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\bdrv.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\bdrv.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\bdrv.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\bdrv.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\bdrv.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\bdrv.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\bootrom.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\bootrom.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\bootrom.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\bootrom.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\bootrom.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\bootrom.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\bootrom.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\bootrom.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\can.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\can.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\can.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\can.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\can.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\can.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\can.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\can.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\cantrx.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\cantrx.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\cantrx.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\cantrx.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\cantrx.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\cantrx.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\cantrx.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\cantrx.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\ccu7.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\ccu7.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\ccu7.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\ccu7.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\ccu7.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\ccu7.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\ccu7.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\ccu7.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\csacsc.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\csacsc.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\csacsc.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\csacsc.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\csacsc.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\csacsc.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\csacsc.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\csacsc.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\dma.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\dma.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\dma.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\dma.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\dma.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\dma.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\dma.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\dma.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\gpio.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\gpio.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\gpio.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\gpio.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\gpio.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\gpio.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\gpio.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\gpio.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\gpt12.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\gpt12.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\gpt12.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\gpt12.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\gpt12.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\gpt12.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\gpt12.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\gpt12.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\int.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\int.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\int.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\int.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\int.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\int.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\int.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\int.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_exceptions.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_exceptions.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_exceptions.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_exceptions.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_exceptions.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_exceptions.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_exceptions.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_exceptions.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq0_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq0_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq0_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq0_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq0_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq0_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq0_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq0_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq10_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq10_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq10_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq10_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq10_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq10_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq10_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq10_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq11_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq11_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq11_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq11_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq11_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq11_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq11_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq11_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq12_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq12_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq12_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq12_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq12_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq12_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq12_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq12_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq13_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq13_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq13_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq13_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq13_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq13_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq13_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq13_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq14_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq14_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq14_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq14_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq14_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq14_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq14_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq14_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq15_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq15_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq15_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq15_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq15_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq15_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq15_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq15_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq16_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq16_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq16_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq16_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq16_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq16_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq16_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq16_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq17_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq17_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq17_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq17_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq17_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq17_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq17_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq17_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq18_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq18_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq18_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq18_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq18_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq18_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq18_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq18_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq19_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq19_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq19_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq19_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq19_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq19_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq19_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq19_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq1_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq1_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq1_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq1_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq1_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq1_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq1_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq1_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq20_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq20_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq20_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq20_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq20_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq20_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq20_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq20_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq21_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq21_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq21_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq21_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq21_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq21_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq21_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq21_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq22_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq22_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq22_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq22_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq22_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq22_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq22_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq22_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq23_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq23_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq23_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq23_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq23_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq23_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq23_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq23_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq24_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq24_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq24_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq24_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq24_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq24_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq24_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq24_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq25_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq25_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq25_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq25_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq25_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq25_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq25_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq25_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq26_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq26_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq26_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq26_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq26_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq26_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq26_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq26_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq27_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq27_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq27_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq27_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq27_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq27_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq27_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq27_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq28_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq28_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq28_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq28_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq28_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq28_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq28_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq28_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq29_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq29_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq29_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq29_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq29_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq29_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq29_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq29_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq2_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq2_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq2_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq2_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq2_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq2_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq2_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq2_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq30_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq30_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq30_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq30_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq30_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq30_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq30_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq30_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq31_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq31_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq31_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq31_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq31_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq31_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq31_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq31_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq3_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq3_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq3_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq3_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq3_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq3_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq3_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq3_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq4_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq4_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq4_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq4_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq4_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq4_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq4_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq4_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq5_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq5_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq5_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq5_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq5_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq5_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq5_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq5_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq7_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq7_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq7_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq7_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq7_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq7_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq7_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq7_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq8_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq8_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq8_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq8_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq8_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq8_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq8_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq8_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq9_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq9_handler.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\isr_nvic_irq9_handler.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\isr_nvic_irq9_handler.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\isr_nvic_irq9_handler.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq9_handler.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\isr_nvic_irq9_handler.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\isr_nvic_irq9_handler.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\mon.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\mon.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\mon.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\mon.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\mon.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\mon.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\mon.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\mon.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\pmu.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\pmu.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\pmu.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\pmu.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\pmu.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\pmu.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\pmu.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\pmu.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\scu.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\scu.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\scu.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\scu.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\scu.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\scu.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\scu.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\scu.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\sdadc.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\sdadc.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\sdadc.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\sdadc.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\sdadc.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\sdadc.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\sdadc.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\sdadc.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\ssc.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\ssc.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\ssc.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\ssc.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\ssc.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\ssc.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\ssc.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\ssc.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\startup_tle989x.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\startup_tle989x.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\startup_tle989x.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\startup_tle989x.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\startup_tle989x.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\startup_tle989x.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\startup_tle989x.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\startup_tle989x.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\system_tle989x.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\system_tle989x.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\system_tle989x.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\system_tle989x.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\system_tle989x.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\system_tle989x.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\system_tle989x.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\system_tle989x.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\timer2x.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\timer2x.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\timer2x.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\timer2x.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\timer2x.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\timer2x.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\timer2x.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\timer2x.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\tle_device.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\tle_device.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\tle_device.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\tle_device.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_device.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_device.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_device.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\tle_device.c.obj"
 },
 {
   "directory": "C:/docAiGen/Manuali_SW3_SW4/mcu/dev/build",
-  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf/cmsis/Core/Include -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg/tle_dfp -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\tle_dfp\\uart.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\uart.c",
-  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\tle_dfp\\uart.c",
-  "output": "CMakeFiles\\new.dir\\pltf\\tle_dfp\\uart.c.obj"
+  "command": "C:\\Users\\MOA2OFO\\arm-gnu-toolchain-15.2.rel1-mingw-w64-i686-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -DTLE9893_2QKW62S -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/pltf -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev/cfg -IC:/docAiGen/Manuali_SW3_SW4/mcu/dev -mcpu=cortex-m3 -mthumb -mcpu=cortex-m3 -mthumb -w -o CMakeFiles\\new.dir\\pltf\\uart.c.obj -c C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\uart.c",
+  "file": "C:\\docAiGen\\Manuali_SW3_SW4\\mcu\\dev\\pltf\\uart.c",
+  "output": "CMakeFiles\\new.dir\\pltf\\uart.c.obj"
 }
 ]

@@ -9,20 +9,14 @@ set(MCU_ROOT ${PROJECT_ROOT}/mcu/dev)
 
 file(GLOB SOURCES
     "${MCU_ROOT}/pltf/*.c"
-    "${MCU_ROOT}/pltf/tle_dfp/*.c"
     "${MCU_ROOT}/cfg/*.c"
-    "${MCU_ROOT}/cfg/tle_dfp/*.c"
 )
 
 add_library(new STATIC ${SOURCES})
 
 target_include_directories(new PUBLIC
     ${MCU_ROOT}/pltf
-    ${MCU_ROOT}/pltf/tle_dfp
-    ${MCU_ROOT}/pltf/cmsis
-    ${MCU_ROOT}/pltf/cmsis/Core/Include
     ${MCU_ROOT}/cfg
-    ${MCU_ROOT}/cfg/tle_dfp
     ${MCU_ROOT}
 )
 
