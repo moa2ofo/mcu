@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_adc1_sequencer_slots.xml                                          -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, DM:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.2.0: 2020-12-16, BG:   EP-647: Restructured module with Python              -->
+<!-- V0.2.1: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.2.2: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.2.3: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Sequencer Slot Template -->
+<!-- Parameters: -->
+<!--   SQIDX, range 0..3 -->
+<!--   SLIDX, range 0..3 -->
+<ifxmlcfg version="2.6.2">
+  <checksum>5346715b15c98c6b53b0c860e7d3d7f6950da60d34a2b3520be5d1d1b4f53cb3</checksum>
+  <version label="V0.2.3"/>
+  <usesPython/>
+  <groupcontainer>
+    <combo define="ADC1.SQSLOT$SQIDX$.CHSEL$SLIDX$" default="label=none" enabled="false" header="adc1_defines.h"/>
+  </groupcontainer>
+</ifxmlcfg>

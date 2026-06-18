@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_gpio_p2.xml                                                       -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, JO:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.4: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Parameter: -->
+<!-- PORT_IDX -->
+<!-- PIN_IDX -->
+<!-- ATLSEL_IDX -->
+<ifxmlcfg version="2.6.2">
+  <checksum>4b0b37fec23a88cca6f1180be6e4cd9819edf49552bf3e4c6b17c0f4a33ffe99</checksum>
+  <version label="V0.1.4"/>
+  <usesPython/>
+  <branch label="P$PORT_IDX$.$PIN_IDX$" expand="1">
+    <header file="gpio_defines.h">
+      <radio label="Direction" define="GPIO.P$PORT_IDX$_INDIS.INDIS$PIN_IDX$">
+        <radiobutton label="Input" value="0"/>
+        <radiobutton label="Disabled" value="1" uielement="branch"/>
+      </radio>
+      <combo label="Pull Mode" define="GPIO_PULLMODE_P$PORT_IDX$_$PIN_IDX$" svd="0" header="">
+        <item label="None" value="0"/>
+        <item label="Pull-Down" value="2"/>
+        <item label="Pull-Up" value="3"/>
+      </combo>
+      <math label="Pull Up/Down Enable" define="GPIO.P$PORT_IDX$_PUD.PUDEN$PIN_IDX$" visible="false" formula="GPIO_PULLMODE_P$PORT_IDX$_$PIN_IDX$?1:0"/>
+      <math label="Pull Up/Down Selection" define="GPIO.P$PORT_IDX$_PUD.PUDSEL$PIN_IDX$" visible="false" formula="GPIO_PULLMODE_P$PORT_IDX$_$PIN_IDX$.*1"/>
+    </header>
+  </branch>
+</ifxmlcfg>

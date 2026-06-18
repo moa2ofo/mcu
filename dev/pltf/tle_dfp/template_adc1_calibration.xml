@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_adc1_calibration.xml                                              -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, DM:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.2.0: 2020-12-16, BG:   EP-647: Restructured module with Python              -->
+<!-- V0.2.1: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.2.2 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.2.3: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Calibration Template -->
+<!-- Parameter:           -->
+<!--   IDX, analog input index, range 0..26 -->
+<!--   TXT, analog input select -->
+<ifxmlcfg version="2.6.2">
+  <checksum>529b67982c3b42437a7d8fea6916a8589399270a99430a0a0f7237a4a24c062f</checksum>
+  <version label="V0.2.3"/>
+  <usesPython/>
+  <groupcontainer define="ADC1.CALIBCONT_AI$IDX$" headerlabels="Item;Value;" size="-1;115" label="Calibration" columnwidths="250;300;1" visible="false" font="Source Sans Pro,12,0,0,100,0,0,0,0,0" color="206;217;164">
+    <header file="adc1_defines.h">
+      <verticalcontainer>
+        <horizontalcontainer>
+          <text label="Enable Calibration for input $TXT$"/>
+          <checkbox define="ADC1.CALIB$IDX$_EN" svd="0" label="Enable Calibration" header="temp_defines.h"/>
+          <math define="ADC1.CALEN[$IDX$]" visible="false" formula="ADC1.CALIB$IDX$_EN"/>
+        </horizontalcontainer>
+        <horizontalcontainer>
+          <text label="The gain is determined individually per chip and preloaded by the BootROM at startup."/>
+        </horizontalcontainer>
+        <horizontalcontainer>
+          <text label="The offset is determined individually per chip and preloaded by the BootROM at startup."/>
+        </horizontalcontainer>
+      </verticalcontainer>
+    </header>
+  </groupcontainer>
+</ifxmlcfg>

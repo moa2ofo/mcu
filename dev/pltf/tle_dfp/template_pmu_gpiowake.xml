@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_pmu_gpiowake.xml                                                  -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, BG:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2020-10-30, BG:   EP-547: Added lockons for GPIO                       -->
+<!-- V0.1.2: 2020-11-12, BG:   EP-589: Corrected wrong display of GPIOs             -->
+<!-- V0.1.3: 2020-11-16, JO:   EP-587: Added note '64pin only' to pin selection,    -->
+<!--                           Show GPIOs of 64pin variant only in case a 64pin     -->
+<!--                           variant is selected in uVision project               -->
+<!-- V0.1.4: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.5: 2021-03-04, BG:   EP-719: Resized the containers                       -->
+<!-- V0.2.0: 2021-03-09, JO:   EP-734: Updated CW minimal version to 2.6.3,         -->
+<!--                           Added usage of setdefine feature that was introduced -->
+<!--                           in Config Wizard version 2.6.3                       -->
+<!-- V0.2.1: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.2.2: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.2.3: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- $IDX$ -->
+<ifxmlcfg version="2.6.3">
+  <checksum>088cd15b6273f1b43c697cd7ff5df0205c61aacad4784a59d6662b5feba65d12</checksum>
+  <version label="V0.2.3"/>
+  <usesPython/>
+  <groupcontainer label="GPIO_$IDX$" define="CONT_GPIO_$IDX$" size="200;-1">
+    <verticalcontainer>
+      <checkbox label="Enable on Rising Edge" define="PMU.WAKE_GPIO_CTRL$IDX$.RI" default="0" header="pmu_defines.h"/>
+      <checkbox label="Enable on Falling Edge" define="PMU.WAKE_GPIO_CTRL$IDX$.FA" default="0" header="pmu_defines.h"/>
+      <checkbox label="Enable Cyclic Sense" define="PMU.WAKE_GPIO_CTRL$IDX$.CYC" default="0" header="pmu_defines.h">
+        <action event="checked" cmd="setDef" data="UPDATE_MODE.run=1"/>
+        <action event="unchecked" cmd="setDef" data="UPDATE_MODE.run=1"/>
+      </checkbox>
+      <horizontalcontainer>
+        <text label="Input"/>
+        <combo label="Input" define="PMU.WAKE_GPIO_CTRL$IDX$_INP" svd="0" default="label=none" header="temp_defines.h">
+          <item label="P0.0" lockon="GPIO.P0_DIR.DIR0=0"/>
+          <item label="P0.1" lockon="GPIO.P0_DIR.DIR1=0"/>
+          <item label="P0.2" lockon="GPIO.P0_DIR.DIR2=0"/>
+          <item label="P0.3" lockon="GPIO.P0_DIR.DIR3=0"/>
+          <item label="P0.4 (*)" lockon="GPIO.P0_DIR.DIR4=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P0.5 (*)" lockon="GPIO.P0_DIR.DIR5=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P0.6 (*)" lockon="GPIO.P0_DIR.DIR6=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P0.7 (*)" lockon="GPIO.P0_DIR.DIR7=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P0.8 (*)" lockon="GPIO.P0_DIR.DIR8=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P0.9 (*)" lockon="GPIO.P0_DIR.DIR9=0" startcond="UC_FEATURE_64PIN==1"/>                    
+          <item label="P1.0" lockon="GPIO.P1_DIR.DIR0=0"/>
+          <item label="P1.1" lockon="GPIO.P1_DIR.DIR1=0"/>
+          <item label="P1.2" lockon="GPIO.P1_DIR.DIR2=0"/>
+          <item label="P1.3 (*)" lockon="GPIO.P1_DIR.DIR3=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P1.4 (*)" lockon="GPIO.P1_DIR.DIR4=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P2.0" lockon="GPIO.P2_INDIS.INDIS0=0"/>
+          <item label="P2.1" lockon="GPIO.P2_INDIS.INDIS1=0"/>
+          <item label="P2.2" lockon="GPIO.P2_INDIS.INDIS2=0"/>
+          <item label="P2.3" lockon="GPIO.P2_INDIS.INDIS3=0"/>
+          <item label="P2.4" lockon="GPIO.P2_INDIS.INDIS4=0"/>
+          <item label="P2.5" lockon="GPIO.P2_INDIS.INDIS5=0"/>
+          <item label="P2.6" lockon="GPIO.P2_INDIS.INDIS6=0"/>
+          <item label="P2.7 (*)" lockon="GPIO.P2_INDIS.INDIS7=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P2.8 (*)" lockon="GPIO.P2_INDIS.INDIS8=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="P2.9 (*)" lockon="GPIO.P2_INDIS.INDIS9=0" startcond="UC_FEATURE_64PIN==1"/>
+          <item label="none" value="0xFF"/>
+        </combo>
+        <math visible="false" define="PMU.WAKE_GPIO_CTRL$IDX$.INP" formula="PMU.WAKE_GPIO_CTRL$IDX$_INP!=255?(PMU.WAKE_GPIO_CTRL$IDX$_INP:0)"/>
+      </horizontalcontainer>
+    </verticalcontainer>
+  </groupcontainer>
+</ifxmlcfg>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_adc2_filter_fix.xml                                               -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-10-23, DM:   Initial version                                      -->
+<!-- V0.0.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.0.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.0.4: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Filter Template -->
+<!-- Parameters: -->
+<!--   FILTIDX: filter index, range 0..7 -->
+<!--   CHIDX:   channel the filter is assigned to, range 0..14 -->
+<ifxmlcfg version="2.6.2">
+  <checksum>c623908306dd0b555d8180aac1bb69b53961a38bfb844142de98d92f07d09a95</checksum>
+  <version label="V0.0.4"/>
+  <usesPython/>
+  <treecontainer headerlabels="Item;Value;" label="Filter $FILTIDX$" desc="Filter Channel $FILTIDX$" columnwidths="300;300">
+    <header file="adc2_defines.h">
+      <!-- Variables -->
+      <edit label="Used by Channel" readonly="1" define="ADC2.FILT$FILTIDX$_USED_TXT" svd="0" default="$CHIDX$" header="temp_defines.h"/>
+      <!-- Configuration -->
+      <combo label="Filter Coefficient" define="ADC2.FILTCFG.COEF_A$FILTIDX$">
+        <item label="1/2" override="value1" setdef="ADC1.FILT$FILTIDX$_TXT=1/2"/>
+        <item label="1/4" override="value2" setdef="ADC1.FILT$FILTIDX$_TXT=1/4"/>
+        <item label="1/8" override="value3" setdef="ADC1.FILT$FILTIDX$_TXT=1/8"/>
+        <item label="1/16" override="value4" setdef="ADC1.FILT$FILTIDX$_TXT=1/16"/>
+      </combo>
+    </header>
+  </treecontainer>
+</ifxmlcfg>

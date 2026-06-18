@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_interrupt_overview_uart.xml                                       -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, JO:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.4: 2024-11-04, JO:   EP-1545: Removed *_FILL_INT_OVERVIEW defines and     -->
+<!--                           RO_*_CALLBACK defines from generated file            -->
+<!-- V0.1.5: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<ifxmlcfg version="2.6.2">
+  <checksum>00a4ebfee0258fa194b0cb3a258ba04054e16df3026a5b45a48e8a0e63d9d4dd</checksum>
+  <version label="V0.1.5"/>
+  <usesPython/>
+  <header file="">
+    <verticalcontainer size="800;-1" stretch="2">
+      <text label="Configured Interrupts of Nodes 22, 23"/>
+      <verticalcontainer label="Timer and Math" visible="false">
+        <timer visible="true" define="UART_FILL_INT_OVERVIEW" interval="1" singleShot="1" run="0">
+          <action event="changed" cmd="setDef" data="RO_UART0.TI_CALLBACK=UART0.TI_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_UART0.RI_CALLBACK=UART0.RI_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_UART0.EOS_CALLBACK=UART0.EOS_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_UART0.SYNCERR_CALLBACK=UART0.SYNCERR_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_UART1.TI_CALLBACK=UART1.TI_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_UART1.RI_CALLBACK=UART1.RI_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_UART1.EOS_CALLBACK=UART1.EOS_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_UART1.SYNCERR_CALLBACK=UART1.SYNCERR_CALLBACK"/>
+        </timer>
+        <math formula="UART0.TI_INT_EN"><action event="changed" cmd="setDef" data="UART0.TI_INT_BOX.visible=UART0.TI_INT_EN"/></math>
+        <math formula="UART0.RI_INT_EN"><action event="changed" cmd="setDef" data="UART0.RI_INT_BOX.visible=UART0.RI_INT_EN"/></math>
+        <math formula="UART0.EOS_INT_EN"><action event="changed" cmd="setDef" data="UART0.EOS_INT_BOX.visible=UART0.EOS_INT_EN"/></math>
+        <math formula="UART0.SYNCERR_INT_EN"><action event="changed" cmd="setDef" data="UART0.SYNCERR_INT_BOX.visible=UART0.SYNCERR_INT_EN"/></math>
+        <math formula="UART1.TI_INT_EN"><action event="changed" cmd="setDef" data="UART1.TI_INT_BOX.visible=UART1.TI_INT_EN"/></math>
+        <math formula="UART1.RI_INT_EN"><action event="changed" cmd="setDef" data="UART1.RI_INT_BOX.visible=UART1.RI_INT_EN"/></math>
+        <math formula="UART1.EOS_INT_EN"><action event="changed" cmd="setDef" data="UART1.EOS_INT_BOX.visible=UART1.EOS_INT_EN"/></math>
+        <math formula="UART1.SYNCERR_INT_EN"><action event="changed" cmd="setDef" data="UART1.SYNCERR_INT_BOX.visible=UART1.SYNCERR_INT_EN"/></math>
+      </verticalcontainer> <!-- Timer and Math -->
+      <verticalcontainer label="Interrupt Overview ">
+        <horizontalcontainer>
+          <text size="200;-1" label="Interrupt"/>
+          <text size="75;-1" label="Int. Node"/>
+          <text size="75;-1" label="Enable"/>
+          <text size="400;-1" label="Callback function"/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART0.TI_INT_BOX" visible="false">
+          <text size="200;-1" label="UART0 Transmit"/>
+          <math size="75;-1" formula="SCU.INP5.INP_UART0_TI+22"/>
+          <math size="75;-1" formula="UART0.IEN.TIEN"/>
+          <edit size="400;-1" define="RO_UART0.TI_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART0.RI_INT_BOX" visible="false">
+          <text size="200;-1" label="UART0 Receive"/>
+          <math size="75;-1" formula="SCU.INP5.INP_UART0_RI+22"/>
+          <math size="75;-1" formula="UART0.IEN.RIEN"/>
+          <edit size="400;-1" define="RO_UART0.RI_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART0.EOS_INT_BOX" visible="false">
+          <text size="200;-1" label="LIN0 End of Sync"/>
+          <math size="75;-1" formula="SCU.INP5.INP_LIN0_EOFSYN+22"/>
+          <math size="75;-1" formula="UART0.IEN.EOFSYNEN"/>
+          <edit size="400;-1" define="RO_UART0.EOS_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART0.SYNCERR_INT_BOX" visible="false">
+          <text size="200;-1" label="LIN0 Sync Error"/>
+          <math size="75;-1" formula="SCU.INP5.INP_LIN0_ERRSYN+22"/>
+          <math size="75;-1" formula="UART0.IEN.ERRSYNEN"/>
+          <edit size="400;-1" define="RO_UART0.SYNCERR_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART1.TI_INT_BOX" visible="false">
+          <text size="200;-1" label="UART1 Transmit"/>
+          <math size="75;-1" formula="SCU.INP5.INP_UART1_TI+22"/>
+          <math size="75;-1" formula="UART1.IEN.TIEN"/>
+          <edit size="400;-1" define="RO_UART1.TI_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART1.RI_INT_BOX" visible="false">
+          <text size="200;-1" label="UART1 Receive"/>
+          <math size="75;-1" formula="SCU.INP5.INP_UART1_RI+22"/>
+          <math size="75;-1" formula="UART1.IEN.RIEN"/>
+          <edit size="400;-1" define="RO_UART1.RI_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART1.EOS_INT_BOX" visible="false">
+          <text size="200;-1" label="LIN1 End of Sync"/>
+          <math size="75;-1" formula="SCU.INP5.INP_LIN1_EOFSYN+22"/>
+          <math size="75;-1" formula="UART1.IEN.EOFSYNEN"/>
+          <edit size="400;-1" define="RO_UART1.EOS_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="UART1.SYNCERR_INT_BOX" visible="false">
+          <text size="200;-1" label="LIN1 Sync Error"/>
+          <math size="75;-1" formula="SCU.INP5.INP_LIN1_ERRSYN+22"/>
+          <math size="75;-1" formula="UART1.IEN.ERRSYNEN"/>
+          <edit size="400;-1" define="RO_UART1.SYNCERR_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+      </verticalcontainer> <!-- Interrupt Overview -->
+    </verticalcontainer>
+  </header>
+</ifxmlcfg>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_gpio_p0p1.xml                                                     -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, JO:   Initial version                                      -->
+<!-- V0.0.2: 2020-10-15, BG:   EP-520: Renamed SW-controlled GPIO functionality     -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.4: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Parameter: -->
+<!-- PORT_IDX -->
+<!-- PIN_IDX -->
+<!-- ATLSEL_IDX -->
+<ifxmlcfg version="2.6.2">
+  <checksum>a693c6e24ca28a64ed161c5b879455e6d145d337edff3587a645a10282f1f275</checksum>
+  <version label="V0.1.4"/>
+  <usesPython/>
+  <branch label="P$PORT_IDX$.$PIN_IDX$" expand="1">
+    <header file="gpio_defines.h">
+      <radio label="Direction" define="GPIO.P$PORT_IDX$_DIR.DIR$PIN_IDX$">
+        <radiobutton label="Input" value="0"/>
+        <radiobutton label="Output" value="1" uielement="branch">
+          <combo label="Data" define="GPIO.P$PORT_IDX$_OUT.PO$PIN_IDX$"/> 
+          <combo label="Mode" define="GPIO.P$PORT_IDX$_OD.OD$PIN_IDX$"/>
+        <checkbox define="GPIO_P$PORT_IDX$$PIN_IDX$_SWCONTROLLED_OUTPUT" svd="0" label="Lock Altsel to GPIO" lockon="GPIO.P$PORT_IDX$_ALTSEL$ATLSEL_IDX$.ALTSEL$PIN_IDX$=0"/>
+          <combo label="Alternate Select" define="GPIO.P$PORT_IDX$_ALTSEL$ATLSEL_IDX$.ALTSEL$PIN_IDX$"/>
+          <combo label="Driver Mode" define="GPIO.P$PORT_IDX$_POCON.PDM$PIN_IDX$"/>    
+        </radiobutton>
+      </radio>
+      <combo label="Pull Mode" define="GPIO_PULLMODE_P$PORT_IDX$_$PIN_IDX$" svd="0" header="">
+        <item label="None" value="0"/>
+        <item label="Pull-Down" value="2"/>
+        <item label="Pull-Up" value="3"/>
+      </combo>
+      <math label="Pull Up/Down Enable" define="GPIO.P$PORT_IDX$_PUD.PUDEN$PIN_IDX$" visible="false" formula="GPIO_PULLMODE_P$PORT_IDX$_$PIN_IDX$?1:0"/>
+      <math label="Pull Up/Down Selection" define="GPIO.P$PORT_IDX$_PUD.PUDSEL$PIN_IDX$" visible="false" formula="GPIO_PULLMODE_P$PORT_IDX$_$PIN_IDX$.*1"/>
+    </header>
+  </branch>
+</ifxmlcfg>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_adc2_channel_class.xml                                            -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-10-23, DM:   Initial version                                      -->
+<!-- V0.0.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.0.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.0.4: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Channel Class Template -->
+<!-- Parameter: -->
+<!--   IDX: channel class index, range 0..3 -->
+<!--   DEFSTC: default STC value, 4..60 -->
+<ifxmlcfg version="2.6.2">
+    <checksum>e0dd0bd50a0b33a90dee2bcf14dc73eae8cfa549b10e138347e7ae420298729b</checksum>
+    <version label="V0.0.4"/>
+      <usesPython/>
+    <treecontainer headerlabels="Item;Value;" label="Class $IDX$" desc="Channel Class $IDX$" columnwidths="300;300">
+      <header file="adc2_defines.h">
+        <edit label="Category" define="ADC2.CONVCFG$IDX$_CTRY" svd="0" header="temp_defines.h"/>
+        <combo label="Sample Time [ticks]" define="ADC2.CONVCFG$IDX$.STC" default="label=$DEFSTC$">
+          <item hide="value1"/>
+          <item label="4" override="value2"/>
+          <item label="8" override="value3"/>
+          <item label="12" override="value4"/>
+          <item label="16" override="value5"/>
+          <item label="20" override="value6"/>
+          <item label="24" override="value7"/>
+          <item label="28" override="value8"/>
+          <item label="32" override="value9"/>
+          <item label="36" override="value10"/>
+          <item label="40" override="value11"/>
+          <item label="44" override="value12"/>
+          <item label="48" override="value13"/>
+          <item label="52" override="value14"/>
+          <item label="56" override="value15"/>
+          <item label="60" override="value16"/>
+        </combo>
+      </header>
+    </treecontainer>
+</ifxmlcfg>

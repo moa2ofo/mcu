@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_pmu_timer.xml                                                     -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, BG:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2020-12-03, BG:   EP-624: Moved the MONx config from PMU to MON tab    -->
+<!-- V0.1.2: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.3: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.4: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.5: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<ifxmlcfg version="2.6.2">
+  <checksum>a29e024508b75dea4425bcff39460be142fd7ffff0336499adaa38afa6ecdfa0</checksum>
+  <version label="V0.1.5"/>
+  <usesPython/>
+  <verticalcontainer label="Timers" visible="false">
+    <timer visible="false" define="UPDATE_MODE" svd="0" interval="1" singleShot="1" run="0" header="">
+      <!-- Enabling elements -->
+      <!-- Interrupts -->
+      <action cond="PMU.VDDP_UVWARN_INT_EN==0" event="changed" cmd="setDef" data="CONT_VDDP_UVWARN_EN.enabled=0;CONT_VDDP_UVWARN_CB.enabled=0"/>
+      <action cond="PMU.VDDP_UVWARN_INT_EN==1" event="changed" cmd="setDef" data="CONT_VDDP_UVWARN_EN.enabled=1;CONT_VDDP_UVWARN_CB.enabled=1"/>
+      <action cond="PMU.VDDP_OV_INT_EN==0" event="changed" cmd="setDef" data="CONT_VDDP_OV_EN.enabled=0;CONT_VDDP_OV_CB.enabled=0"/>
+      <action cond="PMU.VDDP_OV_INT_EN==1" event="changed" cmd="setDef" data="CONT_VDDP_OV_EN.enabled=1;CONT_VDDP_OV_CB.enabled=1"/>
+      <action cond="PMU.VDDC_UVWARN_INT_EN==0" event="changed" cmd="setDef" data="CONT_VDDC_UVWARN_EN.enabled=0;CONT_VDDC_UVWARN_CB.enabled=0"/>
+      <action cond="PMU.VDDC_UVWARN_INT_EN==1" event="changed" cmd="setDef" data="CONT_VDDC_UVWARN_EN.enabled=1;CONT_VDDC_UVWARN_CB.enabled=1"/>
+      <action cond="PMU.VDDC_OV_INT_EN==0" event="changed" cmd="setDef" data="CONT_VDDC_OV_EN.enabled=0;CONT_VDDC_OV_CB.enabled=0"/>
+      <action cond="PMU.VDDC_OV_INT_EN==1" event="changed" cmd="setDef" data="CONT_VDDC_OV_EN.enabled=1;CONT_VDDC_OV_CB.enabled=1"/>
+      <action cond="PMU.VDDEXT_UV_INT_EN==0" event="changed" cmd="setDef" data="CONT_VDDEXT_UV_EN.enabled=0;CONT_VDDEXT_UV_CB.enabled=0"/>
+      <action cond="PMU.VDDEXT_UV_INT_EN==1" event="changed" cmd="setDef" data="CONT_VDDEXT_UV_EN.enabled=1;CONT_VDDEXT_UV_CB.enabled=1"/>
+      <action cond="PMU.VDDEXT_OT_INT_EN==0" event="changed" cmd="setDef" data="CONT_VDDEXT_OT_EN.enabled=0;CONT_VDDEXT_OT_CB.enabled=0"/>
+      <action cond="PMU.VDDEXT_OT_INT_EN==1" event="changed" cmd="setDef" data="CONT_VDDEXT_OT_EN.enabled=1;CONT_VDDEXT_OT_CB.enabled=1"/>
+      <!-- GPIO Wake Up -->
+      <action cond="(PMU.WAKE_CTRL.GPIO0_WAKE_EN==0).*                   (PMU.WAKE_CTRL.GPIO1_WAKE_EN==0).*                   (PMU.WAKE_CTRL.GPIO2_WAKE_EN==0).*                   (PMU.WAKE_CTRL.GPIO3_WAKE_EN==0).*                   (PMU.WAKE_CTRL.GPIO4_WAKE_EN==0).*                   (PMU.WAKE_CTRL.GPIO5_WAKE_EN==0)" event="changed" cmd="setDef" data="CONT_GPIO.enabled=0"/>
+      <action cond="(PMU.WAKE_CTRL.GPIO0_WAKE_EN==1).+                   (PMU.WAKE_CTRL.GPIO1_WAKE_EN==1).+                   (PMU.WAKE_CTRL.GPIO2_WAKE_EN==1).+                   (PMU.WAKE_CTRL.GPIO3_WAKE_EN==1).+                   (PMU.WAKE_CTRL.GPIO4_WAKE_EN==1).+                   (PMU.WAKE_CTRL.GPIO5_WAKE_EN==1)" event="changed" cmd="setDef" data="CONT_GPIO.enabled=1"/>
+      <action cond="PMU.WAKE_CTRL.GPIO0_WAKE_EN==0" event="changed" cmd="setDef" data="CONT_GPIO_0.enabled=0"/>
+      <action cond="PMU.WAKE_CTRL.GPIO0_WAKE_EN==1" event="changed" cmd="setDef" data="CONT_GPIO_0.enabled=1"/>
+      <action cond="PMU.WAKE_CTRL.GPIO1_WAKE_EN==0" event="changed" cmd="setDef" data="CONT_GPIO_1.enabled=0"/>
+      <action cond="PMU.WAKE_CTRL.GPIO1_WAKE_EN==1" event="changed" cmd="setDef" data="CONT_GPIO_1.enabled=1"/>
+      <action cond="PMU.WAKE_CTRL.GPIO2_WAKE_EN==0" event="changed" cmd="setDef" data="CONT_GPIO_2.enabled=0"/>
+      <action cond="PMU.WAKE_CTRL.GPIO2_WAKE_EN==1" event="changed" cmd="setDef" data="CONT_GPIO_2.enabled=1"/>
+      <action cond="PMU.WAKE_CTRL.GPIO3_WAKE_EN==0" event="changed" cmd="setDef" data="CONT_GPIO_3.enabled=0"/>
+      <action cond="PMU.WAKE_CTRL.GPIO3_WAKE_EN==1" event="changed" cmd="setDef" data="CONT_GPIO_3.enabled=1"/>
+      <action cond="PMU.WAKE_CTRL.GPIO4_WAKE_EN==0" event="changed" cmd="setDef" data="CONT_GPIO_4.enabled=0"/>
+      <action cond="PMU.WAKE_CTRL.GPIO4_WAKE_EN==1" event="changed" cmd="setDef" data="CONT_GPIO_4.enabled=1"/>
+      <action cond="PMU.WAKE_CTRL.GPIO5_WAKE_EN==0" event="changed" cmd="setDef" data="CONT_GPIO_5.enabled=0"/>
+      <action cond="PMU.WAKE_CTRL.GPIO5_WAKE_EN==1" event="changed" cmd="setDef" data="CONT_GPIO_5.enabled=1"/>
+      <!-- MON Wake Up -->
+      <action cond="(PMU.WAKE_CTRL.MON1_WAKE_EN==0).*                   (PMU.WAKE_CTRL.MON2_WAKE_EN==0).*                   (PMU.WAKE_CTRL.MON3_WAKE_EN==0)" event="changed" cmd="setDef" data="CONT_MON.enabled=0"/>
+      <action cond="(PMU.WAKE_CTRL.MON1_WAKE_EN==1).+                   (PMU.WAKE_CTRL.MON2_WAKE_EN==1).+                   (PMU.WAKE_CTRL.MON3_WAKE_EN==1)" event="changed" cmd="setDef" data="CONT_MON.enabled=1"/>
+      <!-- Cyclic Sense -->
+      <action cond="((PMU.WAKE_CTRL.GPIO0_WAKE_EN==0).+(PMU.WAKE_GPIO_CTRL0.CYC==0)).*                   ((PMU.WAKE_CTRL.GPIO1_WAKE_EN==0).+(PMU.WAKE_GPIO_CTRL1.CYC==0)).*                   ((PMU.WAKE_CTRL.GPIO2_WAKE_EN==0).+(PMU.WAKE_GPIO_CTRL2.CYC==0)).*                   ((PMU.WAKE_CTRL.GPIO3_WAKE_EN==0).+(PMU.WAKE_GPIO_CTRL3.CYC==0)).*                   ((PMU.WAKE_CTRL.GPIO4_WAKE_EN==0).+(PMU.WAKE_GPIO_CTRL4.CYC==0)).*                   ((PMU.WAKE_CTRL.GPIO5_WAKE_EN==0).+(PMU.WAKE_GPIO_CTRL5.CYC==0)).*                   ((PMU.WAKE_CTRL.MON1_WAKE_EN==0).+(PMU.MON_CTRL1.CYC_SENSE_EN==0)).*                   ((PMU.WAKE_CTRL.MON2_WAKE_EN==0).+(PMU.MON_CTRL2.CYC_SENSE_EN==0)).*                   ((PMU.WAKE_CTRL.MON3_WAKE_EN==0).+(PMU.MON_CTRL3.CYC_SENSE_EN==0)).*                   (PMU.CYC_CTRL.CYC_SENSE_EN==0)" event="changed" cmd="setDef" data="CONT_CYC_SENSE.enabled=0"/>
+      <action cond="((PMU.WAKE_CTRL.GPIO0_WAKE_EN==1).*(PMU.WAKE_GPIO_CTRL0.CYC==1)).+                   ((PMU.WAKE_CTRL.GPIO1_WAKE_EN==1).*(PMU.WAKE_GPIO_CTRL1.CYC==1)).+                   ((PMU.WAKE_CTRL.GPIO2_WAKE_EN==1).*(PMU.WAKE_GPIO_CTRL2.CYC==1)).+                   ((PMU.WAKE_CTRL.GPIO3_WAKE_EN==1).*(PMU.WAKE_GPIO_CTRL3.CYC==1)).+                   ((PMU.WAKE_CTRL.GPIO4_WAKE_EN==1).*(PMU.WAKE_GPIO_CTRL4.CYC==1)).+                   ((PMU.WAKE_CTRL.GPIO5_WAKE_EN==1).*(PMU.WAKE_GPIO_CTRL5.CYC==1)).+                   ((PMU.WAKE_CTRL.MON1_WAKE_EN==1).*(PMU.MON_CTRL1.CYC_SENSE_EN==1)).+                   ((PMU.WAKE_CTRL.MON2_WAKE_EN==1).*(PMU.MON_CTRL2.CYC_SENSE_EN==1)).+                   ((PMU.WAKE_CTRL.MON3_WAKE_EN==1).*(PMU.MON_CTRL3.CYC_SENSE_EN==1)).+                   (PMU.CYC_CTRL.CYC_SENSE_EN==1)" event="changed" cmd="setDef" data="CONT_CYC_SENSE.enabled=1"/>
+      <!-- Cyclic Wake Up -->
+      <action cond="PMU.WAKE_CTRL.CYC_WAKE_EN==0" event="changed" cmd="setDef" data="CONT_CYCLIC.enabled=0"/>
+      <action cond="PMU.WAKE_CTRL.CYC_WAKE_EN==1" event="changed" cmd="setDef" data="CONT_CYCLIC.enabled=1"/>
+
+    </timer>
+  </verticalcontainer>
+</ifxmlcfg>

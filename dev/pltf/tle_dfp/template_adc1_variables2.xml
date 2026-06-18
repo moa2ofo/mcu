@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_adc1_variables2.xml                                               -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, DM:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.2.0: 2020-12-16, BG:   EP-647: Restructured module with Python              -->
+<!-- V0.2.1: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.2.2: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.2.3: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Channel Class/Compare Template -->
+<!-- Parameters: -->
+<!--   IDX, range 0..3 -->
+<ifxmlcfg version="2.6.2">
+  <checksum>a62e39a17c1f8e1b8d926b5ac8612219a6f483ef8e2ac1a3d2f7763d77083924</checksum>
+  <version label="V0.2.3"/>
+  <usesPython/>
+  <groupcontainer>
+    <header file="">
+      <edit define="ADC1.CONVCFG$IDX$_TCOS" visible="false" svd="0" header="temp_defines.h"/>
+    </header>
+  </groupcontainer>
+</ifxmlcfg>

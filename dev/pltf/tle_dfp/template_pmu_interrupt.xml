@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_pmu_interrupt.xml                                                 -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, BG:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.4: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- $INT_TXT$, $VOLT$, $TRIG$ -->
+<ifxmlcfg version="2.6.2">
+  <checksum>b73030e69bba26c029339a96406aebb282bb860dd99101dc7675688f632766b0</checksum>
+  <version label="V0.1.4"/>
+  <usesPython/>
+  <verticalcontainer>
+    <checkbox label="$INT_TXT$" define="PMU.$VOLT$_$TRIG$_INT_EN" svd="0" header="isr_defines.h">
+      <action event="checked" cmd="setDef" data="UPDATE_MODE.run=1"/>
+      <action event="unchecked" cmd="setDef" data="UPDATE_MODE.run=1"/>
+    </checkbox>
+    <horizontalcontainer define="CONT_$VOLT$_$TRIG$_EN">
+      <text label="Enable Interrupt"/>
+      <checkbox define="PMU.$VOLT$_IRQEN.$TRIG$_IEN" default="0" size="280;-1" header="isr_defines.h"/>
+    </horizontalcontainer>
+    <horizontalcontainer define="CONT_$VOLT$_$TRIG$_CB">
+      <text label="Callback"/>
+      <edit define="PMU.$VOLT$_$TRIG$_CALLBACK" svd="0" default="place_your_function_callback_here" size="280;-1" header="isr_defines.h"/>
+    </horizontalcontainer>
+  </verticalcontainer>
+</ifxmlcfg>

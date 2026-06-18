@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_ccu7_t12.xml                                                      -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-11-06, JO:   Initial version                                      -->
+<!-- V0.0.2: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.0.3: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.0.4: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Parameter: -->
+<!-- CC7x: CC70, CC71, CC72 -->
+<!-- COUT7x: COUT70, COUT71, COUT72 -->
+<!-- Channel: Ch0, Ch1, Ch2 -->
+<ifxmlcfg version="2.6.2">
+  <checksum>677b3ce6f81f3d5de41ac3d79de2a6645c525bc03f1969353a4e43010fc59fc3</checksum>
+  <version label="V0.0.4"/>
+
+    <verticalcontainer>
+      <verticalcontainer label="$CC7x$/$COUT7x$ values" visible="false">
+        <header file="">
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_OFFSET_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_OFFSET_x" svd="0"/>
+
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER0_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER0_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER1_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER1_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER2_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER2_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER3_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER3_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER4_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER4_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER5_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER5_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER6_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER6_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER7_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_PL_CORNER7_y" svd="0"/>
+          <edit define="CCU7_DTGRAPH_$CC7x$_PL_COLOR" svd="0" default="black"/>
+
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER0_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER0_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER1_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER1_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER2_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER2_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER3_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER3_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER4_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER4_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER5_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER5_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER6_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER6_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER7_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_PL_CORNER7_y" svd="0"/>
+          <edit define="CCU7_DTGRAPH_$COUT7x$_PL_COLOR" svd="0" default="black"/> 
+
+          <edit define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_VISIBLE" svd="0" default="hidden"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER0_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER0_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER1_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER1_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER2_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER2_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER3_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER3_y" svd="0"/>                
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER0_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER0_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER1_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER1_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER2_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER2_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER3_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER3_y" svd="0"/>                
+          <edit define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_VISIBLE" svd="0" default="hidden"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER0_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER0_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER1_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER1_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER2_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER2_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER3_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER3_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER0_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER0_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER1_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER1_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER2_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER2_y" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER3_x" svd="0"/>
+          <spinbox define="CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER3_y" svd="0"/>
+        </header>
+      </verticalcontainer>
+      <svgembed define="DT_graph_$Channel$" passive="0" header="">
+        <svg width="500" height="70">
+          <g transform="translate(0, 0)">
+            <rect width="500" height="70" style="fill:#fffde6;stroke-width:0"/>
+            <text x="10" y="25" font-family="arial" font-size="10" fill="black">$CC7x$</text>
+            <text x="10" y="55" font-family="arial" font-size="10" fill="black">$COUT7x$</text>
+            <g transform="translate($CCU7_DTGRAPH_$CC7x$_OFFSET_x$, 0)">
+              <polyline points="$CCU7_DTGRAPH_$CC7x$_PL_CORNER0_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER0_y$                 $CCU7_DTGRAPH_$CC7x$_PL_CORNER1_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER1_y$                 $CCU7_DTGRAPH_$CC7x$_PL_CORNER2_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER2_y$                 $CCU7_DTGRAPH_$CC7x$_PL_CORNER3_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER3_y$                 $CCU7_DTGRAPH_$CC7x$_PL_CORNER4_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER4_y$                 $CCU7_DTGRAPH_$CC7x$_PL_CORNER5_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER5_y$                 $CCU7_DTGRAPH_$CC7x$_PL_CORNER6_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER6_y$                 $CCU7_DTGRAPH_$CC7x$_PL_CORNER7_x$,  $CCU7_DTGRAPH_$CC7x$_PL_CORNER7_y$" style="fill:none;stroke:$CCU7_DTGRAPH_$CC7x$_PL_COLOR$;stroke-width:1"/>
+              <polyline points="$CCU7_DTGRAPH_$COUT7x$_PL_CORNER0_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER0_y$                 $CCU7_DTGRAPH_$COUT7x$_PL_CORNER1_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER1_y$                 $CCU7_DTGRAPH_$COUT7x$_PL_CORNER2_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER2_y$                 $CCU7_DTGRAPH_$COUT7x$_PL_CORNER3_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER3_y$                 $CCU7_DTGRAPH_$COUT7x$_PL_CORNER4_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER4_y$                 $CCU7_DTGRAPH_$COUT7x$_PL_CORNER5_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER5_y$                 $CCU7_DTGRAPH_$COUT7x$_PL_CORNER6_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER6_y$                 $CCU7_DTGRAPH_$COUT7x$_PL_CORNER7_x$,$CCU7_DTGRAPH_$COUT7x$_PL_CORNER7_y$" style="fill:none;stroke:$CCU7_DTGRAPH_$COUT7x$_PL_COLOR$;stroke-width:1"/>
+              <g visibility="$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_VISIBLE$">
+                <!-- only for modulation by DT Chx and T13 -->
+                <polyline points="$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER0_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER0_y$                  $CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER1_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER1_y$                 $CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER2_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER2_y$                 $CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER3_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL1_CORNER3_y$" fill="darkviolet" fill-opacity="0.3"/>
+                <polyline points="$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER0_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER0_y$                  $CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER1_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER1_y$                 $CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER2_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER2_y$                 $CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER3_x$,$CCU7_DTGRAPH_$CC7x$_DOUBLEMOD_PL2_CORNER3_y$" fill="darkviolet" fill-opacity="0.3"/>
+                <rect x="200" y="20" width="10" height="10" fill="darkviolet" fill-opacity="0.3"/>
+                <text x="220" y="30" font-family="arial" font-size="10" fill="black">Modulated by T13 as well</text>                        
+              </g>
+              <g visibility="$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_VISIBLE$">
+                <polyline points="$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER0_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER0_y$                  $CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER1_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER1_y$                 $CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER2_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER2_y$                 $CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER3_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL1_CORNER3_y$" fill="darkviolet" fill-opacity="0.3"/>
+                <polyline points="$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER0_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER0_y$                  $CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER1_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER1_y$                 $CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER2_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER2_y$                 $CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER3_x$,$CCU7_DTGRAPH_$COUT7x$_DOUBLEMOD_PL2_CORNER3_y$" fill="darkviolet" fill-opacity="0.3"/>
+                <rect x="200" y="40" width="10" height="10" fill="darkviolet" fill-opacity="0.3"/>
+                <text x="220" y="50" font-family="arial" font-size="10" fill="black">Modulated by T13 as well</text>                           
+              </g>
+            </g>
+          </g> 
+        </svg>
+      </svgembed>
+    </verticalcontainer>  
+</ifxmlcfg>

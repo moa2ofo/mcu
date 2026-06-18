@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file icw_ocn_SSC.xml                                                            -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, BG:   Initial version                                      -->
+<!-- V0.0.2: 2020-10-21, BG:   EP-541: Updated formulas according to new item for   -->
+<!--                           the pin selection                                    -->
+<!-- V0.0.3: 2020-10-21, BG:   EP-542: Updated formula for enable bit in CON reg.   -->
+<!-- V0.0.4: 2020-10-23, BG:   EP-542: Unlock the selected pins when switching mode -->
+<!-- V0.0.5: 2021-01-27, BG:   EP-677: Corrected module enabling behavior           -->
+<!-- V0.0.6: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.0.7: 2021-04-06, BG:   EP-758: Removed unnecessary formulas after renaming  -->
+<!--                           interrupt defines                                    -->
+<!-- V0.0.8: 2021-04-21, BG:   EP-775: Corrected bad condition for SSC1.CON.MSCSSEL -->
+<!--                           removing the conflict in Config Wizard               -->
+<!-- V0.0.9: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.0: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.1: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<ifxmlcfg version="2.6.2">
+  <checksum>62d3ec1d25dfd6c1e4c09e8f78f5770ef84832a6cb6688b862748c0f28ba02e4</checksum>
+  <version label="V0.1.1"/>
+  <verticalcontainer label="SSC">
+    <header file="ssc_defines.h">
+
+      <timer visible="false" define="SSC_INIT" svd="0" interval="1" singleShot="1" run="1" header="">
+        <action event="changed" cmd="setDef" data="SSC_CFG.run=1;SSC0_UPDATE_MODE.run=1;SSC1_UPDATE_MODE.run=1;SSC0_UPDATE_GRAPH.run=1;SSC1_UPDATE_GRAPH.run=1"/>
+      </timer>
+
+      <tabcontainer define="CONT_SSC">
+
+        <timer visible="false" define="SSC_CFG" svd="0" interval="1" singleShot="1" run="0" header="">
+          <!-- Container display -->
+          <action cond="SSC0.CON.MS==0" event="changed" cmd="setDef" data="CONT_SSC0_SLAVE_PINSEL.visible=1;CONT_SSC0_MASTER_PINSEL.visible=0;SSC0_MASTER.INSEL_CLKSEL_M0.visible=0;SSC0_MASTER.INSEL_CLKSEL_M1.visible=0;SSC0_MASTER.INSEL_CLKSEL_S0.visible=0;SSC0_MASTER.INSEL_CLKSEL_S1.visible=0;SSC0_SLAVE.INSEL_CLKSEL_M0.visible=0;SSC0_SLAVE.INSEL_CLKSEL_M1.visible=0;SSC0_SLAVE.INSEL_CLKSEL_S0.visible=1;SSC0_SLAVE.INSEL_CLKSEL_S1.visible=0;SSC0_MASTER.INSEL_MTSRSEL_M0.visible=0;SSC0_MASTER.INSEL_MTSRSEL_M1.visible=0;SSC0_MASTER.INSEL_MTSRSEL_S0.visible=0;SSC0_MASTER.INSEL_MTSRSEL_S1.visible=0;SSC0_SLAVE.INSEL_MTSRSEL_M0.visible=0;SSC0_SLAVE.INSEL_MTSRSEL_M1.visible=0;SSC0_SLAVE.INSEL_MTSRSEL_S0.visible=1;SSC0_SLAVE.INSEL_MTSRSEL_S1.visible=0;SSC0_MASTER.INSEL_MRSTSEL_M0.visible=0;SSC0_MASTER.INSEL_MRSTSEL_M1.visible=0;SSC0_MASTER.INSEL_MRSTSEL_S0.visible=0;SSC0_MASTER.INSEL_MRSTSEL_S1.visible=0;SSC0_SLAVE.INSEL_MRSTSEL_M0.visible=0;SSC0_SLAVE.INSEL_MRSTSEL_M1.visible=0;SSC0_SLAVE.INSEL_MRSTSEL_S0.visible=1;SSC0_SLAVE.INSEL_MRSTSEL_S1.visible=0;SSC0_MASTER.CON_CSSEL_M0.visible=0;SSC0_MASTER.CON_CSSEL_M1.visible=0;SSC0_MASTER.INSEL_CSSEL_S0.visible=0;SSC0_MASTER.INSEL_CSSEL_S1.visible=0;SSC0_SLAVE.CON_CSSEL_M0.visible=0;SSC0_SLAVE.CON_CSSEL_M1.visible=0;SSC0_SLAVE.INSEL_CSSEL_S0.visible=1;SSC0_SLAVE.INSEL_CSSEL_S1.visible=0"/>
+          <action cond="SSC0.CON.MS==1" event="changed" cmd="setDef" data="CONT_SSC0_SLAVE_PINSEL.visible=0;CONT_SSC0_MASTER_PINSEL.visible=1;SSC0_MASTER.INSEL_CLKSEL_M0.visible=1;SSC0_MASTER.INSEL_CLKSEL_M1.visible=0;SSC0_MASTER.INSEL_CLKSEL_S0.visible=0;SSC0_MASTER.INSEL_CLKSEL_S1.visible=0;SSC0_SLAVE.INSEL_CLKSEL_M0.visible=0;SSC0_SLAVE.INSEL_CLKSEL_M1.visible=0;SSC0_SLAVE.INSEL_CLKSEL_S0.visible=0;SSC0_SLAVE.INSEL_CLKSEL_S1.visible=0;SSC0_MASTER.INSEL_MTSRSEL_M0.visible=1;SSC0_MASTER.INSEL_MTSRSEL_M1.visible=0;SSC0_MASTER.INSEL_MTSRSEL_S0.visible=0;SSC0_MASTER.INSEL_MTSRSEL_S1.visible=0;SSC0_SLAVE.INSEL_MTSRSEL_M0.visible=0;SSC0_SLAVE.INSEL_MTSRSEL_M1.visible=0;SSC0_SLAVE.INSEL_MTSRSEL_S0.visible=0;SSC0_SLAVE.INSEL_MTSRSEL_S1.visible=0;SSC0_MASTER.INSEL_MRSTSEL_M0.visible=1;SSC0_MASTER.INSEL_MRSTSEL_M1.visible=0;SSC0_MASTER.INSEL_MRSTSEL_S0.visible=0;SSC0_MASTER.INSEL_MRSTSEL_S1.visible=0;SSC0_SLAVE.INSEL_MRSTSEL_M0.visible=0;SSC0_SLAVE.INSEL_MRSTSEL_M1.visible=0;SSC0_SLAVE.INSEL_MRSTSEL_S0.visible=0;SSC0_SLAVE.INSEL_MRSTSEL_S1.visible=0;SSC0_MASTER.CON_CSSEL_M0.visible=1;SSC0_MASTER.CON_CSSEL_M1.visible=0;SSC0_MASTER.INSEL_CSSEL_S0.visible=0;SSC0_MASTER.INSEL_CSSEL_S1.visible=0;SSC0_SLAVE.CON_CSSEL_M0.visible=0;SSC0_SLAVE.CON_CSSEL_M1.visible=0;SSC0_SLAVE.INSEL_CSSEL_S0.visible=0;SSC0_SLAVE.INSEL_CSSEL_S1.visible=0"/>
+          <action cond="SSC1.CON.MS==0" event="changed" cmd="setDef" data="CONT_SSC1_SLAVE_PINSEL.visible=1;CONT_SSC1_MASTER_PINSEL.visible=0;SSC1_MASTER.INSEL_CLKSEL_M0.visible=0;SSC1_MASTER.INSEL_CLKSEL_M1.visible=0;SSC1_MASTER.INSEL_CLKSEL_S0.visible=0;SSC1_MASTER.INSEL_CLKSEL_S1.visible=0;SSC1_SLAVE.INSEL_CLKSEL_M0.visible=0;SSC1_SLAVE.INSEL_CLKSEL_M1.visible=0;SSC1_SLAVE.INSEL_CLKSEL_S0.visible=0;SSC1_SLAVE.INSEL_CLKSEL_S1.visible=1;SSC1_MASTER.INSEL_MTSRSEL_M0.visible=0;SSC1_MASTER.INSEL_MTSRSEL_M1.visible=0;SSC1_MASTER.INSEL_MTSRSEL_S0.visible=0;SSC1_MASTER.INSEL_MTSRSEL_S1.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_M0.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_M1.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_S0.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_S1.visible=1;SSC1_MASTER.INSEL_MRSTSEL_M0.visible=0;SSC1_MASTER.INSEL_MRSTSEL_M1.visible=0;SSC1_MASTER.INSEL_MRSTSEL_S0.visible=0;SSC1_MASTER.INSEL_MRSTSEL_S1.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_M0.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_M1.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_S0.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_S1.visible=1;SSC1_MASTER.CON_CSSEL_M0.visible=0;SSC1_MASTER.CON_CSSEL_M1.visible=0;SSC1_MASTER.INSEL_CSSEL_S0.visible=0;SSC1_MASTER.INSEL_CSSEL_S1.visible=0;SSC1_SLAVE.CON_CSSEL_M0.visible=0;SSC1_SLAVE.CON_CSSEL_M1.visible=0;SSC1_SLAVE.INSEL_CSSEL_S0.visible=0;SSC1_SLAVE.INSEL_CSSEL_S1.visible=1"/>
+          <action cond="SSC1.CON.MS==1" event="changed" cmd="setDef" data="CONT_SSC1_SLAVE_PINSEL.visible=0;CONT_SSC1_MASTER_PINSEL.visible=1;SSC1_MASTER.INSEL_CLKSEL_M0.visible=0;SSC1_MASTER.INSEL_CLKSEL_M1.visible=1;SSC1_MASTER.INSEL_CLKSEL_S0.visible=0;SSC1_MASTER.INSEL_CLKSEL_S1.visible=0;SSC1_SLAVE.INSEL_CLKSEL_M0.visible=0;SSC1_SLAVE.INSEL_CLKSEL_M1.visible=0;SSC1_SLAVE.INSEL_CLKSEL_S0.visible=0;SSC1_SLAVE.INSEL_CLKSEL_S1.visible=0;SSC1_MASTER.INSEL_MTSRSEL_M0.visible=0;SSC1_MASTER.INSEL_MTSRSEL_M1.visible=1;SSC1_MASTER.INSEL_MTSRSEL_S0.visible=0;SSC1_MASTER.INSEL_MTSRSEL_S1.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_M0.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_M1.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_S0.visible=0;SSC1_SLAVE.INSEL_MTSRSEL_S1.visible=0;SSC1_MASTER.INSEL_MRSTSEL_M0.visible=0;SSC1_MASTER.INSEL_MRSTSEL_M1.visible=1;SSC1_MASTER.INSEL_MRSTSEL_S0.visible=0;SSC1_MASTER.INSEL_MRSTSEL_S1.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_M0.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_M1.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_S0.visible=0;SSC1_SLAVE.INSEL_MRSTSEL_S1.visible=0;SSC1_MASTER.CON_CSSEL_M0.visible=0;SSC1_MASTER.CON_CSSEL_M1.visible=1;SSC1_MASTER.INSEL_CSSEL_S0.visible=0;SSC1_MASTER.INSEL_CSSEL_S1.visible=0;SSC1_SLAVE.CON_CSSEL_M0.visible=0;SSC1_SLAVE.CON_CSSEL_M1.visible=0;SSC1_SLAVE.INSEL_CSSEL_S0.visible=0;SSC1_SLAVE.INSEL_CSSEL_S1.visible=0"/>
+          <!-- Unlocking pin when switching mode -->
+          <action cond="SSC0.CON.MS==0" event="changed" cmd="setDef" data="SSC0_MASTER.INSEL_CLKSEL_M0=255;SSC0_MASTER.INSEL_MTSRSEL_M0=255;SSC0_MASTER.INSEL_MRSTSEL_M0=255;SSC0_MASTER.CON_CSSEL_M0=255;SSC0.INSEL_TXEVSEL_M0=255"/>
+          <action cond="SSC0.CON.MS==1" event="changed" cmd="setDef" data="SSC0_SLAVE.INSEL_CLKSEL_S0=255;SSC0_SLAVE.INSEL_MTSRSEL_S0=255;SSC0_SLAVE.INSEL_MRSTSEL_S0=255;SSC0_SLAVE.INSEL_CSSEL_S0=255"/>
+          <action cond="SSC1.CON.MS==0" event="changed" cmd="setDef" data="SSC1_MASTER.INSEL_CLKSEL_M1=255;SSC1_MASTER.INSEL_MTSRSEL_M1=255;SSC1_MASTER.INSEL_MRSTSEL_M1=255;SSC1_MASTER.CON_CSSEL_M1=255;SSC1.INSEL_TXEVSEL_M1=255"/>
+          <action cond="SSC1.CON.MS==1" event="changed" cmd="setDef" data="SSC1_SLAVE.INSEL_CLKSEL_S1=255;SSC1_SLAVE.INSEL_MTSRSEL_S1=255;SSC1_SLAVE.INSEL_MRSTSEL_S1=255;SSC1_SLAVE.INSEL_CSSEL_S1=255"/>
+        </timer>
+
+        <verticalcontainer label="SSC0" selectsetdef="SSC_CFG.run=1">
+          
+          <!-- SSC0 ENABLE -->
+          <checkbox label="Enable SSC0" define="SCU.PMCON.SSC0_DIS" role="inverted" default="1" font="Source Sans Pro,15,0,0,100,1,0,0,0,0" color="255;128;64" header="scu_defines.h">
+            <action event="checked" cmd="setDef" data="SSC0_TOP.enabled=1"/>
+            <action event="unchecked" cmd="setDef" data="SSC0_TOP.enabled=0"/>
+          </checkbox>
+          
+          <groupcontainer define="SSC0_TOP">
+            <!-- SSC0 CONFIG -->
+            <include IDX="SSC0">template_ssc_mode.xml</include>
+            <include IDX="SSC0">template_ssc_timer.xml</include>
+          </groupcontainer>
+          
+          <!-- SSC0 REGISTERS -->
+          <!-- CON register -->
+          <math visible="false" define="SSC0.CON.BM" formula="SSC0.CON_BM-1"/>
+          <math visible="false" define="SSC0.CON.EN" formula="SCU.PMCON.SSC0_DIS.^1"/>
+          <math visible="false" define="SSC0.CON.SLCSEN" formula="(SSC0.CON.MS==0)?(SSC0_SLAVE.CON_CSEN:0)"/>
+          <math visible="false" define="SSC0.CON.MSCSEN" formula="(SSC0.CON.MS==1)?(SSC0_MASTER.CON_CSEN:0)"/>
+          <math visible="false" define="SSC0.CON.MSCSSEL" formula="((SSC0.CON.MS==1).*(SSC0_MASTER.CON_CSSEL_M0!=255))?(SSC0_MASTER.CON_CSSEL_M0:0)"/>
+          <math visible="false" define="SSC0.CON.MSTXENSEL" formula="(SSC0.CON.MS==1)?(SSC0.CON_MSTXENSEL:0)"/>
+
+          <!-- INSEL register -->
+          <math visible="false" define="SSC0.INSEL.MRSTSEL" formula="((SSC0.CON.MS==1).*(SSC0_MASTER.INSEL_MRSTSEL_M0!=255))?(SSC0_MASTER.INSEL_MRSTSEL_M0:0)"/>
+          <math visible="false" define="SSC0.INSEL.SLCLKSEL" formula="((SSC0.CON.MS==0).*(SSC0_SLAVE.INSEL_CLKSEL_S0!=255))?(SSC0_SLAVE.INSEL_CLKSEL_S0:0)"/>
+          <math visible="false" define="SSC0.INSEL.MTSRSEL" formula="((SSC0.CON.MS==0).*(SSC0_SLAVE.INSEL_MTSRSEL_S0!=255))?(SSC0_SLAVE.INSEL_MTSRSEL_S0:0)"/>
+          <math visible="false" define="SSC0.INSEL.SLCSSEL" formula="((SSC0.CON.MS==0).*(SSC0_SLAVE.INSEL_CSSEL_S0!=255))?(SSC0_SLAVE.INSEL_CSSEL_S0:0)"/>
+          <math visible="false" define="SSC0.INSEL.TXEVSEL" formula="(((SSC0.CON.MS==1).*(SSC0.CON_MSTXENSEL==2).*(SSC0.INSEL_TXEVSEL_M0!=255))?(SSC0.INSEL_TXEVSEL_M0:0)"/>
+
+          <!-- CSTIM register -->
+          <math visible="false" define="SSC0.CSTIM.ST" formula="((SSC0.CON.MS==1).*(SSC0_MASTER.CON_CSEN==1))?(SSC0.CSTIM_ST:0)"/>
+          <math visible="false" define="SSC0.CSTIM.END" formula="((SSC0.CON.MS==1).*(SSC0_MASTER.CON_CSEN==1))?(SSC0.CSTIM_END:0)"/>
+          <math visible="false" define="SSC0.CSTIM.HIGH" formula="((SSC0.CON.MS==1).*(SSC0_MASTER.CON_CSEN==1))?(SSC0.CSTIM_HIGH:0)"/>
+
+          <!-- IEN register -->
+          <math visible="false" define="SSC0.IEN.TIREN" formula="(SSC0.TI_INT_EN==1)?(SSC0.IEN_TIREN:0)" header="isr_defines.h"/>
+
+          <math visible="false" define="SSC0.IEN.RIREN" formula="(SSC0.RI_INT_EN==1)?(SSC0.IEN_RIREN:0)" header="isr_defines.h"/>
+
+          <math visible="false" define="SSC0.IEN.TEIREN" formula="(SSC0.ERR_INT_EN==1)?(SSC0.IEN_TEIREN:0)" header="isr_defines.h"/>
+          <math visible="false" define="SSC0.IEN.REIREN" formula="(SSC0.ERR_INT_EN==1)?(SSC0.IEN_REIREN:0)" header="isr_defines.h"/>
+          <math visible="false" define="SSC0.IEN.PEIREN" formula="(SSC0.ERR_INT_EN==1)?(SSC0.IEN_PEIREN:0)" header="isr_defines.h"/>
+          <math visible="false" define="SSC0.IEN.BEIREN" formula="(SSC0.ERR_INT_EN==1)?(SSC0.IEN_BEIREN:0)" header="isr_defines.h"/>
+
+        </verticalcontainer>
+
+        <verticalcontainer label="SSC1" selectsetdef="SSC_CFG.run=1">
+
+          <!-- SSC1 ENABLE -->
+          <checkbox label="Enable SSC1" define="SCU.PMCON.SSC1_DIS" role="inverted" default="1" font="Source Sans Pro,15,0,0,100,1,0,0,0,0" color="255;128;64" header="scu_defines.h">
+            <action event="checked" cmd="setDef" data="SSC1_TOP.enabled=1"/>
+            <action event="unchecked" cmd="setDef" data="SSC1_TOP.enabled=0"/>
+          </checkbox>      
+          
+          <groupcontainer define="SSC1_TOP">
+            <!-- SSC1 CONFIG -->
+            <include IDX="SSC1">template_ssc_mode.xml</include>
+            <include IDX="SSC1">template_ssc_timer.xml</include>
+          </groupcontainer>
+          
+          <!-- SSC1 REGISTERS -->
+          <!-- CON register -->
+          <math visible="false" define="SSC1.CON.BM" formula="SSC1.CON_BM-1"/>
+          <math visible="false" define="SSC1.CON.EN" formula="SCU.PMCON.SSC1_DIS.^1"/>
+          <math visible="false" define="SSC1.CON.SLCSEN" formula="(SSC1.CON.MS==0)?(SSC1_SLAVE.CON_CSEN:0)"/>
+          <math visible="false" define="SSC1.CON.MSCSEN" formula="(SSC1.CON.MS==1)?(SSC1_MASTER.CON_CSEN:0)"/>
+          <math visible="false" define="SSC1.CON.MSCSSEL" formula="((SSC1.CON.MS==1).*(SSC1_MASTER.CON_CSSEL_M1!=255))?(SSC1_MASTER.CON_CSSEL_M1:0)"/>
+          <math visible="false" define="SSC1.CON.MSTXENSEL" formula="(SSC1.CON.MS==1)?(SSC1.CON_MSTXENSEL:0)"/>
+
+          <!-- INSEL register -->
+          <math visible="false" define="SSC1.INSEL.MRSTSEL" formula="((SSC1.CON.MS==1).*(SSC1_MASTER.INSEL_MRSTSEL_M1!=255))?(SSC1_MASTER.INSEL_MRSTSEL_M1:0)"/>
+          <math visible="false" define="SSC1.INSEL.SLCLKSEL" formula="((SSC1.CON.MS==0).*(SSC1_SLAVE.INSEL_CLKSEL_S1!=255))?(SSC1_SLAVE.INSEL_CLKSEL_S1:0)"/>
+          <math visible="false" define="SSC1.INSEL.MTSRSEL" formula="((SSC1.CON.MS==0).*(SSC1_SLAVE.INSEL_MTSRSEL_S1!=255))?(SSC1_SLAVE.INSEL_MTSRSEL_S1:0)"/>
+          <math visible="false" define="SSC1.INSEL.SLCSSEL" formula="((SSC1.CON.MS==0).*(SSC1_SLAVE.INSEL_CSSEL_S1!=255))?(SSC1_SLAVE.INSEL_CSSEL_S1:0)"/>
+          <math visible="false" define="SSC1.INSEL.TXEVSEL" formula="((SSC1.CON.MS==1).*(SSC1.CON_MSTXENSEL==2).*(SSC1.INSEL_TXEVSEL_M1!=255))?(SSC1.INSEL_TXEVSEL_M1:0)"/>
+
+          <!-- CSTIM register -->
+          <math visible="false" define="SSC1.CSTIM.ST" formula="((SSC1.CON.MS==1).*(SSC1_MASTER.CON_CSEN==1))?(SSC1.CSTIM_ST:0)"/>
+          <math visible="false" define="SSC1.CSTIM.END" formula="((SSC1.CON.MS==1).*(SSC1_MASTER.CON_CSEN==1))?(SSC1.CSTIM_END:0)"/>
+          <math visible="false" define="SSC1.CSTIM.HIGH" formula="((SSC1.CON.MS==1).*(SSC1_MASTER.CON_CSEN==1))?(SSC1.CSTIM_HIGH:0)"/>
+
+          <!-- IEN register -->
+          <math visible="false" define="SSC1.IEN.TIREN" formula="(SSC1.TI_INT_EN==1)?(SSC1.IEN_TIREN:0)" header="isr_defines.h"/>
+
+          <math visible="false" define="SSC1.IEN.RIREN" formula="(SSC1.RI_INT_EN==1)?(SSC1.IEN_RIREN:0)" header="isr_defines.h"/>
+
+          <math visible="false" define="SSC1.IEN.TEIREN" formula="(SSC1.ERR_INT_EN==1)?(SSC1.IEN_TEIREN:0)" header="isr_defines.h"/>
+          <math visible="false" define="SSC1.IEN.REIREN" formula="(SSC1.ERR_INT_EN==1)?(SSC1.IEN_REIREN:0)" header="isr_defines.h"/>
+          <math visible="false" define="SSC1.IEN.PEIREN" formula="(SSC1.ERR_INT_EN==1)?(SSC1.IEN_PEIREN:0)" header="isr_defines.h"/>
+          <math visible="false" define="SSC1.IEN.BEIREN" formula="(SSC1.ERR_INT_EN==1)?(SSC1.IEN_BEIREN:0)" header="isr_defines.h"/>
+
+        </verticalcontainer>
+
+      </tabcontainer>
+    </header>
+  </verticalcontainer>
+</ifxmlcfg>

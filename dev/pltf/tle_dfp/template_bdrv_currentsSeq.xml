@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_bdrv_currentsSeq.xml                                              -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, BG:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2020-11-09, BG:   EP-577: Added checkbox to have HB2/HB3 same as HB1   -->
+<!-- V0.1.2: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.3: 2021-02-17, BG:   EP-697: Updated define names and element size        -->
+<!--                           Switched spinboxes between low-side and high-side    -->
+<!-- V0.1.4: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.5: 2021-12-01, BG:   EP-985: Put math formulas into temp_defines.h        -->
+<!-- V0.1.6: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.7: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- HB_IDX Half-bridge number -->
+<!-- CYCLE Charge or Discharge -->
+<!-- ONOFF On or Off -->
+<!-- PHASE Phase number -->
+<!-- DEFAULT Default value -->
+<ifxmlcfg version="2.6.2">
+  <checksum>6aceb4acb781843e4732c7615dacb2503ff04953062233c46f7ae7f7f8d122b0</checksum>
+  <version label="V0.1.7"/>
+  <usesPython/>
+  <horizontalcontainer define="BDRV.HB$HB_IDX$_I$PHASE$$CYCLE$SEQ_CONT" size="350;-1">
+    <header file="bdrv_defines.h">
+      <spinbox label="Phase $PHASE$ - Current [5mA - 350mA]" define="BDRV.HS$HB_IDX$SEQ$ONOFF$IC_HS$HB_IDX$_I$PHASE$$ONOFF$" default="$DEFAULT$" range="5;350" svd="0" size="70;-1" header="temp_defines.h">
+        <action event="changed" cmd="setDef" data="BDRV_UPDATE.run=1"/>
+      </spinbox>
+      <text label="Reg:" size="35;-1"/>
+      <math label="Register Value" define="BDRV.HS$HB_IDX$SEQ$ONOFF$IC_HS$HB_IDX$_I$PHASE$$ONOFF$_MATH" svd="0" format="%1X" formula="round(63*((BDRV.HS$HB_IDX$SEQ$ONOFF$IC_HS$HB_IDX$_I$PHASE$$ONOFF$-5)/345)^0.671)" header="temp_defines.h"/>
+      <spinbox label="Phase $PHASE$ - Current [5mA - 350mA]" define="BDRV.LS$HB_IDX$SEQ$ONOFF$IC_LS$HB_IDX$_I$PHASE$$ONOFF$" default="$DEFAULT$" range="5;350" svd="0" size="70;-1" header="temp_defines.h">
+        <action event="changed" cmd="setDef" data="BDRV_UPDATE.run=1"/>
+      </spinbox>
+      <text label="Reg:" size="35;-1"/>
+      <math label="Register Value" define="BDRV.LS$HB_IDX$SEQ$ONOFF$IC_LS$HB_IDX$_I$PHASE$$ONOFF$_MATH" svd="0" format="%1X" formula="round(63*((BDRV.LS$HB_IDX$SEQ$ONOFF$IC_LS$HB_IDX$_I$PHASE$$ONOFF$-5)/345)^0.671)" header="temp_defines.h"/>
+    </header>
+  </horizontalcontainer>
+</ifxmlcfg>

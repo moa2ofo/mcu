@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_interrupt_overview_mon.xml                                        -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, JO:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.4: 2024-11-04, JO:   EP-1545: Removed *_FILL_INT_OVERVIEW defines and     -->
+<!--                           RO_*_CALLBACK defines from generated file            -->
+<!-- V0.1.5: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<ifxmlcfg version="2.6.2">
+  <checksum>cae99b207a972b90ef45e55099ac3954e7af159e34060fb216324739f24343df</checksum>
+  <version label="V0.1.5"/>
+  <usesPython/>
+  <header file="">
+    <verticalcontainer size="800;-1" stretch="2">
+    <text label="Configured Interrupts of Nodes 12, 13"/>
+    <verticalcontainer label="Timer and Math" visible="false">
+      <timer visible="true" define="MON_FILL_INT_OVERVIEW" interval="1" singleShot="1" run="0">
+      <action event="changed" cmd="setDef" data="RO_MON.MON1_R_CALLBACK=MON.MON1_R_CALLBACK"/>
+      <action event="changed" cmd="setDef" data="RO_MON.MON1_F_CALLBACK=MON.MON1_F_CALLBACK"/>
+      <action event="changed" cmd="setDef" data="RO_MON.MON2_R_CALLBACK=MON.MON2_R_CALLBACK"/>
+      <action event="changed" cmd="setDef" data="RO_MON.MON2_F_CALLBACK=MON.MON2_F_CALLBACK"/>
+      <action event="changed" cmd="setDef" data="RO_MON.MON3_R_CALLBACK=MON.MON3_R_CALLBACK"/>
+      <action event="changed" cmd="setDef" data="RO_MON.MON3_F_CALLBACK=MON.MON3_F_CALLBACK"/>
+      </timer>
+      <math formula="MON.MON1_R_INT_EN"><action event="changed" cmd="setDef" data="MON.MON1_R_INT_BOX.visible=MON.MON1_R_INT_EN"/></math>
+      <math formula="MON.MON1_F_INT_EN"><action event="changed" cmd="setDef" data="MON.MON1_F_INT_BOX.visible=MON.MON1_F_INT_EN"/></math>
+      <math formula="MON.MON2_R_INT_EN"><action event="changed" cmd="setDef" data="MON.MON2_R_INT_BOX.visible=MON.MON2_R_INT_EN"/></math>
+      <math formula="MON.MON2_F_INT_EN"><action event="changed" cmd="setDef" data="MON.MON2_F_INT_BOX.visible=MON.MON2_F_INT_EN"/></math>
+      <math formula="MON.MON3_R_INT_EN"><action event="changed" cmd="setDef" data="MON.MON3_R_INT_BOX.visible=MON.MON3_R_INT_EN"/></math>
+      <math formula="MON.MON3_F_INT_EN"><action event="changed" cmd="setDef" data="MON.MON3_F_INT_BOX.visible=MON.MON3_F_INT_EN"/></math>
+    </verticalcontainer> <!-- Timer and Math -->
+    <verticalcontainer label="Interrupt Overview ">
+      <horizontalcontainer>
+      <text size="200;-1" label="Interrupt"/>
+      <text size="75;-1" label="Int. Node"/>
+      <text size="75;-1" label="Enable"/>
+      <text size="400;-1" label="Callback function"/>
+      </horizontalcontainer>
+      <horizontalcontainer define="MON.MON1_R_INT_BOX" visible="false">
+      <text size="200;-1" label="MON1 R"/>
+      <math size="75;-1" formula="SCU.INP2.INP_MON1+12"/>
+      <math size="75;-1" formula="SCU.MONIEN.MON1EN"/>
+      <edit size="400;-1" define="RO_MON.MON1_R_CALLBACK" svd="0" readonly="1" default=""/>
+      </horizontalcontainer>
+      <horizontalcontainer define="MON.MON1_F_INT_BOX" visible="false">
+      <text size="200;-1" label="MON1 F"/>
+      <math size="75;-1" formula="SCU.INP2.INP_MON1+12"/>
+      <math size="75;-1" formula="SCU.MONIEN.MON1EN"/>
+      <edit size="400;-1" define="RO_MON.MON1_F_CALLBACK" svd="0" readonly="1" default=""/>
+      </horizontalcontainer>
+      <horizontalcontainer define="MON.MON2_R_INT_BOX" visible="false">
+      <text size="200;-1" label="MON2 R"/>
+      <math size="75;-1" formula="SCU.INP2.INP_MON2+12"/>
+      <math size="75;-1" formula="SCU.MONIEN.MON2EN"/>
+      <edit size="400;-1" define="RO_MON.MON2_R_CALLBACK" svd="0" readonly="1" default=""/>
+      </horizontalcontainer>
+      <horizontalcontainer define="MON.MON2_F_INT_BOX" visible="false">
+      <text size="200;-1" label="MON2 F"/>
+      <math size="75;-1" formula="SCU.INP2.INP_MON2+12"/>
+      <math size="75;-1" formula="SCU.MONIEN.MON2EN"/>
+      <edit size="400;-1" define="RO_MON.MON2_F_CALLBACK" svd="0" readonly="1" default=""/>
+      </horizontalcontainer>
+      <horizontalcontainer define="MON.MON3_R_INT_BOX" visible="false">
+      <text size="200;-1" label="MON3 R"/>
+      <math size="75;-1" formula="SCU.INP2.INP_MON3+12"/>
+      <math size="75;-1" formula="SCU.MONIEN.MON3EN"/>
+      <edit size="400;-1" define="RO_MON.MON3_R_CALLBACK" svd="0" readonly="1" default=""/>
+      </horizontalcontainer>
+      <horizontalcontainer define="MON.MON3_F_INT_BOX" visible="false">
+      <text size="200;-1" label="MON3 F"/>
+      <math size="75;-1" formula="SCU.INP2.INP_MON3+12"/>
+      <math size="75;-1" formula="SCU.MONIEN.MON3EN"/>
+      <edit size="400;-1" define="RO_MON.MON3_F_CALLBACK" svd="0" readonly="1" default=""/>
+      </horizontalcontainer>
+    </verticalcontainer> <!-- Interrupt Overview -->
+    </verticalcontainer>
+  </header>
+</ifxmlcfg>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_ccu7_sum_t1x.xml                                                  -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, JO:   Initial version                                      -->
+<!-- V0.1.0: 2020-09-23, JO:   EP-469: Added xml tag and checksum                   -->
+<!-- V0.1.1: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.3: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Parameter: -->
+<!-- TIMER_IDX -->
+<!-- TIMER_REGISTER -->
+<!-- TIMER_MODE: 0=EA, 1=CA -->
+<ifxmlcfg version="2.6.2">
+  <checksum>f88336280530c2d0cb764e75e7b514b3023dc6f7553607a4b002883ccdfa70c9</checksum>
+  <version label="V0.1.3"/>
+
+  <groupcontainer label="$TIMER_IDX$" visible="false">
+    <header file="">
+      <treecontainer headerlabels="Item;Value;" columnwidths="250;250;1">
+        <var define="CCU7_$TIMER_IDX$_PERIOD_FULL"/>
+        <var define="CCU7_$TIMER_IDX$_PERIOD"/>
+
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_OFFSET_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_OFFSET_y" svd="0"/>
+        <edit define="CCU7_GRAPH_$TIMER_IDX$_TRIGSEL_TEXT" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_TRIGSEL_TEXT_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_TRIGSEL_TEXT_y" svd="0"/>
+        <edit define="CCU7_GRAPH_$TIMER_IDX$_T12_CNTDIR_TEXT" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_T12_CNTDIR_TEXT_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_T12_CNTDIR_TEXT_y" svd="0"/>
+
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_UP_BEG_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_UP_BEG_y" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_UP_END_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_UP_END_y" svd="0"/>
+
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOWN_BEG_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOWN_BEG_y" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOWN_END_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOWN_END_y" svd="0"/>
+
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DUMMY_BEG_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DUMMY_BEG_y" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DUMMY_END_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DUMMY_END_y" svd="0"/>
+
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_NEWPER_BEG_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_NEWPER_BEG_y" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_NEWPER_END_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_NEWPER_END_y" svd="0"/>
+
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOT1_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOT2_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOT3_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_DOTs_y" svd="0"/>
+
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_ARROW_BEG_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_ARROW_BEG_y" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_ARROW_END_x" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_ARROW_END_y" svd="0"/>
+        <spinbox define="CCU7_GRAPH_$TIMER_IDX$_ARROW_LABEL_y" svd="0"/>
+
+      </treecontainer>
+    </header>
+  </groupcontainer>
+
+</ifxmlcfg>

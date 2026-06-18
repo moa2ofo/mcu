@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_interrupt_overview_memctrl.xml                                    -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-09-11, JO:   Initial version                                      -->
+<!-- V0.1.0: 2020-10-23, BG:   EP-482: Added doctype and checksum                   -->
+<!-- V0.1.1: 2021-02-08, BG:   EP-690: Updated CW minimal version to 2.6.2          -->
+<!-- V0.1.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.1.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.1.4: 2024-11-04, JO:   EP-1545: Removed *_FILL_INT_OVERVIEW defines and     -->
+<!--                           RO_*_CALLBACK defines from generated file            -->
+<!-- V0.1.5: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<ifxmlcfg version="2.6.2">
+  <checksum>d0b9847b87d8297e8f821a53060a48e40694839baf9210d95b4b1648fc430b1a</checksum>
+  <version label="V0.1.5"/>
+  <usesPython/>
+  <header file="">
+    <verticalcontainer size="800;-1" stretch="2">
+      <text label="Configured Interrupts of Nodes 6"/>
+      <verticalcontainer label="Timer and Math" visible="false">
+        <timer visible="true" define="MEMCTRL_FILL_INT_OVERVIEW" interval="1" singleShot="1" run="0">
+          <action event="changed" cmd="setDef" data="RO_MEMCTRL.NVM0_OP_COMPLETE_CALLBACK=MEMCTRL.NVM0_OP_COMPLETE_CALLBACK"/>
+          <action event="changed" cmd="setDef" data="RO_MEMCTRL.NVM1_OP_COMPLETE_CALLBACK=MEMCTRL.NVM1_OP_COMPLETE_CALLBACK"/>
+        </timer>
+        <math formula="MEMCTRL.NVM0_OP_COMPLETE_INT_EN"><action event="changed" cmd="setDef" data="MEMCTRL.NVM0_OP_COMPLETE_INT_BOX.visible=MEMCTRL.NVM0_OP_COMPLETE_INT_EN"/></math>
+        <math formula="MEMCTRL.NVM1_OP_COMPLETE_INT_EN"><action event="changed" cmd="setDef" data="MEMCTRL.NVM1_OP_COMPLETE_INT_BOX.visible=MEMCTRL.NVM1_OP_COMPLETE_INT_EN"/></math>
+      </verticalcontainer> <!-- Timer and Math -->
+      <verticalcontainer label="Interrupt Overview ">
+        <horizontalcontainer>
+          <text size="200;-1" label="Interrupt"/>
+          <text size="75;-1" label="Int. Node"/>
+          <text size="75;-1" label="Enable"/>
+          <text size="400;-1" label="Callback function"/>
+        </horizontalcontainer>
+        <horizontalcontainer define="MEMCTRL.NVM0_OP_COMPLETE_INT_BOX" visible="false">
+          <text size="200;-1" label="NVM0 Operation Complete"/>
+          <math size="75;-1" formula="6"/>
+          <math size="75;-1" formula="MEMCTRL.IEN.NVM0OPCIEN"/>
+          <edit size="400;-1" define="RO_MEMCTRL.NVM0_OP_COMPLETE_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+        <horizontalcontainer define="MEMCTRL.NVM1_OP_COMPLETE_INT_BOX" visible="false">
+          <text size="200;-1" label="NVM1 Operation Complete"/>
+          <math size="75;-1" formula="6"/>
+          <math size="75;-1" formula="MEMCTRL.IEN.NVM1OPCIEN"/>
+          <edit size="400;-1" define="RO_MEMCTRL.NVM1_OP_COMPLETE_CALLBACK" svd="0" readonly="1" default=""/>
+        </horizontalcontainer>
+      </verticalcontainer> <!-- Interrupt Overview -->
+    </verticalcontainer>
+  </header>
+</ifxmlcfg>

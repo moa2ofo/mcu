@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--file template_adc2_sequencer_slots.xml                                          -->
+<!--brief Infineon MOTIX(TM) MCU Modules configuration                              -->
+<!--                                                                                -->
+<!-- Copyright (c) Infineon Technologies AG                                         -->
+<!-- All rights reserved.                                                           -->
+<!--                                                                                -->
+<!-- The applicable license agreement can be found at this pack's installation      -->
+<!-- directory in the file license/IFX_SW_Licence_MOTIX_LITIX.txt                   -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                Infineon MOTIX(TM) MCU Module configuration file                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                               Author(s) Identity                               -->
+<!--********************************************************************************-->
+<!--   Initials     Name                                                            -->
+<!--   DM           Daniel Mysliwitz                                                -->
+<!--   JO           Julia Ott                                                       -->
+<!--   BG           Blandine Guillot                                                -->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--                            Revision Control History                            -->
+<!--********************************************************************************-->
+<!-- V0.0.1: 2020-10-23, DM:   Initial version                                      -->
+<!-- V0.0.2: 2021-11-12, JO:   EP-937: Updated copyright and branding               -->
+<!-- V0.0.3: 2024-06-18, JO:   EP-1518: Removed include of svd file                 -->
+<!-- V0.0.4: 2024-11-05, JO:   EP-1494: Updated license                             -->
+<!--********************************************************************************-->
+<!-- Sequencer Slot Template -->
+<!-- Parameters: -->
+<!--   SQIDX, range 0..3 -->
+<!--   SLIDX, range 0..3 -->
+<ifxmlcfg version="2.6.2">
+  <checksum>09220f96054de2c38d0ed2a14cff62d3cac0f0cd31f5e384c1a4996f4c6455a1</checksum>
+  <version label="V0.0.4"/>
+  <usesPython/>
+  <var define="ADC2.S$SQIDX$S$SLIDX$_CH" svd="0" default="0" header="temp_defines.h"/>
+  <var define="ADC2.S$SQIDX$S$SLIDX$_CHSEL" svd="0" default="0" header="temp_defines.h"/>
+  <var define="ADC2.S$SQIDX$S$SLIDX$_TICKS" svd="0" default="0" header="temp_defines.h"/>
+  <edit define="ADC2.S$SQIDX$S$SLIDX$_NAME_TXT" visible="false" svd="0" default="(not configured yet)" header=""/>
+  <combo label="Slots" define="ADC2.SQSLOT$SQIDX$_CHSEL$SLIDX$_user" svd="0" default="label=Channel 13 selected" header="temp_defines.h">
+    <item label="Channel 0 selected" value="0"/>
+    <item label="Channel 1 selected" value="1"/>
+    <item label="Channel 2 selected" value="2"/>
+    <item label="Channel 3 selected" value="3"/>
+    <item label="Channel 4 selected" value="4"/>
+    <item label="Channel 5 selected" value="5"/>
+    <item label="Channel 6 selected" value="6"/>
+    <item label="Channel 7 selected" value="7"/>
+    <item label="Channel 8 selected" value="8"/>
+    <item label="Channel 9 selected" value="9"/>
+    <item label="Channel 10 selected" value="10"/>
+    <item label="Channel 11 selected" value="11"/>
+    <item label="Channel 12 selected" value="12"/>
+    <item label="Channel 13 selected" value="13"/>
+    <item label="Channel 14 selected" value="14"/>
+    <item label="none" value="15"/>
+  </combo>
+  <math visible="false" define="ADC2.SQSLOT$SQIDX$.CHSEL$SLIDX$" formula="ADC2.SQSLOT$SQIDX$_CHSEL$SLIDX$_user==15?0:ADC2.SQSLOT$SQIDX$_CHSEL$SLIDX$_user" header="adc2_defines.h"/>
+</ifxmlcfg>
